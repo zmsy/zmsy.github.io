@@ -1,0 +1,2 @@
+Zach Morrissey / zmsy.co / @zjm00000
+Stumbling my way through the tech industry, one step at a time. Site built with Python + Flask + Bulma + HTML/CSS/JS.
