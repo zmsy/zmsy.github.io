@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index')
 @app.route('/home')
 def index():
-    return "Hello world!"
+    page_data = {
+        "title": "home"
+    }
+    return render_template('home.html', page_data=page_data)
 
 app.run(debug=True)

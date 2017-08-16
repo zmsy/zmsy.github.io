@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{page_data.name}} | zmsy.co</title>
+  <title>{{page_data.title}} | zmsy.co</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Inconsolata|Open+Sans|Patua+One" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="./node_modules/bulma/css/bulma.css">
+  <link rel="stylesheet" type="text/css" href="./static/css/bulma.css">
   <link rel="stylesheet" type="text/css" href="./static/css/main.css">
 </head>
 <body>
   <nav class="nav" id="top">
     <div class="container">
       <div class="nav-left">
-        <a class="nav-item" href="index.html">
+        <a class="nav-item" href="index">
           <img id="logo-img" src="./static/media/logo.svg" alt="Description">
         </a>
         <h1>
-          <a class="nav-item" id="logo-text" href="index.html">
+          <a class="nav-item" id="logo-text" href="index">
             zmsy.co
           </a>
         </h1>
@@ -29,16 +29,16 @@
         <span></span>
       </span>
       <div class="nav-right nav-menu" id="nav-menu">
-        <a class="nav-item is-tab is-active" href="../index.html">
+        <a class="nav-item is-tab" href="../home">
           Home
         </a>
-        <a class="nav-item is-tab" href="../blog.html">
+        <a class="nav-item is-tab" href="../blog">
           Blog
         </a>
-        <a class="nav-item is-tab" href="../projects.html">
+        <a class="nav-item is-tab" href="../projects">
           Projects
         </a>
-        <a class="nav-item is-tab" href="../contact.html">
+        <a class="nav-item is-tab" href="../contact">
           Contact
         </a>
       </div>
@@ -50,8 +50,13 @@
     {% endblock %}
     </div>
   </section>
-  <script type="text/javascript" src="./js/main.js"></script>
-  <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-104524581-1', 'auto'); ga('send', 'pageview');
+  <footer class="footer">
+    <div class="container">
+      This is my footer!
+    </div>
+  </footer>
+  <script type="text/javascript" src="./static/js/main.js"></script>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-104524581-1', 'auto'); ga('send', 'pageview');
   </script>
 </body>
 </html>
