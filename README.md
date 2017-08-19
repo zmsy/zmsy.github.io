@@ -1,15 +1,15 @@
 # zmsy.co
 Personal website of Zach Morrissey, data analytics/visualization enthusiast. 
 
-### stack
+### Stack
 
-#####Front
+##### Front
 * `html`
 * `(s)css`
 * `bulma`
 * `js`
 
-#####Back
+##### Back
 * `webpack`
 * `node.js`
 * `python`
