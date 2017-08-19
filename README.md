@@ -4,15 +4,17 @@ Personal website of Zach Morrissey, data analytics/visualization enthusiast.
 ### stack
 
 #####Front
-* HTML
-* (S)CSS
-* Bulma
-* JS
+* `html`
+* `(s)css`
+* `bulma`
+* `js`
 
 #####Back
-* WebPack
-* Node
-* Python
-* Flask
-* SQLite
+* `webpack`
+* `node.js`
+* `python`
+* `flask`
+* `sqlite`
+* `docker`
+* `amazon ec2/container service`
 
