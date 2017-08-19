@@ -1,18 +1,18 @@
 # zmsy.co
-Personal website of Zach Morrissey, aspiring coder / data visualization enthusiast. 
+Personal website of Zach Morrissey, data analytics/visualization enthusiast. 
 
 ### stack
 
 #####Front
 * HTML
-* CSS
-* Sass
-* Bootstrap
-* Javascript
+* (S)CSS
+* Bulma
+* JS
 
 #####Back
-* Gulp
-* Lektor
+* WebPack
+* Node
 * Python
-* PostgreSQL
+* Flask
+* SQLite
 
