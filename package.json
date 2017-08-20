@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bulma": "^0.5.1",
+    "d3": "^4.10.0",
     "forever": "^0.15.3",
     "webpack": "^3.5.5"
   },
