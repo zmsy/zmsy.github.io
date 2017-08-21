@@ -24,8 +24,8 @@ Rather than simply just expound on every topic that catches
 - Visualized - Custom visualizations that I've programmed in D3 or other web viz frameworks.
 
 
-- Tinker Me Baby - Miscellaneous projects that I take on because I find them interesting and post the results of them onto the internet.
+- Tinkerer - Miscellaneous projects that I take on because I find them interesting and post the results of them onto the internet.
     - Proxmox and home virtualization
     - Pi-Hole
     - Recalbox
-    - 
+

@@ -18,12 +18,28 @@ def index():
 # error handlers
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html'), 404
+    """
+    Return the 404 page for any times where the URL could not be found.
+    """
+    page_data = {
+        "title": "404 - Page Not Found",
+        "error": "The page you're looking for does not exist",
+        "suggestion": "Please check the URL and try again."
+    }
+    return render_template('404.html', page_data=page_data), 404
 
 
 @app.errorhandler(500)
 def exception_handler(error):
-    return render_template('500.html'), 500
+    """
+    If there's an internal error in the application at any point, serve up the 500 page.
+    """
+    page_data = {
+        "title": "500 - Internal Server Error",
+        "error": "Oops! Internal server error.",
+        "suggestion": "Give it a little bit and try again."
+    }
+    return render_template('500.html', page_data=page_data), 500
 
 # run the app
 app.run()
