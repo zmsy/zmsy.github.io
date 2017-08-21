@@ -15,11 +15,15 @@ def index():
     return render_template('home.html', page_data=page_data)
 
 
+# error handlers
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
 
 
+@app.errorhandler(500)
+def exception_handler(error):
+    return render_template('500.html'), 500
 
 # run the app
-app.run(debug=True)
+app.run()
