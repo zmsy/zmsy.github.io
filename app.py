@@ -11,7 +11,8 @@ def index():
     """
     page_data = {
         "page_title": "home",
-        "post_title": "This is an Example Post"
+        "post_title": "This is an Example Post",
+        "post_subtitle": "In which I Will Explain the Entirety of the Universe"
     }
     return render_template('home.html', page_data=page_data)
 
