@@ -6,12 +6,18 @@ Main javascript file - includes all logic for site
 // nav toggle function
 function toggleNav() {
     console.log("Nav toggle clicked.");
-    var nav = document.getElementById("nav-menu");
-    var className = nav.getAttribute("class");
-    if (className == "nav-right nav-menu") {
-        nav.className = "nav-right nav-menu is-active";
-    } else {
-        nav.className = "nav-right nav-menu";
-    }
+    var nav = document.getElementById("navbar-menu");
+    nav.classList.toggle('is-active');
 }
-document.getElementById("nav-toggle").addEventListener("click", toggleNav);
+
+
+// fill in copyright year
+function fillYearText() {
+    var yearText = document.getElementById('yearText');
+    yearText.textContent = new Date().getFullYear(); 
+}
+
+// invoke all of the good stuff
+document.getElementById("navbar-toggle").addEventListener("click", toggleNav);
+fillYearText();
+

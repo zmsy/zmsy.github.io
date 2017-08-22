@@ -1,26 +1,28 @@
 /* MAIN.CSS */
 
 body {
-    font-family: 'Droid Serif', serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* NAV */
-.nav {
-    height: 60px;
+.navbar {
+    /* padding: 0rem 3rem 0rem 3rem; */
     align-items: flex-end;
     font-family: 'Patua One', serif;
-}
-
-.nav-toggle {
     margin: auto;
 }
 
+.navbar-burger {
+    margin-top: auto;
+    height: 3.25rem;
+}
 
 
 #logo-text {
     font-weight: bold;
     font-size: 32px;
     justify-content: flex-start;
+    font-family: 'Patua One', serif;
 }
 
 #logo-img {
@@ -41,3 +43,6 @@ h1 {
     font-size: 20px;
     text-align: justify;
 }
+
+
+/* FOOTER */

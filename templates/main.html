@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{page_data.title}} | zmsy.co</title>
+  <title>{{page_data.page_title}} | zmsy.co</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Inconsolata|Open+Sans|Patua+One" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./static/css/bulma.css">
@@ -13,48 +13,60 @@
   <link rel="icon" type="image/png" href="./static/media/favicon-16x16.png" sizes="16x16" />
 </head>
 <body>
-  <nav class="nav" id="top">
-    <div class="container">
-      <div class="nav-left">
-        <a class="nav-item" href="index">
-          <img id="logo-img" src="./static/media/logo.svg" alt="Description">
-        </a>
-        <h1>
-          <a class="nav-item" id="logo-text" href="index">
-            zmsy.co
+  <div class="container">
+    <nav class="navbar" id="top">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="index">
+            <img id="logo-img" src="./static/media/logo.svg" alt="zmsy.co - Home">
           </a>
-        </h1>
+          <a class="navbar-item" href="index">
+            <div class="is-3" id="logo-text">zmsy.co</div>
+          </a>
+          <span class="navbar-burger burger" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-hidden-touch" href="https://github.com/zmsy" target="_blank">
+              <span class="icon" style="color: #333;">
+                <i class="fa fa-github"></i>
+              </span>
+            </a>
+            <a class="navbar-item is-hidden-touch" href="https://twitter.com/_zmsy" target="_blank">
+              <span class="icon" style="color: #55acee;">
+                <i class="fa fa-twitter"></i>
+              </span>
+            </a>
+            <a class="navbar-item is-tab" href="../home">
+              Home
+            </a>
+            <a class="navbar-item is-tab" href="../blog">
+              Blog
+            </a>
+            <a class="navbar-item is-tab" href="../projects">
+              Projects
+            </a>
+            <a class="navbar-item is-tab" href="../contact">
+              Contact
+            </a>
+          </div>
+        </div>
+    </nav>
+    <section class="section" id="main">
+      <div class="container content">
+      {% block content %}
+      {% endblock %}
       </div>
-      <span class="nav-toggle" id="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <div class="nav-right nav-menu" id="nav-menu">
-        <a class="nav-item is-tab" href="../home">
-          Home
-        </a>
-        <a class="nav-item is-tab" href="../blog">
-          Blog
-        </a>
-        <a class="nav-item is-tab" href="../projects">
-          Projects
-        </a>
-        <a class="nav-item is-tab" href="../contact">
-          Contact
-        </a>
-      </div>
-    </div>
-  </nav>
-  <section class="section" id="main">
-    <div class="container content">
-    {% block content %}
-    {% endblock %}
-    </div>
-  </section>
+    </section>
+  </div>
   <footer class="footer">
     <div class="container">
-      This is my footer!
+      <div class="content has-text-centered">
+        <p id="footer-text"><strong>zmsy.co</strong> - A blog by Zach Morrissey. Copyright © <span id="yearText"></span></p>
+      </div>
     </div>
   </footer>
   <script type="text/javascript" src="./static/js/main.js"></script>

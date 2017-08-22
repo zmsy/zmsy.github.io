@@ -10,7 +10,8 @@ def index():
     The main route to the homepage. The "/home" link will be used elsewhere around the site to navigate users back home.
     """
     page_data = {
-        "title": "home"
+        "page_title": "home",
+        "post_title": "This is an Example Post"
     }
     return render_template('home.html', page_data=page_data)
 
