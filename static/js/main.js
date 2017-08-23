@@ -6,7 +6,7 @@ Main javascript file - includes all logic for site
 // nav toggle function
 function toggleNav() {
     console.log("Nav toggle clicked.");
-    var nav = document.getElementById("navbar-menu");
+    var nav = document.getElementsByClassName('navbar-menu')[0];
     nav.classList.toggle('is-active');
 }
 

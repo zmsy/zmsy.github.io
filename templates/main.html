@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{page_data.page_title}} | zmsy.co</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Inconsolata|Open+Sans|Patua+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Inconsolata|Roboto|Patua+One" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./static/css/bulma.css">
   <link rel="stylesheet" type="text/css" href="./static/css/main.css">
   <link rel="icon" type="image/png" href="./static/media/favicon-32x32.png" sizes="32x32" />
@@ -49,23 +49,23 @@
             <a class="navbar-item is-tab" href="../projects">
               Projects
             </a>
-            <a class="navbar-item is-tab" href="../contact">
-              Contact
+            <a class="navbar-item is-tab" href="../about">
+              About
             </a>
           </div>
         </div>
     </nav>
     <section class="section" id="main">
       <div class="container content">
-      {% block content %}
-      {% endblock %}
+        {% block content %}
+        {% endblock %}
       </div>
     </section>
   </div>
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <p id="footer-text"><strong>zmsy.co</strong> - A blog by Zach Morrissey. Copyright © <span id="yearText"></span></p>
+        <p id="footer-text"><strong>zmsy.co</strong> - A personal blog by Zach Morrissey. Copyright © <span id="yearText"></span></p>
       </div>
     </div>
   </footer>

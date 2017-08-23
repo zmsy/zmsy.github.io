@@ -1,7 +1,7 @@
 /* MAIN.CSS */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* NAV */
@@ -30,6 +30,10 @@ body {
     justify-content: flex-end;
     width: 40px;
 }
+
+
+/* HERO */
+
 
 /* ARTICLE BODY */
 
