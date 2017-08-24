@@ -16,6 +16,13 @@ def index():
     }
     return render_template('home.html', page_data=page_data)
 
+@app.route('/about')
+def about():
+    page_data = {
+        "page_title": "about"
+    }
+    return render_template('about.html', page_data=page_data)
+
 
 # error handlers
 @app.errorhandler(404)

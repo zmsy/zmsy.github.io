@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">About Me</h1>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-three-quarters"></div>
+      <p>This site is created and maintained by me, Zach Morrissey. I created from scratch using a number of different technologies:</p>
+      <ul>
+        <li><b>Python</b> - Visual analysis, data prep, pretty much anything actually.</li>
+        <li><b>Lektor</b> - For content management. Soon to be for static site generation.</li>
+        <li><b>Bulma</b> - Excellent CSS-only front-end framework that drastically simplifies structuring a website.</li>
+        <li><b>HTML/CSS/JS</b> - The basics.</li>
+        <li><b>Webpack</b> - Bundling all of my resources and being able to define frontend dependencies easily.</li>
+      </ul>
+    <div class="column">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="./static/media/about.jpg" alt="Image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="./static/media/logo.svg" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Zach Morrissey</p>
+              <p class="subtitle is-6">@_zmsy</p>
+            </div>
+          </div>
+          <div class="content">
+            <p>Fire me an email if you'd like to connect: zachjmorrissey@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
