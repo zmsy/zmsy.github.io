@@ -32,6 +32,11 @@ body {
 }
 
 
+.fa {
+    color: #363636;
+}
+
+
 /* HERO */
 
 
@@ -47,6 +52,7 @@ h1 {
     font-size: 20px;
     text-align: justify;
 }
+
 
 
 /* FOOTER */
