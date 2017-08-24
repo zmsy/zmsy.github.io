@@ -55,4 +55,15 @@ h1 {
 
 
 
-/* FOOTER */
+/* ABOUT ME TAB */
+#about-photo {
+    margin: 0rem;
+}
+
+#about-logo {
+    margin: 0rem;
+}
+
+#about-name {
+    margin: auto;
+}

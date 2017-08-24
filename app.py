@@ -51,4 +51,4 @@ def exception_handler(error):
     return render_template('error.html', page_data=page_data), 500
 
 # run the app
-app.run()
+app.run(debug=True)
