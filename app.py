@@ -1,6 +1,10 @@
 from flask import Flask, render_template
-from flaskext.markdown import Markdown
+from flask_misaka import Misaka
+
+# initialize the application
+md = Misaka()
 app = Flask(__name__)
+md.init_app(app)
 
 @app.route('/')
 @app.route('/index')
@@ -18,6 +22,9 @@ def index():
 
 @app.route('/about')
 def about():
+    """
+    The route to the about page, where the user can learn about me and find contact information.
+    """
     page_data = {
         "page_title": "about"
     }
