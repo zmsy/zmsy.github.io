@@ -67,3 +67,7 @@ h1 {
 #about-name {
     margin: auto;
 }
+
+#about-tagline {
+    text-align: justify;
+}
