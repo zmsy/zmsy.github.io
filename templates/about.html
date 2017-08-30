@@ -1,13 +1,16 @@
 {% extends "main.html" %}
 {% block content %}
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">About Me</h1>
+  <div class="hero">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">About Me</h1>
+      </div>
     </div>
   </div>
   <div class="container">
-    <div class="columns">
-      <div class="column is-two-thirds">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <h3 class="has-text-centered">About the Site</h3>
         <p>This site is created and maintained by me, Zach Morrissey. I created it from scratch using a number of different technologies:</p>
         <ul>
           <li><b>Python</b> - Visual analysis, data prep, pretty much anything actually.</li>
@@ -17,11 +20,12 @@
           <li><b>Webpack</b> - Bundling all of my resources and being able to define frontend dependencies easily.</li>
           <li><b>Let's Encrypt</b> - So I can serve this website over HTTPS (still working on it).</li>
         </ul>
-        <p>I live in Seattle, WA with my girlfriend and my dog Howie (pictured to the right). Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, videogames, and computers.</p>
-        <p>This site was built with the purpose of becoming more familiar with the processes involved in building and deploying a website, organizing my app code to correctly serve multiple request endpoints, and most importantly for shameless self-promotion.</p>
         <p>All photos on the site are taken by me, with the exception of ones clearly labeled with their sources below them. All SVG, data visualizations, etc, are created by me.</p>
+        <h3 class="has-text-centered">About Myself</h3>
+        <p>I live in Seattle, WA with my girlfriend and my dog Howie (pictured to the right). Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, videogames, and computers.</p>
+        <p>I built this site with the purpose of becoming more familiar with the processes involved in building and deploying a website, organizing my app code to correctly serve multiple request endpoints, and most importantly for shameless self-promotion.</p>
       </div>
-      <div class="column">
+      <div class="column is-4">
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3" id="about-photo">
