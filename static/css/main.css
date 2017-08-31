@@ -31,6 +31,10 @@ body {
     width: 40px;
 }
 
+#logo-img:hover {
+    transform: rotate(180deg);
+    transition: 0.2s ease-in-out;
+}
 
 .fa {
     color: #363636;
@@ -71,3 +75,5 @@ h1 {
 #about-tagline {
     text-align: justify;
 }
+
+

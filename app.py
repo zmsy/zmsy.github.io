@@ -1,10 +1,7 @@
 from flask import Flask, render_template
-from flask_misaka import Misaka
 
 # initialize the application
-md = Misaka()
 app = Flask(__name__)
-md.init_app(app)
 
 @app.route('/')
 @app.route('/index')
@@ -58,4 +55,4 @@ def exception_handler(error):
     return render_template('error.html', page_data=page_data), 500
 
 # run the app
-app.run(debug=True)
+app.run(debug=True, use_reloader=True)
