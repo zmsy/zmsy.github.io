@@ -3,9 +3,11 @@ zmsy.co
 Main javascript file - includes all logic for site
 */
 
+// utility functions
+function $(id) { return document.getElementById(id); }
+
 // nav toggle function
 function toggleNav() {
-    console.log("Nav toggle clicked.");
     var nav = document.getElementsByClassName('navbar-menu')[0];
     nav.classList.toggle('is-active');
 }
@@ -13,8 +15,7 @@ function toggleNav() {
 
 // fill in copyright year
 function fillYearText() {
-    var yearText = document.getElementById('yearText');
-    yearText.textContent = new Date().getFullYear(); 
+    $('yearText').textContent = new Date().getFullYear();
 }
 
 // invoke all of the good stuff
