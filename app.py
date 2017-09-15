@@ -15,7 +15,7 @@ def index():
         "post_title": "This is an Example Post",
         "post_subtitle": "In which I Will Explain the Entirety of the Universe"
     }
-    return render_template('home.html', page_data=page_data)
+    return render_template('home.html', **page_data)
 
 @app.route('/about')
 def about():
@@ -25,7 +25,7 @@ def about():
     page_data = {
         "page_title": "about"
     }
-    return render_template('about.html', page_data=page_data)
+    return render_template('about.html', **page_data)
 
 
 # error handlers
