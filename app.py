@@ -39,7 +39,7 @@ def page_not_found(error):
         "error": "The page you're looking for does not exist",
         "suggestion": "Please check the URL and try again."
     }
-    return render_template('error.html', page_data=page_data), 404
+    return render_template('error.html', **page_data), 404
 
 
 @app.errorhandler(500)
@@ -52,7 +52,7 @@ def exception_handler(error):
         "error": "Oops! Internal server error.",
         "suggestion": "Give it a little bit and try again."
     }
-    return render_template('error.html', page_data=page_data), 500
+    return render_template('error.html', **page_data), 500
 
 # run the app
 app.run(debug=True, use_reloader=True)
