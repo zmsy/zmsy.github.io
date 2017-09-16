@@ -7,6 +7,7 @@
     "bulma": "^0.5.1",
     "d3": "^4.10.0",
     "forever": "^0.15.3",
+    "gulp-clean-css": "^3.8.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "webpack": "^3.5.5"
