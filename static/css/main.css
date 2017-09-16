@@ -1,79 +1,83 @@
-/* MAIN.CSS */
+/*
+---------
+VARIABLES
+---------
 
+This set of variables is used to derive the downstream stuff in the regular css files.
+The colors override default bulma colors.
+
+*/
+/* COLORS */
+/*
+Main scss file.
+This creates the main.css file and the same variables can be used in the bulma variables.
+*/
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #FAF9F9;
+  color: #100B03;
 }
 
 /* NAV */
 .navbar {
-    /* padding: 0rem 3rem 0rem 3rem; */
-    align-items: flex-end;
-    font-family: 'Patua One', serif;
-    margin: auto;
+  /* padding: 0rem 3rem 0rem 3rem; */
+  align-items: flex-end;
+  font-family: 'Patua One', serif;
+  margin: auto;
 }
 
 .navbar-burger {
-    margin-top: auto;
-    height: 3.25rem;
+  margin-top: auto;
+  height: 3.25rem;
 }
 
-
 #logo-text {
-    font-weight: bold;
-    font-size: 32px;
-    justify-content: flex-start;
-    font-family: 'Patua One', serif;
+  font-weight: bold;
+  font-size: 32px;
+  justify-content: flex-start;
+  font-family: 'Patua One', serif;
 }
 
 #logo-img {
-    padding: 0px;
-    justify-content: flex-end;
-    width: 40px;
+  padding: 0px;
+  justify-content: flex-end;
+  width: 40px;
 }
 
 #logo-img:hover {
-    transform: rotate(180deg);
-    transition: 0.2s ease-in-out;
+  transform: rotate(180deg);
+  transition: 0.2s ease-in-out;
 }
 
 .fa {
-    color: #363636;
+  color: #100B03;
 }
-
 
 /* HERO */
-
-
 /* ARTICLE BODY */
-
 h1 {
-    font-family: 'Patua One', serif;
-    font-size: 4.2rem !important;
+  font-family: 'Patua One', serif;
+  font-size: 4.2rem !important;
 }
-
 
 .article-text {
-    font-size: 20px;
-    text-align: justify;
+  font-size: 20px;
+  text-align: justify;
 }
-
-
 
 /* ABOUT ME TAB */
 #about-photo {
-    margin: 0rem;
+  margin: 0rem;
 }
 
 #about-logo {
-    margin: 0rem;
+  margin: 0rem;
 }
 
 #about-name {
-    margin: auto;
+  margin: auto;
 }
 
 #about-tagline {
-    text-align: justify;
+  text-align: justify;
 }
-
-

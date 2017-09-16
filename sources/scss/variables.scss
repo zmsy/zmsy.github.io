@@ -1,0 +1,31 @@
+/*
+---------
+VARIABLES
+---------
+
+This set of variables is used to derive the downstream stuff in the regular css files.
+The colors override default bulma colors.
+
+*/
+
+
+/* COLORS */
+
+$black: #100B03 !default;
+$black-bis: #1D1406 !default;
+$black-ter: #3B290C !default;
+$grey-darker: #423828 !default;
+$grey-dark: #5B4E38 !default;
+$grey: #897E6B !default;
+$grey-light: #BAB6AF !default;
+$grey-lighter: #DCDBD9 !default;
+$white-ter: #F0EFEF !default;
+$white-bis: #F5F4F4 !default;
+$white: #FAF9F9 !default;
+$orange: #D85D44 !default;
+$yellow: #FBD136 !default;
+$green: #23D160 !default;
+$turquoise: #8CC9BF !default;
+$blue: #3A89C9 !default;
+$purple: #9665C7 !default;
+$red: #D34141 !default;
