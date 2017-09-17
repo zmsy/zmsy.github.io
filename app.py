@@ -1,9 +1,20 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, redirect
+from sqlalchemy import create_engine, MetaData
+from flask_login import UserMixin, LoginManager, login_user, logout_user
+from flask_blogging import SQLAStorage, BloggingEngine
 
 # initialize the application
 app = Flask(__name__)
 app.config.from_object('config')
+
+# sqlalchemy + flask-blogging stuff
+engine = create_engine('sqlite:////zmsy.db')
+meta = MetaData()
+sql_storage = SQLAStorage(engine, metadata=meta)
+blog_engine = BloggingEngine(app, sql_storage)
+login_manager = LoginManager(app)
+meta.create_all(bind=engine)
+
 
 @app.route('/')
 @app.route('/index')
