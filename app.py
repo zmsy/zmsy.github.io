@@ -8,12 +8,12 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 # sqlalchemy + flask-blogging stuff
-engine = create_engine('sqlite:////zmsy.db')
-meta = MetaData()
-sql_storage = SQLAStorage(engine, metadata=meta)
-blog_engine = BloggingEngine(app, sql_storage)
-login_manager = LoginManager(app)
-meta.create_all(bind=engine)
+# engine = create_engine('blog.db')
+# meta = MetaData()
+# sql_storage = SQLAStorage(engine, metadata=meta)
+# blog_engine = BloggingEngine(app, sql_storage)
+# login_manager = LoginManager(app)
+# meta.create_all(bind=engine)
 
 
 @app.route('/')
