@@ -7,3 +7,7 @@ MAIL_FROM_EMAIL = 'bot@zmsy.co'
 # flask-blogging
 BLOGGING_URL_PREFIX = "/blog"
 BLOGGING_SITENAME = "zmsy.co"
+
+SQLALCHEMY_BINDS = {
+    'sqlite': 'sqlite:///blog.db'
+}

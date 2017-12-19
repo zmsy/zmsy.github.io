@@ -1,19 +1,23 @@
 from flask import Flask, render_template, redirect
-from sqlalchemy import create_engine, MetaData
 from flask_login import UserMixin, LoginManager, login_user, logout_user
+from sqlalchemy import create_engine, MetaData
+from flask_caching import Cache
 from flask_blogging import SQLAStorage, BloggingEngine
 
 # initialize the application
 app = Flask(__name__)
 app.config.from_object('config')
 
-sqlalchemy + flask-blogging stuff
-engine = create_engine('sqlite:///blog.db')
+# sqlalchemy + flask-blogging stuff
+engine = create_engine("sqlite:////tmp/sqlite.db")
 meta = MetaData()
 sql_storage = SQLAStorage(engine, metadata=meta)
-blog_engine = BloggingEngine(app, sql_storage)
-login_manager = LoginManager(app)
 meta.create_all(bind=engine)
+
+# create blog engine and login manager
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+blog_engine = BloggingEngine(app, sql_storage, cache)
+login_manager = LoginManager(app)
 
 
 @app.route('/')
@@ -29,6 +33,7 @@ def index():
         "post_subtitle": "In which I Will Explain the Entirety of the Universe"
     }
     return render_template('home.html', **page_info)
+
 
 @app.route('/about')
 def about():
