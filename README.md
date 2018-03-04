@@ -13,8 +13,8 @@ Personal website of Zach Morrissey, data analytics/visualization enthusiast.
 * `webpack`
 * `node.js`
 * `python`
-* `flask`
-* `sqlite`
+* `lektor`
 * `docker`
+* `nginx`
 * `amazon ec2/container service`
 
