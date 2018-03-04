@@ -1,2 +1,4 @@
 [project]
 name = zmsy
+url = https://zmsy.co/
+url_style = absolute

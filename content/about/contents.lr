@@ -1,7 +1,11 @@
-title: About this Website
+title: About
 ---
 body:
 
-This is a website that was made with the Lektor quickstart.
+## Me
 
-And it does not contain a lot of information.
+I live in Seattle, WA with my girlfriend and my dog Howie. Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, video games, and computers.
+
+I built this site with the purpose of becoming more familiar with the processes involved in building and deploying a website, organizing my app code better than most of my hodge-podge projects have been so far, and most importantly for shameless self-promotion.
+
+Most of my free time is spent working mindlessly on random projects that I get interested in, so this seemed a good way of organizing my thoughts and soliciting feedback.
