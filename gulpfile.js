@@ -40,3 +40,7 @@ gulp.task('main-js', function() {
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('./assets/js/'));
 });
+
+
+// Process all
+gulp.task('default', ['bulma', 'main-css', 'main-js'])

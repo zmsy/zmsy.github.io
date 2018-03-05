@@ -3,7 +3,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ '/css/style.css'|url }}">
   <link rel="stylesheet" href="{{ '/css/bulma.css'|url }}">
   <link rel="stylesheet" href="{{ '/css/main.min.css'|url }}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -13,34 +12,13 @@
   <title>{% block title %}welcome{% endblock %} | zmsy</title>
   {% block includes %} {% endblock %}
 </head>
-<body>
-  <header>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
-        {% for href, title in [
-          ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-
-
-
-
   <div class="container">
     <nav class="navbar" id="top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="index">
+        <a class="navbar-item" href="/">
           <img id="logo-img" src="/media/logo.svg" alt="zmsy.co - Home">
         </a>
-        <a class="navbar-item" href="index">
+        <a class="navbar-item" href="/">
           <div class="is-3" id="logo-text">zmsy.co</div>
         </a>
         <span class="navbar-burger" id="navbar-toggle">
@@ -60,17 +38,21 @@
           <a class="navbar-item is-hidden-touch" href="https://twitter.com/_zmsy">
             <span class="icon"> <i class="fa fa-twitter"></i> </span>
           </a>
-          <a class="navbar-item is-tab" href="/home">Home</a>
-          <a class="navbar-item is-tab" href="/blog">Blog</a>
-          <a class="navbar-item is-tab" href="/projects">Projects</a>
-          <a class="navbar-item is-tab" href="/about">About</a>
+          <a class="navbar-item is-tab" href="/">Home</a>
+          {% for href, link_name in [
+            ['/blog', 'Blog'],
+            ['/projects', 'Projects'],
+            ['/about', 'About']
+          ] %}
+            <a class="navbar-item is-tab" href="{{ href|url }}">{{ link_name }}</a>
+          {% endfor %}
         </div>
       </div>
     </nav>
     <section class="section" id="main">
-        <div class="container content" id="main">
-            {% block body %} {% endblock %}
-        </div>
+      <div class="container content" id="main">
+        {% block body %} {% endblock %}
+      </div>
     </section>
   </div>
   <footer class="footer">
@@ -96,4 +78,4 @@
       ga('send', 'pageview');
   </script>
 </body>
-</body>
+</html>
