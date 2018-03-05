@@ -1,6 +1,8 @@
 _model: about
 ---
-title: About
+author: Zach Morrissey
+---
+title: About Me
 ---
 body:
 
@@ -11,3 +13,5 @@ I live in Seattle, WA with my girlfriend and my dog Howie. Interests include goo
 I built this site with the purpose of becoming more familiar with the processes involved in building and deploying a website, organizing my app code better than most of my hodge-podge projects have been so far, and most importantly for shameless self-promotion.
 
 Most of my free time is spent working mindlessly on random projects that I get interested in, so this seemed a good way of organizing my thoughts and soliciting feedback.
+---
+tagline: Fire me an email if you'd like to connect or have questions about what you're looking at here.
