@@ -6,7 +6,7 @@ This creates the main.css file and the same variables can be used in the bulma v
 */
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: $reading-fonts;
     background-color: $white;
     color: $black;
 }
@@ -17,7 +17,7 @@ body {
 .navbar {
     /* padding: 0rem 3rem 0rem 3rem; */
     align-items: flex-end;
-    font-family: 'Patua One', serif;
+    font-family: $display-fonts;
     margin: auto;
 }
 
@@ -35,7 +35,7 @@ body {
     font-weight: bold;
     font-size: 32px;
     justify-content: flex-start;
-    font-family: 'Patua One', serif;
+    font-family: $display-fonts;
 }
 
 #logo-img {
@@ -56,20 +56,33 @@ body {
 
 /* HERO */
 
-// light on dark background
 .title-light {
+    font-family: $hero-fonts;
+    font-weight: normal;
     color: $white-bis;
 }
 
 .subtitle-light {
     color: $white-ter;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+.title-dark {
+    color: $black-bis;
+    font-weight: normal;
+}
+
+.subtitle-dark {
+    color: $black-ter;
+    font-weight: normal;
     opacity: 0.8;
 }
 
 /* ARTICLE BODY */
 
 h1 {
-    font-family: 'Patua One', serif;
+    font-family: $display-fonts;
     font-size: 5rem !important;
 }
 

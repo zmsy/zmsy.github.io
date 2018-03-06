@@ -4,11 +4,13 @@ author: Zach Morrissey
 ---
 title: About Me
 ---
+subtitle: Or, How I Learned to Stop Worrying And Love The Author of This Page
+---
 body:
 
 ## Hi There, I'm Zach.
 
-I live in Seattle, WA with my girlfriend and my dog Howie. Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, video games, and computers. Most of my free time is spent working mindlessly on random projects that I get interested in anyways, so this seemed a good way of organizing my thoughts and soliciting feedback.
+Originally hailing from the Northeast, I've taken up roost in Seattle, WA with my fiancee and my dog Howie. Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, video games, and computers.
 
 #### Purpose 
 
@@ -18,15 +20,17 @@ I built this site with the intent of becoming more familiar with the processes i
 
 This site was built on a number of technologies, using the Lektor static-file CMS as the basis for all of it. In addition to generating the flat file site, I run an API on the backend of this that provides data & information for visualizations and hosted content. This list will change over time as the site is updated.
 
-* `lektor` - Static file CMS. Great authoring UI for new content, easily understood modeling & templating system, excellent documentation.
-* `python` - Data visualizations, Lektor plugins, etc. The glue between pretty much everything else here.
-* `bulma` - CSS-only grid-based web framework. Makes layout very simple.
-* `scss` - For custom styling and for customizing bulma.
-* `webpack` - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
-* `aws` - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
+- **lektor** - Static file CMS. Great authoring UI for new content, easily understood modeling & templating system, excellent documentation.
+- **python** - Data visualizations, Lektor plugins, etc. The glue between pretty much everything else here.
+- **bulma** - CSS-only grid-based web framework. Makes layout very simple.
+- **scss** - For custom styling and for customizing bulma.
+- **webpack** - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
+- **aws** - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
+
+If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co).
 
 ## Artwork & Photography 
 
-All of the artwork, photos, and graphics posted here on the sites are created by me, with the sole intent of being displayed here for your enjoyment.
+All of the artwork, photos, diagrams, charts and graphics posted here on the sites are created by me, with the sole intent of being displayed here for your enjoyment.
 ---
 tagline: Fire me an email if you'd like to connect or have questions about what you're looking at here.
