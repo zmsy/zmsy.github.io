@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ '/css/bulma.css'|url }}">
-  <link rel="stylesheet" href="{{ '/css/main.min.css'|url }}">
+  <link rel="stylesheet" href="{{ '/css/bulma.css'|asseturl }}">
+  <link rel="stylesheet" href="{{ '/css/main.min.css'|asseturl }}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Inconsolata|Roboto|Patua+One|Monoton" rel="stylesheet">
-  <link rel="icon" type="image/png" href="./static/media/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="./static/media/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="{{ '/media/favicon-32x32.png'|asseturl }}" sizes="32x32" />
+  <link rel="icon" type="image/png" href="{{ '/media/favicon-16x16.png'|asseturl }}" sizes="16x16" />
   <title>{% block title %}welcome{% endblock %} | zmsy</title>
   {% block includes %} {% endblock %}
 </head>
   <div class="container">
     <nav class="navbar" role="navigation" id="top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <img id="logo-img" src="/media/logo.svg" alt="zmsy.co - Home">
+        <a class="navbar-item" href="{{ '/'|url }}">
+          <img id="logo-img" src="{{ '/media/logo.svg'|asseturl }}" alt="zmsy.co - Home">
         </a>
-        <a class="navbar-item" href="/">
+        <a class="navbar-item" href="{{ '/'|url }}">
           <div class="is-3" id="logo-text">zmsy.co</div>
         </a>
         <span class="navbar-burger" id="navbar-toggle">
@@ -62,7 +62,7 @@
       </div>
     </div>
   </footer>
-  <script type="text/javascript" src="/js/main.min.js"></script>
+  <script type="text/javascript" src="{{ '/js/main.min.js'|asseturl }}"></script>
   <script>
       (function(i, s, o, g, r, a, m) {
           i['GoogleAnalyticsObject'] = r;
