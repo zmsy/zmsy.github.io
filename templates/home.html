@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+<section class="hero is-medium" id="about-hero">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title title-light">{{ this.title }}</h1>
+      <h2 class="subtitle subtitle-light">{{ this.subtitle }}</h2>
+    </div>
+  </div>
+</section>
+{{ this.body }}
+{% endblock %}

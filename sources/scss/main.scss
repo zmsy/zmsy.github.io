@@ -56,28 +56,7 @@ body {
 
 /* HERO */
 
-.title-light {
-    font-family: $hero-fonts;
-    font-weight: normal;
-    color: $white-bis;
-}
 
-.subtitle-light {
-    color: $white-ter;
-    font-weight: normal;
-    opacity: 0.8;
-}
-
-.title-dark {
-    color: $black-bis;
-    font-weight: normal;
-}
-
-.subtitle-dark {
-    color: $black-ter;
-    font-weight: normal;
-    opacity: 0.8;
-}
 
 /* ARTICLE BODY */
 
@@ -98,10 +77,29 @@ h1 {
     /* background dot pattern */
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
     background-repeat: repeat;
-}
 
-#about-hero > h1 {
+    .title-light {
+    font-family: $hero-fonts;
+    font-weight: normal;
     color: $white-bis;
+    }
+
+    .subtitle-light {
+        color: $white-ter;
+        font-weight: normal;
+        opacity: 0.8;
+    }
+
+    .title-dark {
+        color: $black-bis;
+        font-weight: normal;
+    }
+
+    .subtitle-dark {
+        color: $black-ter;
+        font-weight: normal;
+        opacity: 0.8;
+    }
 }
 
 #about-container {

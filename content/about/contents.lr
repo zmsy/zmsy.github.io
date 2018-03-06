@@ -26,6 +26,7 @@ This site was built on a number of technologies, using the Lektor static-file CM
 - **scss** - For custom styling and for customizing bulma.
 - **webpack** - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
 - **aws** - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
+- **gitlab ci** - For building & deploying to S3.
 
 If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co).
 
