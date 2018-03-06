@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
-  <div class="hero">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <h1 class="title">{{ this.title }}</h1>
-      </div>
+<div class="hero is-full-height" id="about-hero">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title-light">{{ this.title }}</h1>
     </div>
   </div>
-  <div class="container">
+</div>
+<section class="section" id="main">
+  <div class="container content" id="about-container">
     <div class="columns is-centered">
       <div class="column is-6">
         {{ this.body }}
@@ -49,10 +50,11 @@
             <a class="level-item" href="https://www.instagram.com/howiethesamoyed" alt="Like the dog? Here's his Instagram!">
               <span class="icon"><i class="fa fa-paw"></i></span>
             </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
+</section>
 {% endblock %}

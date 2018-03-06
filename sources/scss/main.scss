@@ -42,11 +42,11 @@ body {
     padding: 0px;
     justify-content: flex-end;
     width: 40px;
+    transition: 0.2s ease-in-out;
 }
 
 #logo-img:hover {
     transform: rotate(180deg);
-    transition: 0.2s ease-in-out;
 }
 
 .fa {
@@ -56,12 +56,21 @@ body {
 
 /* HERO */
 
+// light on dark background
+.title-light {
+    color: $white-bis;
+}
+
+.subtitle-light {
+    color: $white-ter;
+    opacity: 0.8;
+}
 
 /* ARTICLE BODY */
 
 h1 {
     font-family: 'Patua One', serif;
-    font-size: 4.2rem !important;
+    font-size: 5rem !important;
 }
 
 .article-text {
@@ -71,6 +80,20 @@ h1 {
 
 
 /* ABOUT ME TAB */
+
+#about-hero {
+    /* background dot pattern */
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
+    background-repeat: repeat;
+}
+
+#about-hero > h1 {
+    color: $white-bis;
+}
+
+#about-container {
+    margin-top: 2rem;
+}
 
 #about-photo {
     margin: 0rem;
@@ -88,34 +111,3 @@ h1 {
     text-align: justify;
 }
 
-
-/* ERROR PAGE */
-
-#error-container {
-    text-align: center;
-    h1 {
-        font-size: 2em !important;
-        font-weight: 400;
-    }
-}
-
-#three-dots {
-    height: 60px;
-    width: 60px;
-    margin: 20px;
-}
-
-#three-dots:hover {
-    transform: rotate(180deg);
-    transition: 0.2s ease-in-out;
-}
-
-#go-home {
-    font-size: 10px;
-    visibility: hidden;
-}
-
-#go-home-link:hover~#go-home {
-    visibility: visible;
-    transition: 0.2s ease-in-out;
-}

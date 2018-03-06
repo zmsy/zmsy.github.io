@@ -6,12 +6,27 @@ title: About Me
 ---
 body:
 
-## Me
+## Hi There, I'm Zach.
 
-I live in Seattle, WA with my girlfriend and my dog Howie. Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, video games, and computers.
+I live in Seattle, WA with my girlfriend and my dog Howie. Interests include good beer, photography, music and music technology, guitars, tinkering with electronics, stats, data visualization, football, baseball, video games, and computers. Most of my free time is spent working mindlessly on random projects that I get interested in anyways, so this seemed a good way of organizing my thoughts and soliciting feedback.
 
-I built this site with the purpose of becoming more familiar with the processes involved in building and deploying a website, organizing my app code better than most of my hodge-podge projects have been so far, and most importantly for shameless self-promotion.
+#### Purpose 
 
-Most of my free time is spent working mindlessly on random projects that I get interested in, so this seemed a good way of organizing my thoughts and soliciting feedback.
+I built this site with the intent of becoming more familiar with the processes involved in building and deploying a website, organizing my app code better than most of my hodge-podge projects have been so far, and most importantly for shameless self-promotion.
+
+## Site Architecture
+
+This site was built on a number of technologies, using the Lektor static-file CMS as the basis for all of it. In addition to generating the flat file site, I run an API on the backend of this that provides data & information for visualizations and hosted content. This list will change over time as the site is updated.
+
+* `lektor` - Static file CMS. Great authoring UI for new content, easily understood modeling & templating system, excellent documentation.
+* `python` - Data visualizations, Lektor plugins, etc. The glue between pretty much everything else here.
+* `bulma` - CSS-only grid-based web framework. Makes layout very simple.
+* `scss` - For custom styling and for customizing bulma.
+* `webpack` - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
+* `aws` - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
+
+## Artwork & Photography 
+
+All of the artwork, photos, and graphics posted here on the sites are created by me, with the sole intent of being displayed here for your enjoyment.
 ---
 tagline: Fire me an email if you'd like to connect or have questions about what you're looking at here.

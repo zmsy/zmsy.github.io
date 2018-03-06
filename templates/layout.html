@@ -12,48 +12,48 @@
   <title>{% block title %}welcome{% endblock %} | zmsy</title>
   {% block includes %} {% endblock %}
 </head>
-  <div class="container">
-    <nav class="navbar" role="navigation" id="top">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="{{ '/'|url }}">
-          <img id="logo-img" src="{{ '/media/logo.svg'|asseturl }}" alt="zmsy.co - Home">
-        </a>
-        <a class="navbar-item" href="{{ '/'|url }}">
-          <div class="is-3" id="logo-text">zmsy.co</div>
-        </a>
-        <span class="navbar-burger" id="navbar-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item is-hidden-touch" href="https://www.linkedin.com/in/zach-morrissey-6b096431/">
-            <span class="icon"> <i class="fa fa-linkedin-square"></i> </span>
+  <div class="columns is-centered">
+    <div class="column is-10">
+      <nav class="navbar" role="navigation" id="top">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{ '/'|url }}">
+            <img id="logo-img" src="{{ '/media/logo.svg'|asseturl }}" alt="zmsy.co - Home">
           </a>
-          <a class="navbar-item is-hidden-touch" href="https://github.com/zmsy">
-            <span class="icon"> <i class="fa fa-github"></i> </span>
+          <a class="navbar-item" href="{{ '/'|url }}">
+            <div class="is-3" id="logo-text">zmsy.co</div>
           </a>
-          <a class="navbar-item is-hidden-touch" href="https://twitter.com/_zmsy">
-            <span class="icon"> <i class="fa fa-twitter"></i> </span>
-          </a>
-          <a class="navbar-item is-tab" href="/">Home</a>
-          {% for href, link_name in [
-            ['/blog', 'Blog'],
-            ['/projects', 'Projects'],
-            ['/about', 'About']
-          ] %}
-            <a class="navbar-item is-tab" href="{{ href|url }}">{{ link_name }}</a>
-          {% endfor %}
+          <span class="navbar-burger" id="navbar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
-      </div>
-    </nav>
-    <section class="section" id="main">
-      <div class="container content" id="main">
-        {% block body %} {% endblock %}
-      </div>
-    </section>
+        <div class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-hidden-touch" href="https://www.linkedin.com/in/zach-morrissey-6b096431/">
+              <span class="icon"> <i class="fa fa-linkedin-square"></i> </span>
+            </a>
+            <a class="navbar-item is-hidden-touch" href="https://github.com/zmsy">
+              <span class="icon"> <i class="fa fa-github"></i> </span>
+            </a>
+            <a class="navbar-item is-hidden-touch" href="https://twitter.com/_zmsy">
+              <span class="icon"> <i class="fa fa-twitter"></i> </span>
+            </a>
+            <a class="navbar-item is-tab" href="/">Home</a>
+            {% for href, link_name in [
+              ['/blog', 'Blog'],
+              ['/projects', 'Projects'],
+              ['/about', 'About']
+            ] %}
+              <a class="navbar-item is-tab" href="{{ href|url }}">{{ link_name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div id="body">
+    {% block body %} {% endblock %}
   </div>
   <footer class="footer">
     <div class="container">
