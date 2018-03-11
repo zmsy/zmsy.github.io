@@ -65,7 +65,7 @@ body {
     }
 
     h2 {
-        font-family: $display-fonts;
+        font-family: $hero-subtitle-fonts;
         font-size: 2rem;
     }
 
@@ -108,16 +108,14 @@ h1 {
         font-weight: normal;
         font-size: 6rem;
         color: $white-bis;
-        text-shadow:
-            // -5px -5px 0 $orange,
-            5px -5px 0 $orange,
-            // -5px 5px 0 $orange,
-            // 5px 5px 0 $orange;
+        text-shadow: 5px -5px 0 $orange;
     }
 
     .subtitle-light {
         color: $white-ter;
+        font-family: $hero-subtitle-fonts;
         font-weight: normal;
+        font-size: 1.5rem;
         opacity: 0.8;
     }
 
