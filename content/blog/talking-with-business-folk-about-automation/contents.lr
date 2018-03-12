@@ -4,22 +4,23 @@ author: Zach Morrissey
 ---
 body:
 
-## Why Should We Automate This?
+## So...Why Should We Automate This?
 
-One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello world!`, automation is a black box that's difficult to wrap one's head around. 
+One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello World!`, automation is a confusing black box.
 
 Conversations about it often form two sides:
 
-- For engineers and other technical users, the benefits of automation are myriad and usually obvious.
-- For non-technical folk, the benefits usually come down to some variation on these three specifics: the ability to do more, the ability to do things more easily, and the ability to do things faster.
+- For engineers and other technical users, the benefits of automation are palpable and usually obvious.
+- For non-technical folk, the benefits usually come down to some variation on these three specifics: unlocking new capabilities, making things easier, and delivering faster.
 
-Since I work on a Data Science and Analytics team, there's a lot of talking to business users. I notice that, for people who've never been involved in the process of automating a task or process, the benefits mentioned above are usually not as good of a motivational factor as one might expect.
+Since I work on a Data Science and Analytics team, the majority of our audience is non-technical business users. I notice that, for people who've never been involved in the process of automating a task or process, the benefits mentioned above are not motivating factors.
 
 ### Reasons End Users Dislike Talking About Automation
 
 - **Loss of Control** - This is normally the first and most important aspect of the conversation. A lot of people have grown accustomed to being able to handle something on their own, and they know intuitively when things are right and wrong. They have the ability to adjust outputs if they don't look right, or provide feedback where they think inputs are wrong.
-- **No Understanding** - There are a lot of fundamental concepts about automation that business users don't understand. These are normally much more fundamental than most people are led to believe, even in technical 
-
+- **No Understanding** - This is the most obvious point here, as everyone expects. There are a lot of fundamental concepts about automation that business users don't understand. Since most users are normally locked into a GUI with an interactive workflow, designing something to be run on a headless system that doesn't respond to user input is a very foreign model of computing. Users are usually concerned with how _they_ interact with it.
+- **Fear of Upfront Costs** - For the short term, there's normally a higher upfront time investment required for automating something.
+- **New Tool & Skill Requirements** - Outside of technical disciplines, adding new skills to your toolkit is not always directly rewarded. Adding technical complexity is usually not something that factors into their decision calculus.
 
 ## The Unknown Benefits of Automation
 
@@ -29,8 +30,11 @@ There's a lot that end users might not see or understand, but are normally prova
 
 ## The Approach
 
+- Be empathetic. This may seem like an obvious platitude, but _caring_ about their position in this situation is required for a solution that genuinely helps users out.
 - Talk about pieces of the work as functions, with an input and an output.
 ---
 pub_date: 2018-03-01
 ---
 twitter_handle: _zmsy
+---
+_discoverable: yes

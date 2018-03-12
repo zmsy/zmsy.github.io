@@ -2,3 +2,6 @@
 name = zmsy
 url = https://zmsy.co/
 url_style = relative
+
+[packages]
+lektor-markdown-highlighter = 0.2
