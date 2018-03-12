@@ -8,31 +8,30 @@ body:
 
 Every year, I've been in the upper tier of the fantasy baseball standings but I've never been able to actually clinch the title. This year, I'm attempting to change all of that by using a number of automated inputs that will alert me to any possible deals on players that I can get and how to do it. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them at their own game by automating it.
 
-#### The Issues With Scouting
+#### The Issues With Pre-Season Scouting
 
 The advantages of scouting out fantasy baseball players in our league evaporates about 3 rounds into the draft. Our group traditionally over-indexes on the drafting portion of it, and then adapts a flying-by-the-seat-of-your-pants approach to the rest of the season. I make bad add/drop decisions as the season goes along; unfortunately mid-season fantasy doesn't fit neatly into a set of discrete actions like a draft does. The goal of this project is to fix this particular shortcoming by providing myself with a methodology for doing this throughout the year.
 
 ## Getting Data
 
-The data for this exercise comes from a number of places:
+The data for this exercise comes from a number of places. For a good system, we'll need to retrieve roster data to know who is available, projections to see who is slated to do well, and mid-season player statistics to so who's currently doing well.
 
-* **Roster information from ESPN** - Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard).
-* **Pre- and Mid-Season Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
-* **Mid-Season Actuals** - In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
+### ESPN Roster Data
 
-#### ESPN Roster Data
-
-Getting roster data is fairly straightforward. If your league is public, all you need to do is scrape the rosters page for that league ID. This is an example of that:
+Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard). Getting roster data is fairly straightforward; all you need to do is scrape the rosters page for that league ID. This is an example of that:
 
 ```python
 import requests
+from bs4 import BeautifulSoup
 
 # rip your league id from your espn url
 league_id = 1234567890
 requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league_id))
 ```
 
-#### Projections
+### Projections
+
+Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're of much value otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
 For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file. For projections, this turned out to be a little trickier than I had intended it to be, since it was hooked up as a javascript postback using ASP.net forms instead of a simpler get/post request directly to a URL that I could see and steal.
 
@@ -48,7 +47,9 @@ for date in date_range:
     scrape_data(date)
 ```
 
-#### In-Season Actuals
+### In-Season Actuals
+
+In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
 
 Getting the ongoing statistics on a per-player basis turned out to be much easier than anything related to the projections. With a little manipulation of URL parameters, you can easily create a page for scraping that contains all of the necessary information in one go.
 
