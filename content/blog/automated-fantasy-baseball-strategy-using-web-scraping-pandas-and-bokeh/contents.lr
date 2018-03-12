@@ -4,16 +4,32 @@ author: Zach Morrissey
 ---
 body:
 
-## I Want to Win My Fantasy Baseball League
+## Winning Fantasy Baseball in Style
 
 Every year, I've been in the upper tier of the fantasy baseball standings but I've never been able to actually clinch the title. This year, I'm attempting to change all of that by using a number of automated inputs that will alert me to any possible deals on players that I can get and how to do it. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them at their own game by automating it.
+
+#### The Issues With Scouting
+
+The advantages of scouting out fantasy baseball players in our league evaporates about 3 rounds into the draft. Our group traditionally over-indexes on the drafting portion of it, and then adapts a flying-by-the-seat-of-your-pants approach to the rest of the season. I make bad add/drop decisions as the season goes along; unfortunately mid-season fantasy doesn't fit neatly into a set of discrete actions like a draft does. The goal of this project is to fix this particular shortcoming by providing myself with a methodology for doing this throughout the year.
 
 ## Getting Data
 
 The data for this exercise comes from a number of places:
 
 * **Roster information from ESPN** - Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard).
-* **Fangraphs Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
+* **Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
+* **Actuals** - In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
+
+For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file.
+
+```python
+for date in date_range:
+    scrape_data(date)
+```
+
+## Creating a Repeatable Analysis Using Pandas
+
+[Pandas](https://pandas.pydata.org/) is very capable of producing these sorts of information on tabular data in a straightforward, repeatable manner. 
 ---
 pub_date: 2018-03-11
 ---
