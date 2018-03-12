@@ -17,15 +17,45 @@ The advantages of scouting out fantasy baseball players in our league evaporates
 The data for this exercise comes from a number of places:
 
 * **Roster information from ESPN** - Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard).
-* **Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
-* **Actuals** - In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
+* **Pre- and Mid-Season Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
+* **Mid-Season Actuals** - In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
 
-For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file.
+#### ESPN Roster Data
+
+Getting roster data is fairly straightforward. If your league is public, all you need to do is scrape the rosters page for that league ID. This is an example of that:
+
+```python
+import requests
+
+# rip your league id from your espn url
+league_id = 1234567890
+requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league_id))
+```
+
+#### Projections
+
+For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file. For projections, this turned out to be a little trickier than I had intended it to be, since it was hooked up as a javascript postback using ASP.net forms instead of a simpler get/post request directly to a URL that I could see and steal.
+
+After gleaning a bit of help from [this 2011 web scraping post I found helpful](https://scraperwiki.com/2011/11/how-to-get-along-with-an-asp-webpage/):
+* This page uses the javascript `__doPostBack` function to invoke a post to the form that's on this page.
+* Python's `requests` library _should_ be able to send the same parameters to download the file.
+* Ripping the `__EVENTTARGET` and `__EVENTVALUE` values should be enough to get me going.
+
+That effort to trace down those pieces of info produced this, which works for the CSV download:
 
 ```python
 for date in date_range:
     scrape_data(date)
 ```
+
+#### In-Season Actuals
+
+Getting the ongoing statistics on a per-player basis turned out to be much easier than anything related to the projections. With a little manipulation of URL parameters, you can easily create a page for scraping that contains all of the necessary information in one go.
+
+* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=20&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
+* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=0&type=8&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
+
+Creating a short script to parse out player rows and add them to another csv for consumption later on turned out to be short work once I figured this bit out.
 
 ## Creating a Repeatable Analysis Using Pandas
 
