@@ -62,22 +62,35 @@ body {
     h1 {
         font-family: $display-fonts;
         font-size: 3rem;
+        color: $black-bis;
     }
 
     h2 {
         font-family: $hero-subtitle-fonts;
         font-size: 2rem;
+        color: $black-ter;
     }
 
     h3 {
-        font-weight: bold;
+        font-family: $hero-subtitle-fonts;
         font-size: 1.5rem;
+        color: $grey-darker;
+    }
+
+    h4 {
+        font-family: $hero-subtitle-fonts;
+        font-size: 1.25rem;
+        color: $grey-dark;
     }
 
     p {
+        color: $grey-dark;
         font-size: 1.125rem;
     }
 
+    hr {
+        border-top: 1px dotted $grey-lighter;
+    }
 
 }
 

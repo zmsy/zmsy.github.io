@@ -12,12 +12,12 @@ I've just finished _finally_ publishing my blog site, and I needed something to 
 
 ### Data
 
-Turned to my favorite source for miscellaneous data - baseball statistics. Baseball completely destroys all other sports in both the volume and availability of information available. 
+Turned to my favorite source for miscellaneous data - baseball statistics. Baseball is heads and tails above all other sports in both the volume and availability of information available. 
 
 * [Fangraphs](https://www.fangraphs.com)
 * [Baseball Reference](https://www.baseball-reference.com)
 
-
+There's no real _analysis_ in this task, per se, since all that I'm trying to do is make something that looks cool the for the front page of the blog.
 
 ## Enter PyGal: A Quick Data Visualization Library with SVG Export
 
