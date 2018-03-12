@@ -11,6 +11,11 @@ body {
     color: $black;
 }
 
+h1 {
+    font-family: $hero-fonts;
+    font-size: 5rem !important;
+    text-decoration: none;
+}
 
 /* NAV */
 
@@ -57,12 +62,12 @@ body {
 /* CONTENT */
 /* THIS IS WHERE MARKDOWN IS RENDERED */
 .content {
-    text-align: justify;
 
     h1 {
-        font-family: $display-fonts;
+        font-family: $hero-fonts;
         font-size: 3rem;
         color: $black-bis;
+        text-decoration: none;
     }
 
     h2 {
@@ -86,26 +91,13 @@ body {
     p {
         color: $grey-dark;
         font-size: 1.125rem;
+        text-align: justify;
     }
 
     hr {
         border-top: 1px dotted $grey-lighter;
     }
 
-}
-
-
-
-/* ARTICLE BODY */
-
-h1 {
-    font-family: $display-fonts;
-    font-size: 5rem !important;
-}
-
-.article-text {
-    font-size: 24px;
-    text-align: justify;
 }
 
 

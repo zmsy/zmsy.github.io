@@ -1,0 +1,31 @@
+title: Talking With Business Folk About Automation
+---
+author: Zach Morrissey
+---
+body:
+
+## Why Should We Automate This?
+
+One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello world!`, automation is a black box that's difficult to wrap one's head around. For engineers and other technical users, the benefits of automating something are usually obvious: higher quality control, less manual inputs, time reclaimed from manual processes, audit capabilities, repeatability, etc. 
+
+Since I work on a Data Science and Analytics team, there's a lot of talking to business users. I notice that, for people who've never been involved in the process of automating a task or process, the benefits mentioned above are usually not as good of a motivational factor as one might expect.
+
+### Reasons End Users Dislike Talking About Automation
+
+- **Loss of Control** - This is normally the first and most important aspect of the conversation. A lot of people have grown accustomed to being able to handle something on their own, and they know intuitively when things are right and wrong. They have the ability to adjust outputs if they don't look right, or provide feedback where they think inputs are wrong.
+- **No Understanding** - There are a lot of fundamental concepts about automation that business users don't understand. These are normally much more fundamental than most people are led to believe, even in technical 
+
+
+## The Unknown Benefits of Automation
+
+There's a lot that end users might not see or understand, but are normally provable benefits of automating something.
+
+- Fixes Upstream Issues - A lot of the time, end users will fix problems that they see and not document them. When you automate a process, you need reasonable assumptions that you can make, and a lot of the time this forces upstream issues to be fixed.
+
+## The Approach
+
+- Talk about pieces of the work as functions, with an input and an output.
+---
+pub_date: 2018-03-01
+---
+twitter_handle: _zmsy

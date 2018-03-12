@@ -1,0 +1,20 @@
+title: Automated Fantasy Baseball Strategy using Web Scraping, Pandas, and Bokeh
+---
+author: Zach Morrissey
+---
+body:
+
+## I Want to Win My Fantasy Baseball League
+
+Every year, I've been in the upper tier of the fantasy baseball standings but I've never been able to actually clinch the title. This year, I'm attempting to change all of that by using a number of automated inputs that will alert me to any possible deals on players that I can get and how to do it. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them at their own game by automating it.
+
+## Getting Data
+
+The data for this exercise comes from a number of places:
+
+* **Roster information from ESPN** - Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard).
+* **Fangraphs Projections** - A common source of scouting information for our league. Since we do not use the standard scoring information, the projections from ESPN are mostly worthless to us. Not that they're of much value even if you do use the standard scoring mechanisms. For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for at bats.
+---
+pub_date: 2018-03-11
+---
+twitter_handle: _zmsy
