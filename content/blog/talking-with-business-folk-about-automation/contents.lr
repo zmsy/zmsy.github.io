@@ -6,7 +6,12 @@ body:
 
 ## Why Should We Automate This?
 
-One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello world!`, automation is a black box that's difficult to wrap one's head around. For engineers and other technical users, the benefits of automating something are usually obvious: higher quality control, less manual inputs, time reclaimed from manual processes, audit capabilities, repeatability, etc. 
+One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello world!`, automation is a black box that's difficult to wrap one's head around. 
+
+Conversations about it often form two sides:
+
+- For engineers and other technical users, the benefits of automation are myriad and usually obvious.
+- For non-technical folk, the benefits usually come down to some variation on these three specifics: the ability to do more, the ability to do things more easily, and the ability to do things faster.
 
 Since I work on a Data Science and Analytics team, there's a lot of talking to business users. I notice that, for people who've never been involved in the process of automating a task or process, the benefits mentioned above are usually not as good of a motivational factor as one might expect.
 
