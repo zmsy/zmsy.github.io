@@ -6,11 +6,11 @@ body:
 
 ## Winning Fantasy Baseball in Style
 
-Every year, I've been in the upper tier of the fantasy baseball standings but I've never been able to actually clinch the title. This year, I'm attempting to change all of that by using a number of automated inputs that will alert me to any possible deals on players that I can get and how to do it. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them at their own game by automating it.
+Every year I've missed the title in fantasy baseball. This year, I'm attempting to change all of that by using a number of automated inputs that will alert me to any possible deals on players that I can get and how to do it. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them all out by automating it.
 
-#### The Issues With Pre-Season Scouting
+### The Issues With Pre-Season Scouting
 
-The advantages of scouting out fantasy baseball players in our league evaporates about 3 rounds into the draft. Our group traditionally over-indexes on the drafting portion of it, and then adapts a flying-by-the-seat-of-your-pants approach to the rest of the season. I make bad add/drop decisions as the season goes along; unfortunately mid-season fantasy doesn't fit neatly into a set of discrete actions like a draft does. The goal of this project is to fix this particular shortcoming by providing myself with a methodology for doing this throughout the year.
+The advantages of scouting out fantasy baseball players in our league evaporates about 3 rounds into the draft. Our group traditionally over-indexes on the drafting portion of it, and then adapts a flying-by-the-seat-of-your-pants approach to the rest of the season. I tend to make bad add/drop decisions as the season goes along. The goal of this project is to fix this particular shortcoming by providing myself with a methodology for doing this throughout the year.
 
 ## Getting Data
 
@@ -33,14 +33,24 @@ requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league
 
 Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're of much value otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
-For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file. For projections, this turned out to be a little trickier than I had intended it to be, since it was hooked up as a javascript postback using ASP.net forms instead of a simpler get/post request directly to a URL that I could see and steal.
+For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file. For projections, this turned out to be a little trickier than I had intended it to be, since it was hooked up as a javascript postback using ASP.net forms and I had no experience with any of that.
+
+#### ASP Forms Galore
 
 After gleaning a bit of help from [this 2011 web scraping post I found helpful](https://scraperwiki.com/2011/11/how-to-get-along-with-an-asp-webpage/):
 * This page uses the javascript `__doPostBack` function to invoke a post to the form that's on this page.
 * Python's `requests` library _should_ be able to send the same parameters to download the file.
 * Ripping the `__EVENTTARGET` and `__EVENTVALUE` values should be enough to get me going.
 
-That effort to trace down those pieces of info produced this, which works for the CSV download:
+I was looking to try and capture this information by editing the site's JS to see if I could spit out those values, but it turns out they weren't really sending any values over the wire anyways. It was just one big ol' POST to the same page with no meaningful parameters.
+
+#### Going POSTal
+
+After some failed efforts to try and see if there was a way I could use the ASP.net forms built in functions to get the data nice and easily, it turns out that they weren't really even using the functionality in the first place. There were very few URL or form parameters on the request that I could specify, and the ones that I could didn't really even make sense to me.
+
+When snooping through this stuff, I noticed that file downloads don't show up in chrome's network requests tab, which is frustrating. Instead I navigated over to the much-lower-level chrome network internals page (`chrome://net-internals/#events`) where you can see this stuff happen in real time. Be warned: You will see every part of every network request, and it adds up to a _lot_ of information being spat out to the screen at once. What this let me know is that I was hoping there was somewhere I could make a simple POST request to and get a response, but that didn't seem like it was going to work, so I needed to get more browser-y.
+
+Enter web automation framework [selenium](https://stackoverflow.com/questions/12812001/how-to-download-a-file-from-a-asp-website-in-python) which was recommended for similar tasks. That effort produced this, which works for the CSV download:
 
 ```python
 for date in date_range:
