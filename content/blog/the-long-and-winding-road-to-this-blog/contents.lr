@@ -1,0 +1,36 @@
+title: The Long and Winding Road To This Blog
+---
+author: Zach Morrissey
+---
+body:
+
+## Stagnation is Rough
+
+I originally purchased the domain [zmsy.co](/) in early 2014 when I was first taking coding somewhat seriously and decided that having a personal webpage for my technical conquests was appropriate. However, seeing as it's 2018 and I've only just now published it, I kicked the can a bit further than I was expecting to.
+
+Hopefully others can glean some useful information from my mistakes that I made in the progress of doing it.
+
+## Version 1 - Django
+
+Having put all of the intense, focused effort that is googling 'python web framework' in 2014, Django was tops and Flask had only been recently announced. At this point I had absolutely zero serious web development under my belt, so I was using the _copy and paste from Stack Overflow_ method of development. What came of this was not pretty, and fortunately I've burned all the evidence. 
+
+Tech used:
+* Python
+* Django
+* Bootstrap
+* jQuery
+
+### What I Learned
+
+* **Node, node, node** - In trying to use Bootstrap and a few other js dependencies, I found node.js and how npm worked. This was the first real exposure I had to any other cli + package manager system outside python.
+* **SCSS** - Oh man, you can write `$orange` and place it everywhere? Heck yes you can.
+* **jQuery DOM selection** - While the current version of this site doesn't use jQuery, I learned a lot by using the dom selection methods from jQuery. The `$(element)` syntax was so straightforward that it helped me bang out a lot of low-quality code really quick, which was the aim at that point.
+* **Responsiveness** - Going into this version, I was still used to `m.blank.com` style mobile pages. Seeing Bootstrap respond to different breakpoints really changed how I see mobile development working.
+
+
+
+
+---
+pub_date: 2018-02-28
+---
+twitter_handle: _zmsy
