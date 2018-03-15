@@ -10,7 +10,7 @@ I originally purchased the domain [zmsy.co](/) in early 2014 when I was first ta
 
 Hopefully others can glean some useful information from my mistakes that I made in the progress of doing it.
 
-## Version 1 - Django
+## Version 1 - Django + Bootstrap
 
 Having put all of the intense, focused effort that is googling 'python web framework' in 2014, Django was tops and Flask had only been recently announced. At this point I had absolutely zero serious web development under my belt, so I was using the _copy and paste from Stack Overflow_ method of development. What came of this was not pretty, and fortunately I've burned all the evidence. 
 
@@ -24,11 +24,14 @@ Tech used:
 
 * **Node, node, node** - In trying to use Bootstrap and a few other js dependencies, I found node.js and how npm worked. This was the first real exposure I had to any other cli + package manager system outside python.
 * **SCSS** - Oh man, you can write `$orange` and place it everywhere? Heck yes you can.
-* **jQuery DOM selection** - While the current version of this site doesn't use jQuery, I learned a lot by using the dom selection methods from jQuery. The `$(element)` syntax was so straightforward that it helped me bang out a lot of low-quality code really quick, which was the aim at that point.
+* **jQuery DOM selection** - While the current version of this site doesn't use jQuery, I learned a lot by using the dom selection methods from jQuery. The `$(element)` syntax was so straightforward that it helped me bang out a lot of low-quality code really quick, which was the aim at that point. This was prior to any formal Javascript training of mine.
 * **Responsiveness** - Going into this version, I was still used to `m.blank.com` style mobile pages. Seeing Bootstrap respond to different breakpoints really changed how I see mobile development working.
 
+I never really got a grasp on anything at this point, to be quite honest. I was using a Bootstrap template that I was trying to populate with information. I used the [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) as a basis for what I was doing, but it harmed my efforts in the end since it added a lot of noise that I didn't understand. As a total web dev beginner, this was a mistake.
 
+## Version 2 - Flask + Bootstrap
 
+This version was very similar to Django, except for the fact that I was using Flask instead. 
 
 ---
 pub_date: 2018-02-28
