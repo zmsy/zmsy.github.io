@@ -33,26 +33,15 @@ requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league
 
 Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're of much value otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
-For the implementation portion of this piece, I created a python script that downloads the information from Fangraphs and saves it as a csv file. For projections, this turned out to be a little trickier than I had intended it to be, since it was hooked up as a javascript postback using ASP.net forms and I had no experience with any of that.
-
 #### ASP Forms Galore
 
-After gleaning a bit of help from [this 2011 web scraping post I found helpful](https://scraperwiki.com/2011/11/how-to-get-along-with-an-asp-webpage/):
-* This page uses the javascript `__doPostBack` function to invoke a post to the form that's on this page.
-* Python's `requests` library _should_ be able to send the same parameters to download the file.
-* Ripping the `__EVENTTARGET` and `__EVENTVALUE` values should be enough to get me going.
-
-This snazzy bit of insight led me to multiple frustrating dead ends.
-* Tried ripping the values out by editing the site's javascript and printing them to the console. This quickly led me deeper into MS's ASP javascript library, so I abandoned it.
-* Realized just by looking at the onclick listener that they're not actually sending any parameters, it's just one big ol' post to the same page. 
-* The URL parameters didn't seem to make much difference to the data appearing on the page. I had hoped I could just edit these to get what I needed.
-* Since I've never really tried to download files in an automatic manner before, it hadn't occurred to me that direct file downloads don't show up in chrome's network tab in the developer tools. I navigated my way to chrome's network internals logs (`chrome://net-internals/#events`) where you can see this stuff happen in real time. Looking through the actual http posts didn't seem to provide much insight into how I could actually download the file, as again there was no discernable form information that made any sense to me, and a few feeble attempts at writing something up weren't working at all.
-
-I firmly believe there was a way to do it that I didn't piece together, but I decided to take a different approach.
+After doing a bit of looking around and realizing this was some sort of Microsoft ASP form (which I have no experience with), I tried to see if I could use the download functionality to just grab that file and save it locally. The goal was to find URL parameters or a form I could POST and get back the same. However, Sending the POST to the same request with (what I thought was) the same data didn't magically yield any files downloaded. Scratch that idea.
 
 #### Finally Getting It Right with Selenium
 
-Enter web automation framework [selenium](https://stackoverflow.com/questions/12812001/how-to-download-a-file-from-a-asp-website-in-python) which was recommended for similar tasks. I've used it before in some minor QA work, but there's a endless trove of stack overflow questions out there that were able to help me out on this one. Here's the Dockerfile I made for it.
+Enter web automation framework [selenium](https://stackoverflow.com/questions/12812001/how-to-download-a-file-from-a-asp-website-in-python) which was recommended for similar tasks. I've used it before in some minor QA work, but there's a endless trove of stack overflow questions out there that were able to help me out on this one. 
+
+Installing the dependencies was hell, so I decided to make it into a docker container to prevent future frustration.
 
 ```docker
 FROM ubuntu:16.04
@@ -62,13 +51,26 @@ WORKDIR ${CODE_DIR}
 
 RUN apt-get update \
     && apt-get install -y wget \
-    && unzip \
-    && libxi6 \
-    && libgconf-2-4 \
-    && libnss3 \
-    && python3
+    unzip \
+    libxi6 \
+    libgconf-2-4 \
+    libnss3 \
+    python3 \
+    python3-pip \
+    vim
 
-RUN pip3 install selenium
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update \
+    && apt-get install -y google-chrome-stable
+
+RUN pip3 install selenium \
+    requests
+
+# get the newest chromedriver install
+RUN wget https://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip \
+    && unzip chromedriver_linux64.zip \
+    && rm chromedriver_linux64.zip
 ```
 
 ### In-Season Actuals
