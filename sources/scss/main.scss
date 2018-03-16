@@ -13,8 +13,16 @@ body {
 
 h1 {
     font-family: $hero-fonts;
-    font-size: 5rem !important;
+    font-size: 5rem;
     text-decoration: none;
+}
+
+a {
+    color: $orange;
+
+    &:hover {
+        color: $blue;
+    }
 }
 
 /* NAV */
@@ -107,40 +115,44 @@ h1 {
 }
 
 
-/* ABOUT ME TAB */
+/* HEROES AND SUBTITLES */
 
 #about-hero {
     /* background dot pattern */
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
     background-repeat: repeat;
-
-    .title-light {
-        font-family: $hero-fonts;
-        font-weight: normal;
-        font-size: 6rem;
-        color: $white-bis;
-        text-shadow: 5px -5px 0 $orange;
-    }
-
-    .subtitle-light {
-        color: $white-ter;
-        font-family: $hero-subtitle-fonts;
-        font-weight: normal;
-        font-size: 1.5rem;
-        opacity: 0.8;
-    }
-
-    .title-dark {
-        color: $black-bis;
-        font-weight: normal;
-    }
-
-    .subtitle-dark {
-        color: $black-ter;
-        font-weight: normal;
-        opacity: 0.8;
-    }
 }
+
+.title {
+    font-family: $hero-fonts;
+    font-weight: normal;
+    font-size: 6rem;
+}
+
+.subtitle {
+    font-family: $hero-subtitle-fonts;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.title-light {
+    color: $white-bis;
+    text-shadow: 5px -5px 0 $orange;
+}
+
+.title-dark {
+    color: $dark-fill;
+}
+
+.subtitle-light {
+    color: $white-ter;
+    opacity: 0.8;
+}
+
+.subtitle-dark {
+    color: $dark-fill;
+}
+
 
 #about-container {
     margin-top: 2rem;

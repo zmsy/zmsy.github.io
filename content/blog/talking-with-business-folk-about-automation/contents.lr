@@ -11,14 +11,17 @@ One of the major stopping points in conversations with business users I've notic
 Conversations about it often form two sides:
 
 - For engineers and other technical users, the benefits of automation are palpable and usually obvious.
-- For non-technical folk, the benefits usually come down to some variation on these three specifics: unlocking new capabilities, making things easier, and delivering faster.
+- For non-technical folk, the benefits usually come down to some variation on three specifics:
+  - Unlocking new capabilities.
+  - Making things easier.
+  - Delivering faster.
 
-Since I work on a Data Science and Analytics team, the majority of our audience is non-technical business users. I notice that, for people who've never been involved in the process of automating a task or process, the benefits mentioned above are not motivating factors.
+Since I work on a Data Science and Analytics team, the majority of our audience is non-technical business users. I notice that, for people who've never been involved in the process of automating a task or process, these are not motivating factors.
 
-### Reasons End Users Dislike Talking About Automation
+### Reasons End Users Dislike Automation
 
 - **Loss of Control** - This is normally the first and most important aspect of the conversation. A lot of people have grown accustomed to being able to handle something on their own, and they know intuitively when things are right and wrong. They have the ability to adjust outputs if they don't look right, or provide feedback where they think inputs are wrong.
-- **No Understanding** - This is the most obvious point here, as everyone expects. There are a lot of fundamental concepts about automation that business users don't understand. Since most users are normally locked into a GUI with an interactive workflow, designing something to be run on a headless system that doesn't respond to user input is a very foreign model of computing. Users are usually concerned with how _they_ interact with it.
+- **No Common Understanding** - This is the most obvious point here, as everyone expects. There are a lot of fundamental concepts about automation that business users don't understand. Since most users are normally locked into a GUI with an interactive workflow, designing something to be run on a headless system that doesn't respond to user input is a very foreign model of computing. Users are usually concerned with how _they_ interact with it.
 - **Fear of Upfront Costs** - For the short term, there's normally a higher upfront time investment required for automating something.
 - **New Tool & Skill Requirements** - Outside of technical disciplines, adding new skills to your toolkit is not always directly rewarded. Adding technical complexity is usually not something that factors into their decision calculus.
 
@@ -27,6 +30,7 @@ Since I work on a Data Science and Analytics team, the majority of our audience 
 There's a lot that end users might not see or understand, but are normally provable benefits of automating something.
 
 - Fixes Upstream Issues - A lot of the time, end users will fix problems that they see and not document them. When you automate a process, you need reasonable assumptions that you can make, and a lot of the time this forces upstream issues to be fixed.
+- Less Error-prone - A lot of the time manual reporting or processes are done on a regular basis it usually follows some sort of prescribed process or script. People don't know how often they mess this stuff up, whereas with an automated system you can write tests to verify that all of your pre-conditions are met.
 
 ## The Approach
 
