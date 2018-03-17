@@ -13,10 +13,9 @@ gulp.task('bulma', function() {
     return gulp.src('./node_modules/bulma/bulma.sass')
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
-//         .pipe(purify(['./static/js/*.js', './templates/*.html']))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('./assets/css/'));
+        .pipe(gulp.dest('../assets/css/'));
 });
 
 // Process main scss.
@@ -27,7 +26,7 @@ gulp.task('main-css', function() {
         .pipe(sass({ outputStyle: 'expanded' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('./assets/css/'));
+        .pipe(gulp.dest('../assets/css/'));
 });
 
 
@@ -38,7 +37,7 @@ gulp.task('main-js', function() {
         .pipe(source_maps.init())
         .pipe(uglify())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('./assets/js/'));
+        .pipe(gulp.dest('../assets/js/'));
 });
 
 

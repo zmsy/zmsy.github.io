@@ -5,3 +5,4 @@ url_style = relative
 
 [packages]
 lektor-markdown-highlighter = 0.2
+lektor-webpack-support = 0.4
