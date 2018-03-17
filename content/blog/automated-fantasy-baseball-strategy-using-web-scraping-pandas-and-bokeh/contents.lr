@@ -98,6 +98,10 @@ Creating a short script to parse out player rows and add them to another csv for
 * Earned Run Average
 * Quality Starts
 * On-Base Against
+
+
+! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, look at the code repository and add your own stats to the config.yaml file there.
+
 ---
 pub_date: 2018-03-11
 ---

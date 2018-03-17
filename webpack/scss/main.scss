@@ -96,12 +96,14 @@ a {
         font-family: $subtitle-fonts;
         font-size: 1.5rem;
         color: $grey-darker;
+        margin-top: 2.5rem;
     }
 
     h4 {
         font-family: $subtitle-fonts;
         font-size: 1.25rem;
         color: $grey-dark;
+        margin-top: 2rem;
     }
 
     p,
@@ -134,7 +136,7 @@ a {
 .title {
     font-family: $hero-fonts;
     font-weight: normal;
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 .subtitle {
@@ -183,3 +185,9 @@ a {
     font-size: 1rem;
 }
 
+#about-cardtitle {
+    font-family: $reading-fonts;
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}

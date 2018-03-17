@@ -13,8 +13,8 @@ var options = {
   },
   devtool: '#cheap-module-source-map',
   resolve: {
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js']
+    modules: ['./node_modules'],
+    extensions: ['*', '.js']
   },
   module: {
     loaders: [

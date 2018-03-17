@@ -1,5 +1,6 @@
 # custom
 node_modules/
+webpack/node_modules/
 pythonenv/
 cfg.json
 .sass-cache

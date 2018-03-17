@@ -20,7 +20,7 @@ gulp.task('bulma', function() {
 
 // Process main scss.
 gulp.task('main-css', function() {
-    return gulp.src('./sources/scss/main.scss')
+    return gulp.src('./scss/main.scss')
         .pipe(rename('main.min.css'))
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
@@ -32,7 +32,7 @@ gulp.task('main-css', function() {
 
 // Process main javascript.
 gulp.task('main-js', function() {
-    return gulp.src('./sources/js/main.js')
+    return gulp.src('./js/main.js')
         .pipe(rename('main.min.js'))
         .pipe(source_maps.init())
         .pipe(uglify())
