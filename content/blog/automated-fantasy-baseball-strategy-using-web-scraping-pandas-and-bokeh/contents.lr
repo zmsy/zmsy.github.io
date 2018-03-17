@@ -6,7 +6,7 @@ body:
 
 ## Winning Fantasy Baseball in Style
 
-Every year I've missed the title in fantasy baseball. This year, I'm attempting to automate my mid-season scouting process to give me a leg up. Every year our group normally comes up with some very good scouting information, and this year I'm attempting to beat them all out by automating it.
+Every year I've missed the title in fantasy baseball. This year, I'm attempting to automate my mid-season scouting process to give me a leg up. Every year our group normally comes up with some very good scouting information, but I've got a hunch that I can beat them all out by automating it.
 
 #### The Issues With Pre-Season Scouting
 
@@ -85,19 +85,19 @@ Creating a short script to parse out player rows and add them to another csv for
 
 #### Batting Stats
 
-* Home Runs
-* Strikeouts
-* Runs Created (AB \* OBP \* SLG)
-* On Base Percentage
-* Slugging Percentage
+* **HR**: Home Runs
+* **K**: Strikeouts
+* **RC**: Runs Created (AB \* OBP \* SLG)
+* **OBP**: On Base Percentage
+* **SLG**: Slugging Percentage
 
 #### Pitching Stats
 
-* Home Runs Against
-* Strikeouts
-* Earned Run Average
-* Quality Starts
-* On-Base Against
+* **HR**: Home Runs Against
+* **K**: Strikeouts
+* **ERA**: Earned Run Average
+* **QS**: Quality Starts
+* **OBA**: On-Base Percentage Against
 
 
 ! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, look at the code repository and add your own stats to the config.yaml file there.

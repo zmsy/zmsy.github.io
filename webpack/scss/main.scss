@@ -29,6 +29,7 @@ a {
 
 .navbar {
     /* padding: 0rem 3rem 0rem 3rem; */
+    background-color: $white;
     align-items: flex-end;
     font-family: $display-fonts;
     margin: auto;
@@ -190,4 +191,16 @@ a {
     font-size: 1.5rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background-color: $dark-fill;
+    color: $white;
+
+    strong {
+        color: $white;
+    } 
 }
