@@ -6,7 +6,7 @@ body:
 
 ## So...Why Should We Automate This?
 
-One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello World!`, automation is a confusing black box.
+One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello World!`, automation is a confusing black box. This type of automation I'm referencing is specific to **scenarios wherein there exists no readily available commodity software that can solve the problem** (e.g. no "Version control? Git! Database? Postgres!") and that a custom solution is required.
 
 Conversations about it often form two sides:
 
@@ -16,7 +16,7 @@ Conversations about it often form two sides:
   - Making things easier.
   - Delivering faster.
 
-Since I work on a Data Science and Analytics team, the majority of our audience is non-technical business users. I notice that, for people who've never been involved in the process of automating a task or process, these are not motivating factors.
+Since I work on a Data Science and Analytics team, a large portion of our audience is non-technical business users. I notice that, for people who've never been involved in the process of automating a task or process, these are not motivating factors. Try as we might, we normally don't approach this stuff from a fully altruistic angle, and it's usually that automating something being done manually has downstream benefits for us.
 
 ### Reasons End Users Dislike Automation
 
@@ -24,6 +24,8 @@ Since I work on a Data Science and Analytics team, the majority of our audience 
 - **No Common Understanding** - This is the most obvious point here, as everyone expects. There are a lot of fundamental concepts about automation that business users don't understand. Since most users are normally locked into a GUI with an interactive workflow, designing something to be run on a headless system that doesn't respond to user input is a very foreign model of computing. Users are usually concerned with how _they_ interact with it.
 - **Fear of Upfront Costs** - For the short term, there's normally a higher upfront time investment required for automating something.
 - **New Tool & Skill Requirements** - Outside of technical disciplines, adding new skills to your toolkit is not always directly rewarded. Adding technical complexity is usually not something that factors into their decision calculus.
+
+The first two are usually scary enough to end users that they don't want to field questions about automating things.
 
 ## The Unknown Benefits of Automation
 
