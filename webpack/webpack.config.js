@@ -8,12 +8,12 @@ var options = {
     'styles': './scss/main.scss'
   },
   output: {
-    path: path.dirname(__dirname) + '../assets/test/gen',
+    path: path.dirname(__dirname) + '/assets/test/gen',
     filename: '[name].js'
   },
   devtool: '#cheap-module-source-map',
   resolve: {
-    modules: [path.resolve(__dirname, '/node_modules/')],
+    modules: ['node_modules'],
     extensions: ['*', '.js']
   },
   module: {
@@ -25,9 +25,13 @@ var options = {
       {
         test: /\.scss$/,
         include: [
-          path.resolve(__dirname, '/node_modules/')
+          path.resolve(__dirname, './node_modules/'),
+          path.resolve(__dirname, './scss/')
         ],
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        loader: ExtractTextPlugin.extract({
+          use: ['css-loader!sass-loader'],
+          fallback: 'style-loader'
+        })
       },
       {
         test: /\.css$/,
