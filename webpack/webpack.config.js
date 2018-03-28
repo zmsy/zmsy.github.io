@@ -8,23 +8,25 @@ var options = {
     'styles': './scss/main.scss'
   },
   output: {
-    path: path.dirname(__dirname) + '../assets/static/gen',
+    path: path.dirname(__dirname) + '../assets/test/gen',
     filename: '[name].js'
   },
   devtool: '#cheap-module-source-map',
   resolve: {
-    modules: ['./node_modules'],
+    modules: [path.resolve(__dirname, '/node_modules/')],
     extensions: ['*', '.js']
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, '/node_modules/')
+        ],
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       },
       {
