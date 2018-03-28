@@ -3,6 +3,9 @@ zmsy.co
 Main javascript file - includes all logic for site
 */
 
+// webpack imports
+import './../scss/main.scss'
+
 // utility functions
 function $(id) { return document.getElementById(id); }
 
