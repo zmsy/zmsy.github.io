@@ -29,7 +29,7 @@ var options = {
           path.resolve(__dirname, './scss/')
         ],
         loader: ExtractTextPlugin.extract({
-          use: ['css-loader!sass-loader'],
+          use: ['sass-loader'],
           fallback: 'style-loader'
         })
       },
