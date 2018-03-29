@@ -7,241 +7,160 @@ This set of variables is used to derive the downstream stuff in the regular css 
 The colors override default bulma colors.
 
 */
-
-
 /* FONTS */
-
-$display-fonts: 'Patua One', serif;
-$hero-fonts: 'Shrikhand', sans-serif;
-$hero-subtitle-fonts: 'Karla', serif;
-$subtitle-fonts: 'Alegreya', serif;
-$reading-fonts: 'Karla', sans-serif;
-$code-fonts: 'Inconsolata', monospace;
-
 /* COLORS */
-
-$black: #100B03 !default;
-$black-bis: #18130D !default;
-$black-ter: #38332A !default;
-$grey-darker: #3F3B35 !default;
-$grey-dark: #5E564B !default;
-$grey: #8F8980 !default;
-$grey-light: #BAB6AF !default;
-$grey-lighter: #DCDBD9 !default;
-$white-ter: #F0EFEF !default;
-$white-bis: #F5F4F4 !default;
-$white: #FAF9F9 !default;
-$orange: #D85D44 !default;
-$yellow: #FBD136 !default;
-$green: #23D160 !default;
-$turquoise: #8CC9BF !default;
-$blue: #3A89C9 !default;
-$purple: #9665C7 !default;
-$red: #D34141 !default;
-
 /* non-bulma colors */
-$dark-fill: #2a363b;/*
+/*
 Main scss file.
 This creates the main.css file and the same variables can be used in the bulma variables.
 */
-
 body {
-    font-family: $reading-fonts;
-    background-color: $white;
-    color: $black;
-}
+  font-family: "Karla", sans-serif;
+  background-color: #FAF9F9;
+  color: #100B03; }
 
 h1 {
-    font-family: $hero-fonts;
-    font-size: 5rem;
-    text-decoration: none;
-}
+  font-family: "Shrikhand", sans-serif;
+  font-size: 5rem;
+  text-decoration: none; }
 
 a {
-    color: $orange;
-
-    &:hover {
-        color: $blue;
-    }
-}
+  color: #D85D44; }
+  a:hover {
+    color: #3A89C9; }
 
 /* NAV */
-
 .navbar {
-    /* padding: 0rem 3rem 0rem 3rem; */
-    background-color: $white;
-    align-items: flex-end;
-    font-family: $display-fonts;
-    margin: auto;
-}
+  /* padding: 0rem 3rem 0rem 3rem; */
+  background-color: #FAF9F9;
+  align-items: flex-end;
+  font-family: "Patua One", serif;
+  margin: auto; }
 
 .navbar-end a:hover,
 .fa:hover {
-    color: $blue;
-}
+  color: #3A89C9; }
 
 .navbar-burger {
-    margin-top: auto;
-    height: 3.25rem;
-}
+  margin-top: auto;
+  height: 3.25rem; }
 
 #logo-text {
-    font-weight: bold;
-    font-size: 32px;
-    justify-content: flex-start;
-    font-family: $display-fonts;
-}
+  font-weight: bold;
+  font-size: 32px;
+  justify-content: flex-start;
+  font-family: "Patua One", serif; }
 
 #logo-img {
-    padding: 0px;
-    justify-content: flex-end;
-    width: 40px;
-    transition: 0.2s ease-in-out;
-}
+  padding: 0px;
+  justify-content: flex-end;
+  width: 40px;
+  transition: 0.2s ease-in-out; }
 
 #logo-img:hover {
-    transform: rotate(180deg);
-}
+  transform: rotate(180deg); }
 
 .fa {
-    color: $black;
-}
-
+  color: #100B03; }
 
 /* CONTENT */
 /* THIS IS WHERE MARKDOWN IS RENDERED */
 .content {
+  /* code blocks */ }
+  .content h1 {
+    font-family: "Shrikhand", sans-serif;
+    font-size: 3rem;
+    color: #18130D;
+    text-decoration: none; }
+  .content h2 {
+    font-family: "Alegreya", serif;
+    font-size: 2rem;
+    color: #38332A; }
+    .content h2:nth-of-type(1) {
+      margin-top: 1rem; }
+    .content h2:not(:nth-of-type(1)) {
+      margin-top: 4rem; }
+  .content h3 {
+    font-family: "Alegreya", serif;
+    font-size: 1.5rem;
+    color: #3F3B35;
+    margin-top: 2.5rem; }
+  .content h4 {
+    font-family: "Alegreya", serif;
+    font-size: 1.25rem;
+    color: #5E564B;
+    margin-top: 2rem; }
+  .content p,
+  .content ul {
+    color: #5E564B;
+    font-size: 1.125rem;
+    text-align: justify; }
+  .content hr {
+    border-top: 1px dotted #DCDBD9; }
+  .content .hll {
+    margin: 1rem; }
 
-    h1 {
-        font-family: $hero-fonts;
-        font-size: 3rem;
-        color: $black-bis;
-        text-decoration: none;
-    }
-
-    h2 {
-        font-family: $subtitle-fonts;
-        font-size: 2rem;
-        color: $black-ter;
-
-        &:nth-of-type(1) {
-            margin-top: 1rem;
-        }
-
-        &:not(:nth-of-type(1)) {
-            margin-top: 4rem;
-        }
-    }
-
-    h3 {
-        font-family: $subtitle-fonts;
-        font-size: 1.5rem;
-        color: $grey-darker;
-        margin-top: 2.5rem;
-    }
-
-    h4 {
-        font-family: $subtitle-fonts;
-        font-size: 1.25rem;
-        color: $grey-dark;
-        margin-top: 2rem;
-    }
-
-    p,
-    ul {
-        color: $grey-dark;
-        font-size: 1.125rem;
-        text-align: justify;
-    }
-
-    hr {
-        border-top: 1px dotted $grey-lighter;
-    }
-
-    /* code blocks */
-    .hll {
-        margin: 1rem;
-    }
-
-}
-
+.pagination {
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
 
 /* HEROES AND SUBTITLES */
-
 #about-hero {
-    /* background dot pattern */
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
-    background-repeat: repeat;
-}
+  /* background dot pattern */
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
+  background-repeat: repeat; }
 
 .title {
-    font-family: $hero-fonts;
-    font-weight: normal;
-    font-size: 5rem;
-}
+  font-family: "Shrikhand", sans-serif;
+  font-weight: normal;
+  font-size: 5rem; }
 
 .subtitle {
-    font-family: $hero-subtitle-fonts;
-    font-weight: normal;
-    font-size: 1.5rem;
-}
+  font-family: "Karla", serif;
+  font-weight: normal;
+  font-size: 1.5rem; }
 
 .title-light {
-    color: $white-bis;
-    text-shadow: 5px -5px 0 $orange;
-}
+  color: #F5F4F4;
+  text-shadow: 5px -5px 0 #D85D44; }
 
 .title-dark {
-    color: $dark-fill;
-}
+  color: #2a363b; }
 
 .subtitle-light {
-    color: $white-ter;
-    opacity: 0.8;
-}
+  color: #F0EFEF;
+  opacity: 0.8; }
 
 .subtitle-dark {
-    color: $dark-fill;
-}
-
+  color: #2a363b; }
 
 #about-container {
-    margin-top: 2rem;
-}
+  margin-top: 2rem; }
 
 #about-photo {
-    margin: 0rem;
-}
+  margin: 0rem; }
 
 #about-logo {
-    margin: 0rem;
-}
+  margin: 0rem; }
 
 #about-name {
-    margin: auto;
-}
+  margin: auto; }
 
 #about-tagline {
-    text-align: justify;
-    font-size: 1rem;
-}
+  text-align: justify;
+  font-size: 1rem; }
 
 #about-cardtitle {
-    font-family: $reading-fonts;
-    font-size: 1.5rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-}
-
+  font-family: "Karla", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem; }
 
 /* FOOTER */
-
 .footer {
-    background-color: $dark-fill;
-    color: $white;
+  background-color: #2a363b;
+  color: #FAF9F9; }
+  .footer strong {
+    color: #FAF9F9; }
 
-    strong {
-        color: $white;
-    } 
-}
 /*# sourceMappingURL=styles.css.map*/
