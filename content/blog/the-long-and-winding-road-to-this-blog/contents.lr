@@ -1,4 +1,4 @@
-title: The Long and Winding Road To This Blog
+kitle: The Long and Winding Road To This Blog
 ---
 author: Zach Morrissey
 ---
@@ -48,6 +48,7 @@ Having gotten tired of Bootstrap and not particularly liking Less as a CSS pre-p
 ### What I Learned:
 * **Web Servers Are Still A Thing** - Deploying to a real web server meant that I could no longer just the `app.run()` method that came with Flask. People use these _alongside_ a normal webserver like nginx/apache? That's nuts!
 * **Docker** - Containerization! Even though my final website I created was just flat files, this version was basically one that made it so that I could use a Docker container with nginx installed, add all of my dependencies, and then run it and have it work every time.
+* **Gulp** - This was the first build tool that I ended up using, and its straightforward nature was excellent. Found it easy to pick up, and very powerful.
 
 ## Version 4 - Flask + Lektor (2018)
 
@@ -67,9 +68,9 @@ Conceptually, this was all super familiar to me from using Jinja2 in Flask, usin
 
 ### What I Learned When I Finally Made a Version Worth Deploying:
 
-* Static sites are _stupid_ easy to deploy. I can basically have a CI tool do the build and then push the files up to the web server and that's _it_.
-* No database is good when you don't have a particular need for one.
-* Lektor is cool. It has it's own editing interface you can use to write things, so it makes creating new blog posts easy. I'm planning on trying to learn it well enough to be able to contribute back at some point.
+* **Static Sites Generators** - They're _stupid_ easy to deploy. I can basically have a CI tool do the build and then push the files up to the web server and that's _it_. No database is good when you don't have a particular need for one.
+* **Lektor** - This particular SSG has its own editing interface you can use to write things, so it makes creating new blog posts easy. I'm planning on trying to learn it well enough to be able to contribute back at some point.
+* **Webpack** - Similar to how I was using grunt, I've switched to Webpack as a learning opportunity, and because it has a good integration with Lektor.
 
 
 ## Version Next?
