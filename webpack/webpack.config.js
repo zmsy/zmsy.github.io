@@ -5,8 +5,8 @@
 
     var options = {
       entry: {
-        'app': './js/main.js',
-        'styles': './scss/main.scss'
+        'app': './src/index.js',
+        'styles': './src/main.scss'
       },
       output: {
         path: path.dirname(__dirname) + '/assets/test/gen',
@@ -18,7 +18,7 @@
         extensions: ['*', '.js']
       },
       module: {
-        loaders: [
+        rules: [
           {
             test: /\.js$/,
             loader: 'babel-loader'
@@ -27,7 +27,7 @@
             test: /\.scss$/,
             include: [
               path.resolve(__dirname, './node_modules/'),
-              path.resolve(__dirname, './scss/')
+              path.resolve(__dirname, './src/')
             ],
             loader: ExtractTextPlugin.extract({
               use: ['css-loader', 'sass-loader'],
@@ -48,7 +48,6 @@
         new ExtractTextPlugin('styles.css', {
           allChunks: true
         }),
-        new webpack.optimize.UglifyJsPlugin(),
         new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/g,
           cssProcessor: require('cssnano'),
