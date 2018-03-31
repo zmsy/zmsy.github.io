@@ -1,13 +1,13 @@
 # custom
 node_modules/
 webpack/node_modules/
+npm-debug.log
 webpack/npm-debug.log
 pythonenv/
 cfg.json
 .sass-cache
 *.DS_STORE
 *.map
-npm-debug.log
 
 
 # Byte-compiled / optimized / DLL files
