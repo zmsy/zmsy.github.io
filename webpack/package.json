@@ -6,7 +6,8 @@
   "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
     "start": "webpack --watch"
   },
   "author": "Zach Morrissey",
