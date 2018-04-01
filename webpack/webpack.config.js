@@ -5,8 +5,7 @@
 
     var options = {
       entry: {
-        'app': './src/index.js',
-        'styles': './src/main.scss'
+        'main': './src/main.js'
       },
       output: {
         path: path.dirname(__dirname) + '/assets/test/gen',
@@ -45,7 +44,7 @@
         ]
       },
       plugins: [
-        new ExtractTextPlugin('styles.css', {
+        new ExtractTextPlugin('[name].min.css', {
           allChunks: true
         }),
         new OptimizeCssAssetsPlugin({

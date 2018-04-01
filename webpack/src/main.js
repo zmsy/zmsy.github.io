@@ -4,7 +4,7 @@ Main javascript file - includes all logic for site
 */
 
 // webpack imports
-// import './main.scss'
+import './main.scss'
 
 // utility functions
 function $(id) { return document.getElementById(id); }
