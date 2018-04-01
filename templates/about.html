@@ -1,14 +1,8 @@
 {% extends "layout.html" %}
+{% from "macros/hero.html" import render_hero %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
-<section class="hero is-medium" id="about-hero">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title title-light">{{ this.title }}</h1>
-      <h2 class="subtitle subtitle-light">{{ this.subtitle }}</h2>
-    </div>
-  </div>
-</section>
+{{ render_hero(this) }}
 <section class="section" id="main">
   <div class="container content" id="about-container">
     <div class="columns is-centered">
