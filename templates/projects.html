@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% from "macros/hero.html" import render_hero %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+{{ render_hero(this) }}
+<div class="columns is-centered is-desktop">
+  <div class="column is-8 is-12-touch">
+    <div class="content">
+      {{this.body}}
+    </div>
+  </div>
+</div>
+{% endblock %}

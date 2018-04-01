@@ -32,7 +32,7 @@ gulp.task('main-css', function() {
 
 // Process main javascript.
 gulp.task('main-js', function() {
-    return gulp.src('./src/index.js')
+    return gulp.src('./src/main.js')
         .pipe(rename('main.min.js'))
         .pipe(source_maps.init())
         .pipe(uglify())
