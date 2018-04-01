@@ -1,0 +1,9 @@
+// 1. Import the initial variables
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+// 2. Set your own initial variables
+@import "variables.scss";
+
+// 6. Import the rest of Bulma
+@import "../node_modules/bulma/bulma";

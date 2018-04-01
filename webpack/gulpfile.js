@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -9,7 +9,7 @@ var purify = require('gulp-purify-css');
 var rename = require('gulp-rename');
 
 // Process bulma variables
-gulp.task('bulma', function() {
+gulp.task('bulma-default', function() {
     return gulp.src('./node_modules/bulma/bulma.sass')
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'expanded' }))
@@ -17,6 +17,17 @@ gulp.task('bulma', function() {
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));
 });
+
+// Custom bulma version.
+gulp.task('bulma-custom', function() {
+    return gulp.src('./src/bulma.scss')
+        .pipe(source_maps.init())
+        .pipe(sass({ outputStyle: 'expanded' }))
+        .pipe(clean_css())
+        .pipe(source_maps.write('.'))
+        .pipe(gulp.dest('../assets/css/'));
+});
+
 
 // Process main scss.
 gulp.task('main-css', function() {
@@ -39,7 +50,6 @@ gulp.task('main-js', function() {
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/js/'));
 });
-
 
 // Process all
 gulp.task('default', ['bulma', 'main-css', 'main-js'])

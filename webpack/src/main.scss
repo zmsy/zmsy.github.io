@@ -123,6 +123,37 @@ a {
         margin: 1rem;
     }
 
+    /* admonitions */
+    .admonition {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .admonition-note {
+        background-color: $grey-lighter;
+    }
+
+    .admonition-info {
+        background-color: $yellow;
+    }
+
+    .admonition-tip {
+        background-color: $blue;
+
+        p {
+            color: $white;
+        }
+    }
+
+    .admonition-warning {
+        background-color: $orange;
+
+        p {
+            color: $white;
+        }
+    }
+
 }
 
 .pagination {
