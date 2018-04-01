@@ -8,7 +8,7 @@
         'main': './src/main.js'
       },
       output: {
-        path: path.dirname(__dirname) + '/assets/test/gen',
+        path: path.dirname(__dirname) + '/assets/gen',
         filename: '[name].js'
       },
       devtool: '#cheap-module-source-map',
