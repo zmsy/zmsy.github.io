@@ -31,14 +31,14 @@ requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league
 
 ### Projections
 
-Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're of much value otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
+Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're particularly valuable otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
 #### Getting Data with cURL
 
 There were two issues I was trying to solve for.
 
-1. URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once. Without the ability to scrape all of the players or paginate through them, my automation would only be as useful as the top 50 projected players.
-2. Confusing ASP.net forms. These use built-in Microsoft libraries that are difficult to parse through the JS to find the form post, even though most of the time it's just a simple post back to the same page. In addition to the form post parameters, these send back somewhere between 50-60kb of base64-encoded page state data, which is a lot of added noise for my purposes.
+1. **Not enough players** - URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once. Without the ability to scrape all of the players or paginate through them, my automation would only be as useful as the top 50 projected players.
+2. **Confusing ASP.net forms** - These use built-in Microsoft libraries that are difficult to parse through the JS to find the form post, even though most of the time it's just a simple post back to the same page. In addition to the form post parameters, these send back somewhere between 50-60kb of base64-encoded page state data, which is a lot of added noise for my purposes.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
 
@@ -74,8 +74,8 @@ In addition to projections, having in-season results helps improve our judgment 
 
 Getting the ongoing statistics on a per-player basis turned out to be much easier than anything related to the projections. With a little manipulation of URL parameters, you can easily create a page for scraping that contains all of the necessary information in one go.
 
-* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=20&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
-* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=0&type=8&season=2017&month=0&season1=2017&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
+* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=20&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
+* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=0&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
 
 Creating a short script to parse out player rows and add them to another csv for consumption later on turned out to be short work once I figured this bit out.
 

@@ -108,7 +108,9 @@ a {
     }
 
     p,
-    ul {
+    ul,
+    ol,
+    li {
         color: $grey-dark;
         font-size: 1.125rem;
         text-align: justify;
