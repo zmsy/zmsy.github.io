@@ -28,7 +28,7 @@ This site was built on a number of technologies, using the Lektor static-file CM
 
 - **lektor** - Static file CMS. Great authoring UI for new content, easily understood modeling & templating system, excellent documentation.
 - **python** - Data visualizations, Lektor plugins, etc. The glue between pretty much everything else here.
-- **bulma** - CSS-only grid-based web framework. Makes layout very simple.
+- **bulma** - CSS-only flexbox-based web framework. Makes layout very simple.
 - **scss** - For custom styling and for customizing bulma.
 - **webpack** - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
 - **aws** - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
