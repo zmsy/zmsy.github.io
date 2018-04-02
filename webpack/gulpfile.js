@@ -51,5 +51,11 @@ gulp.task('main-js', function() {
         .pipe(gulp.dest('../assets/js/'));
 });
 
+
+// watch main css
+gulp.task('watch:main', function () {
+    gulp.watch('./src/main.scss', ['main-css']);
+});
+
 // Process all
 gulp.task('default', ['bulma', 'main-css', 'main-js'])
