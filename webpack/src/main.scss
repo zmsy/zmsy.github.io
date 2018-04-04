@@ -5,6 +5,10 @@ Main scss file.
 This creates the main.css file and the same variables can be used in the bulma variables.
 */
 
+html {
+    background-color: $dark-fill;
+}
+
 body {
     font-family: $reading-fonts;
     background-color: $white;
@@ -170,6 +174,8 @@ a {
     /* background dot pattern */
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
     background-repeat: repeat;
+    border-top: 1rem solid $grey-lighter;
+    border-bottom: 1rem solid $grey-lighter;
 
     & > #about-hero-body {
         padding-top: 6rem;
@@ -237,15 +243,21 @@ a {
 }
 
 #hero-badge {
-    margin-bottom: -11.25rem;
+    margin-bottom: -11.75rem;
     height: 250px;
 }
+
+#blank-section {
+    height: 8rem;
+}
+
 
 /* FOOTER */
 
 .footer {
     background-color: $dark-fill;
     color: $white;
+    border-top: 1rem solid $grey-lighter;
 
     strong {
         color: $white;
