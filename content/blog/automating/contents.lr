@@ -1,4 +1,4 @@
-title: Talking With Business Folk About Automation
+title: The Uncomfortable Practice of Talking With Business Folk About Automation
 ---
 author: Zach Morrissey
 ---
@@ -6,7 +6,7 @@ body:
 
 ## So...Why Should We Automate This?
 
-One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a `Hello World!`, automation is a confusing black box. This type of automation I'm referencing is specific to **scenarios wherein there exists no readily available commodity software that can solve the problem** (e.g. no "Version control? Git! Database? Postgres!") and that a custom solution is required.
+One of the major stopping points in conversations with business users I've noticed is the conversation around automation. For most people who've never programmed or written more than a _"Hello World!"_, automation is a confusing black box. The **type of automation I'm referencing is specific to scenarios wherein there exists no readily available commodity software that can solve the problem** (e.g. no "Version control? Git! Spreadsheet? Excel!") and that a custom solution is required.
 
 Conversations about it often form two sides:
 
