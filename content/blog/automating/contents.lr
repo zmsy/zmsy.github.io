@@ -26,7 +26,11 @@ Since I work on a Data Science and Analytics team, a large portion of our audien
 
 Having this conversation is _never_ simple or without controversy though.
 
-### Reasons End Users Dislike Automation
+### Reasons End Users Dislike The Process of Automation
+
+If done well, very few people ever complain about automation unless their jobs depend on tasks not being automated. This group is not the focus of this post; it assumes these users have other pressing tasks they'd normally be spending their time on. However, the process of creating an automated system to handle manual tasks is, in my experience, an arduous process. 
+
+The top reasons I've noticed:
 
 - **Loss of Control** - This is normally the first and most important aspect of the conversation. A lot of people have grown accustomed to being able to handle something on their own, and they know intuitively when things are right and wrong. They have the ability to adjust outputs if they don't look right, or provide feedback where they think inputs are wrong.
 - **No Common Understanding** - This is the most obvious point here, as everyone expects. There are a lot of fundamental concepts about automation that business users don't understand. Since most users are normally locked into a GUI with an interactive workflow, designing something to be run on a headless system that doesn't respond to user input is a very foreign model of computing. Users are usually concerned with how _they_ interact with it.
@@ -37,16 +41,18 @@ The first two are usually scary enough to end users that they don't want to fiel
 
 ## The Culture Divide
 
-Business users such as those in finance or sales are usually under some sort of incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals. The difficult part of this conversation often is that you're effectively trying to convince them to adopt an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself. For users who tend to spnd
+Business users such as those in finance or sales are usually under some sort of incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals well. The difficult part of this conversation often is that you're effectively trying to convince them to adopt an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself. For those who spend a lot of their time in non-technical business positions, this is a source of frustration when talking to engineers.
+
+Oftentimes, it's difficult to avoid minimizing the issues. From the perspective of someone who has software engineering skills, it's often first seen as a slight against the problem itself. One thing I've learned is that this is normally never the case. As an engineer approaching the problem, I will rarely if ever have the depth of knowledge about the problem space compared to the business user that I'm working with. Combine that with a not-unique-to-me tendency to underestimate how long delivering an automated solution will take, I realize now that it's often come across like me both acting condescending and not delivering on what I promise.
 
 ## The Unknown Benefits of Automation
 
 There's a lot that end users might not see or understand, but are normally provable benefits of automating something.
 
 - Fixes Upstream Issues - A lot of the time, end users will fix problems that they see and not document them. When you automate a process, you need reasonable assumptions that you can make, and a lot of the time this forces upstream issues to be fixed.
-- Less Error-prone - A lot of the time manual reporting or processes are done on a regular basis it usually follows some sort of prescribed process or script. People don't know how often they mess this stuff up, whereas with an automated system you can write tests to verify that all of your pre-conditions are met.
+- Less Error-prone - A lot of the time manual reporting or processes are done on a regular basis it usually follows some sort of prescribed process or script. People don't know how often they mess this stuff up, whereas with an automated system you can write tests to verify that all of your pre-conditions are met. One of the biggest wins for my stakeholders is often how much less time they spend triaging issues that arise.
 
-## The Approach
+## My Approach
 
 - Be empathetic. This may seem like an obvious platitude, but _caring_ about their position in this situation is required for a solution that genuinely helps users out.
 - Talk about pieces of the work as functions, with an input and an output.
