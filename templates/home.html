@@ -6,11 +6,38 @@
   <div class="hero-body" id="about-hero-body">
     <div class="container has-text-centered">
       <h1 class="title title-light is-size-1-touch">{{ this.title }}</h1>
-      <img class="is-centered" id="hero-badge" src="/img/badge.svg" alt="Things that I do.">
+      <img class="is-centered is-hidden-mobile" id="hero-badge" src="/img/badge.svg" alt="Things that I do.">
     </div>
   </div>
 </section>
 <section id="blank-section">
+</section>
+<section>
+  <div class="container content">
+    <div class="columns is-centered is-desktop">
+      <div class="column is-3 has-text-centered">
+        <a class="icon" href="/blog">
+          <span class="icon"> <i class="fa fa-edit"></i></span>
+        </a>
+        <h2>Blog</h2>
+        <p>{{this.blog_tagline}}</p>
+      </div>
+      <div class="column is-3 has-text-centered">
+        <a class="icon" href="/blog">
+          <span class="icon"> <i class="fa fa-laptop"></i></span>
+        </a>
+        <h2>Projects</h2>
+        <p>{{this.projects_tagline}}</p>
+      </div>
+      <div class="column is-3 has-text-centered">
+        <a class="icon" href="/blog">
+          <span class="icon"> <i class="fa fa-user"></i></span>
+        </a>
+        <h2>About Me</h2>
+        <p>{{this.about_me_tagline}}</p>
+      </div>
+    </div>
+  </div>
 </section>
 {{ this.body }}
 {% endblock %}

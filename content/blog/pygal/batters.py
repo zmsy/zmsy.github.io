@@ -1,6 +1,8 @@
 import pygal
 import csv
 import pandas as pd
+from numpy.random import randint
+from random import shuffle
 
 with open("batters.csv", "r") as b_file:
     reader = csv.reader(b_file)
@@ -14,38 +16,35 @@ config.show_x_labels = False
 config.show_minor_x_labels = False
 config.show_y_labels = False
 config.show_minor_y_labels = False
+config.js = []
+config.print_values = False
+config.height = 150
+config.stroke = False
 
 style = pygal.style.Style(
+    plot_background='transparent',
     background='transparent',
-    foreground='transparent'
+    foreground='transparent',
+    colors=['#FFF']
 )
 
-
-
 df = pd.read_csv("batters.csv")
-df = df.dropna(how='any')  # drop players without teams
-df = df[df['PA'] >= 400]   # limit to players with over 400 projected plate appearances
 df['RC'] = (df['PA'] - df['BB']) * df['OBP'] * df['SLG']
-df_teams = df['Team'].unique()
+df['X'] = randint(0, 501, size=len(df))
+df = df[df['RC'] > 0] # only players with projections
 
 # create distribution line
-dot = pygal.XY(config, style=style)
-for index, team in enumerate(list(df_teams)):
-    dot.add(team, [(index + 1, x) for x in list(df[df['Team'] == team]['RC'])])
+box = pygal.XY(config, style=style)
+rows = [(x.X, round(x.RC, 4)) for x in df.itertuples()]
+box.add('blank', rows)
 
-svg = dot.render(is_unicode=True)
-with open("batters_dotplot.svg", "w") as svg_file:
+svg = box.render(is_unicode=True)
+with open("batters.svg", "w") as svg_file:
     svg_file.write(svg)
 
 """
 # create box and whisker plot
 box = pygal.Box()
-box.title = 'RC by Team'
-for team in df_teams:
-    print(team + " - " + ','.join(df[df['Team'] == team]['Name']))
-    print("\n")
-    box.add(team, list(df[df['Team'] == team]['RC']))
-
 svg = box.render(is_unicode=True)
 with open("batters.svg", "w") as svg_file:
     svg_file.write(svg)
