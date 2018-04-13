@@ -263,9 +263,23 @@ a {
     height: 12rem;
 }
 
-.home-tagline {
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+.home-columns {
+    h2 {
+        font-family: $subtitle-fonts;
+        font-size: 2rem;
+        color: $black-ter;
+    }
+
+    i {
+        font-size: 2.5rem;
+    }
+
+    p {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 }
 
 
