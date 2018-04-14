@@ -25,3 +25,11 @@ This site is intended to hold many of the personal projects that I do for fun an
 * `nginx`
 * `aws`
 
+## Build
+
+This can be built using:
+
+```sh
+lektor build -O build/
+```
+
