@@ -28,7 +28,6 @@ Icon
 # Distribution / packaging
 *.Python
 env/
-build/
 develop-eggs/
 dist/
 downloads/

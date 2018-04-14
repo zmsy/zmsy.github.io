@@ -2,19 +2,12 @@ _model: home
 ---
 title: Zach Morrissey
 ---
-body:
-
-<br>
-<br>
-This is a placeholder for right now.
-<br>
-<br>
+body: 
 ---
 subtitle: 
 ---
 blog_tagline: A collection of writings on technology, programming, data analysis, visualization, and other topics.
 ---
-projects_tagline: Personal projects I've worked on using data, analysis, analyzing data, and data analysis.
+projects_tagline: Personal interactive projects featuring custom data visualizations, interactive dashboards, and more.
 ---
 about_me_tagline: More about the author: Where I've come from, where I'm headed, and what I'll be doing along the way there.
----
