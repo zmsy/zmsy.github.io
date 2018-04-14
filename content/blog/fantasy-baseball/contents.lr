@@ -22,11 +22,41 @@ Our team uses ESPN for our league, which happens to allow access to webpages so 
 
 ```python
 import requests
+import csv
 from bs4 import BeautifulSoup
 
 # rip your league id from your espn url
 league_id = 1234567890
-requests.get('http://games.espn.com/flb/leaguerosters?leagueId={}'.format(league_id))
+LEAGUE_URL = "http://games.espn.com/flb/leaguerosters?leagueId={}"
+html = requests.get(LEAGUE_URL.format(league_id)).text
+
+# parse the page to return the rosters table
+soup = BeautifulSoup(html)
+rosters = soup.find_all("table", {'class': 'playerTableTable'})
+
+# loop through the rosters table and get all of the associated values
+players = []
+for roster in rosters:
+    team_name = roster.find("a").text
+    players_html = roster.find_all("td", {'class': 'playertablePlayerName'})
+    for player in players_html:
+        # parse player info
+        player_name = player.text.split(",")[0]
+        player_name = player_name.replace("*", "")
+
+        # translate player name if necessary
+        translation = TRANSLATIONS.get(player_name)
+        if translation:
+            player_name = translation
+
+        # add to output list
+        players.append([player_name, team_name])
+
+# write out to a csv
+with open("rosters.csv", "w", newline='') as out_file:
+    writer = csv.writer(out_file)
+    writer.writerow(("player", "team"))
+    writer.writerows(players)
 ```
 
 ### Projections
