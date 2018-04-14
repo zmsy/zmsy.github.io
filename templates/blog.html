@@ -4,7 +4,7 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 <div class="columns is-centered is-desktop">
-  <div class="column is-8 is-12-touch">
+  <div class="column is-8-desktop is-7-fullhd">
     {% for child in this.pagination.items %}
       {{ render_blog_post(child, from_index=true) }}
     {% endfor %}
