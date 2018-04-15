@@ -40,14 +40,10 @@ for roster in rosters:
     team_name = roster.find("a").text
     players_html = roster.find_all("td", {'class': 'playertablePlayerName'})
     for player in players_html:
-        # parse player info
+
+        # parse player info, remove asterisks for injured players.
         player_name = player.text.split(",")[0]
         player_name = player_name.replace("*", "")
-
-        # translate player name if necessary
-        translation = TRANSLATIONS.get(player_name)
-        if translation:
-            player_name = translation
 
         # add to output list
         players.append([player_name, team_name])
@@ -104,10 +100,19 @@ In addition to projections, having in-season results helps improve our judgment 
 
 Getting the ongoing statistics on a per-player basis turned out to be much easier than anything related to the projections. With a little manipulation of URL parameters, you can easily create a page for scraping that contains all of the necessary information in one go.
 
-* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=20&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
-* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=0&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
+* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
+* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
 
-Creating a short script to parse out player rows and add them to another csv for consumption later on turned out to be short work once I figured this bit out.
+Creating a short script to parse out player rows and add them to another csv for consumption later on turned out to be short work once I figured this bit out. Here's the script I used (uses requests and beautifulsoup, similar to above):
+
+```python
+import requests
+import csv
+from bs4 import BeautifulSoup
+
+PITCHERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000"
+BATTERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000"
+```
 
 ## Creating a Repeatable Analysis Using Pandas
 
