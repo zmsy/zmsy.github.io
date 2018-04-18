@@ -31,5 +31,6 @@ This can be built using:
 
 ```sh
 lektor build -O build/
+lektor deploy s3
 ```
 

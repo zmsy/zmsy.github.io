@@ -9,7 +9,7 @@ lektor-webpack-support = 0.4
 lektor-markdown-admonition = 0.1
 lektor-s3 = 0.5.0
 
-[servers.S3]
+[servers.s3]
 name = S3
 enabled = yes
 target = s3://zmsy
