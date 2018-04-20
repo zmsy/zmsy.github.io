@@ -50,7 +50,7 @@ Having gotten tired of Bootstrap and not particularly liking Less as a CSS pre-p
 * **Docker** - Containerization! Even though my final website I created was just flat files, this version was basically one that made it so that I could use a Docker container with nginx installed, add all of my dependencies, and then run it and have it work every time.
 * **Gulp** - This was the first build tool that I ended up using, and its straightforward nature was excellent. Found it easy to pick up, and very powerful. The chaining of commands was really an excellent way of introducing myself to frontend build systems.
 
-## Version 4 - Flask + Lektor (2018)
+## Version 4 - Lektor + Bulma (2018)
 
 This is the version that I finally got right. The thing that I was missing on the earlier versions is that I'm going to be regularly interacting with this site and changing the information on it. I didn't want to have to program all the aspects of that myself, so I decided to switch over to some sort of CMS. At work, I had recently used Jekyll to create an internal web site, so I decided to switch over to Lektor, which bills itself as a flat file CMS.
 
@@ -66,21 +66,18 @@ A static site generator takes many of the innovations of dynamic web frameworks 
 
 Conceptually, this was all super familiar to me from using Jinja2 in Flask, using a database to represent both the model (database schema) and the content (database rows).
 
-### What I Learned When I Finally Made a Version Worth Deploying:
+### What I Learned When I Finally Made a Version Worth Deploying
 
 * **Static Sites Generators** - They're _stupid_ easy to deploy. I can basically have a CI tool do the build and then push the files up to the web server and that's _it_. No database is good when you don't have a particular need for one.
 * **Lektor** - This particular SSG has its own editing interface you can use to write things, so it makes creating new blog posts easy. I'm planning on trying to learn it well enough to be able to contribute back at some point.
 * **Webpack** - Similar to how I was using gulp, I've switched to Webpack as a learning opportunity, and because it has a good integration with Lektor. At first impression, I _really_ hated the config system I was using in 2.x and 3.x, but was a fan of the tool itself. Fortunately, Webpack 4 has just released with it's 0-config option, so I decided to use it. I found [this webpack 4 tutorial](https://www.valentinog.com/blog/webpack-4-tutorial/) very helpful.
 
 
-## Version Next?
+## Version 5 - The Switch to Jekyll Approaches (2018...?)
 
-The next version of this site will likely be based on React, because I'm curious to learn it and reading JSX weirds me out in a good way. I'm not sure who thought of this thing, but reading up on the use cases for React, it seems like it's fit a niche that no other framework has managed to fit in the same way.
+Jekyll is and has always been the grandaddy of all static site generators, and the support from its plugin ecosystem far eclipses that of a smaller project like Lektor. Primarily, I am a fan of the editing interface and models / templating system (Jinja2 is still my favorite) in Lektor. Jekyll, however, has a lot more eyes on it and gets a lot more love from a maintenance perspective. 
 
-Considering this is a blog, there's very little interactive about it, but in the future I'm hoping to add some analytics projects that have major interactive aspects to them.
-
-
-
+I gained a lot along the way though - the Jekyll portion will only render the static files that create the site itself. The next version of this site is going to a separate Flask API running on a different server, which will serve up data and information for the interactive [Projects](/projects) page.
 ---
 pub_date: 2018-02-28
 ---
