@@ -114,6 +114,8 @@ PITCHERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&q
 BATTERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000"
 ```
 
+Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html) function for parsing HTML tables like this (which uses lxml internally, same as BeautifulSoup), but the encoding of this table caused enough havoc that I decided to write the parser myself. If you're in a similar scenario, try that method first!
+
 ## Creating a Repeatable Analysis Using Pandas
 
 [Pandas](https://pandas.pydata.org/) is very capable of producing these sorts of information on tabular data in a straightforward, repeatable manner. Our league uses a customized stat list to base our categories on, so we have to derive many of these after getting actuals/projections.

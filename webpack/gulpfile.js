@@ -58,4 +58,4 @@ gulp.task('watch:main', function () {
 });
 
 // Process all
-gulp.task('default', ['bulma', 'main-css', 'main-js'])
+gulp.task('default', ['bulma-custom', 'main-css', 'main-js'])
