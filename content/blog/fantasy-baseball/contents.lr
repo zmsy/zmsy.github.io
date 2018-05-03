@@ -1,5 +1,7 @@
 title: Automated Fantasy Baseball Strategy using Web Scraping, Pandas, and Bokeh
 ---
+slug_title: fantasy_baseball
+---
 author: Zach Morrissey
 ---
 body:
@@ -139,7 +141,3 @@ Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/s
 
 ! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, look at the code repository and add your own stats to the config.yaml file there.
 
----
-pub_date: 2018-03-11
----
-twitter_handle: _zmsy
