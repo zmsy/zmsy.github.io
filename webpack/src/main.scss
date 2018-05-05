@@ -191,7 +191,7 @@ a {
 .title {
     font-family: $hero-fonts;
     font-weight: normal;
-    font-size: 5rem;
+    font-size: 4.5rem;
 }
 
 .subtitle {
@@ -245,6 +245,10 @@ a {
     font-size: 1.5rem;
     margin-top: 0rem;
     margin-bottom: 0rem;
+}
+
+.hero-title {
+    font-size: 5.5rem;
 }
 
 #hero-badge {

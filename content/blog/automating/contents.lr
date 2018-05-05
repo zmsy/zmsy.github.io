@@ -1,5 +1,7 @@
 title: The Uncomfortable Practice of Talking With Business Folk About Automation
 ---
+slug_title: automation
+---
 author: Zach Morrissey
 ---
 body:
@@ -13,6 +15,7 @@ Typical motivation:
 - Current system is resulting in too many issues/errors.
 - Not scalable.
 - Reducing time that could be spent doing more productive things.
+- Little or no documentation. This may be coupled with never-ending trails of _"Well maybe this person knows"_ when trying to research something.
 
 Conversations about it often form two sides:
 
@@ -41,21 +44,29 @@ The first two are usually scary enough to end users that they don't want to fiel
 
 ## The Culture Divide
 
-Business users such as those in finance or sales are usually under some sort of incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals well. The difficult part of this conversation often is that you're effectively trying to convince them to adopt an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself. For those who spend a lot of their time in non-technical business positions, this is a source of frustration when talking to engineers.
+We often might as well be speaking different languages. Business users such as those in finance or sales are usually under some sort of incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals well. The difficult part here is that you're trying to sell them on an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself not the person(s) running it. For those who spend a lot of their time in non-technical business positions, this conversation is a source of frustration.
 
-Oftentimes, it's difficult to avoid minimizing the issues. From the perspective of someone who has software engineering skills, it's often first seen as a slight against the problem itself. One thing I've learned is that this is normally never the case. As an engineer approaching the problem, I will rarely if ever have the depth of knowledge about the problem space compared to the business user that I'm working with. Combine that with a not-unique-to-me tendency to underestimate how long delivering an automated solution will take, I realize now that it's often come across like me both acting condescending and not delivering on what I promise.
+The reason is because it's hard to avoid coming across as minimizing the problem. Whether or not on purpose, oftentimes framing the problem as one that should be automated may seem condescending towards those currently owning it. Users become more entrenched in their ways because they're offered the stick and not the carrot. They justifiably believe their work is valuable, and the engineer's approach of let's-abstract-this-away-permanently makes it seem like it's not fully grasping the importance of those current manual outputs.
+
+It's something I've come to respect in a sincere way, and have gotten frustrated with the '_end users amirite guys_' attitude I regularly see in myself. I will rarely if ever have the depth of knowledge about the problem space compared to those I'm working with. Combine that with a [definitely-not-unique-to-me tendency to underestimate how long delivering an automated solution will take](https://chrismm.com/blog/project-delays-why-software-estimates/), I realize that I sometimes deliver the effective one-two punch of both acting condescending and not delivering on what I promise.
 
 ## The Unknown Benefits of Automation
 
-There's a lot that end users might not see or understand, but are normally provable benefits of automating something.
+On the flipside, there's a lot that end users might not see or understand, but are normally provable benefits of automating something.
 
 - Fixes Upstream Issues - A lot of the time, end users will fix problems that they see and not document them. When you automate a process, you need reasonable assumptions that you can make, and a lot of the time this forces upstream issues to be fixed.
+- Code is often better task documentation than virtually anything else. There's not much that can beat 'logic to accomplish this task' for teaching others how to accomplish a task.
 - Less Error-prone - A lot of the time manual reporting or processes are done on a regular basis it usually follows some sort of prescribed process or script. People don't know how often they mess this stuff up, whereas with an automated system you can write tests to verify that all of your pre-conditions are met. One of the biggest wins for my stakeholders is often how much less time they spend triaging issues that arise.
 
 ## My Approach
 
+Fixing this problem, or at least improving it for myself, is something I'm working on getting better at. Here's my takeaways from it all:
+
 - Be empathetic. This may seem like an obvious platitude, but _caring_ about their position in this situation is required for a solution that genuinely helps users out.
-- Talk about pieces of the work as functions, with an input and an output.
+- Deliver. Seems obvious, but give 'em the goods regularly and as soon as you can.
+- Provide an interface for talking about the system that will accomplish these tasks going forward. Talk about pieces of the work as functions, with an input and an output. Users want to know how _they_ interact with it, so let them know.
+
+There's likely not going to be much that changes in my environment to make this conversation easier, so I think starting with this approach might be good enough.
 ---
 pub_date: 2018-03-01
 ---
