@@ -139,6 +139,22 @@ Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/s
 
 ! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, look at the code repository and add your own stats to the config.yaml file there.
 
+#### Pandas
+
+Bringing this all into pandas is relatively easy, because of its _insanely_ useful `read_csv()` function. Not only does this do your opening/reading for you, it almost always gets the data types correct as well.
+
+```python
+import pandas as pd
+
+# read in all outputs
+df_rosters = pd.read_csv("rosters.csv")
+df_batters = pd.read_csv("batters.csv")
+df_batters_projections = pd.read_csv("batters_projections.csv")
+df_pitchers = pd.read_csv("pitchers.csv")
+df_pitchers_projection = pd.read_csv("pitchers_projections.csv")
+
+```
+
 ---
 pub_date: 2018-03-11
 ---
