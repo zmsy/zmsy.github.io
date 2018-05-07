@@ -1,5 +1,6 @@
 {% from "macros/nav.html" import render_nav %}
 {% from "macros/head.html" import render_head %}
+{% from "macros/footer.html" import render_footer %}
 <!doctype html>
 <head>
   {{ render_head(this) }}
@@ -10,11 +11,7 @@
   <div id="body">
     {% block body %} {% endblock %}
   </div>
-  <footer class="footer">
-    <div class="container has-text-centered">
-      <p id="footer-text"><strong>zmsy.co</strong> - A personal blog by Zach Morrissey. Copyright © <span id="yearText"></span></p>
-    </div>
-  </footer>
+  {{ render_footer() }}
   <script type="text/javascript" src="{{ '/js/main.min.js'|asseturl }}"></script>
   <script>
       (function(i, s, o, g, r, a, m) {
