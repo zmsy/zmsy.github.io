@@ -6,21 +6,28 @@ body:
 
 ## Creative Constraints are a Positive
 
-The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) which started life as a PICO-8 game. I've always had an interest in pursuing game development of some sort so I figured this might be a nice starting point.
+The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. I've always had an interest in pursuing game development of some sort so I figured this might be a nice starting point.
 
 #### Highlights
 
 * Lua scripting.
 * 16-color palette.
 * 128 x 128 pixel screen size.
+* 32k cartridge sizes.
+* 4-channel sound.
+
+![PICO 8 Illustration From Lexaloffle](pico-8.png)
 
 ## Let's Give It a Shot
 
-Starting out, I checked out [this instructional youtube playlist](https://www.youtube.com/playlist?list=PLjZAika8vyZkyOjoCp0EbHeIFZ8MLlhvg) which helped me learn the interface. So now I was in a place where I had to figure out:
+Starting out, I checked out [this instructional youtube playlist](https://www.youtube.com/watch?v=M7azf71z0QE) by TeamworkCast. It helped me get an idea of what I wanted to create with PICO-8 (alongside being super entertaining). So now I was in a place where I had to figure out:
 
 * Game programming patterns. How do people make games, well, 
 * Designing movement and obstacles.
 * Sounds & sound editing.
+
+Super easy, right? Well, no. Turns out people spend their entire lives getting good at these things.
+
 
 
 
@@ -40,3 +47,5 @@ pub_date: 2018-05-03
 twitter_handle: _zmsy
 ---
 _hidden: yes
+---
+slug_title: discovering-pico-8
