@@ -10,11 +10,11 @@ Considering this site is [built with a static site generator](/blog/blog-version
 
 ### Requirements
 
-S3 met all of my pretty simple set of requirements that I wanted to enforce:
+S3 + Cloudfront met all of my pretty simple set of requirements that I wanted to enforce:
 
-* HTTPS - Site has to be secured with a valid certificate.
-* Custom Domain - For professionalism and consistency.
-* Easy Deployment - Should be able to push files easily, or have a CI/CD tool listen to my git repo to push things up.
+* **HTTPS** - Site has to be secured with a valid certificate.
+* **Custom Domain** - For professionalism and consistency.
+* **Easy Deployment** - Should be able to push files easily, or have a CI/CD tool listen to my git repo to push things up.
 
 Hosting in S3 seemed to be a very straightforward way of achieving these things, so I decided to go with it.
 
@@ -87,6 +87,7 @@ I set up a CNAME record and a URL redirect in this way:
 
 You'll be up and running once your domain is redirecting correctly. Now, once you push objects up to S3, they should populate out to the Cloudfront distribution automatically (albeit sometimes at a random schedule, since it's a CDN that operates on its own time). Plenty of toolkits have S3 as a built-in endpoint, so setting up deployment either through a CLI or from a CI/CD server is relatively straightforward.
 
+At the time I wrote this, Github Pages [wasn't offering HTTPS but have just announced support](https://help.github.com/articles/securing-your-github-pages-site-with-https/), and was primarily built using Jekyll. I'll be checking that one out soon too.
 ---
 pub_date: 2018-04-25
 ---
