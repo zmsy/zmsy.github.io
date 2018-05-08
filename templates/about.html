@@ -4,10 +4,12 @@
 {% block body %}
 {{ render_hero(this) }}
 <section class="section" id="main">
-  <div class="container content" id="about-container">
+  <div class="container" id="about-container">
     <div class="columns is-centered">
       <div class="column is-6">
-        {{ this.body }}
+        <div class="content">
+          {{ this.body }}
+        </div>
       </div>
       <div class="column is-4">
         <div class="card">
