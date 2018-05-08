@@ -15,7 +15,7 @@ Typical motivation:
 - Current system is resulting in too many issues/errors.
 - Not scalable.
 - Reducing time that could be spent doing more productive things.
-- Little or no documentation. This may be coupled with never-ending trails of _"Well maybe this person knows"_ when trying to research something.
+- Little or no documentation. This may be coupled with never-ending trails of _"Well maybe this person knows"_.
 
 Conversations about it often form two sides:
 
@@ -44,9 +44,9 @@ The first two are usually scary enough to end users that they don't want to fiel
 
 ## The Culture Divide
 
-We often might as well be speaking different languages. Business users such as those in finance or sales are usually under some sort of incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals well. The difficult part here is that you're trying to sell them on an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself not the person(s) running it. For those who spend a lot of their time in non-technical business positions, this conversation is a source of frustration.
+We often might as well be speaking different languages. Business users such as those in finance or sales operate in an incentive system that rewards personal triumph as an outcome of executing a small set of relatively fixed goals well. The difficult part here is that you're trying to sell them on an engineer's mindset: if some part of the process is faulty or is non-scalable, it's a fault of the process itself rather than the person(s) running it. For those who spend a lot of their time in non-technical business positions, this conversation is a source of frustration.
 
-The reason is because it's hard to avoid coming across as minimizing the problem. Whether or not on purpose, oftentimes framing the problem as one that should be automated may seem condescending towards those currently owning it. Users become more entrenched in their ways because they're offered the stick and not the carrot. They justifiably believe their work is valuable, and the engineer's approach of let's-abstract-this-away-permanently makes it seem like it's not fully grasping the importance of those current manual outputs.
+In the process of selling that approach, it's hard to avoid coming across as minimizing the problem. Whether or not on purpose, oftentimes framing the problem as one that should be automated may demean the importance of the outcomes that process, or the capabilities of the person currently owning it. As a result, users become more entrenched in their ways because they're offered the stick and not the carrot. They justifiably believe their work is valuable, and the engineer's approach of let's-abstract-this-away-permanently makes it seem like it's not fully grasping the importance of those current manual outputs.
 
 It's something I've come to respect in a sincere way, and have gotten frustrated with the '_end users amirite guys_' attitude I regularly see in myself. I will rarely if ever have the depth of knowledge about the problem space compared to those I'm working with. Combine that with a [definitely-not-unique-to-me tendency to underestimate how long delivering an automated solution will take](https://chrismm.com/blog/project-delays-why-software-estimates/), I realize that I sometimes deliver the effective one-two punch of both acting condescending and not delivering on what I promise.
 
