@@ -1,7 +1,7 @@
 title: The Long and Winding Road To This Blog
 ---
 slug_title: blog_creation
-___
+---
 author: Zach Morrissey
 ---
 body:
@@ -84,5 +84,3 @@ I gained a lot along the way though - the Jekyll portion will only render the st
 pub_date: 2018-02-28
 ---
 twitter_handle: _zmsy
----
-title: The Long And Winding Road To This Blog
