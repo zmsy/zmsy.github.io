@@ -126,6 +126,9 @@ a {
 
     img {
         border: 1px solid $black-bis;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* icon */
@@ -179,14 +182,14 @@ a {
 
 /* HEROES AND SUBTITLES */
 
-#about-hero {
+#hero {
     /* background dot pattern */
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='5' height='5'><rect width='5' height='5' fill='#2a363b'/><rect width='1' height='1' fill='#496069'/></svg>");
     background-repeat: repeat;
     border-top: 1rem solid $grey-lighter;
     border-bottom: 1rem solid $grey-lighter;
 
-    & > #about-hero-body {
+    & > #hero-body {
         padding-top: 6rem;
         padding-bottom: 3rem;
     }
@@ -263,6 +266,7 @@ a {
 #hero-diamonds {
     height: 20px;
     margin-top: 1rem;
+    margin-bottom: 2rem;
     margin-left: auto;
     margin-right: auto;
 }

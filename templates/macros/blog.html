@@ -1,7 +1,6 @@
 {% macro render_blog_post(post, from_index=false) %}
   <section class="section">
-    <div class="content">
-      <div class="blog-post">
+    <div class="blog-post">
       <h2><a class="title title-dark is-size-2-touch" href="{{ post|url }}">{{ post.title }}</a></h2>
       <p class="meta">
         written by
@@ -14,6 +13,7 @@
         on {{ post.pub_date }}
       </p>
       <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+      <div class="content">
       {{ post.body }}
       </div>
     </div>
