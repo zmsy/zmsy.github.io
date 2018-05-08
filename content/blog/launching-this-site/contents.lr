@@ -1,0 +1,34 @@
+title: Hosting a Static Site on S3 & Cloudfront
+---
+_hidden: no
+---
+author: Zach Morrissey
+---
+body:
+
+For the most part, choosing the technologies I wanted to use on this site was pretty straightforward. I tested a bunch of them out using local development servers, then fiddled with knobs and tweaked levers until I felt like it looked partway respectable. I then spent a bunch of time figuring out how to actually host the site, so here's how I accomplished that goal.
+
+### Requirements
+
+As far as my site was concerned, it was a pretty simple set of requirements that I wanted to enforce:
+
+* HTTPS - Site has to be secured with a valid certificate.
+* Custom Domain - For professionalism and consistency.
+* Easy Deployment - Should be able to push files easily, or have a CI/CD tool listen to my git repo to push things up.
+
+Hosting in S3 seemed to be a very straightforward way of achieving these things, so I decided to go with it.
+
+## Setting Up S3 for Static Web Hosting
+
+Setting up S3 for hosting a static site is as simple as checking a box. First create a bucket for your site.
+
+![Static Bucket Settings](static_bucket.png)
+
+On that menu, select your default landing document (something along the lines of index.html) and error document (i.e. 404.html or something like that).
+
+![Website Options](website_options.png)
+
+---
+pub_date: 2018-04-25
+---
+twitter_handle: _zmsy
