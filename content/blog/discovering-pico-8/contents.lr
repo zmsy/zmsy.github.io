@@ -4,9 +4,9 @@ author: Zach Morrissey
 ---
 body:
 
-## Creative Constraints are a Positive
+The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. This thing looks _damn fun_ to program for, and it comes batteries-included for most tasks so you can get up and running in no time.
 
-The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. I've always had an interest in pursuing game development of some sort so I figured this might be a nice starting point.
+![PICO 8 Illustration From Lexaloffle](pico-8.png)
 
 #### Highlights
 
@@ -16,7 +16,17 @@ The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', whic
 * 32k cartridge sizes.
 * 4-channel sound.
 
-![PICO 8 Illustration From Lexaloffle](pico-8.png)
+People make some _suuuuuuuuuuper_ cool stuff with it.
+
+<!-- Examples -->
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is easily the most fun I&#39;ve had working on a project! If you like what you see, give it a shot, and let me know what you think! Not nearly finished yet, but it already feels so good!<a href="https://twitter.com/hashtag/acceler8?src=hash&amp;ref_src=twsrc%5Etfw">#acceler8</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a><a href="https://t.co/dWOhl3zRfW">https://t.co/dWOhl3zRfW</a> <a href="https://t.co/aAjSnCcqjC">pic.twitter.com/aAjSnCcqjC</a></p>&mdash; Master of None (@Alturos) <a href="https://twitter.com/Alturos/status/991155950328348672?ref_src=twsrc%5Etfw">May 1, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Just started messing around with <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> but it&#39;s pretty fun for weekend hobby dev. <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://t.co/6bkoP3w2e5">pic.twitter.com/6bkoP3w2e5</a></p>&mdash; Ted Ajax Dobyns (@TedAjax) <a href="https://twitter.com/TedAjax/status/995712327398768641?ref_src=twsrc%5Etfw">May 13, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Remember: this is a sneaking mission...&quot;<a href="https://twitter.com/hashtag/mono8?src=hash&amp;ref_src=twsrc%5Etfw">#mono8</a> <a href="https://twitter.com/hashtag/screenshotsaturday?src=hash&amp;ref_src=twsrc%5Etfw">#screenshotsaturday</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiegames?src=hash&amp;ref_src=twsrc%5Etfw">#indiegames</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/guerrillawars?src=hash&amp;ref_src=twsrc%5Etfw">#guerrillawars</a> <a href="https://twitter.com/hashtag/monogame?src=hash&amp;ref_src=twsrc%5Etfw">#monogame</a> <a href="https://twitter.com/hashtag/metalgear?src=hash&amp;ref_src=twsrc%5Etfw">#metalgear</a> <a href="https://t.co/NFWUkgK3uC">pic.twitter.com/NFWUkgK3uC</a></p>&mdash; Matt Hughson (@matthughson) <a href="https://twitter.com/matthughson/status/989359766332891136?ref_src=twsrc%5Etfw">April 26, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Let's Give It a Shot
 
@@ -26,7 +36,23 @@ Starting out, I checked out [this instructional youtube playlist](https://www.yo
 * Designing movement and obstacles.
 * Sounds & sound editing.
 
-Super easy, right? Well, no. Turns out people spend their entire lives getting good at these things.
+Super easy, right? Well, no. Turns out people spend their entire lives getting good at these things. I've been doing a lot of research into how to get better at it though.
+
+## Resources Used
+
+The things that helped me learn PICO-8, by subject area:
+
+### PICO-8 Reference Materials
+
+I tend to benefit from cataloguing the resources that I use when learning something.
+
+- [PICO-8 API](https://neko250.github.io/pico8-api/) by [Neko250](https://neko250.github.io/). A neat little reference for helping figure out the calls you can make from PICO-8 itself.
+- [/r/pico8 subreddit](https://www.reddit.com/r/pico8/) - An exceedingly helpful community of people who are both PICO-8 game designers and enthusiasts.
+- [PICO-8 Cheat Sheet](https://i.imgur.com/iGrP5bK.png) - A quick reference made by the users of /r/pico8.
+
+### Sprites / Graphics
+
+- [Aseprite](https://www.aseprite.org/) - A convenient sprite editor that can create files you can later [import](http://pico-8.wikia.com/wiki/Import).
 
 
 
@@ -46,6 +72,6 @@ pub_date: 2018-05-03
 ---
 twitter_handle: _zmsy
 ---
-_hidden: yes
+_hidden: no
 ---
 slug_title: discovering-pico-8
