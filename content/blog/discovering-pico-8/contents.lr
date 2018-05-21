@@ -16,6 +16,8 @@ The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', whic
 * 32k cartridge sizes.
 * 4-channel sound.
 
+On top of all that, the VM that runs the PICO-8 cartridge has been ported to hardware! It's being included in all $9 [C.H.I.P.](https://getchip.com/pages/chip) computers by default now, so you can actually get a hardware implementation of the PICO-8 fantasy console for use in your own home.
+
 People make some _suuuuuuuuuuper_ cool stuff with it.
 
 <!-- Examples -->
