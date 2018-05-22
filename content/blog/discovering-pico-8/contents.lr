@@ -16,6 +16,8 @@ The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', whic
 * 32k cartridge sizes.
 * 4-channel sound.
 
+On top of all that, the VM that runs the PICO-8 cartridge has been ported to hardware! It's being included in all $9 [C.H.I.P.](https://getchip.com/pages/chip) computers by default now, so you can actually get a hardware implementation of the PICO-8 fantasy console for use in your own home.
+
 People make some _suuuuuuuuuuper_ cool stuff with it.
 
 <!-- Examples -->
@@ -23,10 +25,8 @@ People make some _suuuuuuuuuuper_ cool stuff with it.
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Just started messing around with <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> but it&#39;s pretty fun for weekend hobby dev. <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://t.co/6bkoP3w2e5">pic.twitter.com/6bkoP3w2e5</a></p>&mdash; Ted Ajax Dobyns (@TedAjax) <a href="https://twitter.com/TedAjax/status/995712327398768641?ref_src=twsrc%5Etfw">May 13, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Remember: this is a sneaking mission...&quot;<a href="https://twitter.com/hashtag/mono8?src=hash&amp;ref_src=twsrc%5Etfw">#mono8</a> <a href="https://twitter.com/hashtag/screenshotsaturday?src=hash&amp;ref_src=twsrc%5Etfw">#screenshotsaturday</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiegames?src=hash&amp;ref_src=twsrc%5Etfw">#indiegames</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/guerrillawars?src=hash&amp;ref_src=twsrc%5Etfw">#guerrillawars</a> <a href="https://twitter.com/hashtag/monogame?src=hash&amp;ref_src=twsrc%5Etfw">#monogame</a> <a href="https://twitter.com/hashtag/metalgear?src=hash&amp;ref_src=twsrc%5Etfw">#metalgear</a> <a href="https://t.co/NFWUkgK3uC">pic.twitter.com/NFWUkgK3uC</a></p>&mdash; Matt Hughson (@matthughson) <a href="https://twitter.com/matthughson/status/989359766332891136?ref_src=twsrc%5Etfw">April 26, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Let's Give It a Shot
 
