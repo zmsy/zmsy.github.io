@@ -1,0 +1,17 @@
+title: Python / Pandas Training Exercises
+---
+author: Zach Morrissey
+---
+body:
+
+They say [one of the best ways to truly learn something](https://www.chronicle.com/article/Heads-Together/145835) is to try and teach it. Seeing as I've been teaching myself the python data stack for a while now (numpy / pandas / scipy / scikit-learn), I've made my custom training exercises I created available as a jupyter notebook. 
+
+You can see them over at my [projects page](/projects), or you can go [directly there](projects/pandas-training-exercises).
+---
+pub_date: 2018-05-21
+---
+slug_title: python-pandas
+---
+twitter_handle: _zmsy
+---
+_hidden: yes
