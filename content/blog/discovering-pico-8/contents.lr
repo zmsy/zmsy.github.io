@@ -58,12 +58,25 @@ There's also a built-in IDE for developing games! This is where you can write yo
 
 ![PICO 8 Integrated Development Environment](pico-8_ide.png)
 
+Multiple other pages in the editor exist for purposes of creating assets for these two pages: A sprite editor, a tile editor, a SFX editor, and a music arrangement screen. Combining all of these, you can make pretty convincing graphics & sound pretty quickly.
 
+## Experimenting
 
+Since I don't have the depth of experience to be able to make a legitimate video game yet, I'm focusing on doing exceedingly simple stuff for the time being.
 
+There are basically only three functions to know:
 
+* `_update()` - Update the game state. Change objects position, behavior, etc. to match the game state.
+* `_draw()` - Give directions for what to draw on screen.
+* `_init()` - Initialize game state (only if you need to).
 
+Using these, I ended up trying to do what most people try to do their first time using any 2D graphics program: make a ball bounce across the screen.
 
+![PICO-8 code to bounce a ball.](pico-8_bounce.png)
+
+![PICO-8 bouncing ball](pico-8_bounce.gif)
+
+Beautiful, isn't it? 
 
 ---
 pub_date: 2018-05-03
