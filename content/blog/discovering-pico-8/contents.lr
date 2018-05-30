@@ -76,8 +76,21 @@ Using these, I ended up trying to do what most people try to do their first time
 
 ![PICO-8 bouncing ball](pico-8_bounce.gif)
 
-Beautiful, isn't it? 
+It works! But hey - this isn't interactive, so we can't _quite_ call it a game yet. Here's how we'll do that.
 
+* Add some listening for button presses using `btnp()`. This determines whether or not a button was pressed that was _not_ pressed during the prior frame.
+* Change the velocity based on that button. This time we're adding a random positive velocity to the ball.
+* Display some message or feedback so that I can tell I implemented it correctly.
+
+![PICO-8 bouncing ball](pico-8_bounce2.gif)
+
+Nice. But now, since this is a videogame we want to update a few more things:
+
+* Run in 60FPS by using the `_update60()` function instead of the update function. This makes our game run a lot smoother.
+* Add more natural slowdowns to the bounces. As the ball bounces off the floor, it should lose some of its velocity.
+* Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
+
+![PICO-8 bouncing ball](pico-8_bounce3.gif)
 ---
 pub_date: 2018-05-03
 ---
