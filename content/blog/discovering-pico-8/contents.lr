@@ -91,6 +91,18 @@ Nice. But now, since this is a videogame we want to update a few more things:
 * Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
 
 ![PICO-8 bouncing ball](pico-8_bounce3.gif)
+
+## What's Next? (To be continued in Part 2)
+
+Now that I've got the bones in place, I'm planning on creating a barebones clone of Flappy Bird for Part II of this blog post.
+
+What's the way to get there?
+
+- Change the sprites to be objects. The ball itself should have an internal state that captures which sprite should be displayed at any point, and the collisions between it and everything else.
+- Functional decomposition. It's easy to write a lot of spaghetti code in pulling together simple demos; the way to scale this is to change the major parts to objects.
+- Create wall-generation logic. Flappy Bird works on a randomly-generated basis, so I'll need to create and manage a list of obstacles for the player to surpass.
+
+Check it out on the next version of this post!
 ---
 pub_date: 2018-05-03
 ---
