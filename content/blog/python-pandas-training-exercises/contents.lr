@@ -6,6 +6,12 @@ body:
 
 They say [one of the best ways to truly learn something](https://www.chronicle.com/article/Heads-Together/145835) is to try and teach it. Seeing as I've been teaching myself the python data stack for a while now (numpy / pandas / scipy / scikit-learn), I've made my custom training exercises I created available as a jupyter notebook. 
 
+The goals of this are fairly straightforward, and parsed out into 3 separate sections:
+
+1. Gathering, exploring, and cleaning data.
+2. Dataframe manipulation.
+3. Exporting analyses: Visualizations, models, PDFs.
+
 You can see them over at my [projects page](/projects), or you can go [directly there](projects/pandas-training-exercises).
 ---
 pub_date: 2018-05-21
