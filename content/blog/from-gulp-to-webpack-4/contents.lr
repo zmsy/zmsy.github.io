@@ -29,6 +29,64 @@ Gulp is still a super useful tool, and it's very good at creating flexible tasks
 - Transitioning from a working Webpack 2/3 config to Webpack 4 (either using config or zero-config options) is difficult.
 
 
+## What does it look like?
+
+#### Previously - Gulp
+
+Gulp pipelines usually have 1 or more inputs of the same filetype, and then produce explicit outputs using pipes.
+
+```js
+// Process main scss for the site.
+gulp.task('main-css', function() {
+    return gulp.src('./src/index.scss')
+        .pipe(rename('main.min.css'))
+        .pipe(source_maps.init())
+        .pipe(sass({ outputStyle: 'expanded' }))
+        .pipe(clean_css())
+        .pipe(source_maps.write('.'))
+        .pipe(gulp.dest('../assets/css/'));
+});
+```
+
+Gulp tasks operate on inputs and outputs, so you don't necessarily need to set things up so that they rely on one another.
+
+#### Now - Webpack
+
+Whereas Webpack configs look to an entrypoint (normally `./src/index.js` by convention) and bundle all of the dependencies for that file.
+
+```js
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  mode: "production",
+  output: {
+    path: path.dirname(__dirname) + '/assets/static/gen',
+    filename: "[name].js"
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "main.css",
+      chunkFilename: "[name].css"
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'style-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  }
+};
+```
+
+In prior versions of Webpack it was required to make many more things explicit, compared to now where you can opt to use conventional inputs/outputs instead of specifying them.
+
 ## Lessons Learned
 
 The biggest struggle in using Webpack is bridging the gap between the concepts and the implementation. 
@@ -40,7 +98,7 @@ The biggest struggle in using Webpack is bridging the gap between the concepts a
 
 That said, considering the difficulties, module bundling with Webpack is _still_ worth it even after all of that. Simplifying your build process from separate pipelines using Gulp/Grunt/etc into a single build process using a dependency graph is a drastic improvement in paradigm.
 
-Check out the revamped [webpack config](https://github.com/zmsy/zmsy.co/blob/master/webpack/webpack.config.js) for this site.
+If you're just trying to process some Sass files, I would stick to Gulp.
 
 ---
 pub_date: 2018-06-09
