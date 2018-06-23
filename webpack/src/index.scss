@@ -269,8 +269,9 @@ a {
 }
 
 #about-cardtitle {
-    font-family: $reading-fonts;
+    font-family: $subtitle-fonts;
     font-size: 1.5rem;
+    font-weight: 700;
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
@@ -297,6 +298,8 @@ a {
 }
 
 .home-columns {
+    margin-top: 12rem;
+
     h2 {
         font-family: $subtitle-fonts;
         font-size: 2rem;

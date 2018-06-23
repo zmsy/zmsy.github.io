@@ -16,15 +16,12 @@ Originally hailing from the Northeast, I've taken up roost in Seattle, WA with m
 
 ### Purpose 
 
-I built this site with the intent of becoming more familiar with the processes involved in building and deploying a website, organizing my app code better than most of my hodge-podge projects have been so far, and most importantly for shameless self-promotion.
-
-I find that most of the articles I find on a subject are written in a manner that doesn't properly introduce the _why_ aspect of a lot of their technical choices, so I plan on making that very obvious for a lot of the stuff that I plan on doing.
-
+Shameless self-promotion.
 
 ## Site Architecture
 <hr class="hr-subtitle">
 
-This site was built on a number of technologies, using the Lektor static-file CMS as the basis for all of it. In addition to generating the flat file site, I run an API on the backend of this that provides data & information for visualizations and hosted content. This list will change over time as the site is updated.
+If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co).
 
 - **lektor** - Static file CMS. Great authoring UI for new content, easily understood modeling & templating system, excellent documentation.
 - **python** - Data visualizations, Lektor plugins, etc. The glue between pretty much everything else here.
@@ -34,7 +31,7 @@ This site was built on a number of technologies, using the Lektor static-file CM
 - **aws** - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
 - **gitlab ci** - For building & deploying to S3.
 
-If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co). If you're wondering why I made any of the choices that I did, I've got a [post on that subject here](/).
+If you're wondering why I made any of the choices that I did, I've got a [post on that subject here](/).
 
 
 ## Artwork & Photography 
