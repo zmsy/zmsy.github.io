@@ -23,9 +23,25 @@ Gulp is still a super useful tool, and it's very good at creating flexible tasks
 
 ### The Bad
 
-- Webpack documentation is confusing, sparse, and littered with examples that make no sense. Finding working examples is _very_ difficult.
+- Webpack documentation is confusing, sparse, and littered with examples that either make no sense or have been broken by version upgrades. Finding working examples is _very_ difficult.
 - NPM module configuration for Webpack is a major source of frustration, because libraries are getting replaced & deprecated so quickly that what may have worked today is not guaranteed to work a few months from now.
+- NPM package installation and management is still more difficult than it seems like it should be. Since NPM packages take a more Unix-like 'single function' approach, it drastically increases the amount of dependencies per project (this website has 754 dependencies right now).
 - Transitioning from a working Webpack 2/3 config to Webpack 4 (either using config or zero-config options) is difficult.
+
+
+## Lessons Learned
+
+The biggest struggle in using Webpack is bridging the gap between the concepts and the implementation. 
+
+- The concepts are well established and internally consistent. [Check out the documentation](https://webpack.js.org/concepts/) if you're curious about what any of the terms / verbs used in Webpack-speak mean.
+- The implementation is where things are difficult. It's very tough to translate the concepts espoused in how Webpack _should_ operate to how it actually _does_ operate.
+  - Things like 'entry' or 'loaders' are simple enough to understand, but are difficult to translate into working functionality.
+  - Error messages need improvement. It's very tough to take information there and use it.
+
+That said, considering the difficulties, module bundling with Webpack is _still_ worth it even after all of that. Simplifying your build process from separate pipelines using Gulp/Grunt/etc into a single build process using a dependency graph is a drastic improvement in paradigm.
+
+Check out the revamped [webpack config](https://github.com/zmsy/zmsy.co/blob/master/webpack/webpack.config.js) for this site.
+
 ---
 pub_date: 2018-06-09
 ---
@@ -33,4 +49,4 @@ slug_title: gulp-webpack-4
 ---
 twitter_handle: _zmsy
 ---
-_hidden: yes
+_hidden: no
