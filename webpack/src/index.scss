@@ -256,22 +256,22 @@ a {
 }
 
 #about-logo {
-    margin: 0rem;
+    margin-top: 0.5rem;    
 }
 
 #about-name {
     margin: auto;
 }
 
-#about-tagline {
-    text-align: justify;
-    font-size: 1rem;
+.about-content {
+    & p {
+        font-size: 1rem;
+    }
 }
 
 #about-cardtitle {
     font-family: $subtitle-fonts;
     font-size: 1.5rem;
-    font-weight: 700;
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
