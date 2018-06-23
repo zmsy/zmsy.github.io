@@ -29,7 +29,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "gulp": "gulp",
+    "gulp-main-css": "gulp main-css",
+    "gulp-watch": "gulp watch:main"
   },
   "author": "Zach Morrissey",
   "license": "MIT"

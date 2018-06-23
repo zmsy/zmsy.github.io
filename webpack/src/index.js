@@ -4,7 +4,7 @@ Main javascript file - includes all logic for site
 */
 
 // webpack imports
-import './main.scss'
+import './index.scss'
 
 // utility functions
 function $(id) { return document.getElementById(id); }
@@ -24,4 +24,3 @@ function fillYearText() {
 // invoke all of the good stuff
 document.getElementById("navbar-toggle").addEventListener("click", toggleNav);
 fillYearText();
-

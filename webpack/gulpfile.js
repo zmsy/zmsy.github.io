@@ -31,7 +31,7 @@ gulp.task('bulma-custom', function() {
 
 // Process main scss.
 gulp.task('main-css', function() {
-    return gulp.src('./src/main.scss')
+    return gulp.src('./src/index.scss')
         .pipe(rename('main.min.css'))
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'expanded' }))

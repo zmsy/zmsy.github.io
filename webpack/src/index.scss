@@ -3,6 +3,8 @@
 /*
 Main scss file.
 This creates the main.css file and the same variables can be used in the bulma variables.
+
+Example comment that I'm making. Here's more comments.
 */
 
 html {
@@ -83,6 +85,7 @@ a {
     h1 {
         font-family: $hero-fonts;
         font-size: 3rem;
+        font-weight: 700;
         color: $black-bis;
         text-decoration: none;
     }
@@ -90,6 +93,7 @@ a {
     h2 {
         font-family: $subtitle-fonts;
         font-size: 2rem;
+        font-weight: 700;
         color: $black-ter;
 
         &:nth-of-type(1) {
@@ -104,6 +108,7 @@ a {
     h3 {
         font-family: $subtitle-fonts;
         font-size: 1.5rem;
+        font-weight: 700;
         color: $grey-darker;
         margin-top: 2.5rem;
     }
@@ -111,6 +116,7 @@ a {
     h4 {
         font-family: $subtitle-fonts;
         font-size: 1.25rem;
+        font-weight: 700;
         color: $grey-darker;
         margin-top: 2rem;
     }
@@ -286,8 +292,8 @@ a {
     margin-right: auto;
 }
 
-#blank-section {
-    height: 12rem;
+#home-main-section {
+    padding-top: 12rem;
 }
 
 .home-columns {
