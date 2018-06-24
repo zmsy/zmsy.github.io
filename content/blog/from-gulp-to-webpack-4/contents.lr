@@ -6,11 +6,11 @@ body:
 
 ![Gulp to Webpack Transition](gulp_to_webpack.png)
 
-I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of  Webpack (2.x, 3.x) always seemed to create enough errors & difficulty that I found it wasn't worth it. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
+I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of  Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
  
 ## Reasons for Switching
 
-Gulp is still a super useful tool, and it's very good at creating flexible tasks to be run on a regular basis. Webpack and Gulp, however, are two separate tools with completely different aims.
+Gulp is very good at creating flexible tasks to be run on a regular basis. Webpack and Gulp, however, are two separate tools with completely different aims.
 
 ### The Good
 
