@@ -8,17 +8,17 @@ body:
 
 ## Winning Fantasy Baseball in Style
 
-Every year I've missed the title in fantasy baseball. This year, I'm attempting to automate my mid-season scouting process to give me a leg up. Every year our group normally comes up with some very good scouting information, but I've got a hunch that I can beat them all out by automating it.
-
-#### The Issues With Pre-Season Scouting
-
-The advantages of scouting out fantasy baseball players in our league evaporates about 3 rounds into the draft. Our group traditionally over-indexes on the drafting portion of it, and then adapts a flying-by-the-seat-of-your-pants approach to the rest of the season. I tend to make bad add/drop decisions as the season goes along. The goal of this project is to fix this particular shortcoming by providing myself with a methodology for doing this throughout the year.
+The advantages of doing my pre-season due diligence by scouting out the best fantasy baseball players often evaporates about 3 rounds into the draft. Since I can't win in the draft, why not automate my in-season scouting efforts?
 
 ## Getting Data
 
-The data for this exercise comes from a number of places. For a good system, we'll need to retrieve roster data to know who is available, projections to see who is slated to do well, and mid-season player statistics to so who's currently doing well.
+For a good system, there are three inputs:
 
-### ESPN Roster Data
+1. Roster data to know who is available.
+2. Projections to see who is slated to do well.
+3. Mid-season player statistics to so who's currently doing well.
+
+### 1 -- Roster Data
 
 Our team uses ESPN for our league, which happens to allow access to webpages so long as you take the time to [make the league public](http://games.espn.com/flb/resources/help/content?name=create-league-standard). Getting roster data is fairly straightforward; all you need to do is scrape the rosters page for that league ID. This is an example of that:
 
@@ -57,7 +57,7 @@ with open("rosters.csv", "w", newline='') as out_file:
     writer.writerows(players)
 ```
 
-### Projections
+### 2 -- Projections
 
 Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're particularly valuable otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
@@ -65,8 +65,8 @@ Player projections are common source of scouting information for our league. Sin
 
 There were two issues I was trying to solve for.
 
-1. **Not enough players** - URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once. Without the ability to scrape all of the players or paginate through them, my automation would only be as useful as the top 50 projected players.
-2. **Confusing ASP.net forms** - These use built-in Microsoft libraries that are difficult to parse through the JS to find the form post, even though most of the time it's just a simple post back to the same page. In addition to the form post parameters, these send back somewhere between 50-60kb of base64-encoded page state data, which is a lot of added noise for my purposes.
+1. **Not enough players** - URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once. 
+2. **Confusing ASP.net forms** - These use built-in Microsoft libraries that send back somewhere between 50-60kb of base64-encoded page state data, which is a lot of added noise for my purposes.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
 
@@ -77,7 +77,7 @@ Using the network tab, I found that the link for 'page size' allowed me to reque
 I ripped that data out into two files, `get_fangraphs.sh` (send the request), and `fangraphs_form_data.txt`. Since the data is over a certain volume with curl, you need to store it in its own file and load it using the `-d` flag.
 
 ```sh
-curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' \
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=rfangraphsdc' \
     -H 'Cookie: fgadp=1' \
     -H 'Origin: https://www.fangraphs.com' \
     -H 'Accept-Encoding: gzip, deflate, br' \
@@ -89,14 +89,15 @@ curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraph
     -H 'Cache-Control: max-age=0' \
     -H 'Referer: https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' \
     -H 'Connection: keep-alive' \
-    -H 'DNT: 1' -d @fangraphs_form_data.txt --compressed
+    -H 'DNT: 1' -d @fangraphs_form_data.txt --compressed \
+    > batter_projections.html
 ```
 
 In the `fangraphs_form_data.txt` file, there was one adjustment to make to get a higher number than 50 entries back: `__EVENTARGUMENT=FireCommand:ProjectionBoard1$dg1$ctl00;PageSize;50` - change this `50` to something like `2500` or so.
 
 Voila! You've now got a page with the HTML table containing all of the projections information there is to want. You can then plug this into beautifulsoup or whatever html parser you want.
 
-### In-Season Actuals
+### 3 -- Actuals
 
 In addition to projections, having in-season results helps improve our judgment and add context to the projections. There are players whom are specifically favored by the projection systems (namely, players with long histories), and players who are treated rather unkindly (small sample sizes).
 
@@ -110,10 +111,50 @@ Creating a short script to parse out player rows and add them to another csv for
 ```python
 import requests
 import csv
+import datetime
 from bs4 import BeautifulSoup
 
-PITCHERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000"
-BATTERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000"
+# static urls
+season = datetime.datetime.now().year
+PITCHERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season={season}&month=0&season1={season}&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000".format(season=season)
+BATTERS_URL = "https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season={season}&month=0&season1={season}&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000".format(season=season)
+
+# request the data
+pitchers_html = requests.get(PITCHERS_URL).text
+batters_html = requests.get(BATTERS_URL).text
+
+def parse_array_from_fangraphs_html(input_html, out_file_name):
+    """
+    Take a HTML stats page from fangraphs and parse it out to a CSV file.
+    """
+    # parse input
+    soup = BeautifulSoup(input_html, "lxml")
+    table = soup.find("table", {"class": "rgMasterTable"})
+    
+    # get headers
+    headers_html = table.find("thead").find_all("th")
+    headers = []
+    for header in headers_html:
+        headers.append(header.text)
+    print(headers)
+    
+    # get rows
+    rows = []
+    rows_html = table.find("tbody").find_all("tr")
+    for row in rows_html:
+        row_data = []
+        for cell in row.find_all("td"):
+            row_data.append(cell.text)
+        rows.append(row_data)
+    
+    # write to CSV file
+    with open(out_file_name, "w") as out_file:
+        writer = csv.writer(out_file)
+        writer.writerow(headers)
+        writer.writerows(rows)
+        
+parse_array_from_fangraphs_html(batters_html, 'batters_actuals.csv')
+parse_array_from_fangraphs_html(pitchers_html, 'pitchers_actuals.csv')
 ```
 
 Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html) function for parsing HTML tables like this (which uses lxml internally, same as BeautifulSoup), but the encoding of this table caused enough havoc that I decided to write the parser myself. If you're in a similar scenario, try that method first!
@@ -150,9 +191,9 @@ import pandas as pd
 
 # read in all outputs
 df_rosters = pd.read_csv("rosters.csv")
-df_batters = pd.read_csv("batters.csv")
+df_batters = pd.read_csv("batters_actuals.csv")
 df_batters_projections = pd.read_csv("batters_projections.csv")
-df_pitchers = pd.read_csv("pitchers.csv")
+df_pitchers = pd.read_csv("pitchers_actuals.csv")
 df_pitchers_projection = pd.read_csv("pitchers_projections.csv")
 
 ```
