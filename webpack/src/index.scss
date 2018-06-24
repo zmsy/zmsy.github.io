@@ -130,6 +130,10 @@ a {
         text-align: justify;
     }
 
+    strong {
+        color: $grey-dark;
+    }
+
     hr {
         border-top: 1px dotted $grey-lighter;
     }

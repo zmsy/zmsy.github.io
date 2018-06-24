@@ -70,30 +70,39 @@ There were two issues I was trying to solve for.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
 
+![Fangraphs Page Size Dropdown](page_size.png)
+
 1. Navigate to the chrome developer tools network tab.
 2. Filter to `method:POST` so you only get the form post and none of the other resource requests.
 3. Right click on the post and select `copy` > `copy as cURL (bash)`. 
 
+![Chrome Network Tab for Fangraphs Page](copy_as_curl.png)
+
 I ripped that data out into two files, `get_fangraphs.sh` (send the request), and `fangraphs_form_data.txt`. Since the data is over a certain volume with curl, you need to store it in its own file and load it using the `-d` flag.
 
 ```sh
+# get batters projections html
 curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=rfangraphsdc' \
-    -H 'Cookie: fgadp=1' \
-    -H 'Origin: https://www.fangraphs.com' \
     -H 'Accept-Encoding: gzip, deflate, br' \
     -H 'Accept-Language: en-US,en;q=0.9' \
     -H 'Upgrade-Insecure-Requests: 1' \
-    -H 'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' \
-    -H 'Cache-Control: max-age=0' \
-    -H 'Referer: https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' \
-    -H 'Connection: keep-alive' \
-    -H 'DNT: 1' -d @fangraphs_form_data.txt --compressed \
-    > batter_projections.html
+    -d @batters_form_data.txt --compressed \
+    > batters_projections.html
+
+# get pitching projections
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=rfangraphsdc' \
+    -H 'Accept-Encoding: gzip, deflate, br' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Upgrade-Insecure-Requests: 1' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' \
+    -d @pitchers_form_data.txt --compressed \
+    > pitchers_projections.html
 ```
 
-In the `fangraphs_form_data.txt` file, there was one adjustment to make to get a higher number than 50 entries back: `__EVENTARGUMENT=FireCommand:ProjectionBoard1$dg1$ctl00;PageSize;50` - change this `50` to something like `2500` or so.
+In the `(batters|pitchers)_form_data.txt` file, there was one adjustment to make to get a higher number than 50 entries back: `__EVENTARGUMENT=FireCommand:ProjectionBoard1$dg1$ctl00;PageSize;50` - change this `50` to something like `2500` or so.
 
 Voila! You've now got a page with the HTML table containing all of the projections information there is to want. You can then plug this into beautifulsoup or whatever html parser you want.
 
@@ -197,6 +206,8 @@ df_pitchers = pd.read_csv("pitchers_actuals.csv")
 df_pitchers_projection = pd.read_csv("pitchers_projections.csv")
 
 ```
+
+[Also - If you use Fangraphs data a lot, it's worth considering becoming a member and supporting them a bit!](https://www.fangraphs.com/plus/product/fangraphs-membership/)
 
 ---
 pub_date: 2018-03-15

@@ -4,10 +4,9 @@ from bs4 import BeautifulSoup
 
 LEAGUE_URL = "http://games.espn.com/flb/leaguerosters?leagueId=15594"
 
-# translate ESPN names to Fangraphs names
+# translate ESPN names to Fangraphs names
 TRANSLATIONS = {
     'Nicky Delmonico': 'Nick Delmonico',
-    'Greg Bird': 'Gregory Bird',
     'Yuli Gurriel': 'Yulieski Gurriel'
 }
 

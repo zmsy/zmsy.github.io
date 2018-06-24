@@ -1,1 +1,19 @@
-curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' -H 'Cookie: fgadp=1' -H 'Origin: https://www.fangraphs.com' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'Cache-Control: max-age=0' -H 'Referer: https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' -H 'Connection: keep-alive' -H 'DNT: 1' -d @fangraphs_form_data.txt --compressed
+# get batters projections html
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=rfangraphsdc' \
+    -H 'Accept-Encoding: gzip, deflate, br' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Upgrade-Insecure-Requests: 1' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' \
+    -d @batters_form_data.txt --compressed \
+    > batters_projections.html
+
+# get pitching projections
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=rfangraphsdc' \
+    -H 'Accept-Encoding: gzip, deflate, br' \
+    -H 'Accept-Language: en-US,en;q=0.9' \
+    -H 'Upgrade-Insecure-Requests: 1' \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' \
+    -d @pitchers_form_data.txt --compressed \
+    > pitchers_projections.html
