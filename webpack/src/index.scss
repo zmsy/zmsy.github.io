@@ -149,10 +149,20 @@ a {
     /* code blocks */
     .hll {
         margin-bottom: 1rem;
+        font-family: $code-fonts;
+        font-size: 0.875rem;
     }
 
     pre {
         background-color: $white-ter;
+        font-family: $code-fonts;
+        font-size: 0.875rem;
+    }
+
+    code {
+        color: $purple;
+        font-family: $code-fonts;
+        font-size: 0.875rem;
     }
 
     /* admonitions */
