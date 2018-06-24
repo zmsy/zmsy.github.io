@@ -151,6 +151,10 @@ a {
         margin-bottom: 1rem;
     }
 
+    pre {
+        background-color: $white-ter;
+    }
+
     /* admonitions */
     .admonition {
         margin-top: 1rem;
@@ -188,7 +192,6 @@ a {
        border: 1px solid $grey;
        border-radius: 0.4rem; 
     }
-
 }
 
 .blog-post {
