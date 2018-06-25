@@ -230,6 +230,12 @@ This means we've got 5 inputs - one for rosters, two for projections, and two fo
 
 [Also - If you use Fangraphs data a lot, it's worth considering becoming a member and supporting them a bit!](https://www.fangraphs.com/plus/product/fangraphs-membership/)
 
+## Scoring Individual Players
+
+The method I use for determining which players are worth picking up is somewhat common in fantasy sports with multiple categories:
+- For each player, calculate a z-score of how they fall on the distribution in each category.
+- Using these, you can create a composite score simply by adding them together.
+
 ---
 pub_date: 2018-03-15
 ---
