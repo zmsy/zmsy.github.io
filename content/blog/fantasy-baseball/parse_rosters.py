@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 LEAGUE_URL = "http://games.espn.com/flb/leaguerosters?leagueId=15594"
 
-# translate ESPN names to Fangraphs names
+# translate ESPN names to Fangraphs names, edit as necessary.
 TRANSLATIONS = {
     'Nicky Delmonico': 'Nick Delmonico',
     'Yuli Gurriel': 'Yulieski Gurriel'
@@ -40,7 +40,7 @@ def main():
 
     with open("rosters.csv", "w", newline='') as out_file:
         writer = csv.writer(out_file)
-        writer.writerow(("player", "team"))
+        writer.writerow(("Name", "Squad"))
         writer.writerows(players)
 
 if __name__ == '__main__':

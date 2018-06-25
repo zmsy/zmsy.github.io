@@ -104,7 +104,7 @@ curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=rfangrap
 
 In the `(batters|pitchers)_form_data.txt` file, there was one adjustment to make to get a higher number than 50 entries back: `__EVENTARGUMENT=FireCommand:ProjectionBoard1$dg1$ctl00;PageSize;50` - change this `50` to something like `2500` or so.
 
-Voila! You've now got a page with the HTML table containing all of the projections information there is to want. You can then plug this into beautifulsoup or whatever html parser you want.
+Voila! You've now got a page with the HTML table containing all of the projections information there is to want. You can then plug use pandas' `read_html()` function to parse this output for you.
 
 ### 3 -- Actuals
 
@@ -168,7 +168,7 @@ parse_array_from_fangraphs_html(pitchers_html, 'pitchers_actuals.csv')
 
 Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_html.html) function for parsing HTML tables like this (which uses lxml internally, same as BeautifulSoup), but the encoding of this table caused enough havoc that I decided to write the parser myself. If you're in a similar scenario, try that method first!
 
-## Creating a Repeatable Analysis Using Pandas
+## Reading the Data Into Pandas
 
 [Pandas](https://pandas.pydata.org/) is very capable of producing these sorts of information on tabular data in a straightforward, repeatable manner. Our league uses a customized stat list to base our categories on, so we have to derive many of these after getting actuals/projections.
 
@@ -189,23 +189,44 @@ Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/s
 * **OBA**: On-Base Percentage Against
 
 
-! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, look at the code repository and add your own stats to the config.yaml file there.
+! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, you can edit the code to use your own categories instead.
 
 #### Pandas
 
 Bringing this all into pandas is relatively easy, because of its _insanely_ useful `read_csv()` function. Not only does this do your opening/reading for you, it almost always gets the data types correct as well.
 
 ```python
-import pandas as pd
-
 # read in all outputs
-df_rosters = pd.read_csv("rosters.csv")
-df_batters = pd.read_csv("batters_actuals.csv")
-df_batters_projections = pd.read_csv("batters_projections.csv")
-df_pitchers = pd.read_csv("pitchers_actuals.csv")
-df_pitchers_projection = pd.read_csv("pitchers_projections.csv")
+df_rost = pd.read_csv('rosters.csv')
+dfb_act = pd.read_csv('batters_actuals.csv')
+dfp_act = pd.read_csv('pitchers_actuals.csv')
 
+# create a function to parse out percentage strings to floats
+def parse_pctg(value):
+    return float(value.split()[0]) / 100
+
+# apply that to all percentage values in the dataframes
+dfb_act['BB%'] = dfb_act['BB%'].apply(lambda x: parse_pctg(x))
+dfb_act['K%'] = dfb_act['K%'].apply(lambda x: parse_pctg(x))
+dfp_act['K%'] = dfp_act['K%'].apply(lambda x: parse_pctg(x))
+dfp_act['BB%'] = dfp_act['BB%'].apply(lambda x: parse_pctg(x))
+dfp_act['K-BB%'] = dfp_act['K-BB%'].apply(lambda x: parse_pctg(x))
+dfp_act['LOB%'] = dfp_act['LOB%'].apply(lambda x: parse_pctg(x))
+
+with open('batters_projections.html', 'r') as bhtml:
+    btxt = bhtml.read()
+    dfb_proj = pd.read_html(btxt)[-1]  # read_html returns ALL tables, we just want the last one.
+    dfb_proj.dropna(axis=1, inplace=True)
+
+with open('pitchers_projections.html', 'r') as phtml:
+    ptxt = phtml.read()
+    dfp_proj = pd.read_html(btxt)[-1]
+    dfp_proj.dropna(axis=1, inplace=True)
+
+# list of data sets: df_rost, dfb_act, dfb_proj, dfp_act, dfp_proj
 ```
+
+This means we've got 5 inputs - one for rosters, two for projections, and two for actuals. Time to get crankin' on the analysis part!
 
 [Also - If you use Fangraphs data a lot, it's worth considering becoming a member and supporting them a bit!](https://www.fangraphs.com/plus/product/fangraphs-membership/)
 
