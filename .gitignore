@@ -9,7 +9,7 @@ cfg.json
 .sass-cache
 *.DS_STORE
 *.map
-*/.ipynb_checkpoints/*
+*checkpoint.ipynb
 
 
 # Byte-compiled / optimized / DLL files
