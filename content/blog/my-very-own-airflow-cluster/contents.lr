@@ -42,7 +42,31 @@ I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/)
 1. **Airflow web server.** This was just based on a Ubuntu 16.04 instance.
 2. **Postgres backend.** I opted to use the local scheduler, which can use Postgres as a backend, and not set up some of the larger scale options like Celery.
 
-I'm using Postgres as a backend so that I can use the local executor, as opposed to the built-in sequential executor.
+The LocalExecutor option (configured for using Postgres as a backend in this instance) has probably the highest payoff-to-effort ratio, compared to how difficult it can be to set up the CeleryExecutor. Once you've created the database, verified the connection works, and run `airflow initdb`, you're good to go.
+
+Now you can start making DAGs.
+
+## DAGS, Operators, Upstream, Huh?
+
+There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/concepts.html) when using Airflow.
+
+- **DAG** - This is a single workflow, wherein you can arrange tasks and dependencies.
+- **Operator** - This is a single unit of work that can be instantiated multiple times to achieve a particular output/goal/etc. There are things like `BashOperator` for executing shell scripts, or `PythonOperator` for python files, etc.
+- **DAG Run** - A single execution of a DAG of tasks. Each operator in the DAG is instantiated and executed as it's dependencies are completed.
+
+### Features to Avoid
+
+Since Airflow has been in the Apache Incubator for the past year or so, it's been growing pretty rapidly with a lot of features like this. Having used it a little while now, there's a number of features that I choose to steer clear of for maintainability's sake.
+
+- [X-coms](https://airflow.incubator.apache.org/concepts.html#xcoms). The biggest downside of Airflow compared to Luigi is that it doesn't force you to write idempotent tasks in the same way. It's easy to accidentally end up writing something that has outputs which don't reproduce. If you treat a task like a function with a single input and output, it works best.
+- Branching Operators - If you need to choose between multiple sets of logic, it's best just to dynamically set your task dependencies at runtime, as opposed to creating a branching task.
+- Bitshift Operators as Upstream/Downstream - Airflow recently introduced a way of setting upstream/downstream tasks by using bitshift operators like `<<` or `>>`. This is bad. Explicit is good! `set_upstream()` is not particularly verbose anyways.
+
+
+
+
+
+
 
 
 ---
