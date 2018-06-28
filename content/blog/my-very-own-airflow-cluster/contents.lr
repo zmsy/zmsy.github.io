@@ -4,7 +4,7 @@ author: Zach Morrissey
 ---
 body:
 
-As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines is great. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
+As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
 
 ![Airflow Screenshot](airflow.png)
 
@@ -30,6 +30,7 @@ It _really_ helps certain types of batch processes scale past a certain point, w
 There's a number of gotchas you should know prior to using one of the DAG engines, as they all fall into the same traps.
 
 - `cron` is _incredibly_ difficult to beat for reliability. There's a reason it's ubiquitous. DAG engines are usually for tasks that need to scale past what `cron` is built for. If you're just trying to run a single script on the regular, stick with that instead.
+- DAG engines are meant for batch programs. If you need anything real-time, look elsewhere.
 - Usually there's a non-trivial amount of setup involved at the beginning.
 - Sometimes scaling can be a pain. For Airflow, you'll need to setup a task queue like Celery and a number of different nodes (web server, database, etc) once you scale past a certain point.
 - If you're on Google Cloud Platform, they offer a hosted Airflow service called [Cloud Composer](https://cloud.google.com/composer/) which could be worth it if you want to avoid the difficulties in setting up and deploying Airflow.
