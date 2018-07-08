@@ -37,10 +37,20 @@ There's a number of gotchas you should know prior to using one of the DAG engine
 
 ## Diving In
 
-I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/):
+There are plenty of ways that you can configure Airflow. There are varying levels of complexity for varying levels of requirements, specified by the Executor types (i.e. what does what in your scenario).
+
+* **SequentialExecutor** - Uses SQLite as a backend, and executes tasks for testing/debugging. This is generally what you'd run on your own machine if you're just testing a workflow.
+* **LocalExecutor** - Threaded local executor that uses just a DB connection as a backend.
+* **CeleryExecutor** - For distributing tasks out to worker nodes. This uses Celery as a queue. Requires you to set up other nodes as worker nodes.
+
+Here's diagram of how it works.
+
+<img src="/blog/my-very-own-airflow-cluster/airflow-diagram.svg" class="no-border" alt="Airflow architecture">
+
+For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
 1. **Airflow web server.** This was just based on a Ubuntu 16.04 instance.
-2. **Postgres backend.** I opted to use the local scheduler, which can use Postgres as a backend, and not set up some of the larger scale options like Celery.
+2. **Postgres backend.** For the LocalExecutor option, this is the only additional node required.
 
 The LocalExecutor option (configured for using Postgres as a backend in this instance) has probably the highest payoff-to-effort ratio, compared to how difficult it can be to set up the CeleryExecutor. Once you've created the database, verified the connection works, and run `airflow initdb`, you're good to go.
 
@@ -58,7 +68,7 @@ There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/conc
 
 Fittingly, the DAG is a graph, both directed and acyclic. Task execution flows in only one direction.
 
-<img src="/blog/my-very-own-airflow-cluster/airflow-dag.svg" class="no-border alt="An Airflow DAG Instance>
+<img src="/blog/my-very-own-airflow-cluster/airflow-dag.svg" class="no-border" alt="An Airflow DAG Instance">
 
 - The arrows indicate execution order.
 - An arrow from task 1 to task 2 implies task 1 is a dependency for task 2. If task 1 fails, task 2 will not execute.
