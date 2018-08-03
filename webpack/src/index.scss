@@ -155,6 +155,10 @@ a {
         margin-right: auto;
     }
 
+    .no-border {
+        border: none;
+    }
+
     /* icon */
     .fa {
         font-size: 1rem;
@@ -238,7 +242,6 @@ a {
     border-bottom: 1rem solid $grey-lighter;
 
     & > #hero-body {
-        padding-top: 6rem;
         padding-bottom: 3rem;
     }
 }
@@ -325,7 +328,7 @@ a {
 }
 
 .home-columns {
-    margin-top: 12rem;
+    margin-top: 10rem;
 
     h2 {
         font-family: $subtitle-fonts;
@@ -344,6 +347,12 @@ a {
         margin-right: 1rem;
         padding: 1rem;
         font-size: 1.125rem;
+    }
+
+    .column-logo {
+        height: 100px;
+        width: 100px;
+        margin: auto;
     }
 }
 
