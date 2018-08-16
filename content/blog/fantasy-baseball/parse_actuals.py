@@ -1,5 +1,6 @@
 import requests
 import csv
+import datetime
 from bs4 import BeautifulSoup
 
 # static urls
@@ -24,7 +25,6 @@ def parse_array_from_fangraphs_html(input_html, out_file_name):
     headers = []
     for header in headers_html:
         headers.append(header.text)
-    print(headers)
     
     # get rows
     rows = []

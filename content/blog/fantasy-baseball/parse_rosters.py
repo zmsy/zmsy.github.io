@@ -17,7 +17,7 @@ def main():
     """
 
     html = requests.get(LEAGUE_URL).text
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, 'lxml')
 
     rosters = soup.find_all("table", {'class': 'playerTableTable'})
 
