@@ -59,3 +59,5 @@ coverage.xml
 *,cover
 .hypothesis/
 
+content/blog/fantasy-baseball/dfp.csv
+content/blog/fantasy-baseball/dfb.csv
