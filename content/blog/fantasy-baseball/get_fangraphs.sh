@@ -17,3 +17,4 @@ curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=rfangrap
     -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' \
     -d @pitchers_form_data.txt --compressed \
     > pitchers_projections.html
+
