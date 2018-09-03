@@ -41,6 +41,18 @@ a {
     margin: auto;
 }
 
+.navbar-menu {
+    box-shadow: none;
+}
+
+#navbar-columns {
+    margin-bottom: 0rem;
+}
+
+#navbar-column {
+    padding-bottom: 0rem;
+}
+
 .navbar-end a:hover,
 .fa:hover {
     color: $blue;
@@ -373,4 +385,8 @@ a {
     strong {
         color: $white;
     } 
+
+    & .footer-dots {
+        width: 400px;
+    }
 }
