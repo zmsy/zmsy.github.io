@@ -242,6 +242,7 @@ a {
     border-bottom: 1rem solid $grey-lighter;
 
     & > #hero-body {
+        padding-top: 5rem;
         padding-bottom: 3rem;
     }
 }
@@ -318,7 +319,7 @@ a {
 #hero-diamonds {
     height: 20px;
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -354,6 +355,11 @@ a {
         width: 100px;
         margin: auto;
     }
+
+    & .home-title {
+        margin-bottom: 1rem;
+    }
+
 }
 
 

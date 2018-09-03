@@ -53,7 +53,7 @@ gulp.task('main-js', function() {
 
 
 // watch main css
-gulp.task('watch:main', function () {
+gulp.task('watch-main', function () {
     gulp.watch('./src/main.scss', ['main-css']);
 });
 
