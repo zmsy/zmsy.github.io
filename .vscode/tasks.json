@@ -1,0 +1,37 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "gulp main css",
+            "type": "npm",
+            "script": "gulp-main-css",
+            "path": "webpack/",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "gulp full",
+            "type": "npm",
+            "script": "gulp",
+            "path": "webpack/"
+        },
+        {
+            "label": "lektor live preview",
+            "isBackground": true,
+            "type": "shell",
+            "command": "lektor",
+            "args": ["server"]
+        },
+        {
+            "label": "lektor deploy",
+            "isBackground": true,
+            "type": "shell",
+            "command": "lektor",
+            "args": ["deploy", "s3"]
+        }
+    ]
+}
