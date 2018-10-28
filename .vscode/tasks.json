@@ -24,14 +24,20 @@
             "isBackground": true,
             "type": "shell",
             "command": "lektor",
-            "args": ["server"]
+            "args": [
+                "server"
+            ],
+            "problemMatcher": []
         },
         {
             "label": "lektor deploy",
             "isBackground": true,
             "type": "shell",
             "command": "lektor",
-            "args": ["deploy", "s3"]
+            "args": [
+                "deploy",
+                "s3"
+            ]
         }
     ]
 }
