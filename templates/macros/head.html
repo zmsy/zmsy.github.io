@@ -3,10 +3,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% if description %}
-    <meta name="description" content="{{this.description}}" />
+<meta name="description" content="{{post.description}}" />
+<meta name="og:description" content="{{post.description}}" />
 {% else %}
-<meta name="description" content="Zach Morrissey - Software engineer and data analyst. Seattle, WA." />
+<meta name="description" content="Software engineer and data analyst. Seattle, WA." />
+<meta name="og:description" content="Software engineer and data analyst. Seattle, WA." />
 {% endif %}
+<meta name="og:title" content="{{ post.title }}" />
 <link rel="stylesheet" href="{{ '/css/bulma.css'|asseturl }}">
 <link rel="stylesheet" href="{{ '/css/main.min.css'|asseturl }}">
 <link rel="stylesheet" href="{{ get_pygments_stylesheet()|url }}">
