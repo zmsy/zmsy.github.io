@@ -17,7 +17,9 @@ The skinny:
 
 ### You're Good Enough
 
-The thing that's taken me aback most of all upon switching to a full time software engineering role was how comfortable it feels. There's a lot of practices I held near and dear to my heart on a personal level that have translated well into an engineering practice. These are:
+The thing that's taken me aback most of all upon switching to a full time software engineering role was how comfortable it feels. There's a lot of practices I held near and dear to my heart on a personal level that have translated well into an engineering practice.
+
+My takeaways:
 
 - You're likely a good enough engineer.
 - You probably know more about engineering as a job than you think that you do.
@@ -28,7 +30,9 @@ The thing that's taken me aback most of all upon switching to a full time softwa
 
 ### Don't Expect Things to be Easy
 
-Like any job, software engineering comes with its own set of frustrations. You're likely going to have to use software you don't want to. You're probably going to have to revive long-dead code that's uncommented and unloved. You'll probably use unsexy languages / frameworks / approaches.
+Like any job, software engineering comes with its own set of frustrations. You're likely going to have to use software you don't want to. You're probably going to have to revive long-dead code that's uncommented and unloved. You may even use unsexy languages / frameworks / approaches.
+
+That's well-known enough that it should've been obvious, but until you're there it's much too easy to write things off.
 
 I've noticed the things that I struggle with the most aren't even technical challenges. Sure, those are there. The majority of the issues, however, come from trying to be productive as a team. Solving things not just for myself but for the entirety of the organization. If I find a script that helps me debug something, that's great, but it may only help me. Whereas a little bash script you use on your own machine may have been helpful before, there's a lot of added difficulty if you want to share it with others, automate it, or make it a standard practice.
 
