@@ -4,6 +4,8 @@ author: Zach Morrissey
 ---
 body:
 
+In one of the last projects I'm doing for school, I'm working on a game wherein everything in the game is _procedurally generated_ using a dungeon-building algorithm.
+
 ## Fresh Content Each Time
 
 One of the main draws of building a [Roguelike game](https://en.wikipedia.org/wiki/Roguelike) is figuring out how to procedurally generate dungeons. While it's difficult to replicate the high-quality hand-crafted content of titles like _Legend of Zelda: A Link to the Past_, you can approximate a lot of the same experience while coming up with a new layout each time the game is loaded. 
@@ -11,6 +13,8 @@ One of the main draws of building a [Roguelike game](https://en.wikipedia.org/wi
 Achieving this is, as you may imagine, pretty difficult.
 
 There are a lot of resources online, but most of them follow the same pattern - create a set of rooms, connect them, place items within them. There's a significant amount of wiggle room within those, but that's the basics.
+
+![The Dungeon of Deneb logo and intro scene](dungeon_of_deneb_capture.png)
 
 ## Unity Set Up
 
