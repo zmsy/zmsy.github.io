@@ -1,0 +1,26 @@
+title: Personal Data Engineering
+---
+author: Zach Morrissey
+---
+body:
+
+Something that's struck me recently is that, in order to do some of the work with data that I create personally, I'd have to set up some infrastructure to go about it. What this post entails is the approach I took to getting there.
+
+## Scope
+
+To most ends, downloading CSVs and plugging them into your spreadsheet software of choice will do most tasks well enough. For my purposes though, I wanted to scale this past what manual analysis was going to get me. There's a few key areas that I wanted this for:
+
+- Personal finances. Most of the data that I create finds it's way into financial systems that are hard to get your information out of. I'm not against the bank having my spending data, but I am frustrated that it's so hard for me to get it too.
+- Fantasy sports. I love sports and I love stats.
+- House shopping. This data is heaaaavily guarded and it's hard to find anything that isn't breaking some sort of ToS to get.
+
+This doesn't necessarily create a system that requires dedicated data engineering work, but some of the goals that I had for it did. These were:
+
+- **Automated.** I'd like to see how repeatable and reproducible these analyses can be.
+- **Modeled.** I'd like to build and train some models related to how I live my life to see if there's any predictive benefit to these things.
+---
+description: There's a lot of data that I use in my life that would benefit from some infrastructure work. Here's hoping to create something that makes this easier for me.
+---
+pub_date: 2019-03-26
+---
+twitter_handle: _zmsy
