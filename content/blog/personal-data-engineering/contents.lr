@@ -6,6 +6,8 @@ body:
 
 Something that's struck me recently is that, in order to do some of the work with data that I create personally, I'd have to set up some infrastructure to go about it. What this post entails is the approach I took to getting there.
 
+<img src="/blog/personal-data-engineering/graphs.svg" style="width:20rem; height:10rem" class="no-border" alt="Miscellaneous fake graphs for fun.">
+
 ## Scope
 
 To most ends, downloading CSVs and plugging them into your spreadsheet software of choice will do most tasks well enough. For my purposes though, I wanted to scale this past what manual analysis was going to get me. There's a few key areas that I wanted this for:
@@ -23,9 +25,13 @@ This doesn't necessarily create a system that requires dedicated data engineerin
 
 For doing this sort of work, I set up a few infrastructural components:
 
-- **VM + Docker Host** - Since I've got a small server at home, and AWS is likely overkill for any of this, I use the same machine both as a VM host (Proxmox) and a Docker host (Docker + [Portainer](https://www.portainer.io/) for a web UI).
-- **Postgres database** - This is the hub of all activity that I do, serving as both an application backend / transactional database as well as an analytical database. Each are neatly separated out into different schemas.
-- **Airflow** - Building on my [earlier post about Airflow]("/blog/my-very-own-airflow-cluster/"), I've expanded my usage of it to a significant variety of different DAGs. This uses the same Postgres database as earlier.
+<img src="/blog/personal-data-engineering/diagram.svg" style="max-height: 20rem" class="no-border" alt="Diagram of my personal data engineering architecture.">
+
+- **VM + Docker Host Server** - The hardware behind it all. Since I've got a small server at home, and AWS is likely overkill for any of this, I use the same machine both as a VM host ([Proxmox](https://www.proxmox.com/en/)) and a Docker host (Docker + [Portainer](https://www.portainer.io/) for a web UI).
+- **Postgres database** - My primary datastore. This is the hub of all activity that I do, serving as both an application backend / transactional database as well as an analytical database. Each are neatly separated out into different schemas. I use [DBeaver](https://dbeaver.io/) as a SQL client for ad-hoc querying, manipulation, setup, etc.
+- **Apache Airflow** - In it's simplest form, I'm using this basically as a scheduled job engine. Building on my [earlier post about Airflow]("/blog/my-very-own-airflow-cluster/"), I've expanded my usage of it to a significant variety of different DAGs. This uses the same Postgres database as earlier.
+- **Jupyter Notebooks** - Interactive analytical code/markdown files served up in your web browser. Jupyter is the ultimate tool in interactive analytical computing, with RStudio being the only major other option I considered (went with Jupyter, if for nothing else, because I find python more enjoyable to write). There's [great options](https://jupyterhub.readthedocs.io/en/stable/) available if you want to run this on a server, I found that I like just running it locally the best.
+- **Apache Superset** - Web-based Dashboards. [Superset](https://superset.incubator.apache.org/installation.html#getting-started), similar to Airflow, is based on Python/Flask and can be run in a single Docker container if you so desire. Since I need some way of sharing some of these results with a significant other (namely finance + house shopping data), I needed to have some sort of dashboarding software in order to have that visible to someone who will access it via web browser.
 
 ---
 description: There's a lot of data that I use in my life that would benefit from some infrastructure work. Here's hoping to create something that makes this easier for me.
