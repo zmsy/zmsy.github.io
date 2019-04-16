@@ -12,9 +12,11 @@
 {% endif %}
 
 {% if post.title %}
-<meta name="og:title" content="Zach Morrissey - {{ post.title }}" />
+<title>zmsy | {{ post.title }}</title>
+<meta name="og:title" content="Zach Morrissey | {{ post.title }}" />
 {% else %}
-<meta name="og:title" content="Zach Morrissey - Software engineer and data analyst. Seattle WA." />
+<title>zmsy | Software engineer and data analyst. Seattle WA.</title>
+<meta name="og:title" content="Zach Morrissey | Software engineer and data analyst. Seattle WA." />
 {% endif %}
 
 <link rel="stylesheet" href="{{ '/css/bulma.css'|asseturl }}">
@@ -24,5 +26,4 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Work+Sans:400,700|Fira+Mono:400,700|Patua+One|Shrikhand" rel="stylesheet">
 <link rel="icon" type="image/png" href="{{ '/media/favicon-32x32.png'|asseturl }}" sizes="32x32" />
 <link rel="icon" type="image/png" href="{{ '/media/favicon-16x16.png'|asseturl }}" sizes="16x16" />
-<title>zmsy | {{ post.title }}</title>
 {% endmacro %}
