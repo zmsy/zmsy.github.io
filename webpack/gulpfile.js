@@ -12,7 +12,7 @@ var rename = require('gulp-rename');
 gulp.task('bulma-default', function() {
     return gulp.src('./node_modules/bulma/bulma.sass')
         .pipe(source_maps.init())
-        .pipe(sass({ outputStyle: 'expanded' }))
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));
@@ -22,7 +22,7 @@ gulp.task('bulma-default', function() {
 gulp.task('bulma-custom', function() {
     return gulp.src('./src/bulma.scss')
         .pipe(source_maps.init())
-        .pipe(sass({ outputStyle: 'expanded' }))
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));
@@ -34,7 +34,7 @@ gulp.task('main-css', function() {
     return gulp.src('./src/index.scss')
         .pipe(rename('main.min.css'))
         .pipe(source_maps.init())
-        .pipe(sass({ outputStyle: 'expanded' }))
+        .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));

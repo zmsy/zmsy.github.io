@@ -114,7 +114,7 @@ a {
     h2 {
         font-family: $subtitle-fonts;
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 400;
         color: $black-ter;
 
         &:nth-of-type(1) {
@@ -129,7 +129,7 @@ a {
     h3 {
         font-family: $subtitle-fonts;
         font-size: 1.5rem;
-        font-weight: 700;
+        font-weight: 400;
         color: $grey-darker;
         margin-top: 2.5rem;
     }
@@ -137,7 +137,7 @@ a {
     h4 {
         font-family: $subtitle-fonts;
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 400;
         color: $grey-darker;
         margin-top: 2rem;
     }
@@ -154,6 +154,7 @@ a {
     strong {
         color: $grey-dark;
         font-family: $subtitle-fonts;
+        font-weight: 400;
     }
 
     hr {

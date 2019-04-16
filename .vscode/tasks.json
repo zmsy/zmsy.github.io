@@ -12,6 +12,7 @@
                 "kind": "build",
                 "isDefault": true
             },
+            "problemMatcher": []
         },
         {
             "label": "gulp full",
