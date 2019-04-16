@@ -2,6 +2,7 @@
 name = zmsy
 url = https://zmsy.co/
 url_style = relative
+excluded_assets="*.afdesign"
 
 [packages]
 lektor-markdown-highlighter = 0.2
