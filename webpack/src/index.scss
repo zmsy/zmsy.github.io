@@ -45,6 +45,10 @@ a {
     box-shadow: none;
 }
 
+.navbar-item {
+    color: $black-ter;
+}
+
 #navbar-columns {
     margin-bottom: 0rem;
 }
@@ -248,14 +252,8 @@ a {
 /* HEROES AND SUBTITLES */
 
 #hero {
-    /* background dot pattern */
-    background-image: url("/img/background-dots.svg");
-    background-repeat: repeat;
-    border-top: 1rem solid $grey-lighter;
-    border-bottom: 1rem solid $grey-lighter;
-
     & > #hero-body {
-        padding-top: 5rem;
+        padding-top: 3rem;
         padding-bottom: 3rem;
     }
 }
@@ -326,7 +324,7 @@ a {
 
 #hero-badge {
     margin-bottom: -11.75rem;
-    height: 250px;
+    height: 30rem;
 }
 
 #hero-diamonds {
@@ -342,7 +340,7 @@ a {
 }
 
 .home-columns {
-    margin-top: 10rem;
+    margin-top: 12rem;
 
     h2 {
         font-family: $subtitle-fonts;
