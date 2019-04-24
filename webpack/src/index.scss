@@ -45,6 +45,10 @@ a {
     box-shadow: none;
 }
 
+.navbar-item {
+    color: $black-ter;
+}
+
 #navbar-columns {
     margin-bottom: 0rem;
 }
@@ -248,10 +252,8 @@ a {
 /* HEROES AND SUBTITLES */
 
 #hero {
-    margin-bottom: 12em;
-
     & > #hero-body {
-        padding-top: 5rem;
+        padding-top: 3rem;
         padding-bottom: 3rem;
     }
 }
@@ -338,7 +340,7 @@ a {
 }
 
 .home-columns {
-    margin-top: 10rem;
+    margin-top: 12rem;
 
     h2 {
         font-family: $subtitle-fonts;
