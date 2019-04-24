@@ -248,6 +248,8 @@ a {
 /* HEROES AND SUBTITLES */
 
 #hero {
+    margin-bottom: 12em;
+
     & > #hero-body {
         padding-top: 5rem;
         padding-bottom: 3rem;
@@ -320,7 +322,7 @@ a {
 
 #hero-badge {
     margin-bottom: -11.75rem;
-    height: 250px;
+    height: 30rem;
 }
 
 #hero-diamonds {
