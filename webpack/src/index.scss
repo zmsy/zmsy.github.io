@@ -248,12 +248,6 @@ a {
 /* HEROES AND SUBTITLES */
 
 #hero {
-    /* background dot pattern */
-    background-image: url("/img/background-dots.svg");
-    background-repeat: repeat;
-    border-top: 1rem solid $grey-lighter;
-    border-bottom: 1rem solid $grey-lighter;
-
     & > #hero-body {
         padding-top: 5rem;
         padding-bottom: 3rem;
