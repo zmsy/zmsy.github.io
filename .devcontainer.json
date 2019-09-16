@@ -1,0 +1,13 @@
+// https://aka.ms/vscode-remote/devcontainer.json
+{
+    "name": "Dockerfile",
+    "context": ".",
+    "dockerFile": "Dockerfile",
+    "runArgs": [],
+    "settings": {
+        "terminal.integrated.shell.linux": null
+    },
+    "appPort": [],
+    // "postCreateCommand": "",
+    "extensions": []
+}
