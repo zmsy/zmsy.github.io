@@ -8,6 +8,13 @@ The first thing I will do when I read through your `(library|module|framework)`'
 
 Before users have even read the first sentence of your documentation, they've already got a concept of it in their mind. They want the fastest way to prove and/or disprove their hypothesis.
 
+## The Ways Your Technology Will Be Adopted
+
+1. Users need a package that does _x_, and see that your `(library|module|framework)`'s recommended on HN/Github/Reddit/Stackshare/etc.
+2. Users will inherit your `(library|module|framework)`'s in an existing project at work.
+3. Your technology will be bundled with something else that they're intending to use.
+4. 
+
 ## The Two Ways Users Will Use Your Docs
 
 1. Checking how closely your examples match their ideal intended use case.
