@@ -1,0 +1,34 @@
+title: Your Documentation Is Your Examples
+---
+author: Zach Morrissey
+---
+body:
+
+The first thing I will do when I read through your `(library|module|framework)`'s document is skip over whatever you've written describing what the purpose or qualities of your library and scan until I find the first example.
+
+Before users have even read the first sentence of your documentation, they've already got a concept of it in their mind. They want the fastest way to prove and/or disprove their hypothesis.
+
+## The Two Ways Users Will Use Your Docs
+
+1. Checking how closely your examples match their ideal intended use case.
+2. Read the "Getting Started" page.
+
+More specifically, if users can't see the actual functions or classes they intend to use demonstrated, they will avoid your framework entirely.
+
+Although you'll see more seasoned engineers throw around "RTFM" or other phrases extolling the virtues of painstakingly reading the manpages of a particular tool, I think it's fair to say that most people start with an idea in mind and find their way to a framework only when it helps them implement it.
+
+## Reasons Whey They're Looking For Examples
+
+<img src="/blog/example-first-documentation/rtfm.svg" class="no-border" alt="Ternary JS operator describing how seniors feel about juniors' questions when they're not 100% well-researched.">
+
+
+1. Starting off and want a frame of reference.
+2. Users know what an implementation might look like, but don't know what it's called.
+3. StackOverflow-inspired copy/paste-heavy workflow.
+3. Asking for help on the internet sucks.
+4. Asking for help from your coworkers can suck too.
+
+---
+pub_date: 2019-07-07
+---
+twitter_handle: _zmsy
