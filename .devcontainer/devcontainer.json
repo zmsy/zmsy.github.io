@@ -7,7 +7,7 @@
     "settings": {
         "terminal.integrated.shell.linux": null
     },
-    "appPort": [],
+    "appPort": [ "5000:5000" ],
     // "postCreateCommand": "",
     "extensions": [
         "ms-python.python"
