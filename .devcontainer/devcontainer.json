@@ -2,12 +2,14 @@
 {
     "name": "Dockerfile",
     "context": ".",
-    "dockerFile": "Dockerfile",
+    "dockerFile": "../Dockerfile",
     "runArgs": [],
     "settings": {
         "terminal.integrated.shell.linux": null
     },
     "appPort": [],
     // "postCreateCommand": "",
-    "extensions": []
+    "extensions": [
+        "ms-python.python"
+    ]
 }
