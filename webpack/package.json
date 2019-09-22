@@ -28,6 +28,7 @@
     "build": "webpack --mode production",
     "start": "webpack --watch",
     "gulp": "gulp",
+    "gulp-purify": "gulp refine",
     "gulp-main-css": "gulp main-css",
     "gulp-watch": "gulp watch:main"
   },

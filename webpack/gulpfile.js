@@ -8,54 +8,45 @@ var source_maps = require('gulp-sourcemaps');
 var purify = require('gulp-purify-css');
 var rename = require('gulp-rename');
 
-// Process bulma variables
-gulp.task('bulma-default', function() {
-    return gulp.src('./node_modules/bulma/bulma.sass')
+function bulma() {
+    return gulp
+        .src('./src/bulma.scss')
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));
-});
+}
 
-// Custom bulma version.
-gulp.task('bulma-custom', function() {
-    return gulp.src('./src/bulma.scss')
-        .pipe(source_maps.init())
-        .pipe(sass({ outputStyle: 'compressed' }))
-        .pipe(clean_css())
-        .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('../assets/css/'));
-});
-
-
-// Process main scss.
-gulp.task('main-css', function() {
-    return gulp.src('./src/index.scss')
+function css() {
+    return gulp
+        .src("./src/index.scss")
         .pipe(rename('main.min.css'))
         .pipe(source_maps.init())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/css/'));
-});
+}
 
-
-// Process main javascript.
-gulp.task('main-js', function() {
-    return gulp.src('./src/main.js')
+function js() {
+    return gulp.src('./src/index.js')
         .pipe(rename('main.min.js'))
         .pipe(source_maps.init())
         .pipe(uglify())
         .pipe(source_maps.write('.'))
         .pipe(gulp.dest('../assets/js/'));
-});
+}
 
+function purifyBulma() {
+    return gulp
+        .src('../assets/css/bulma.css')
+        .pipe(purify(['../assets/js/*.js', './build/**/*.html']))
+        .pipe(gulp.dest('./dist/'));
+}
 
-// watch main css
-gulp.task('watch-main', function () {
-    gulp.watch('./src/main.scss', ['main-css']);
-});
+const build = gulp.series(css, bulma, js);
+const refine = gulp.series(purifyBulma);
 
-// Process all
-gulp.task('default', ['bulma-custom', 'main-css', 'main-js'])
+exports.default = build;
+exports.refine = refine;
