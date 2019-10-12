@@ -26,9 +26,10 @@
             "type": "shell",
             "command": "lektor",
             "args": [
-                "server",
-                "--host",
-                "0.0.0.0"
+                "server"
+                // "server",
+                // "--host",
+                // "0.0.0.0"
             ],
             "problemMatcher": []
         },
