@@ -1,5 +1,6 @@
-FROM nginx
+FROM python:3.7-slim
 
 ENV WORK_DIR /app
 
-COPY . ${WORK_DIR}
+COPY requirements.txt .
+RUN pip install -r requirements.txt
