@@ -8,32 +8,38 @@ The first thing I will do when I read through your `(library|module|framework)`'
 
 Before users have even read the first sentence of your documentation, they've already got a concept of it in their mind. They want the fastest way to prove and/or disprove their hypothesis.
 
-## The Ways Your Technology Will Be Adopted
+## Ways Your Technology Will Be Adopted
 
 1. Users need a package that does _x_, and see that your `(library|module|framework)`'s recommended on HN/Github/Reddit/Stackshare/etc.
 2. Users will inherit your `(library|module|framework)`'s in an existing project at work.
 3. Your technology will be bundled with something else that they're intending to use.
-4. 
 
-## The Two Ways Users Will Use Your Docs
+## Two Ways Users Will Use Your Docs
 
-1. Checking how closely your examples match their ideal intended use case.
-2. Read the "Getting Started" page.
+1. Checking how closely your examples match their ideal intended use case. Everyone has a mental model of how they think a particular library will work prior to using it, and they will try to navigate to the right pages by searching for terms related to that.
+2. Attempt to install your software in a variety of ways they already know, and fall back to reading the "Getting Started" page when that doesn't work.
 
 More specifically, if users can't see the actual functions or classes they intend to use demonstrated, they will avoid your framework entirely.
 
-Although you'll see more seasoned engineers throw around "RTFM" or other phrases extolling the virtues of painstakingly reading the manpages of a particular tool, I think it's fair to say that most people start with an idea in mind and find their way to a framework only when it helps them implement it.
+Although you'll see more seasoned engineers throw around "RTFM" or other phrases extolling the virtues of painstakingly reading the manpages of a particular tool, it's fair to say that most people start with an idea in mind and find their way to a framework only when it helps them implement it.
 
 ## Reasons Whey They're Looking For Examples
 
 <img src="/blog/example-first-documentation/rtfm.svg" class="no-border" alt="Ternary JS operator describing how seniors feel about juniors' questions when they're not 100% well-researched.">
-
 
 1. Starting off and want a frame of reference.
 2. Users know what an implementation might look like, but don't know what it's called.
 3. StackOverflow-inspired copy/paste-heavy workflow.
 3. Asking for help on the internet sucks.
 4. Asking for help from your coworkers can suck too.
+
+## Don't Fight It, Just Provide More Examples
+
+There are an endless number of under-documented pieces of code out there, and their success or failure is largely driven around how quickly users can get at the answer that fits their mental model of how your library works.
+
+What does under-exampled code documentation look like?
+
+- [Python's Threadpool Usage]()
 
 ---
 pub_date: 2019-07-07
