@@ -5,6 +5,7 @@ Main javascript file - includes all logic for site
 
 // webpack imports
 // import './index.scss';
+// import './bulma.scss';
 
 // utility functions
 function $(id) { return document.getElementById(id); }
