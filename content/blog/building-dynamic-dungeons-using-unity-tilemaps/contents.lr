@@ -40,7 +40,7 @@ Since dungeon generation algorithms can fall into a number of ways that they can
 ### Steps
 
 1. Place a number of rooms in a grid.
-2. Derive a graph for the grid. The recommended way I found to do this was to create a Delauney Triangulation. This is somewhat complicated, so it's recommended to find an algorithm or package that will do this for you.
+2. Derive a graph for the grid. The recommended way I found to do this was to create a Delauney Triangulation. This is somewhat complicated, so it's recommended to [find an algorithm or package that will do this for you](http://www.personal.psu.edu/cxc11/AERSP560/DELAUNEY/13_Two_algorithms_Delauney.pdf).
 3. From that graph, derive a minimum spanning tree. I found that this was easy enough to do using Prim's Algorithm, which is greedy and runs quickly.
 4. Verify that the graph meets your desired gameplay goals. For me, I wanted to make sure that I had at least two non-overlapping subtrees that comprised >25% of the nodes in the tree, so that I could use these as specific gameplay areas.
 5. Connect all the parent/child relationships in the tree with corridors.
