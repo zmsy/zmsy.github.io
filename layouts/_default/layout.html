@@ -1,0 +1,18 @@
+{% from "macros/nav.html" import render_nav %}
+{% from "macros/head.html" import render_head %}
+<!doctype html>
+<head>
+  {{ render_head(this) }}
+  {% block includes %} {% endblock %}
+</head>
+<body>
+  {{ render_nav() }}
+  <div id="body">
+    {{ block "body" . }}
+    {{ end }}
+  </div>
+  {{ partial "scripts.html" . }}
+  {{ partial "footer.html" . }}
+  {{ partial "ga.html" . }}
+</body>
+</html>
