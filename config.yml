@@ -1,6 +1,7 @@
 # base site information
 baseURL: https://zmsy.co/
 title: zmsy.co
+languageCode: en-us
 
 # custom parameters
 params:
