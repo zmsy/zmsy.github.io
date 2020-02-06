@@ -2,6 +2,7 @@
 baseURL: https://zmsy.co/
 title: zmsy.co
 languageCode: en-us
+DefaultContentLanguage: "en"
 
 # custom parameters
 params:
@@ -36,6 +37,8 @@ menu:
 # site settings
 enableEmoji: true
 enableInlineShortcodes: true
+enableGitInfo: true
 enableRobotsTXT: true
+canonifyURLs: true
 googleAnalytics: UA-104524581-1
 paginate: 5

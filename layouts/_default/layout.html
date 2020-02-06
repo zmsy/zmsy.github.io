@@ -1,14 +1,12 @@
-{% from "macros/nav.html" import render_nav %}
-{% from "macros/head.html" import render_head %}
-<!doctype html>
 <head>
-  {{ render_head(this) }}
-  {% block includes %} {% endblock %}
+  {{ partial "header/site.html"}}
+  {{ partial "header/rel.html" }}
 </head>
 <body>
   {{ partial "nav.html" . }}
   <div id="body">
     {{ block "body" . }}
+    <!-- Main content div -->
     {{ end }}
   </div>
   {{ partial "scripts.html" . }}
