@@ -1,0 +1,13 @@
+baseURL: https://zmsy.co/
+title: zmsy.co
+params:
+  - AuthorName: Zach Morrissey
+  - GithubUser: zmsy
+  - LinkedInUser: zmsyco
+  - TwitterHandle: _zmsy
+
+navigation:
+  - home: /
+  - blog: /blog
+  - projects: /projects
+  - about: /about
