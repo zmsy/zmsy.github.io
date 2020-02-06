@@ -12,14 +12,29 @@ params:
   HowieInstagram: https://www.instagram.com/howiethesamoyed
 
 menu:
-  navigation:
-    - home: /
-    - blog: /blog
-    - projects: /projects
-    - about: /about
+  nav:
+    - url: /
+      name: Home
+    - url: /blog
+      name: Blog
+    - url: /projects
+      name: Projects
+    - url: /about
+      name: About
+  icons:
+    - icon: fa-linkedin-square
+      alt: View my LinkedIn profile.
+      url: https://www.linkedin.com/in/zmsyco
+    - icon: fa-github
+      alt: Check out my Github.
+      url: https://github.com/zmsy
+    - icon: fa-twitter
+      alt: Check out my sparsely used Twitter account.
+      url: https://twitter.com/_zmsy
 
 # site settings
 enableEmoji: true
 enableInlineShortcodes: true
 enableRobotsTXT: true
 googleAnalytics: UA-104524581-1
+paginate: 5
