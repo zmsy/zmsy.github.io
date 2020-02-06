@@ -13,6 +13,6 @@
   </div>
   {{ partial "scripts.html" . }}
   {{ partial "footer.html" . }}
-  {{ partial "ga.html" . }}
+  {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
