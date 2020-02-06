@@ -12,27 +12,25 @@ params:
   LinkedInUser: zmsyco
   TwitterHandle: _zmsy
   HowieInstagram: https://www.instagram.com/howiethesamoyed
-
-menu:
   nav:
-    - url: /
-      name: Home
-    - url: /blog
-      name: Blog
-    - url: /projects
-      name: Projects
-    - url: /about
-      name: About
+    - URL: /
+      Name: Home
+    - URL: /blog
+      Name: Blog
+    - URL: /projects
+      Name: Projects
+    - URL: /about
+      Name: About
   icons:
-    - icon: fa-linkedin-square
-      alt: View my LinkedIn profile.
-      url: https://www.linkedin.com/in/zmsyco
-    - icon: fa-github
-      alt: Check out my Github.
-      url: https://github.com/zmsy
-    - icon: fa-twitter
-      alt: Check out my sparsely used Twitter account.
-      url: https://twitter.com/_zmsy
+    - Icon: fa-linkedin-square
+      Alt: View my LinkedIn profile.
+      Url: https://www.linkedin.com/in/zmsyco
+    - Icon: fa-github
+      Alt: Check out my Github.
+      Url: https://github.com/zmsy
+    - Icon: fa-twitter
+      Alt: Check out my sparsely used Twitter account.
+      Url: https://twitter.com/_zmsy
 
 # site settings
 enableEmoji: true
