@@ -6,7 +6,7 @@
   {% block includes %} {% endblock %}
 </head>
 <body>
-  {{ render_nav() }}
+  {{ partial "nav.html" . }}
   <div id="body">
     {{ block "body" . }}
     {{ end }}
