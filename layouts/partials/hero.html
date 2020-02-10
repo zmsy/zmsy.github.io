@@ -1,0 +1,13 @@
+<section class="hero is-medium" id="hero">
+  <div class="hero-body" id="hero-body">
+    <div class="container has-text-centered">
+      {{ with .Title }}
+      <h1 class="title title-dark is-size-1-touch">{{ .Title }}</h1>
+      {{ end }}
+      {{ with .Subtitle }}
+      <h2 class="subtitle subtitle-dark is-size-5-touch">{{ .Subtitle }}</h2>
+      {{ end }}
+      <img class="is-centered" id="hero-diamonds" src="/img/diamonds-dark.svg">
+    </div>
+  </div>
+</section>

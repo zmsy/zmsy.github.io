@@ -5,12 +5,12 @@
 <body>
   {{ partial "nav.html" . }}
   <div id="body">
-    {{ block "body" . }}
+    {{ block "main" . }}
     <!-- Main content div -->
     {{ end }}
   </div>
-  {{ partial "scripts.html" . }}
   {{ partial "footer.html" . }}
+  {{ partial "scripts.html" . }}
   {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
