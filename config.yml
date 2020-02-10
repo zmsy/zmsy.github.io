@@ -13,13 +13,13 @@ params:
   TwitterHandle: _zmsy
   HowieInstagram: https://www.instagram.com/howiethesamoyed
   nav:
-    - URL: /
+    - Url: /
       Name: Home
-    - URL: /blog
+    - Url: /blog
       Name: Blog
-    - URL: /projects
+    - Url: /projects
       Name: Projects
-    - URL: /about
+    - Url: /about
       Name: About
   icons:
     - Icon: fa-linkedin-square

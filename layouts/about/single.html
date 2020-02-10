@@ -1,0 +1,75 @@
+{{ define "main" }}
+{{ partial "hero.html" . }}
+<section class="section" id="main">
+  <div class="container" id="about-container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content">
+          {{ this.body }}
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card">
+
+          <!-- image -->
+          <div class="card-image">
+            <figure class="image is-4by3" id="about-photo">
+              <img src="/img/about.jpg" alt="My dog Howie and myself." />
+            </figure>
+          </div>
+
+          <!-- card content -->
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48" id="about-logo">
+                  <img
+                    src="/media/logo.svg"
+                    alt="Zach Morrissey & Howie the Dog"
+                  />
+                </figure>
+              </div>
+              <div class="media-content">
+                <h2 id="about-cardtitle">{{ this.author }}</h2>
+                <p><a href="https://twitter.com/_zmsy">@_zmsy</a></p>
+              </div>
+            </div>
+
+            <hr class="hr-subtitle" />
+
+            <div class="content about-content">
+              {{ .Tagline | markdownify }}
+            </div>
+
+            <!-- level -->
+            <div class="level is-mobile">
+              <a class="level-item" href="mailto:zachjmorrissey@gmail.com">
+                <span class="icon"><i class="fa fa-envelope"></i></span>
+              </a>
+              <a
+                class="level-item"
+                href="https://www.linkedin.com/in/zach-morrissey-6b096431/"
+              >
+                <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              </a>
+              <a class="level-item" href="https://twitter.com/_zmsy">
+                <span class="icon"><i class="fa fa-twitter"></i></span>
+              </a>
+              <a class="level-item" href="https://github.com/zmsy">
+                <span class="icon"><i class="fa fa-github"></i></span>
+              </a>
+              <a
+                class="level-item"
+                href="https://www.instagram.com/howiethesamoyed"
+                alt="Like the dog? Here's his Instagram!"
+              >
+                <span class="icon"><i class="fa fa-paw"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
