@@ -1,5 +1,6 @@
 # custom
-node_modules/
+node_modules
+public
 webpack/node_modules/
 npm-debug.log
 webpack/npm-debug.log
