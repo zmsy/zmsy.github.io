@@ -1,14 +1,14 @@
 <section class="hero is-medium" id="hero">
   <div class="hero-body" id="hero-body">
     <div class="container has-text-centered">
-      {{ with .Params.title }}
-      <h1 class="title title-dark is-size-1-touch">{{ .Params.title }}</h1>
+      {{ with $.Params.title }}
+      <h1 class="title title-dark is-size-1-touch">{{ $.Params.title }}</h1>
       {{ end }}
-      {{/*  {{ with .Params.subtitle }}
-      <h2 class="subtitle subtitle-dark is-size-5-touch">{{ .Params.subtitle }}</h2>
+      {{ with $.Params.subtitle }}
+      <h2 class="subtitle subtitle-dark is-size-5-touch">{{ $.Params.subtitle }}</h2>
       {{ end }}
-      <img class="is-centered" id="hero-diamonds" src="/img/diamonds-dark.svg">  */}}
-      <p>{{ printf "%#v" .Params }}</p>
+      <img class="is-centered" id="hero-diamonds" src="/img/diamonds-dark.svg">
+      {{/*  <p>{{ printf "%#v" .Params }}</p>  */}}
     </div>
   </div>
 </section>
