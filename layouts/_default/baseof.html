@@ -1,16 +1,16 @@
 <head>
-  {{ partial "header/site.html"}}
-  {{ partial "header/includes.html" }}
+  {{ partialCached "header/site.html" . }}
+  {{ partialCached "header/includes.html" . }}
 </head>
 <body>
-  {{ partial "nav.html" . }}
+  {{ partialCached "nav.html" . }}
   <div id="body">
     {{ block "main" . }}
     <!-- Main content div -->
     {{ end }}
   </div>
-  {{ partial "footer.html" . }}
-  {{ partial "scripts.html" . }}
+  {{ partialCached "footer.html" . }}
+  {{ partialCached "scripts.html" . }}
   {{ template "_internal/google_analytics_async.html" . }}
 </body>
 </html>
