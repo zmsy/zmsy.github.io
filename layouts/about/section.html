@@ -5,7 +5,7 @@
     <div class="columns is-centered">
       <div class="column is-6">
         <div class="content">
-          {{ this.body }}
+          {{ .Content }}
         </div>
       </div>
       <div class="column is-4">
@@ -30,15 +30,15 @@
                 </figure>
               </div>
               <div class="media-content">
-                <h2 id="about-cardtitle">{{ this.author }}</h2>
-                <p><a href="https://twitter.com/_zmsy">@_zmsy</a></p>
+                <h2 id="about-cardtitle">{{ .Site.Params.AuthorName }}</h2>
+                <p><a href="https://twitter.com/_zmsy">{{ .Site.Params.TwitterHandle }}</a></p>
               </div>
             </div>
 
             <hr class="hr-subtitle" />
 
             <div class="content about-content">
-              {{ .Tagline | markdownify }}
+              {{ .Params.Tagline | markdownify }}
             </div>
 
             <!-- level -->
