@@ -14,7 +14,7 @@ function bulma() {
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('../assets/css/'));
+        .pipe(gulp.dest('../static/css/'));
 }
 
 function css() {
@@ -25,7 +25,7 @@ function css() {
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(clean_css())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('../assets/css/'));
+        .pipe(gulp.dest('../static/css/'));
 }
 
 function js() {
@@ -34,7 +34,7 @@ function js() {
         .pipe(source_maps.init())
         .pipe(uglify())
         .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('../assets/js/'));
+        .pipe(gulp.dest('../static/js/'));
 }
 
 const build = gulp.series(css, bulma, js);
