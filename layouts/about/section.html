@@ -1,5 +1,4 @@
-{{ define "main" }}
-{{ partial "hero.html" . }}
+{{ define "main" }} {{ partial "hero.html" . }}
 <section class="section" id="main">
   <div class="container" id="about-container">
     <div class="columns is-centered">
@@ -10,7 +9,6 @@
       </div>
       <div class="column is-4">
         <div class="card">
-
           <!-- image -->
           <div class="card-image">
             <figure class="image is-4by3" id="about-photo">
@@ -20,18 +18,25 @@
 
           <!-- card content -->
           <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48" id="about-logo">
-                  <img
-                    src="/media/logo.svg"
-                    alt="Zach Morrissey & Howie the Dog"
-                  />
-                </figure>
-              </div>
-              <div class="media-content">
-                <h2 id="about-cardtitle">{{ .Site.Params.AuthorName }}</h2>
-                <p><a href="https://twitter.com/_zmsy">{{ .Site.Params.TwitterHandle }}</a></p>
+            <div class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <p class="image is-48x48" id="about-logo">
+                    <img
+                      src="/media/logo.svg"
+                      alt="Zach Morrissey & Howie the Dog"
+                    />
+                  </p>
+                </div>
+
+                <div class="level-item">
+                  <p id="about-cardtitle">{{ .Site.Params.AuthorName }}</p>
+                  <p>
+                    <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
+                      @{{ .Site.Params.TwitterHandle }}
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
 
