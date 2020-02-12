@@ -1,0 +1,7 @@
+{{ if .IsNamedParams }}
+<div class="admonition admonition-{{ .Get "level" }}">
+{{ else }}
+<div class="admonition admonition-info"><p>
+{{ end }}
+  <p>{{ trim .Inner "\n" | markdownify }}</p>
+</div>
