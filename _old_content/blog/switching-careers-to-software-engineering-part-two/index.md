@@ -1,8 +1,8 @@
-title: Switching Careers to Software Engineering: Six Months Update
 ---
-author: Zach Morrissey
+title: "Switching Careers to Software Engineering: Six Months Update"
+description: "I've had a bit to learn the ropes in the new career I landed in now, and here are my reflections about that first onboarding period."
+publishDate: 2019-01-07
 ---
-body:
 
 ## Lessons Learned
 
@@ -59,9 +59,3 @@ This is not comprehensive, nor does it fit everyone, but it should give you an i
 Frankly, I don't know. I'm optimistic.
 
 I'll follow this up with another check-in at the one year mark.
----
-description: What's it like doing a mid-career switch? This is my 6-month update.
----
-pub_date: 2019-01-07
----
-twitter_handle: _zmsy

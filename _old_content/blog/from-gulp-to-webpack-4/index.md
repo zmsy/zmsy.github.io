@@ -1,8 +1,8 @@
+---
 title: The Switch to Webpack 4
+description: "In the era of React-driven pages, Webpack is a powerful tool to have in your belt. Here's how the transition worked for this site."
+publishDate: 2018-06-09
 ---
-author: Zach Morrissey
----
-body:
 
 ![Gulp to Webpack Transition](gulp_to_webpack.png)
 
@@ -101,7 +101,6 @@ That said, considering the difficulties, module bundling with Webpack is _still_
 If you're just trying to process some Sass files, I would stick to Gulp.
 
 ---
-pub_date: 2018-06-09
 ---
 slug_title: gulp-webpack-4
 ---

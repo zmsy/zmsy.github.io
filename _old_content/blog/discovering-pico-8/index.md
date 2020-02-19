@@ -1,6 +1,7 @@
-title: Discovering PICO-8
 ---
-author: Zach Morrissey
+title: Discovering PICO-8
+description: "PICO-8 might just be the coolest little programming environment that exists today. Love old-school videogames? You'll love this."
+publishDate: 2018-05-03
 ---
 body:
 
@@ -103,11 +104,3 @@ What's the way to get there?
 - Create wall-generation logic. Flappy Bird works on a randomly-generated basis, so I'll need to create and manage a list of obstacles for the player to surpass.
 
 Check it out on the next version of this post!
----
-pub_date: 2018-05-03
----
-twitter_handle: _zmsy
----
-_hidden: no
----
-slug_title: discovering-pico-8

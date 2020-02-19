@@ -4,7 +4,9 @@
     <div class="column is-8 is-12-touch">
       {{ .Content }}
       <ul class="contents">
-        {{ range .Paginator.Pages }} {{ partial "blog_post.html" . }} {{ end }}
+        {{ range .Paginator.Pages }}
+        {{ partial "blog_post.html" . }}
+        {{ end }}
       </ul>
       {{/* {{ partial "pagination.html" . }} */}}
     </div>

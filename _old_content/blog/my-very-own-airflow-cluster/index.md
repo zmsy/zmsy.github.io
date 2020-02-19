@@ -1,8 +1,8 @@
+---
 title: My Very Own Airflow Cluster
+description: "My data needs have expanded over the years, and it took a full Airflow setup to finally rise to the occasion."
+publishDate: 2018-06-25
 ---
-author: Zach Morrissey
----
-body:
 
 As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
 
@@ -118,14 +118,3 @@ Since Airflow has been in the Apache Incubator for the past year or so, it's bee
 ## In Conclusion
 
 If you're frustrated with `cron` or other simple ways of deploying batch processes, give it a shot. Be aware of the shortcomings, though.
-
-
-
-
-
----
-pub_date: 2018-06-25
----
-slug_title: airflow
----
-twitter_handle: _zmsy

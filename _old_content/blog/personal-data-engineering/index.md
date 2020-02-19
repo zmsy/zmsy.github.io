@@ -1,8 +1,8 @@
+---
 title: An Architecture For Personal Data Engineering
+description: There's a lot of data that I use in my life that would benefit from some infrastructure work. Here's hoping to create something that makes this easier for me.
+publishDate: 2019-03-26
 ---
-author: Zach Morrissey
----
-body:
 
 Performing in-depth data analyses on things in my own life have always been more difficult than in my working life, primarily because there I've normally had teams of engineers who have helped in setting up and maintaining most of the analytics-focused infrastructure that I've used. Supporting myself with the same sort of infrastructure I was used to was an adventure, [one that started much earlier](/blog/my-very-own-airflow-cluster/) and has since grown from there.
 
@@ -54,10 +54,3 @@ This was a fun adventure to go on, but I'm happy that it's stabilized by this po
 - It's fun stuff. It really is. Using data to analyze parts of your own life is something people rarely get to do.
 - There's a tradeoff between having a robust, feature-filled system and an easy one. As your needs change, your tools tend to change too. My aims for this outgrew my cron/jupyter/Google Sheets hackjob before trying to take on any of this.
 - Getting data is the hardest part. Significantly more time for me is spent writing data fetching tasks than anything else.
-
----
-description: There's a lot of data that I use in my life that would benefit from some infrastructure work. Here's hoping to create something that makes this easier for me.
----
-pub_date: 2019-03-26
----
-twitter_handle: _zmsy

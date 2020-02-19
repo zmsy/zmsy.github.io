@@ -1,8 +1,7 @@
+---
 title: Automated Fantasy Baseball Research Using Python, Pandas, and Seaborn
----
-slug_title: fantasy_baseball
----
-author: Zach Morrissey
+description: "There's a lot of cool stuff you can do with available baseball data for fantasy uses. Here are some examples of what I did for the 2018 season."
+publishDate: 2018-03-15
 ---
 body:
 
@@ -243,8 +242,3 @@ dfp = pd.merge(dfp, dfp_act, how='left', on='Name', suffixes=('', '.a'))
 ```
 
 [Also - If you use Fangraphs data a lot, it's worth considering becoming a member and supporting them a bit!](https://www.fangraphs.com/plus/product/fangraphs-membership/)
-
----
-pub_date: 2018-03-15
----
-twitter_handle: _zmsy

@@ -1,8 +1,8 @@
+---
 title: Example-first Documentation
+description: "Your users are looking for examples that get as close to their use cases as possible."
+publishDate: 2019-07-07
 ---
-author: Zach Morrissey
----
-body:
 
 When I read through your `(library|module|framework)`'s documentation I will skip everything and scan until I find the first example.
 
@@ -40,8 +40,3 @@ Leaving some examples of great examples-driven documentation here:
 - [React, starting with the "Hello World!" bits](https://reactjs.org/docs/hello-world.html)
 - [Black python formatter](https://black.readthedocs.io/en/stable/)
 - [Go's sqlx starter page](https://github.com/jmoiron/sqlx#usage)
-
----
-pub_date: 2019-07-07
----
-twitter_handle: _zmsy

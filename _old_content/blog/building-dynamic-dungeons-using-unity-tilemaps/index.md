@@ -86,7 +86,3 @@ The result:
 ![Dungeon Layout with tiles applied to the TileMap](dungeon_layout_tiled.png)
 
 From here, you can generate the items and enemies how you see fit.
-
----
----
-twitter_handle: _zmsy

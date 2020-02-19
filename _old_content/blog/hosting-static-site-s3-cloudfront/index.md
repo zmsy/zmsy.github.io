@@ -1,10 +1,8 @@
+---
 title: Hosting a Static Site on S3 & Cloudfront
+description: "S3 is a powerful option for hosting static websites these days. Combined with the rise of static-site generators, these are tools that can have you publishing new functionality very quickly."
+publishDate: 2018-04-25
 ---
-_hidden: no
----
-author: Zach Morrissey
----
-body:
 
 Considering this site is [built with a static site generator](/blog/blog-versions), I needed to find somewhere to host it. Amazon's S3 service, as it turns out, actually has [an option to host a website out of it](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), which is ridiculously convenient for those who are comfortable using AWS services. Prior to this, I had purchased my domain through Namecheap.
 
@@ -88,7 +86,3 @@ I set up a CNAME record and a URL redirect in this way:
 You'll be up and running once your domain is redirecting correctly. Now, once you push objects up to S3, they should populate out to the Cloudfront distribution automatically (albeit sometimes at a random schedule, since it's a CDN that operates on its own time). Plenty of toolkits have S3 as a built-in endpoint, so setting up deployment either through a CLI or from a CI/CD server is relatively straightforward.
 
 At the time I wrote this, Github Pages [wasn't offering HTTPS but have just announced support](https://help.github.com/articles/securing-your-github-pages-site-with-https/), and was primarily built using Jekyll. I'll be checking that one out soon too.
----
-pub_date: 2018-04-25
----
-twitter_handle: _zmsy

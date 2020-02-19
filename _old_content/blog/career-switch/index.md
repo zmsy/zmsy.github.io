@@ -1,8 +1,9 @@
-title: Switching Careers to Software Engineering: A Retrospective
 ---
-author: Zach Morrissey
+title: "Switching Careers to Software Engineering: A Retrospective"
+description: "Lots of folks are trying to switch to SWE roles these days. Here's an account of what that was like for me."
+publishDate: 2018-08-01
 ---
-body:
+
 
 I've just been hired into my first dedicated software engineering role. After returning to school for CS in November 2016, I've just emerged on the other side almost two years later. This is the first thing I've done in my career that feels like it fits how I think and work, and I'm planning on making the most of it.
 
@@ -62,10 +63,3 @@ There's a lot of different tech out there and you're not going to learn it all. 
 Switching into software development these days can feel like jumping on a bandwagon where everyone is smarter than you, paid better than you, and has intense opinions on what is right and wrong. It can feel like an insurmountable hill to climb.
 
 However, there are plenty out there like myself for which software engineering is an open door to a much better career. Once I've been in the role for a while, I'll have a part two to this post where I cover my transition period.
-
----
-pub_date: 2018-08-01
----
-slug_title: career-switch
----
-twitter_handle: _zmsy
