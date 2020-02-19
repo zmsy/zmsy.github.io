@@ -1,8 +1,8 @@
+---
 title: Building Dynamic Dungeons using Unity Tilemaps
+description: Generating a dungeon layout is both an art and a science. There's a lot of confusingly different approaches, and here's how I tackled the problem.
+publishDate: 2019-02-11
 ---
-author: Zach Morrissey
----
-body:
 
 In one of the last projects I'm doing for school, I'm working on a game wherein everything in the game is _procedurally generated_ using a dungeon-building algorithm.
 
@@ -88,6 +88,5 @@ The result:
 From here, you can generate the items and enemies how you see fit.
 
 ---
-pub_date: 2019-02-11
 ---
 twitter_handle: _zmsy

@@ -1,10 +1,8 @@
+---
 title: The Uncomfortable Practice of Talking With Business Folk About Automation
+description: There's a lot of latent assumptions baked into conversations about building back-office systems. Where does that disconnect come from and why?
+publishDate: 2018-03-01
 ---
-slug_title: automation
----
-author: Zach Morrissey
----
-body:
 
 ## So...Why Should We Automate This?
 
@@ -67,9 +65,3 @@ Fixing this problem, or at least improving it for myself, is something I'm worki
 - Provide an interface for talking about the system that will accomplish these tasks going forward. Talk about pieces of the work as functions, with an input and an output. Users want to know how _they_ interact with it, so let them know.
 
 There's likely not going to be much that changes in my environment to make this conversation easier, so I think starting with this approach might be good enough.
----
-pub_date: 2018-03-01
----
-twitter_handle: _zmsy
----
-_discoverable: yes
