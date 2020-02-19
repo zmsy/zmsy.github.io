@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="blog-post">
+    <h2><a class="title title-dark is-size-2-touch" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="meta">
+      written by
+      <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
+        {{ .Site.Params.AuthorName }}
+      </a>
+      on {{ .Date }}
+    </p>
+    <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
