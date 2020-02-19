@@ -34,7 +34,9 @@ Under the permissions tab, edit your permissions to allow s3:GetObject permissio
 
 ![S3 Bucket Policy Editor](bucket_permissions.png)
 
-!!!! This will make this bucket public. Do not keep sensitive data of any sort in it once you've made this change.
+{{< admonition level="warning" >}}
+This will make this bucket public. Do not keep sensitive data of any sort in it once you've made this change.
+{{< /admonition >}}
 
 ### Don't Need HTTPS? You're Done!
 

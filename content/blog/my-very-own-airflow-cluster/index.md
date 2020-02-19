@@ -6,7 +6,7 @@ publishDate: 2018-06-25
 
 As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
 
-![Airflow Screenshot](airflow.png)
+{{< image src="airflow.png" alt="Airflow screenshot">}}
 
 As opposed to this paradigm:
 
@@ -46,6 +46,7 @@ There are plenty of ways that you can configure Airflow. There are varying level
 Here's diagram of how it works.
 
 <img src="/blog/my-very-own-airflow-cluster/airflow-diagram.svg" class="no-border" alt="Airflow architecture">
+{{< image src="airflow-diagram.svg" alt="Airflow architecture">}}
 
 For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
