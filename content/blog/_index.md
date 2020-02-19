@@ -1,5 +1,4 @@
 ---
 title: "Blog"
+description: "Recent writing and technical articles."
 ---
-
-Testing to see how this works.
