@@ -32,6 +32,18 @@ params:
       Alt: Check out my sparsely used Twitter account.
       Url: https://twitter.com/_zmsy
 
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: manni
+    tabWidth: 4
+
 # site settings
 enableEmoji: true
 enableInlineShortcodes: true
