@@ -6,8 +6,7 @@ publishDate: 2019-03-26
 
 Performing in-depth data analyses on things in my own life have always been more difficult than in my working life, primarily because there I've normally had teams of engineers who have helped in setting up and maintaining most of the analytics-focused infrastructure that I've used. Supporting myself with the same sort of infrastructure I was used to was an adventure, [one that started much earlier](/blog/my-very-own-airflow-cluster/) and has since grown from there.
 
-<!-- <img src="/blog/personal-data-engineering/graphs.svg" style="width:20rem; height:10rem" class="no-border" alt="Miscellaneous fake graphs for fun."> -->
-{{< image src="graphs.svg" alt="Miscellaneous fake graphs for fun." class="no-border" >}}
+{{< image src="graphs.svg" alt="Miscellaneous fake graphs for fun." class="no-border" style="width:20rem; height:10rem" >}}
 
 ## Scope
 
