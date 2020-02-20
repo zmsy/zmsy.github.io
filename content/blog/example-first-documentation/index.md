@@ -21,7 +21,7 @@ Although you'll see more seasoned engineers throw around "RTFM" or other phrases
 
 ## Reasons Whey They're Looking For Examples
 
-<img src="/blog/example-first-documentation/rtfm.svg" class="no-border" alt="Ternary JS operator describing how seniors feel about juniors' questions when they're not 100% well-researched.">
+{{< image src="rtfm.svg" class="no-border" alt="Ternary JS operator describing how seniors feel about juniors' questions when they're not 100% well-researched." >}} 
 
 1. Starting off and want a frame of reference.
 2. Users know what an implementation might look like, but don't know what it's called.

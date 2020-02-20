@@ -14,7 +14,7 @@ Achieving this is, as you may imagine, pretty difficult.
 
 There are a lot of resources online, but most of them follow the same pattern - create a set of rooms, connect them, place items within them. There's a significant amount of wiggle room within those, but that's the basics.
 
-![The Dungeon of Deneb logo and intro scene](dungeon_of_deneb_capture.png)
+{{< image src="dungeon_of_deneb_capture.png" alt="The Dungeon of Deneb logo and intro scene" >}}
 
 ## Unity Set Up
 
@@ -27,7 +27,7 @@ The unity objects involved:
     * Walls (Collidable) tilemap - This one has a collider added to it, so the player can't walk through them.
 * Tile Palette - This contains all of the floor / wall tiles that I use to build the dungeon. It's nice to have one of these so you can manually paint some on if you want.
 
-![The "Dungeon Simplified" tile palette in the Unity Sidebar.](tile_palette.png)
+{{< image src="tile_palette.png" alt="The \"Dungeon Simplified\" tile palette in the Unity Sidebar." >}}
 
 ## The Algorithm
 
@@ -65,15 +65,15 @@ First, a key, so you can understand what you're looking at:
     * White - Parent/child relationship in tree
     * Yellow - Optional corridor added between two rooms in the same subtree.
 
-![Dungeon Layout 1](dungeon_layout_1.png)
+{{< image src="dungeon_layout_1.png" alt="Dungeon Layout 1" >}}
 
 The key to the light blue area spawns in the green / white area, the key to the dark blue area spawns in the light blue area. The key to the boss room is placed within the dark blue area.
 
-![Dungeon Layout 2](dungeon_layout_2.png)
+{{< image src="dungeon_layout_2.png" alt="Dungeon Layout 2" >}}
 
 As you can see in this one, sometimes the room with a key in it spawns _directly_ next to the boss (in the first example above), but sometimes it's located fairly far away in a different corner (in this example, on the bottom left).
 
-![Dungeon Layout 3](dungeon_layout_3.png)
+{{< image src="dungeon_layout_3.png" alt="Dungeon Layout 3" >}}
 
 In this example, I've included the minimum spanning tree generated during the dungeon building process. If you note the yellow corridors between rooms, those are randomly added between rooms within the same subtree.
 
@@ -83,6 +83,6 @@ The [`TileMap.SetTile`](https://docs.unity3d.com/ScriptReference/Tilemaps.Tilema
 
 The result:
 
-![Dungeon Layout with tiles applied to the TileMap](dungeon_layout_tiled.png)
+{{< image src="dungeon_layout_tiled.png" alt="Dungeon Layout with tiles applied to the TileMap" >}}
 
 From here, you can generate the items and enemies how you see fit.
