@@ -20,11 +20,11 @@ Hosting in S3 seemed to be a very straightforward way of achieving these things,
 
 Setting up S3 for hosting a static site is as simple as checking a box. First create a bucket for your site.
 
-![Static Bucket Settings](static_bucket.png)
+{{< image src="static_bucket.png" alt="Static Bucket Settings" >}}
 
 On that menu, select your default landing document (something along the lines of index.html) and error document (i.e. 404.html or something like that).
 
-![Website Options](website_options.png)
+{{< image src="website_options.png" alt="Website Options" >}}
 
 ## Setting Bucket Permissions
 
@@ -32,7 +32,7 @@ Once you've created your static site bucket and configured it for hosting, you n
 
 Under the permissions tab, edit your permissions to allow s3:GetObject permissions to public.
 
-![S3 Bucket Policy Editor](bucket_permissions.png)
+{{< image src="bucket_permissions.png" alt="S3 Bucket Policy Editor" >}}
 
 {{< admonition level="warning" >}}
 This will make this bucket public. Do not keep sensitive data of any sort in it once you've made this change.

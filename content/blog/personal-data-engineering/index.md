@@ -26,7 +26,7 @@ This doesn't necessarily create a system that requires dedicated data engineerin
 
 For doing this sort of work, I set up a few infrastructural components. Hardware is a low-spec server with [Proxmox](https://www.proxmox.com/en/) (for VMs) and Docker/[Portainer](https://www.portainer.io/).
 
-<img src="/blog/personal-data-engineering/diagram.svg" style="max-height: 20rem" class="no-border" alt="Diagram of my personal data engineering architecture.">
+{{< image src="diagram.svg" alt="Diagram of my personal data engineering architecture." class="no-border" style="max-height: 20rem" >}}
 
 - **Postgres database** - My primary datastore. This is the hub of all activity that I do, serving as both an application backend / transactional database as well as an analytical database. Each are neatly separated out into different schemas. I use [DBeaver](https://dbeaver.io/) as a SQL client for ad-hoc querying, manipulation, setup, etc. Since a single Postgres instance can scale to vastly larger workloads than I'd ever be able to throw at it, this seemed like a good backbone for everything.
 - **Apache Airflow** - In it's simplest form, I'm using this basically as a scheduled job engine. Building on my [earlier post about Airflow]("/blog/my-very-own-airflow-cluster/"), I've expanded my usage of it to a significant variety of different DAGs. This uses the same Postgres database as earlier.
@@ -37,7 +37,7 @@ For doing this sort of work, I set up a few infrastructural components. Hardware
 
 Since the pieces have been set in place now, this is my general workflow:
 
-<img src="/blog/personal-data-engineering/process.svg" style="max-height: 12rem" class="no-border" alt="Process workflow from Airflow task to Jupyter notebook and then to Superset dashboard.">
+{{< image src="process.svg" alt="Process workflow from Airflow task to Jupyter notebook and then to Superset dashboard." class="no-border" style="max-height: 12rem" >}} 
 
 1. Find a new datasource. Generally, this is something scraped from the web or pulled from a service I use.
 2. Write an Airflow task to pull that data on a regular schedule (normally nightly).
