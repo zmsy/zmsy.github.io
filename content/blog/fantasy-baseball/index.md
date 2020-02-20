@@ -69,13 +69,13 @@ There were two issues I was trying to solve for.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
 
-![Fangraphs Page Size Dropdown](page_size.png)
+{{< image src="page_size.png" alt="Fangraphs Page Size Dropdown" >>}}
 
 1. Navigate to the chrome developer tools network tab.
 2. Filter to `method:POST` so you only get the form post and none of the other resource requests.
 3. Right click on the post and select `copy` > `copy as cURL (bash)`. 
 
-![Chrome Network Tab for Fangraphs Page](copy_as_curl.png)
+{{< image src="copy_as_curl.png" alt="Chrome Network Tab for Fangraphs Page" >>}}
 
 I ripped that data out into two files, `get_fangraphs.sh` (send the request), and `fangraphs_form_data.txt`. Since the data is over a certain volume with curl, you need to store it in its own file and load it using the `-d` flag.
 

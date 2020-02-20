@@ -7,7 +7,7 @@ body:
 
 The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. This thing looks _damn fun_ to program for, and it comes batteries-included for most tasks so you can get up and running in no time.
 
-![PICO 8 Illustration From Lexaloffle](pico-8.png)
+{{< image src="pico-8.png" alt="PICO 8 Illustration From Lexaloffle" >>}}
 
 #### Highlights
 
@@ -53,11 +53,11 @@ The things that helped me learn PICO-8, by subject area:
 
 The first place you'll land is the command line in PICO-8, which is used to launch all of the other screens. It looks exactly like you'd expect it to.
 
-![PICO 8 Command Line](pico-8_cli.png)
+{{< image src="pico-8_cli.png" alt="PICO 8 Command Line" >>}}
 
 There's also a built-in IDE for developing games! This is where you can write your lua code, edit sprites, create background tiles and more.
 
-![PICO 8 Integrated Development Environment](pico-8_ide.png)
+{{< image src="pico-8_ide.png" alt="PICO 8 Integrated Development Environment" >>}}
 
 Multiple other pages in the editor exist for purposes of creating assets for these two pages: A sprite editor, a tile editor, a SFX editor, and a music arrangement screen. Combining all of these, you can make pretty convincing graphics & sound pretty quickly.
 
@@ -73,9 +73,9 @@ There are basically only three functions to know:
 
 Using these, I ended up trying to do what most people try to do their first time using any 2D graphics program: make a ball bounce across the screen.
 
-![PICO-8 code to bounce a ball.](pico-8_bounce.png)
+{{< image src="pico-8_bounce.png" alt="PICO-8 code to bounce a ball." >>}}
 
-![PICO-8 bouncing ball](pico-8_bounce.gif)
+{{< image src="pico-8_bounce.gif" alt="PICO-8 bouncing ball" >>}}
 
 It works! But hey - this isn't interactive, so we can't _quite_ call it a game yet. Here's how we'll do that.
 
@@ -83,7 +83,7 @@ It works! But hey - this isn't interactive, so we can't _quite_ call it a game y
 * Change the velocity based on that button. This time we're adding a random positive velocity to the ball.
 * Display some message or feedback so that I can tell I implemented it correctly.
 
-![PICO-8 bouncing ball](pico-8_bounce2.gif)
+{{< image src="pico-8_bounce2.gif" alt="PICO-8 bouncing ball" >>}}
 
 Nice. But now, since this is a videogame we want to update a few more things:
 
@@ -91,7 +91,7 @@ Nice. But now, since this is a videogame we want to update a few more things:
 * Add more natural slowdowns to the bounces. As the ball bounces off the floor, it should lose some of its velocity.
 * Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
 
-![PICO-8 bouncing ball](pico-8_bounce3.gif)
+{{< image src="pico-8_bounce3.gif" alt="PICO-8 bouncing ball" >>}}
 
 ## What's Next? (To be continued in Part 2)
 

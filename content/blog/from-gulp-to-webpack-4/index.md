@@ -4,7 +4,7 @@ description: "In the era of React-driven pages, Webpack is a powerful tool to ha
 publishDate: 2018-06-09
 ---
 
-![Gulp to Webpack Transition](gulp_to_webpack.png)
+{{< image src="gulp_to_webpack.png" alt="Gulp to Webpack Transition" >}}
 
 I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of  Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
  
@@ -99,11 +99,3 @@ The biggest struggle in using Webpack is bridging the gap between the concepts a
 That said, considering the difficulties, module bundling with Webpack is _still_ worth it even after all of that. Simplifying your build process from separate pipelines using Gulp/Grunt/etc into a single build process using a dependency graph is a drastic improvement in paradigm.
 
 If you're just trying to process some Sass files, I would stick to Gulp.
-
----
----
-slug_title: gulp-webpack-4
----
-twitter_handle: _zmsy
----
-_hidden: no
