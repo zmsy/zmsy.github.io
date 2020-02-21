@@ -8,12 +8,17 @@ publishDate: 2018-12-18
 
 <div>
 <p style="text-align:center;margin-bottom: 0rem;"><i class="fa fa-spotify fa-3x" aria-hidden="true"></i> <b>Spotify Best of Lists</b></p>
-<p style="text-align:center;margin-bottom: 1rem;"><a href="https://open.spotify.com/user/zmorrissey/playlist/67Y2qD0dvwXKWolPn1lW3v?si=szcaBBmmTCSPYiYyxxlD_g"><b>2018</b></a>
+<p style="text-align:center;margin-bottom: 1rem;"><p style="text-align:center;margin-bottom: 1rem;"><a href="">2019</a>
+ | <a href="https://open.spotify.com/user/zmorrissey/playlist/67Y2qD0dvwXKWolPn1lW3v?si=szcaBBmmTCSPYiYyxxlD_g"><b>2018</b></a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/6IHh5JRgjDbeziZ3TJcEpE?si=fvnJZDCVRqyBFhKSK6AdDg">2017</a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/0C7sbLvxci0wFRe0BSSibf?si=CCPvWbgZTs2s8reHUdAgjQ">2016</a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/7mF8LytjfVfYA5LWZWTPN9?si=3BTICvNDQ1mgV8ZmKycAtg">2015</a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/2H522hcpeoc8t8Km3nI755?si=pqTVL2V3RVisNuT3aUeYLw">2014</a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/1vd1PjB2I7W2oFAvMkSKbl?si=dJPc-_31Q-2vFSY_F8qCeg">2013</a>
+</p>
+<p style="text-align:center;margin-bottom: 0rem;"><b>Best of Blog Posts</b></p>
+<p style="text-align:center;margin-bottom: 1rem;">
+  <a href="/misc/best-music-of-2019-ranked">2019</a> | <a href="/misc/best-music-of-2018-ranked"><b>2018</b></a>
 </p>
 </div>
 
