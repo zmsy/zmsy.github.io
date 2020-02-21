@@ -1,10 +1,10 @@
-_model: blog-post
 ---
 title: Best Music of 2019, Ranked
+description: The best slaps, bops, shim-shams, and zingers of 2019. All right here.
+publishDate: 2019-12-18
 ---
-body:
 
-<img src="best-of-2019.png" alt="Best of 2019" style="border: 0px">
+{{< image src="best-of-2019.png" alt="Best of 2019" style="border: 0px" >}}
 
 <div>
 <p style="text-align:center;margin-bottom: 0rem;"><i class="fa fa-spotify fa-3x" aria-hidden="true"></i> <b>Spotify Best of Lists</b></p>
@@ -239,12 +239,3 @@ This song came out of _nowhere_ for me. Weyes Blood has always been extremely ta
 * Jai Paul giving up and not providing [a real master of the 2013 leaked album](https://pitchfork.com/news/jai-paul-returns-with-2-new-songs-listen/) is a big disappointment
 * One of my favorite remixes of all time, a.k.a. [EPMD - Run It (Duke Dumont Remix)] came back into my life in a big way
 * [One of the vampires from "What We Do in the Shadows"](https://www.youtube.com/watch?v=iiqjsiGyCYE) wrote a song with Josh Homme for the Desert Sessions album and it's as ridiculous as you might think.
-
----
-author: Zach Morrissey
----
-pub_date: 2019-12-18
----
-twitter_handle: _zmsy
----
-description: There were a lot of real good tracks this year, and some bad ones.

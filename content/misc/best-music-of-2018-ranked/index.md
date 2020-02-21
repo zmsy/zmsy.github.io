@@ -1,10 +1,10 @@
-_model: blog-post
 ---
 title: Best Music of 2018, Ranked
+description: There were a lot of real good tracks this year, and some bad ones.
+publishDate: 2018-12-18
 ---
-body:
 
-<img src="best-of-2018.png" alt="Best of 2018" style="border: 0px">
+{{< image src="best-of-2018.png" alt="Best of 2018" style="border: 0px" >}}
 
 <div>
 <p style="text-align:center;margin-bottom: 0rem;"><i class="fa fa-spotify fa-3x" aria-hidden="true"></i> <b>Spotify Best of Lists</b></p>
@@ -16,7 +16,6 @@ body:
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/1vd1PjB2I7W2oFAvMkSKbl?si=dJPc-_31Q-2vFSY_F8qCeg">2013</a>
 </p>
 </div>
-
 
 Because I feel a compulsive need deep within my soul to rank things on a regular basis, here's the return of my personal end-of-year best music list.
 
@@ -197,12 +196,3 @@ When the switch flipped on in this song hit at the Showbox Market earlier this y
 * Since the re-release of the videogame Katamari Damacy (originally on PS2) just came out, I'd like to revisit how [freakin' amazing the theme song from the original was](https://www.youtube.com/watch?v=iMH49ieL4es).
 * Found this [recording of Waxahatchee's "Sparks Fly"](https://www.youtube.com/watch?v=2JFZr5wGMOg) (one of my top songs of 2017), that shows how insanely talented she is.
 * I got pretty into Mongo Santamaria's 60's recordings this year, particularly [The Now Generation](https://open.spotify.com/track/4QZbRHA7LqvKdyAATPFbwO?si=OVS1xzXNSmmRDKxaVy0dTA) and his [Cloud Nine](https://open.spotify.com/track/7CRJV0qUMAxftqySiPazpK?si=gGZftBUvQT6xS5Zm7Jjg6A) cover. So much energy in this.
-
----
-author: Zach Morrissey
----
-pub_date: 2018-12-18
----
-twitter_handle: _zmsy
----
-description: There were a lot of real good tracks this year, and some bad ones.
