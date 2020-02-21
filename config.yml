@@ -43,6 +43,9 @@ markup:
     noClasses: true
     style: manni
     tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
 
 # site settings
 enableEmoji: true
