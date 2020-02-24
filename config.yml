@@ -55,3 +55,18 @@ enableRobotsTXT: true
 canonifyURLs: true
 googleAnalytics: UA-104524581-1
 paginate: 5
+
+# deployment information
+deployment:
+  targets:
+    - URL: s3://zmsy?region=us-west-2
+      cloudFrontDistributionID: E2J483KQFED0KD
+
+  matchers:
+    - pattern: "^.+\\.(js|css|woff|woff2|svg|ttf)$"
+      cacheControl: "public,max-age=2628000"
+    - pattern: "^.+\\.(png|jpg|jpeg|mp4|gif)$"
+      cacheControl: "public,max-age=259200"
+    - pattern: "^.+\\.(html|xml|json)$"
+      cacheControl: "public,max-age=86400"
+      ContentLanguage: "en"
