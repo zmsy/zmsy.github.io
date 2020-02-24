@@ -4,44 +4,28 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "gulp main css",
-            "type": "npm",
-            "script": "gulp-main-css",
-            "path": "webpack/",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "gulp full",
-            "type": "npm",
-            "script": "gulp",
-            "path": "webpack/"
-        },
-        {
-            "label": "lektor live preview",
+            "label": "Hugo Server",
             "isBackground": true,
             "type": "shell",
-            "command": "lektor",
+            "command": "hugo ",
             "args": [
                 "server"
-                // "server",
-                // "--host",
-                // "0.0.0.0"
             ],
             "problemMatcher": []
         },
         {
-            "label": "lektor deploy",
+            "label": "Hugo Build",
             "isBackground": true,
             "type": "shell",
-            "command": "lektor",
+            "command": "hugo ",
             "args": [
-                "deploy",
-                "s3"
-            ]
+                "--minify"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
