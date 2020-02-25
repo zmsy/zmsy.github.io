@@ -1,6 +1,12 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  {{ with .Site.LanguageCode }} xml:lang="{{.}}" lang="{{.}}" {{end}}
+>
 <head>
   {{ partial "header/site.html" . }}
   {{ partialCached "header/includes.html" . }}
+  {{ partial "header/seo.html" . }}
 </head>
 <body>
   {{ partialCached "nav.html" . }}
