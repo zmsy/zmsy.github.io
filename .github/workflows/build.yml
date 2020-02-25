@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Hugo Build
-        run: hugo -v --minify 
+        run: hugo-official -v --minify 
       - name: Deploy to S3
         if: github.ref == 'refs/heads/master'
-        run: hugo -v deploy --maxDeletes -1
+        run: hugo-official -v deploy --maxDeletes -1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
