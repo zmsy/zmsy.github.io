@@ -1,0 +1,31 @@
+<div class="columns is-centered" id="navbar-columns">
+  <div class="column is-10 is-12-touch" id="navbar-column">
+    <nav class="navbar" role="navigation" id="top">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{{ .Site.BaseURL }}">
+          <img id="logo-img" src="/media/logo.svg" alt="{{ .Site.Title }} - Home">
+        </a>
+        <a class="navbar-item" href="{{ .Site.BaseURL }}">
+          <div class="is-3" id="logo-text">{{ .Site.Title }}</div>
+        </a>
+        <span class="navbar-burger" id="navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          {{ range .Site.Params.icons }}
+          <a class="navbar-item is-hidden-touch" href="{{ .Url }}">
+            <span class="icon"> <i class="fa {{ .Pre }}" title="{{ .Alt }}"></i> </span>
+          </a>
+          {{ end }}
+          {{ range .Site.Params.nav }}
+          <a class="navbar-item is-tab" href="{{ .Url }}">{{ .Name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+# base site information
+baseURL: https://zmsy.co/
+title: zmsy.co
+languageCode: en-us
+DefaultContentLanguage: "en"
+
+# custom parameters
+params:
+  AuthorName: Zach Morrissey
+  AuthorEmail: zachjmorrissey+zmsy@gmail.com
+  GithubUser: zmsy
+  LinkedInUser: zmsyco
+  TwitterHandle: _zmsy
+  HowieInstagram: https://www.instagram.com/howiethesamoyed
+  nav:
+    - Url: /
+      Name: Home
+    - Url: /blog
+      Name: Blog
+    - Url: /projects
+      Name: Projects
+    - Url: /about
+      Name: About
+  icons:
+    - Icon: fa-linkedin-square
+      Alt: View my LinkedIn profile.
+      Url: https://www.linkedin.com/in/zmsyco
+    - Icon: fa-github
+      Alt: Check out my Github.
+      Url: https://github.com/zmsy
+    - Icon: fa-twitter
+      Alt: Check out my sparsely used Twitter account.
+      Url: https://twitter.com/_zmsy
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: manni
+    tabWidth: 4
+  goldmark:
+    renderer:
+      unsafe: true
+
+# site settings
+enableEmoji: true
+enableInlineShortcodes: true
+enableGitInfo: true
+enableRobotsTXT: true
+canonifyURLs: true
+googleAnalytics: UA-104524581-1
+paginate: 5
+
+# deployment information
+deployment:
+  targets:
+    - URL: s3://zmsy?region=us-west-2
+      cloudFrontDistributionID: E2J483KQFED0KD
+
+  matchers:
+    - pattern: "^.+\\.(js|css|woff|woff2|svg|ttf)$"
+      cacheControl: "public,max-age=2628000"
+    - pattern: "^.+\\.(png|jpg|jpeg|mp4|gif)$"
+      cacheControl: "public,max-age=259200"
+    - pattern: "^.+\\.(html|xml|json)$"
+      cacheControl: "public,max-age=86400"
+      ContentLanguage: "en"

@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $paginator := .Paginator }}
+<main>
+  <div class="columns is-centered is-desktop">
+    <div class="column is-8 is-12-touch">
+      {{ .Content }}
+      <ul class="contents">
+        {{ range $paginator.Pages }}
+        {{ partial "blog_post.html" . }}
+        {{ end }}
+      </ul>
+      {{ partial "pagination.html" $paginator }}
+      {{/*  {{ template "_internal/pagination.html" . }}  */}}
+    </div>
+  </div>
+</main>
+{{ end }}

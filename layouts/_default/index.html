@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="hero is-medium" id="hero">
+  <div class="hero-body" id="hero-body">
+    <div class="container has-text-centered">
+      <img class="is-centered is-hidden-tablet" id="hero-badge" src="/img/home-logo-compact.svg" alt="Things that I do.">
+      <img class="is-centered is-hidden-mobile" id="hero-badge" src="/img/home-logo.svg" alt="Things that I do.">
+    </div>
+  </div>
+</section>
+<section>
+  <div class="columns home-columns is-centered is-multiline">
+    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+      <a href="/blog"><img class="column-logo" src="/img/blog-logo.svg"></a>
+      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+      <a href="/blog"><h2 class="home-title">Blog</h2></a>
+      <p>{{ $.Params.blog_tagline }}</p>
+    </div>
+    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+      <a href="/projects"><img class="column-logo" src="/img/projects-logo.svg"></a>
+      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+      <a href="/projects"><h2 class="home-title">Projects</h2></a>
+      <p>{{ $.Params.projects_tagline }}</p>
+    </div>
+    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+      <a href="/about"><img class="column-logo" src="/img/about-logo.svg"></a>
+      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+      <a href="/about"><h2 class="home-title">About Me</h2></a>
+      <p>{{ $.Params.about_me_tagline }}</p>
+    </div>
+  </div>
+</section>
+{{ end }}

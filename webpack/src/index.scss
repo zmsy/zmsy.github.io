@@ -206,11 +206,8 @@ a {
         padding: 1rem;
     }
 
+    .admonition-info,
     .admonition-note {
-        background-color: $grey-lighter;
-    }
-
-    .admonition-info {
         background-color: $yellow;
     }
 
@@ -244,7 +241,7 @@ a {
 
 .pagination {
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 
@@ -385,6 +382,7 @@ a {
     } 
 
     & .footer-dots {
-        width: 400px;
+        width: 25rem;
+        margin-top: 1rem;
     }
 }
