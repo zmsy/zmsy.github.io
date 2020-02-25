@@ -8,6 +8,7 @@ function $(id) { return document.getElementById(id); }
 
 // nav toggle function
 function toggleNav() {
-    var nav = document.getElementsByClassName('navbar-menu')[0];
-    nav.classList.toggle('is-active');
+    document.getElementsByClassName("navbar-menu")[0].classList.toggle("is-active");
 }
+
+document.getElementById("navbar-toggle").addEventListener("click", toggleNav)
