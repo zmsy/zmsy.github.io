@@ -23,9 +23,7 @@ This is a static site built using vanilla Hugo.
 
 ## Build
 
-This can be built using:
-
 ```sh
-# replace me with Hugo build instructions!
+hugo -v --minify
 ```
 
