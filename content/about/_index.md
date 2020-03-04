@@ -22,9 +22,8 @@ If you like the site, feel free to steal [the code for it on Github](https://git
 ### Site
 
 - **hugo** - Static site generator.
-- **bulma** - Flexbox-based CSS framework.
-- **scss** - For custom styling and for customizing bulma.
-- **webpack** - Processing scss, minifying files, etc. Hooks into Lektor for simple builds.
+- **bulma + scss** - Flexbox-based CSS framework, with customizations.
+- **webpack** - Processing scss, minifying files, etc.
 - **github actions** - For building & deploying to S3.
 
 ### Projects
