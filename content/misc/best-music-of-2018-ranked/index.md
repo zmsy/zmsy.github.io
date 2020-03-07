@@ -28,38 +28,38 @@ Because I feel a compulsive need deep within my soul to rank things on a regular
 
 The latter of the list this year still had a lot quality tracks in it. Surprisingly deep year for music, had to cut a lot of tracks that would've easily made the list in other years.
 
-50 Parquet Courts - _Wide Awake_<br>
-49 Mistki - _Nobody_<br>
-48 Father John Misty - _Mr. Tillman_<br>
-47 Twin Shadow - _Brace (feat. Rainsford)_<br>
-46 Khruangbin - _Evan Finds the Third Room_<br>
-45 St. Vincent - _Fast Slow Disco_<br>
-44 DJ Koze - _Pick Up_<br>
-43 KIDS SEE GHOSTS - _4th Dimension_<br>
-42 Sylvan Esso - _Funeral Singers (feat. Collections of Colonies of Bees)_<br>
-41 The Carters - _APESHIT_<br>
-40 Vince Staples - _FUN!_<br>
-<br>
-39 Janelle Monae - _I Like That_<br>
-38 Joji - _SLOW DANCING IN THE DARK_<br>
-37 Preoccupations - _Espionage_<br>
-36 Kanye West - _Ghost Town (feat. PARTYNEXTDOOR)_<br>
-35 The Voidz - _Leave It In My Dreams_<br>
-34 Flasher - _Who's Got Time?_<br>
-33 Dirty Projectors - _Zombie Conqueror_<br>
-32 Theophilus London - _Only You (feat. Tame Impala)_<br>
-31 Toro y Moi - _Ordinary Pleasure_<br>
-30 Soccer Mommy - _Your Dog_<br>
-<br>
-29 Leon Bridges - _Bad Bad News_<br>
-28 Lucy Dacus - _Night Shift_<br>
-27 JPEGMAFIA - _Puff Daddy_<br>
-26 Pusha T - _If You Know You Know_<br>
-25 The Beths - _Future Me Hates Me_<br>
-24 Disclosure - _Ultimatum_<br>
-22 Kurt Vile - _One Trick Ponies_<br>
-22 SOPHIE - _Immaterial_<br>
-21 BROCKHAMPTON - _1999 WILDFIRE_<br>
+50 Parquet Courts - <i>Wide Awake</i><br>
+49 Mistki - <i>Nobody</i><br>
+48 Father John Misty - <i>Mr. Tillman</i><br>
+47 Twin Shadow - <i>Brace (feat. Rainsford)</i><br>
+46 Khruangbin - <i>Evan Finds the Third Room</i><br>
+45 St. Vincent - <i>Fast Slow Disco</i><br>
+44 DJ Koze - <i>Pick Up</i><br>
+43 KIDS SEE GHOSTS - <i>4th Dimension</i><br>
+42 Sylvan Esso - <i>Funeral Singers (feat. Collections of Colonies of Bees)</i><br>
+41 The Carters - <i>APESHIT</i><br>
+40 Vince Staples - <i>FUN!</i><br>
+
+39 Janelle Monae - <i>I Like That</i><br>
+38 Joji - <i>SLOW DANCING IN THE DARK</i><br>
+37 Preoccupations - <i>Espionage</i><br>
+36 Kanye West - <i>Ghost Town (feat. PARTYNEXTDOOR)</i><br>
+35 The Voidz - <i>Leave It In My Dreams</i><br>
+34 Flasher - <i>Who's Got Time?</i><br>
+33 Dirty Projectors - <i>Zombie Conqueror</i><br>
+32 Theophilus London - <i>Only You (feat. Tame Impala)</i><br>
+31 Toro y Moi - <i>Ordinary Pleasure</i><br>
+30 Soccer Mommy - <i>Your Dog</i><br>
+
+29 Leon Bridges - <i>Bad Bad News</i><br>
+28 Lucy Dacus - <i>Night Shift</i><br>
+27 JPEGMAFIA - <i>Puff Daddy</i><br>
+26 Pusha T - <i>If You Know You Know</i><br>
+25 The Beths - <i>Future Me Hates Me</i><br>
+24 Disclosure - <i>Ultimatum</i><br>
+22 Kurt Vile - <i>One Trick Ponies</i><br>
+22 SOPHIE - <i>Immaterial</i><br>
+21 BROCKHAMPTON - <i>1999 WILDFIRE</i><br>
 
 ## The Stars of 2018: 20-1
 
@@ -87,7 +87,7 @@ _"Do you wanna be my girl? I wanna be be your man"_
 
 _"Do you wanna be my girl? I wanna be be your man"_
 
-### 16. Ought - Desire
+### 16. Ought - _Desire_
 
 After listening to the follow-up to their incredible 2015 album _Sun Coming Down_ (featuring astonishingly good "[Beautiful Blue Sky](https://www.youtube.com/watch?v=eSna2APlZ4I)"), I couldn't help but be disappointed by this year's release _Room Inside The World_. This song, however, stood out upon repeat listens and really is an incredibly beautiful track.
 
@@ -99,7 +99,7 @@ While nothing on her newest album reaches the heights of previous gems "[Pedestr
 
 Can't stress how excellent of a live performer Courtney is.
 
-### 14. Kendrick Lamar - King's Dead (feat. Future, James Blake and Jay Rock)
+### 14. Kendrick Lamar - _King's Dead (feat. Future, James Blake and Jay Rock)_
 
 _WWWWAYYYOO._
 
@@ -107,13 +107,13 @@ One of those rare superstar-filled collaborations where every member adds someth
 
 [Convinced this _Black Panther_-accompanying album is the best thing to ever come from the Marvel universe](https://www.youtube.com/watch?v=VwAnsAUYnw4).
 
-### 13. Natalie Prass - Short Court Style
+### 13. Natalie Prass - _Short Court Style_
 
 A fresh, unique pop gem that plays like a some bookish young Juilliard student wrote a take on 90s Mariah Carey.
 
 Also gets the award for the [shiniest outfit on Conan this year](https://www.youtube.com/watch?v=mPyTXK1jn2E).
 
-### 12. Snail Mail - Heat Wave
+### 12. Snail Mail - _Heat Wave_
 
 Pure, unfiltered songwriting talent. Could've used a bit of editing to trim a bit of length, but that hasn't hurt it enought to make me not love it.
 
@@ -141,7 +141,7 @@ After claiming the #2 spot in my 2015 list, Hop Along back it up with another in
 
 A chilling, syncopated indictment of police violence. The guttural "1, 2, 3, 4, 5, 6" shouted in the background. The distorted guitar lead take over during the chorus as the rhythm drops out. Every bit of this just _works_. [Live versions of this song are known to stretch several minutes longer](https://www.youtube.com/watch?v=0yUYBI6apSQ) and feature crazy vocal looping samples.
 
-### 6. Travis Scott - SICKO MODE (feat. Drake)
+### 6. Travis Scott - _SICKO MODE (feat. Drake)_
 
 Direct, unfiltered fire. [Threw me for the first time](https://www.youtube.com/watch?v=6ONRf7h3Mdk) after "Gone on you with the pick 'n roll"...
 

@@ -18,7 +18,7 @@
         <div class="navbar-end">
           {{ range .Site.Params.icons }}
           <a class="navbar-item is-hidden-touch" href="{{ .Url }}">
-            <span class="icon"> <i class="fa {{ .Pre }}" title="{{ .Alt }}"></i> </span>
+            <span class="icon"> <i class="fa {{ .Icon }}" title="{{ .Alt }}"></i> </span>
           </a>
           {{ end }}
           {{ range .Site.Params.nav }}
