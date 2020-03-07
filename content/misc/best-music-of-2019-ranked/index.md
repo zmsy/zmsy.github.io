@@ -36,38 +36,38 @@ Back again for 2019, here's my best songs of the year:
 
 While 2019 for me was pretty weak in terms of albums, there was definitely a lot of great individual singles.
 
-50\. Big Sean - _Bezerk (feat. ASAP Ferg)_<br>
-49\. Tyler The Creator - _Earfquake_<br>
-48\. Lucy Dacus - _Forever Half Mast_<br>
-47\. Rolling Blackouts Coastal Thunder - _Read My Mind_<br>
-46\. KH, Four Tet - _Only Human_<br>
-45\. Vampire Weekend - _Bambina_<br>
-44\. James Blake - _Can't Believe The Way We Flow_<br>
-43\. Thee Oh Sees - _The Daily Heavy_<br>
-42\. Big Thief - _Not_<br>
-41\. The National - _Rylan_<br>
-40\. Declan Mckenna - _British Bombs_<br>
+50\. Big Sean - <i>Bezerk (feat. ASAP Ferg)</i><br>
+49\. Tyler The Creator - <i>Earfquake</i><br>
+48\. Lucy Dacus - <i>Forever Half Mast</i><br>
+47\. Rolling Blackouts Coastal Thunder - <i>Read My Mind</i><br>
+46\. KH, Four Tet - <i>Only Human</i><br>
+45\. Vampire Weekend - <i>Bambina</i><br>
+44\. James Blake - <i>Can't Believe The Way We Flow</i><br>
+43\. Thee Oh Sees - <i>The Daily Heavy</i><br>
+42\. Big Thief - <i>Not</i><br>
+41\. The National - <i>Rylan</i><br>
+40\. Declan Mckenna - <i>British Bombs</i><br>
 
-39\. The Hold Steady - _Denver Haircut_<br>
-38\. Jai Paul - _Do You Love Her Now?_<br>
-37\. 100 gecs - _stupid horse_<br>
-36\. Alex Cameron - _Far From Born Again_<br>
-35\. Charly Bliss - _Blown To Bits_<br>
-34\. Carolina Rose - _More Of The Same_<br>
-33\. Fontaines D.C. - _Boys In The Better Land_<br>
-32\. Flying Lotus - _Black Balloons Reprise (Feat. Denzel Curry)_<br>
-31\. Desert Sessions - _Crucifire_<br>
-30\. Lizza - _Truth Hurts_<br>
+39\. The Hold Steady - <i>Denver Haircut</i><br>
+38\. Jai Paul - <i>Do You Love Her Now?</i><br>
+37\. 100 gecs - <i>stupid horse</i><br>
+36\. Alex Cameron - <i>Far From Born Again</i><br>
+35\. Charly Bliss - <i>Blown To Bits</i><br>
+34\. Carolina Rose - <i>More Of The Same</i><br>
+33\. Fontaines D.C. - <i>Boys In The Better Land</i><br>
+32\. Flying Lotus - <i>Black Balloons Reprise (Feat. Denzel Curry)</i><br>
+31\. Desert Sessions - <i>Crucifire</i><br>
+30\. Lizza - <i>Truth Hurts</i><br>
 
-29\. Bon Iver - _Naeem_<br>
-28\. Angel Olsen - _New Love Cassette_<br>
-27\. Billie Eilish - _bad guy_<br>
-26\. Deerhunter - _Death In Midsummer_<br>
-25\. Caribou - _Home_<br>
-24\. Lana Del Rey - _The greatest_<br>
-23\. Whitney - _Giving Up_<br>
-22\. Chance The Rapper - _Handsome_<br>
-21\. Francis & The Lights - _Take Me To The Light (Feat. Bon Iver, Kanye West)_<br>
+29\. Bon Iver - <i>Naeem</i><br>
+28\. Angel Olsen - <i>New Love Cassette</i><br>
+27\. Billie Eilish - <i>bad guy</i><br>
+26\. Deerhunter - <i>Death In Midsummer</i><br>
+25\. Caribou - <i>Home</i><br>
+24\. Lana Del Rey - <i>The greatest</i><br>
+23\. Whitney - <i>Giving Up</i><br>
+22\. Chance The Rapper - <i>Handsome</i><br>
+21\. Francis & The Lights - <i>Take Me To The Light (Feat. Bon Iver, Kanye West)</i><br>
 
 ## The Stars of 2019: 20-1
 
@@ -103,7 +103,7 @@ I am not clued into pop enough to have partaken in the mass internet fervor behi
 
 The [chorus's back-and-forth](https://www.youtube.com/watch?v=NY1RsDpRmIU) with what must be the default patch on someone's Microkorg vocoder just _somehow_ works.
 
-### 15 Snapped Ankles - Tailpipe
+### 15 Snapped Ankles - _Tailpipe_
 
 The first reaction to this song is normally something like "Who the hell is Snapped Ankles and what the heck is this?".
 
@@ -111,19 +111,19 @@ But the front half of SA's album _"Stunning Luxury"_ is pure, unfiltered energy.
 
 [Seriously, these guys are like, basically not from planet Earth](https://www.youtube.com/watch?v=X_X6NfeBCdE).
 
-### 14 Georgia - About Work The Dancefloor
+### 14 Georgia - _About Work The Dancefloor_
 
 Year after year, I look for the song that will dethrone "Dancing on my Own" as the crossover pop hit to define the next several years, and this was the closest anything came this year. Inherits that same energy and adds a unique twist to it.
 
 [Her live take on it (in what can only be described at the "Hotline Bling" room) is a jam](https://www.youtube.com/watch?v=RzwUgDm3Jxg)
 
-### 13. King Gizzard & the Lizard Wizard - Self-Immolate
+### 13. King Gizzard & the Lizard Wizard - _Self-Immolate_
 
 2019 was the year that Gizz went thrash metal, and I happily followed. Brutal, unparalleled energy from the greatest band down under. I don't know if that means I'm going to start listening to Iron Maiden or Megadeth more, but this is certainly a cool take on the same vibe.
 
 King Gizzard continues to be like no other band in existence.
 
-### 12. Black Midi - bmbmbm
+### 12. Black Midi - _bmbmbm_
 
 _SHE MOVES WITH A PURPOSE_
 
@@ -133,23 +133,23 @@ _SHE MOVEESS WITH PUROOSDPROOESHHHJFHJGH_
 
 \*dolphin noises or something, idk\*
 
-### 11. Michael Kiwanuka - You Ain't The Problem
+### 11. Michael Kiwanuka - _You Ain't The Problem_
 
 Michael Kiwunaka's newest album _Kiwunaka_ instantly grabbed me, and has only gotten better after repeated spins. If I were forced to choose one that I enjoy front-to-back the most of any in 2019, this would definitely be in the running for first place. The instrumentation is gorgeous, the vocal harmonies too. Equal parts _Soft Bulletin_-era Flaming Lips and Kamasi Washington, in a way that sounds incredibly natural. The last time I checked in on Kiwunaka was during his first album, so clearly I've slept on him a bit.
 
 [Kiwunaka was undoubtedly the best appearance on Jools this year, by a wide margin](https://www.youtube.com/watch?v=CC-fHfmNLkg) (although Vampire Weekend's version of [Harmony Hall](https://youtu.be/zRlnPNfsbDU) is a notable mention).
 
-### 10. Mark Ronson - True Blue (Feat. Angel Olsen)
+### 10. Mark Ronson - _True Blue (Feat. Angel Olsen)_
 
 Unfortunately, I missed this one until after summer was already over, but this is definitely my **#beachjam2019**. Mark Ronson has always been able to pull the best performances out of his features, and Angel Olsen is no exception here. Angel's last two albums have been excellent but are mostly very serious affairs, so it's nice to hear her branch out and have a little fun. Play this next time you're cruising in your drop top down the boulevard on a summer's night.
 
 [I'd kill to find a studio-quality recording of this](https://www.youtube.com/watch?v=PBOujVlfn4o), but it's still so good even through phone speakers.
 
-### 9. Lil Nas X - Old Town Road
+### 9. Lil Nas X - _Old Town Road_
 
 Speaks for itself.
 
-### 8. Hunny / Bleached - Saturday Night
+### 8. Hunny / Bleached - _Saturday Night_
 
 This is like, wow so 00's emo jam throwback, completed with angsty, over-the-top teenage lyrics.
 
@@ -165,7 +165,7 @@ It sounds just about as out of place in 2019 as it would have sounded completely
 
 [The video could seriously be an OK Go vid from early Youtube](https://www.youtube.com/watch?v=bwLJ548MwTQ).
 
-### 7. Wilco - White Wooden Cross
+### 7. Wilco - _White Wooden Cross_
 
 _What would I do_
 
@@ -177,19 +177,19 @@ A surprisingly charming contemplation of life and death by Jeff Tweedy; a vetera
 
 [Tweedy's solo performance on KEXP](https://www.youtube.com/watch?v=7Ij5yYfM2Ew)
 
-### 6. Brittany Howard - Stay High
+### 6. Brittany Howard - _Stay High_
 
 The last time I listened to anything by Brittany Howard in earnest was the release of the last Alabama Shakes album, which was several years ago. It was surprising, to say the least, to have this unstoppably catchy number come out in 2019. The vocal harmonies come in right after the chorus are so perfectly timed.
 
 [She's so good that her Tiny Desk puts most others to shame](https://www.youtube.com/watch?v=XyW5Zz0w1zg). Shines in the acoustic setting.
 
-### 5. Diiv - Blankenship
+### 5. Diiv - _Blankenship_
 
 This song is a grower if I've ever heard one. Diiv channels their inner _Closer_-era Joy Division on this dark track. Grew and grew on me each listen; that _'rat-a-tat rat-a-tat'_ drum fill just before the instrumental break will get stuck in your head.
 
 This band is so far from the band that release _Is The Is Are_ 3 years ago, but it sounds like such a natural transition.
 
-### 4. PUP - Free At Last
+### 4. PUP - _Free At Last_
 
 I'm all about this emo revival. PUP's made some great jams over the years but this one just hits all of the early 00's bits so well that it's undeniable. Plus, this song is hilarious.
 
@@ -199,7 +199,7 @@ _"Have you been drinking?"_
 
 _Well of cooooooourse I have_
 
-### 3. Vampire Weekend - This Life
+### 3. Vampire Weekend - _This Life_
 
 In the six years since _Modern Vampires of the City_ and Rostam's exit from the band, I was pretty worried that the new Vampire weekend album wouldn't have the same charm and sense of fun that the earlier ones did. It's not what I was expecting, but I can say at least that I was wrong on that front. Charming duets with the ladies of Haim, John Prine-esque porch-sittin' acoustic ditties, silly jam songs. It's a mixed bag for sure, but it's certainly got a ton of great content on it.
 
@@ -207,11 +207,11 @@ _This Life_ stands tall as a centerpiece of it all.
 
 Maybe I'm slightly disappointed that the album name _"Father of the Bride"_ wasn't implying that Quincy Jones (father of Ezra Koenig's long-time partner Rashida Jones) would help produce or something along those lines. Still hoping on that one.
 
-### 2. Better Oblivion Community Center - Dylan Thomas
+### 2. Better Oblivion Community Center - _Dylan Thomas_
 
 If it's not clear by the rest of the list, I love having artists that I'd previously written off revive my interest. Quite honestly, for all the names I expected on this list for 2019, Conor Oberst (of Bright Eyes fame) was probably the last. But this year, him and Phoebe Bridgers teamed up to make _Better Oblivion Community Center_, which turned out to be one of my favorites of the year. It's the type of album you can imagine buying a physical copy of just because you want to spin it enough times to where it fits like an old sweater. It's great stuff, and this was definitely the highlight.
 
-### 1. Weyes Blood - Everyday
+### 1. Weyes Blood - _Everyday_
 
 This song came out of _nowhere_ for me. Weyes Blood has always been extremely talented, but even off of her excellent new album _"Titanic Rising"_, this one stands out. Much more pop, much more bombast. It's like if you asked Joni Mitchell and Freddy Mercury to team up and write a song that would slot nicely in on the back half of _"Abbey Road"_. Rising strings, Beach Boys-inspired synth patches, Queen harmonies; as a music production stickler, getting to use this song to break in my new speakers was a real treat.
 
