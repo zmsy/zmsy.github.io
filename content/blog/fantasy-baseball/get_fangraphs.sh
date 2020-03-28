@@ -1,5 +1,5 @@
 # get batters projections html
-curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=rfangraphsdc' \
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc' \
     -H 'Accept-Encoding: gzip, deflate, br' \
     -H 'Accept-Language: en-US,en;q=0.9' \
     -H 'Upgrade-Insecure-Requests: 1' \
@@ -9,7 +9,7 @@ curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=rfangrap
     > batters_projections.html
 
 # get pitching projections
-curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=rfangraphsdc' \
+curl 'https://www.fangraphs.com/projections.aspx?pos=all&stats=pit&type=fangraphsdc' \
     -H 'Accept-Encoding: gzip, deflate, br' \
     -H 'Accept-Language: en-US,en;q=0.9' \
     -H 'Upgrade-Insecure-Requests: 1' \
