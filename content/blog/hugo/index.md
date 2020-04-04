@@ -1,7 +1,11 @@
 ---
 title: Switching to Hugo
-description: Modernizing my blog and making it much faster/simpler by moving to Hugo to do static-site generation.
-publishDate: 2020-02-24
+description: >-
+  Modernizing my blog and making it much faster/simpler by moving to Hugo to do
+  static-site generation.
+publishDate: 2020-02-24T00:00:00.000Z
+draft: false
+image: hugo.png
 ---
 
 {{< image src="hugo.png" alt="Hugo bills itself as 'The world’s fastest framework for building websites'" >}}
