@@ -1,6 +1,8 @@
 /*
 zmsy.co
-Main javascript file - includes all logic for site
+Main javascript file - includes all logic for site. Right now, this is a pretty
+simplistic set of toggles for the site, but will be soon rebuilt to include the
+newest React stack.
 */
 
 // utility functions

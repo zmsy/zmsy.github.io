@@ -1,4 +1,4 @@
-@import "variables.scss";
+@import "./bulma.scss";
 
 /*
 Main scss file.
@@ -320,6 +320,12 @@ a {
 }
 
 #hero-badge {
+    margin-bottom: -11.75rem;
+    height: 30rem;
+}
+
+#hero-badge {
+    margin-top: 1rem;
     margin-bottom: -11.75rem;
     height: 30rem;
 }
