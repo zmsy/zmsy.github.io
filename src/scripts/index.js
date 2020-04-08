@@ -5,6 +5,8 @@ simplistic set of toggles for the site, but will be soon rebuilt to include the
 newest React stack.
 */
 
+import "../styles/index.scss";
+
 // utility functions
 function $(id) { return document.getElementById(id); }
 

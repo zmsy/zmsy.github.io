@@ -10,7 +10,7 @@ module.exports = {
   // Webpack needs to know where to start the bundling process,
   // so we define the main JS and Sass files, both under
   // the './src' directory
-  entry: ["./src/scripts/index.js", "./src/styles/index.scss"],
+  entry: ["./src/scripts/index.js"],
   // This is where we define the path where Webpack will place
   // the bundled JS file
   output: {
@@ -21,9 +21,9 @@ module.exports = {
     // publicPath: "/assets",
     // The name of the output bundle. Path is also relative
     // to the output path
-    filename: "js/main.min.js"
+    filename: "js/main.js",
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     // Array of rules that tells Webpack how the modules (output)
     // will be created
@@ -34,7 +34,7 @@ module.exports = {
         // configuration in `.babelrc`
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ["babel-loader"],
       },
       {
         // Look for Sass files and process them according to the
@@ -46,26 +46,36 @@ module.exports = {
           {
             // Extracts the CSS into a separate file and uses the
             // defined configurations in the 'plugins' section
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              sourceMap: true,
+            },
           },
           {
             // Interprets CSS
             loader: "css-loader",
             options: {
-              importLoaders: 2
-            }
+              importLoaders: 2,
+              sourceMap: true,
+            },
           },
           {
             // Use PostCSS to minify and autoprefix. This loader
             // uses the configuration in `postcss.config.js`
-            loader: "postcss-loader"
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+            },
           },
           {
             // Adds support for Sass files, if using Less, then
             // use the less-loader
-            loader: "sass-loader"
-          }
-        ]
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         // Adds support to load images in your CSS rules. It looks
@@ -88,19 +98,20 @@ module.exports = {
               publicPath: "../images",
               // When this option is 'true', the loader will emit
               // the image to output.path
-              emitFile: false
-            }
-          }
-        ]
-      }
-    ]
+              emitFile: false,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     // Configuration options for MiniCssExtractPlugin. Here I'm only
     // indicating what the CSS outputted file name should be and
     // the location
     new MiniCssExtractPlugin({
-      filename: "css/[name].min.css"
-    })
-  ]
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].css"
+    }),
+  ],
 };
