@@ -33,6 +33,6 @@
     "preview": "run-p preview:**",
     "preview:hugo": "npm run dev:hugo -- -D -F",
     "preview:webpack": "npm run dev:webpack",
-    "build": "webpack -p"
+    "build": "NODE_ENV=production; webpack -p && hugo -v --minify"
   }
 }
