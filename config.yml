@@ -57,6 +57,9 @@ disableKinds: [“taxonomy”, “taxonomyTerm”]
 googleAnalytics: UA-104524581-1
 paginate: 5
 
+# source info
+assetDir: static
+
 # deployment information
 deployment:
   targets:
