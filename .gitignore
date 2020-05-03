@@ -5,18 +5,10 @@ resources/_gen
 webpack/node_modules/
 npm-debug.log
 webpack/npm-debug.log
-pythonenv/
 cfg.json
 .sass-cache
 *.DS_STORE
-*.map
 *checkpoint.ipynb
-
-
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
 
 # OSX
 .DS_Store
@@ -27,38 +19,6 @@ Icon
 .Spotlight-V100
 .TemporaryItems
 .Trashes
-
-# Distribution / packaging
-*.Python
-env/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
-.hypothesis/
 
 content/blog/fantasy-baseball/dfp.csv
 content/blog/fantasy-baseball/dfb.csv
