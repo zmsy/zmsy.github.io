@@ -24,6 +24,16 @@ module.exports = {
     filename: "js/main.js",
   },
   devtool: "source-map",
+  devServer: {
+    port: process.env.PORT || 8080,
+    contentBase: path.join(process.cwd(), "./public"),
+    watchContentBase: true,
+    quiet: false,
+    open: false,
+    historyApiFallback: {
+      rewrites: [{ from: /./, to: "404.html" }],
+    },
+  },
   module: {
     // Array of rules that tells Webpack how the modules (output)
     // will be created
@@ -111,7 +121,7 @@ module.exports = {
     // the location
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
-      chunkFilename: "css/[id].css"
+      chunkFilename: "css/[id].css",
     }),
   ],
 };
