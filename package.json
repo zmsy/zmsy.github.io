@@ -33,6 +33,8 @@
     "preview:hugo": "npm run dev:hugo -- -D -F",
     "preview:webpack": "npm run dev:webpack",
     "build-dev": "webpack && hugo -v --minify",
-    "build": "NODE_ENV=production webpack -p && NODE_ENV=production hugo -v --minify"
+    "build": "NODE_ENV=production webpack -p && NODE_ENV=production hugo -v --minify",
+    "build-ci": "NODE_ENV=production webpack -p && NODE_ENV=production hugo-official -v --minify",
+    "deploy-ci": "hugo-official -v deploy --maxDeletes -1 --invalidateCDN"
   }
 }
