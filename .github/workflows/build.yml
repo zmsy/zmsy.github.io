@@ -9,11 +9,13 @@ jobs:
     container: klakegg/hugo:0.65.3-ext-alpine
     steps:
       - uses: actions/checkout@v1
+      - name: NPM Install
+        run: npm install
       - name: Hugo Build
-        run: hugo-official -v --minify 
+        run: npm run build-ci
       - name: Deploy to S3
         if: github.ref == 'refs/heads/master'
-        run: hugo-official -v deploy --maxDeletes -1 --invalidateCDN
+        run: npm run deploy-ci
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
