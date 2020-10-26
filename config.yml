@@ -57,8 +57,8 @@ disableKinds: [“taxonomy”, “taxonomyTerm”]
 googleAnalytics: UA-104524581-1
 paginate: 5
 
-# source info
-assetDir: static
+# layouts settings
+staticDir: static/
 
 # deployment information
 deployment:

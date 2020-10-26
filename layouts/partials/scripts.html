@@ -1,1 +1,2 @@
-<script type="text/javascript" src="/js/main.js"></script>
+{{ $built := resources.Get "js/index.js" | js.Build }}
+<script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
