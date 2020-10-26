@@ -6,13 +6,13 @@ jobs:
   build:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    container: klakegg/hugo:0.65.3-ext-alpine
+    container: klakegg/hugo:0.76.5-ext-alpine
     steps:
       - uses: actions/checkout@v1
       - name: NPM Install
         run: npm install
       - name: Hugo Build
-        run: npm run build-ci
+        run: npm run build
       - name: Deploy to S3
         if: github.ref == 'refs/heads/master'
         run: npm run deploy-ci
