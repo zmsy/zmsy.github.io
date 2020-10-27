@@ -4,7 +4,7 @@ backend:
   repo: zmsy/zmsy.co
   api_root: https://api.github.com
 
-media_folder: "site/static/img"
+media_folder: "site/assets/img"
 public_folder: "img"
 
 collections:

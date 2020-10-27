@@ -1,7 +1,0 @@
-server:
-  image: klakegg/hugo:0.65.3-ext-alpine
-  command: server
-  volumes:
-    - .:/src
-  ports:
-    - 1313:1313
