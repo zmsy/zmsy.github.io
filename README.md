@@ -27,3 +27,11 @@ This is a static site built using vanilla Hugo.
 hugo -v --minify
 ```
 
+## Usage
+
+New blog post:
+
+```sh
+hugo new --kind blog-bundle blog/my-post-title
+```
+
