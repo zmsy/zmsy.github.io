@@ -1,2 +1,0 @@
-Zach Morrissey / zmsy.co / @_zmsy
-Stumbling my way through the tech industry, one step at a time. Site built with Python + Lektor + Bulma + HTML/CSS/JS.
