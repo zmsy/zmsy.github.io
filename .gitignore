@@ -1,6 +1,7 @@
 # custom
 node_modules
 public
+docs
 resources/_gen
 webpack/node_modules/
 npm-debug.log
