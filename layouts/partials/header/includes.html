@@ -1,5 +1,5 @@
 {{ $scss := resources.Get "styles/index.scss" }}
-{{ $opts := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "node_modules")}}
+{{ $opts := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
 {{ $style := $scss | resources.ToCSS $opts }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
