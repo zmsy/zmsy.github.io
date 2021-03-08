@@ -1,0 +1,33 @@
+backend:
+  name: github
+  branch: master
+  repo: zmsy/zmsy.co
+  api_root: https://api.github.com
+
+media_folder: "site/assets/img"
+public_folder: "img"
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: "Blog Post"
+    folder: content/blog
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - label: "Title"
+        name: title
+        widget: string
+      - label: "Description"
+        name: description
+        widget: string
+      - label: "Publish Date"
+        name: publishDate
+        widget: datetime
+      - label: "Draft"
+        name: draft
+        widget: boolean
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
