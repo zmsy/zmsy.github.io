@@ -47,6 +47,21 @@ markup:
     renderer:
       unsafe: true
 
+module:
+  mounts:
+  - source: content
+    target: content
+  - source: static
+    target: static
+  - source: layouts
+    target: layouts
+  - source: assets
+    target: assets
+  - source: archetypes
+    target: archetypes
+  - source: node_modules/bulma
+    target: assets/styles/bulma
+
 # site settings
 enableEmoji: true
 enableInlineShortcodes: true
