@@ -9,12 +9,13 @@ jobs:
   deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    container: klakegg/hugo:0.81.0-ext-alpine
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup NPM
+        uses: actions/setup-node@v1
         with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+          node-version: 12
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -32,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./public
