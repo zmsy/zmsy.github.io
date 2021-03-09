@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: HUGO_ENVIRONMENT=production hugo -v --minify -b https://zmsy.github.io/zmsy.co/
+        run: HUGO_ENVIRONMENT=production hugo -v --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
