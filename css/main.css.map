@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/runner/work/zmsy.co/zmsy.co",
+	"sourceRoot": "/home/runner/work/zmsy.github.io/zmsy.github.io",
 	"sources": [
 		"assets/styles/index.scss",
 		"assets/styles/custom_bulma.scss",
