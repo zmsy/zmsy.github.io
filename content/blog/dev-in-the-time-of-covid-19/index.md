@@ -2,7 +2,6 @@
 title: "Dev in the Time of COVID-19"
 description: "Cognitive overload and side-projects lose priority to family and risk assessment."
 publishDate: 2022-01-20T08:58:28-08:00
-draft: true
 ---
 
 ## Been a while!
