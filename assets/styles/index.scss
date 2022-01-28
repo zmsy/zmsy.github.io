@@ -14,7 +14,7 @@ html {
 body {
     font-family: $reading-fonts;
     background-color: $white;
-    color: $black;
+    color: var(--black);
 }
 
 h1 {
@@ -84,8 +84,9 @@ a {
     transform: rotate(180deg);
 }
 
+// font-awesome
 .fa {
-    color: $black;
+    color: var(--black);
 }
 
 .meta {
@@ -156,7 +157,7 @@ a {
     }
 
     strong {
-        color: $grey-dark;
+        color: $grey-darker;
         font-family: $subtitle-fonts;
         font-weight: 400;
     }
@@ -189,7 +190,6 @@ a {
     }
 
     pre {
-        background-color: $white-ter;
         font-family: $code-fonts;
         font-size: 0.875rem;
     }
@@ -231,7 +231,7 @@ a {
     & .twitter-tweet {
        margin-left: auto;
        margin-right: auto;
-       border: 1px solid $grey;
+       border: 1px solid $black-bis;
        border-radius: 0.5rem; 
     }
 }
@@ -259,32 +259,15 @@ a {
     font-family: $hero-fonts;
     font-weight: normal;
     font-size: 4.5rem;
+    color: $black-bis;
 }
 
 .subtitle {
     font-family: $hero-subtitle-fonts;
     font-weight: normal;
     font-size: 1.5rem;
+    color: $black-bis;
 }
-
-.title-light {
-    color: $white-bis;
-    text-shadow: 5px -5px 0 $orange;
-}
-
-.title-dark {
-    color: $dark-fill;
-}
-
-.subtitle-light {
-    color: $white-ter;
-    opacity: 0.8;
-}
-
-.subtitle-dark {
-    color: $dark-fill;
-}
-
 
 #about-container {
     margin-top: 2rem;
