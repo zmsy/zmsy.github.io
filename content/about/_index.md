@@ -5,7 +5,8 @@ tagline: "Fire me an email if you'd like to connect or have questions about what
 ---
 
 ## Who Even Writes This Stuff?
-<hr class="hr-subtitle">
+
+<hr>
 
 I'm a software engineer and a data/statistics lover.
 
@@ -14,7 +15,8 @@ I'm a software engineer and a data/statistics lover.
 Shameless self-promotion.
 
 ## Site Architecture
-<hr class="hr-subtitle">
+
+<hr>
 
 If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co).
 
