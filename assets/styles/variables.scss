@@ -18,21 +18,31 @@ $reading-fonts: "Work Sans", sans-serif;
 $code-fonts: "monaco", "Consolas", "Andale Mono", "Lucida Console", monospace;
 
 /* COLORS */
-:root {
-  --black: #100b03;
+html {
+  --backgroundColor: #faf9f9;
+  --backgroundAccentColor: #dcdbd9;
+  --secondaryBackgroundColor: #2a363b;
+  --titleTextColor: #100b03;
+  --subtitleTextColor: #38332a;
+  --textColor: #3f3b35;
+  --accent1Color: #d85d44;
+  --accent2Color: #3a89c9;
+  --accent3Color: #9665c7;
+  --accent4Color: #fbd136;
+  --illustrationsColor: #3f3b35;
 }
 
-$black: #100b03; // default body font, largely unused except for icons
-$black-bis: #18130d; // title, subtitle, h1
-$black-ter: #38332a; // h2
-$grey-darker: #3f3b35; // main text color, h3-6
+$black: #100b03; // `icons` default body font, largely unused except for icons
+$black-bis: #18130d; // `titleText` title, subtitle, h1
+$black-ter: #38332a; // `subtitleText` h2
+$grey-darker: #3f3b35; // `text` main text color, h3-6
 $grey-dark: #5e564b; // unused
 $grey: #8f8980; // unused
 $grey-light: #bab6af; // unused
-$grey-lighter: #dcdbd9; // used by <hr> + footer border
-$white-ter: #f0efef;
-$white-bis: #f5f4f4;
-$white: #faf9f9; // background
+$grey-lighter: #dcdbd9; // `backgroundAccent` used by <hr> + footer border
+$white-ter: #f0efef; // unused
+$white-bis: #f5f4f4; // unused
+$white: #faf9f9; // `background`
 
 // bulma-required colors
 $orange: #d85d44;
@@ -40,8 +50,8 @@ $yellow: #fbd136;
 $green: #23d160;
 $turquoise: #8cc9bf;
 $blue: #3a89c9;
-$purple: #9665c7;
+$purple: #9665c7; // `code` inline code segments
 $red: #d34141;
 
 /* non-bulma colors */
-$dark-fill: #2a363b; // secondaryBackground, titles
+$dark-fill: #2a363b; // `secondaryBackground`, titles
