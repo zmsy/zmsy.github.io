@@ -75,6 +75,10 @@ paginate: 5
 # layouts settings
 # staticDir: static/
 
+# javascript bundling information
+build:
+  noJSConfigInAssets: true
+
 # deployment information
 deployment:
   targets:
