@@ -1,0 +1,5 @@
+{{ $svg := .Page.Resources.GetMatch (.Get "src") }}
+<figure class="color-responsive-svg"
+  {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}>
+  {{ ($svg).Content | safeHTML }}
+</figure>

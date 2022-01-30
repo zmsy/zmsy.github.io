@@ -242,6 +242,18 @@ a {
   }
 }
 
+/** SVG */
+.color-responsive-svg {
+  // Paths match the text color
+  // Text in font must be exported as curves
+  path {
+    // using important here because it gets overridden by the inline
+    // stroke color
+    stroke: var(--textColor) !important;
+  }
+}
+
+/** PAGE SPACING */
 .blog-post {
   margin-bottom: 8rem;
 }
