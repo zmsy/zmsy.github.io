@@ -1,13 +1,7 @@
 {{ $img := $.Page.Resources.GetMatch (.Get "src")}} {{ $alt := .Get "alt" }}
-<figure>
-  <img
+<img
   src="{{ $img.RelPermalink }}"
   alt="{{ $alt }}"
-  {{ with .Get "class" }}
-  class="{{.}}"
-  {{ end }}
-  {{ with .Get "style" }}
-  style="{{ . | safeCSS }}"
-  {{ end }}
+  {{ with .Get "class" }} class="{{.}}" {{ end }}
+  {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}
   />
-</figure>
