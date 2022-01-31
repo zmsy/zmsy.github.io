@@ -1,2 +1,3 @@
-{{ $built := resources.Get "ts/index.ts" | js.Build }}
+{{ $settings := dict "minify" true "target" "es2015" }}
+{{ $built := resources.Get "ts/index.ts" | js.Build $settings }}
 <script type="text/javascript" src="{{ $built.RelPermalink }}"></script>

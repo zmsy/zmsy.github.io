@@ -240,6 +240,14 @@ a {
     border: 1px solid var(--titleTextColor);
     border-radius: 0.5rem;
   }
+
+  /* SVG files included in-line w text. */
+  figure {
+    // Most SVG files should retain the same default height across posts
+    // for continuity. If a given graphic should be _larger_ than this,
+    // add a custom class or style to it.
+    height: 12rem;
+  }
 }
 
 /** SVG */
@@ -251,6 +259,12 @@ a {
     // stroke color
     stroke: var(--textColor) !important;
   }
+}
+
+svg {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 /** PAGE SPACING */
