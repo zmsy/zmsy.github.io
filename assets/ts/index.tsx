@@ -3,8 +3,9 @@ zmsy.co
 Main javascript entrypoint - includes all logic for site.
 */
 
-// import * as lib from "./lib";
-import { defaultPaletteLight, setPaletteCSS } from "./components";
+import { render } from "preact";
+
+import { ColorPicker } from "./components";
 
 // toggle the active menu on tap
 document.getElementById("navbar-toggle").addEventListener("click", function () {
@@ -14,4 +15,5 @@ document.getElementById("navbar-toggle").addEventListener("click", function () {
 });
 
 // set the default palette if it's not already
-setPaletteCSS(defaultPaletteLight);
+const darkModeButton = document.getElementById("dark-mode-button");
+render(<ColorPicker />, darkModeButton);

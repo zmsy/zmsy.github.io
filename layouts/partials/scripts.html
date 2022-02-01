@@ -1,3 +1,10 @@
-{{ $settings := dict "minify" true "target" "es2015" }}
-{{ $built := resources.Get "ts/index.ts" | js.Build $settings }}
-<script type="text/javascript" src="{{ $built.RelPermalink }}"></script>
+{{ $inject := slice "ts/preact-inject.ts" }}
+{{ $settings :=dict
+  "minify" true
+  "target" "es2018"
+  "inject" $inject
+  "JSXFactory" "h"
+  "JSXFragment" "Fragment"
+}}
+{{ $built := resources.Get "ts/index.tsx" | js.Build $settings }}
+<script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>

@@ -8,7 +8,7 @@ publishDate: 2022-01-20T08:58:28-08:00
 
 This is the first post I've written here since Feb 2020. That was a long two-year gap. There's likely no explanation needed for most. I didn't keep [my promise to publish more often](/blog/hugo/).
 
-{{< image src="clock.svg" alt="Clock" class="no-border" style="height: 15rem">}}
+{{< svg src="clock.svg" style="height: 15rem;">}}
 
 I'm usually a voracious learner outside of work. It's partially due to the fact that I'm a [career-switching developer](/blog/switching-careers-to-software-engineering-part-two/), and for ~3-5 years most of the gains I had in this new track came from extracurriculars. It's also partly due to the fact that I am always usually some combination of bored with current tasks, frustrated with current tech, or curious about new stuff. I am normally able to make time every week to try something out, watch some videos, hammer out some bad code, etc.
 
@@ -22,7 +22,7 @@ Let's look at the stuff I've been working with / on.
 
 This is the major technological development for me over this time. I stumbled on a nascent Typescript around when I started doing web development in earnest, circa ~2016-17. It was far from a sure thing to succeed at that point, but it's absolutely ubiquitous now. 100% of the frontend work that I do is in TS, and plenty of the backend work that I do as well. There's a lot to love here, but I think it's a combination of a few things:
 
-{{< image src="typescript.svg" alt="Typescript logo" class="no-border" style="height: 12rem">}}
+{{< svg src="typescript.svg" >}}
 
 1. **Ecosystem** - TS adoption is almost ubiquitous at this point. I rarely have to use a library without available types, and when I do it's not particularly difficult to wrap that in my own type-safe code.
 2. **Documentation** - The TS docs themselves are a comprehensive reference. Not very easy to browse/read, but _most_ of the answers I need come from the docs as opposed to Stack Overflow. The only things I have to go hunting for generally are little-used or esoteric.
@@ -32,7 +32,7 @@ This is the major technological development for me over this time. I stumbled on
 
 I actually learned to use cooking as my primary means of post-work relaxation during the pandemic. I'd learned very early on that it forced me to be away from my phone. It made me use my hands.
 
-{{< image src="recipe.svg" alt="A written reicpe next to a cutting board." class="no-border" style="height: 12rem">}}
+{{< svg src="recipe.svg" >}}
 
 I started to make the same recipes over and over again. I began to jot down notes about what I'd changed and why I changed it. Some is technique, some is using new ingredients, some is synthesizing multiple recipes that didn't quite work for me. I've been meaning to publish a handful on this site and I intend to do that this year. I've been learning how recipe SEO works.
 
@@ -40,7 +40,7 @@ I started to make the same recipes over and over again. I began to jot down note
 
 Another way I forced myself to disconnect from the world this year was cycling.
 
-{{< image src="bike.svg" alt="Bicycle" class="no-border" style="height: 12rem">}}
+{{< svg src="bike.svg" >}}
 
 I went from a 1x monthly to a 4x weekly rider. Due to the weather turning worse for the season, I've slowed my frequency but intend to pick back up again in the spring. For a while, I felt most free and level-headed when I just suited up, threw on a podcast, and peddled as far in one direction as my legs would take me and the sunlight would last. Living in Seattle, I lose the ability to bike in the sun after work during the winters. I've noticed a drastic effect on my mood from the sunlight, cardio, and general seclusion that comes from riding.
 

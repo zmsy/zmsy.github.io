@@ -3,7 +3,7 @@
     <nav class="navbar" role="navigation" id="top">
       <div class="navbar-brand">
         <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          <img id="logo-img" src="/media/logo.svg" alt="{{ .Site.Title }} - Home">
+          <img id="logo-img" src="/media/logo.svg" alt="Go to Homepage" />
         </a>
         <a class="navbar-item" href="{{ .Site.BaseURL }}">
           <div class="is-3" id="logo-text">{{ .Site.Title }}</div>
@@ -18,12 +18,15 @@
         <div class="navbar-end">
           {{ range .Site.Params.icons }}
           <a class="navbar-item is-hidden-touch" href="{{ .Url }}">
-            <span class="icon"> <i class="fa {{ .Icon }}" title="{{ .Alt }}"></i> </span>
+            <span class="icon">
+              <i class="fa {{ .Icon }}" title="{{ .Alt }}"></i>
+            </span>
           </a>
           {{ end }}
           {{ range .Site.Params.nav }}
           <a class="navbar-item is-tab" href="{{ .Url }}">{{ .Name }}</a>
           {{ end }}
+          <div id="dark-mode-button"></div>
         </div>
       </div>
     </nav>

@@ -65,6 +65,10 @@ a {
   height: 3.25rem;
 }
 
+#dark-mode-button {
+  width: 6rem;
+}
+
 #logo-text {
   font-size: 32px;
   justify-content: flex-start;
@@ -176,6 +180,8 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .no-border {
