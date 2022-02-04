@@ -287,8 +287,8 @@ svg {
 
 #hero {
   & > #hero-body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -340,14 +340,9 @@ svg {
 }
 
 #hero-badge {
-  margin-bottom: -11.75rem;
-  height: 30rem;
-}
-
-#hero-badge {
   margin-top: 1rem;
   margin-bottom: -11.75rem;
-  height: 30rem;
+  height: 40rem;
 }
 
 #hero-diamonds {
