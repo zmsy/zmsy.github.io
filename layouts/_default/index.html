@@ -2,8 +2,12 @@
 <section class="hero is-medium" id="hero">
   <div class="hero-body" id="hero-body">
     <div class="container has-text-centered">
-      <img class="is-centered is-hidden-tablet" id="hero-badge-sm" src="/img/home-logo-compact.svg" alt="Things that I do.">
-      <img class="is-centered is-hidden-mobile" id="hero-badge" src="/img/home-logo-scribble.svg" alt="Things that I do.">
+      <div class="is-hidden-tablet">
+        {{ partial "svg.html" (dict "src" "static/img/home-logo-scribble-compact.svg" "id" "hero-badge") }}
+      </div>
+      <div class="is-hidden-mobile">
+        {{ partial "svg.html" (dict "src" "static/img/home-logo-scribble.svg" "id" "hero-badge") }}
+      </div>
     </div>
   </div>
 </section>
