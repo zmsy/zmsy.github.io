@@ -2,19 +2,17 @@
 
 /*
 Main scss file.
-This creates the main.css file and the same variables can be used in the bulma variables.
-
-Example comment that I'm making. Here's more comments.
+This creates the main.css file and the same variables can use bulma variables.
 */
 
 html {
-  background-color: $dark-fill;
+  background-color: var(--secondaryBackgroundColor);
 }
 
 body {
   font-family: $reading-fonts;
-  background-color: $white;
-  color: var(--black);
+  background-color: var(--backgroundColor);
+  color: var(--textColor); // replace with --text
 }
 
 h1 {
@@ -24,10 +22,10 @@ h1 {
 }
 
 a {
-  color: $orange;
+  color: var(--accent1Color);
 
   &:hover {
-    color: $blue;
+    color: var(--accent2Color);
   }
 }
 
@@ -35,7 +33,7 @@ a {
 
 .navbar {
   /* padding: 0rem 3rem 0rem 3rem; */
-  background-color: $white;
+  background-color: var(--backgroundColor);
   align-items: flex-end;
   font-family: $display-fonts;
   margin: auto;
@@ -46,7 +44,7 @@ a {
 }
 
 .navbar-item {
-  color: $black-ter;
+  color: var(--subtitleTextColor);
 }
 
 #navbar-columns {
@@ -59,12 +57,16 @@ a {
 
 .navbar-end a:hover,
 .fa:hover {
-  color: $blue;
+  color: var(--accent2Color);
 }
 
 .navbar-burger {
   margin-top: auto;
   height: 3.25rem;
+}
+
+#dark-mode-button {
+  width: 6rem;
 }
 
 #logo-text {
@@ -86,7 +88,7 @@ a {
 
 // font-awesome
 .fa {
-  color: var(--black);
+  color: var(--titleTextColor);
 }
 
 .meta {
@@ -110,7 +112,7 @@ a {
     font-family: $hero-fonts;
     font-size: 3rem;
     font-weight: 700;
-    color: $black-bis;
+    color: var(--titleTextColor);
     text-decoration: none;
   }
 
@@ -118,7 +120,7 @@ a {
     font-family: $subtitle-fonts;
     font-size: 2rem;
     font-weight: 400;
-    color: $black-ter;
+    color: var(--titleTextColor);
 
     &:nth-of-type(1) {
       margin-top: 1rem;
@@ -133,42 +135,53 @@ a {
     font-family: $subtitle-fonts;
     font-size: 1.5rem;
     font-weight: 400;
-    color: $grey-darker;
+    color: var(--subtitleTextColor);
     margin-top: 2.5rem;
   }
 
   h4 {
     font-family: $subtitle-fonts;
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--subtitleTextColor);
+    margin-top: 2rem;
+  }
+
+  h5,
+  h6 {
+    font-family: $subtitle-fonts;
+    color: var(--subtitleTextColor);
     font-size: 1.25rem;
     font-weight: 400;
-    color: $grey-darker;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   p,
   ul,
   ol,
   li {
-    color: $grey-darker;
+    color: var(--textColor);
     font-size: 1.2rem;
     text-align: justify;
   }
 
   strong {
-    color: $grey-darker;
+    color: var(--textColor);
     font-family: $subtitle-fonts;
     font-weight: 400;
   }
 
   hr {
-    border-top: 1px dotted $grey-lighter;
+    border-top: 1px dotted var(--backgroundAccentColor);
   }
 
   img {
-    border: 1px solid $black-bis;
+    border: 1px solid var(--titleTextColor);
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .no-border {
@@ -193,7 +206,8 @@ a {
   }
 
   code {
-    color: $purple;
+    color: var(--accent3Color);
+    background-color: var(--backgroundAccentColor);
     font-family: $code-fonts;
     font-size: 0.875rem;
   }
@@ -207,33 +221,74 @@ a {
 
   .admonition-info,
   .admonition-note {
-    background-color: $yellow;
+    background-color: var(--accent4Color);
   }
 
   .admonition-tip {
-    background-color: $blue;
+    background-color: var(--accent2Color);
 
     p {
-      color: $white;
+      color: var(--backgroundColor);
     }
   }
 
   .admonition-warning {
-    background-color: $orange;
+    background-color: var(--accent1Color);
 
     p {
-      color: $white;
+      color: var(--backgroundColor);
     }
   }
 
   & .twitter-tweet {
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid $black-bis;
+    border: 1px solid var(--titleTextColor);
     border-radius: 0.5rem;
+  }
+
+  /* SVG files included in-line w text. */
+  figure {
+    // Most SVG files should retain the same default height across posts
+    // for continuity. If a given graphic should be _larger_ than this,
+    // add a custom class or style to it.
+    height: 12rem;
   }
 }
 
+/** SVG */
+.color-responsive-svg {
+  // Paths match the text color
+  // Text in font must be exported as curves
+  path {
+    // using important here because it gets overridden by the inline
+    // stroke color
+    stroke: var(--textColor) !important;
+  }
+
+  g {
+    text {
+      fill: var(--textColor) !important;
+    }
+
+    // select any rectangles with a stroke
+    rect[stroke] {
+      stroke: var(--textColor) !important;
+    }
+
+    rect[style*="#{$svgDefaultColor}"] {
+      fill: var(--textColor) !important;
+    }
+  }
+}
+
+svg {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+/** PAGE SPACING */
 .blog-post {
   margin-bottom: 8rem;
 }
@@ -247,8 +302,8 @@ a {
 
 #hero {
   & > #hero-body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -256,14 +311,14 @@ a {
   font-family: $hero-fonts;
   font-weight: normal;
   font-size: 4.5rem;
-  color: $black-bis;
+  color: var(--titleTextColor);
 }
 
 .subtitle {
   font-family: $hero-subtitle-fonts;
   font-weight: normal;
   font-size: 1.5rem;
-  color: $black-bis;
+  color: var(--titleTextColor);
 }
 
 #about-container {
@@ -300,14 +355,9 @@ a {
 }
 
 #hero-badge {
-  margin-bottom: -11.75rem;
-  height: 30rem;
-}
-
-#hero-badge {
   margin-top: 1rem;
   margin-bottom: -11.75rem;
-  height: 30rem;
+  height: 40rem;
 }
 
 #hero-diamonds {
@@ -328,7 +378,7 @@ a {
   h2 {
     font-family: $subtitle-fonts;
     font-size: 2rem;
-    color: $black-ter;
+    color: var(--subtitleTextColor);
   }
 
   i {
@@ -352,18 +402,19 @@ a {
 
   & .home-title {
     margin-bottom: 1rem;
+    // color: var(--textColor);
   }
 }
 
 /* FOOTER */
 
 .footer {
-  background-color: $dark-fill;
-  color: $white;
-  border-top: 1rem solid $grey-lighter;
+  background-color: var(--secondaryBackgroundColor);
+  color: var(--backgroundColor);
+  border-top: 1rem solid var(--backgroundAccentColor);
 
   strong {
-    color: $white;
+    color: var(--backgroundColor);
   }
 
   & .footer-dots {

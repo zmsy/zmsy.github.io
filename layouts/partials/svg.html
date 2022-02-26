@@ -1,0 +1,5 @@
+<figure 
+  {{ with .id }} id="{{ . }}" {{ end }}
+  class="color-responsive-svg {{ .class }}">
+  {{ .src | readFile | safeHTML }}
+</figure>
