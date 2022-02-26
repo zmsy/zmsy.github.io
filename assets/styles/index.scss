@@ -265,6 +265,21 @@ a {
     // stroke color
     stroke: var(--textColor) !important;
   }
+
+  g {
+    text {
+      fill: var(--textColor) !important;
+    }
+
+    // select any rectangles with a stroke
+    rect[stroke] {
+      stroke: var(--textColor) !important;
+    }
+
+    rect[style*="#{$svgDefaultColor}"] {
+      fill: var(--textColor) !important;
+    }
+  }
 }
 
 svg {
@@ -387,6 +402,7 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
+    // color: var(--textColor);
   }
 }
 
