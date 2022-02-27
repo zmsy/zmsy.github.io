@@ -6,7 +6,7 @@ publishDate: 2019-03-26
 
 Performing in-depth data analyses on things in my own life have always been more difficult than in my working life, primarily because there I've normally had teams of engineers who have helped in setting up and maintaining most of the analytics-focused infrastructure that I've used. Supporting myself with the same sort of infrastructure I was used to was an adventure, [one that started much earlier](/blog/my-very-own-airflow-cluster/) and has since grown from there.
 
-{{< image src="graphs.svg" alt="Miscellaneous fake graphs for fun." class="no-border" style="width:20rem; height:10rem" >}}
+{{< svg src="graphs.svg" style="height: 10rem;">}}
 
 ## Scope
 
@@ -26,7 +26,7 @@ This doesn't necessarily create a system that requires dedicated data engineerin
 
 For doing this sort of work, I set up a few infrastructural components. Hardware is a low-spec server with [Proxmox](https://www.proxmox.com/en/) (for VMs) and Docker/[Portainer](https://www.portainer.io/).
 
-{{< image src="diagram.svg" alt="Diagram of my personal data engineering architecture." class="no-border" style="max-height: 20rem" >}}
+{{< svg src="diagram.svg" style="height: 15rem;">}}
 
 - **Postgres database** - My primary datastore. This is the hub of all activity that I do, serving as both an application backend / transactional database as well as an analytical database. Each are neatly separated out into different schemas. I use [DBeaver](https://dbeaver.io/) as a SQL client for ad-hoc querying, manipulation, setup, etc. Since a single Postgres instance can scale to vastly larger workloads than I'd ever be able to throw at it, this seemed like a good backbone for everything.
 - **Apache Airflow** - In it's simplest form, I'm using this basically as a scheduled job engine. Building on my [earlier post about Airflow]("/blog/my-very-own-airflow-cluster/"), I've expanded my usage of it to a significant variety of different DAGs. This uses the same Postgres database as earlier.
@@ -37,7 +37,7 @@ For doing this sort of work, I set up a few infrastructural components. Hardware
 
 Since the pieces have been set in place now, this is my general workflow:
 
-{{< image src="process.svg" alt="Process workflow from Airflow task to Jupyter notebook and then to Superset dashboard." class="no-border" style="max-height: 12rem" >}} 
+{{< svg src="process.svg" style="height: 12rem;">}}
 
 1. Find a new datasource. Generally, this is something scraped from the web or pulled from a service I use.
 2. Write an Airflow task to pull that data on a regular schedule (normally nightly).

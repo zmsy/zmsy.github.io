@@ -7,7 +7,7 @@
       {{ with $.Params.subtitle }}
       <h2 class="subtitle subtitle-dark is-size-5-touch">{{ $.Params.subtitle }}</h2>
       {{ end }}
-      <img class="is-centered" id="hero-diamonds" src="/img/diamonds-dark.svg" alt="Five black, horizontal diamonds.">
+      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class" "hero-diamonds") }}
     </div>
   </div>
 </section>

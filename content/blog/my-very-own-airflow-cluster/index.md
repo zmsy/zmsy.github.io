@@ -45,7 +45,7 @@ There are plenty of ways that you can configure Airflow. There are varying level
 
 Here's diagram of how it works.
 
-{{< image src="airflow-diagram.svg" alt="Airflow architecture" class="no-border" >}}
+{{< svg src="airflow-diagram.svg" style="height: 20rem" >}}
 
 For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
@@ -68,7 +68,7 @@ There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/conc
 
 Fittingly, the DAG is a graph, both directed and acyclic. Task execution flows in only one direction.
 
-{{< image src="airflow-dag.svg" alt="An Airflow dag instance" class="no-border" >}}
+{{< svg src="airflow-dag.svg" >}}
 
 - The arrows indicate execution order.
 - An arrow from task 1 to task 2 implies task 1 is a dependency for task 2. If task 1 fails, task 2 will not execute.

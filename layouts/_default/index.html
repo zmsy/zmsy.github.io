@@ -14,20 +14,26 @@
 <section>
   <div class="columns home-columns is-centered is-multiline">
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/blog"><img class="column-logo" src="/img/blog-logo.svg" alt="Link to Blog page."></a>
-      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg" alt="Five black diamonds.">
+      <a href="/blog">
+        {{ partial "svg.html" (dict "src" "static/img/blog-logo.svg" "class" "column-logo") }}
+      </a>
+      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class" "hero-diamonds") }}
       <a href="/blog"><h2 class="home-title">Blog</h2></a>
       <p>{{ $.Params.blog_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/projects"><img class="column-logo" src="/img/projects-logo.svg" alt="Link to Projects page."></a>
-      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg" alt="Five black diamonds.">
+      <a href="/projects">
+        {{ partial "svg.html" (dict "src" "static/img/projects-logo.svg" "class" "column-logo") }}
+      </a>
+      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class" "hero-diamonds") }}
       <a href="/projects"><h2 class="home-title">Projects</h2></a>
       <p>{{ $.Params.projects_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/about"><img class="column-logo" src="/img/about-logo.svg" alt="Link to About page."></a>
-      <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg" alt="Five black diamonds.">
+      <a href="/about">
+        {{ partial "svg.html" (dict "src" "static/img/about-logo.svg" "class" "column-logo") }}
+      </a>
+      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class" "hero-diamonds") }}
       <a href="/about"><h2 class="home-title">About Me</h2></a>
       <p>{{ $.Params.about_me_tagline }}</p>
     </div>

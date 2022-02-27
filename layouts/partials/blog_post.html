@@ -8,7 +8,7 @@
       </a>
       on {{ .PublishDate.Format "2006-01-02" }}
     </p>
-    <img class="image" id="hero-diamonds" src="/img/diamonds-dark.svg">
+    {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class" "hero-diamonds") }}
     <div class="content">
       {{ .Content }}
     </div>
