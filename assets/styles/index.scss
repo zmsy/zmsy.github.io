@@ -382,10 +382,18 @@ svg {
   font-size: 5.5rem;
 }
 
-#hero-badge {
+.hero-badge {
   margin-top: 1rem;
   margin-bottom: -11.75rem;
   height: 40rem;
+}
+
+.hero-badge-mobile {
+  margin-top: 1rem;
+  margin-bottom: -11rem;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-diamonds {
