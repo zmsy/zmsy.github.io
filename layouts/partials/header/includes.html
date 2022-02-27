@@ -1,7 +1,7 @@
 {{ $scss := resources.Get "styles/index.scss" }}
 {{ $opts := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
-{{ $style := $scss | resources.ToCSS $opts }}
-<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ $style := $scss | resources.ToCSS $opts | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Patua+One|Work+Sans&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/media/favicon-32x32.png" sizes="32x32" />

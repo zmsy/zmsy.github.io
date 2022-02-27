@@ -302,8 +302,7 @@ svg {
 
 #hero {
   & > #hero-body {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 0rem;
   }
 }
 
@@ -402,7 +401,7 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
-    // color: var(--textColor);
+    color: var(--textColor);
   }
 }
 

@@ -1,10 +1,19 @@
 {{ $inject := slice "ts/preact-inject.ts" }}
-{{ $settings :=dict
+{{ $settings := dict
   "minify" true
   "target" "es2018"
   "inject" $inject
   "JSXFactory" "h"
   "JSXFragment" "Fragment"
 }}
-{{ $built := resources.Get "ts/index.tsx" | js.Build $settings }}
-<script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
+{{/* Built the JS and apply a secure fingerprint. */}}
+{{ $built := resources.Get "ts/index.tsx"
+  | js.Build $settings
+  | resources.Fingerprint "sha256"
+}}
+<script
+  type="text/javascript"
+  src="{{ $built.RelPermalink }}"
+  integrity="{{ $built.Data.Integrity }}"
+  defer
+></script>
