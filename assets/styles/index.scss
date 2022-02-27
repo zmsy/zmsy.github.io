@@ -171,6 +171,14 @@ a {
     font-weight: 400;
   }
 
+  table {
+    thead {
+      th {
+        color: var(--textColor);
+      }
+    }
+  }
+
   hr {
     border-top: 1px dotted var(--backgroundAccentColor);
   }
@@ -258,27 +266,48 @@ a {
 
 /** SVG */
 .color-responsive-svg {
-  // Paths match the text color
-  // Text in font must be exported as curves
+  // Paths match the text color, text in font must be exported as curves
   path {
-    // using important here because it gets overridden by the inline
-    // stroke color
+    // must use important here because it gets overridden by the inline
+    // stroke color, which is more specific.
     stroke: var(--textColor) !important;
   }
 
-  g {
-    text {
-      fill: var(--textColor) !important;
-    }
+  text {
+    fill: var(--textColor) !important;
+  }
 
-    // select any rectangles with a stroke
-    rect[stroke] {
-      stroke: var(--textColor) !important;
-    }
+  // NOTE: These selectors are intended to find svg elements where there
+  // IS an existing fill or stroke, and then have them use the current
+  // variables instead of their hardcoded color. This defaults to the starting
+  // svg color, so that it can be selected regardless of which theme the
+  // site currently is using.
+  //
+  // This is due to a shortcoming in Affinity Designer where it exports all
+  // of the styling information in a single style tag, where it's difficult to
+  // properly select individual components which _should_ or _should not_ be
+  // colored appropriately. This first "fill" selector checks start of string
+  // the affinity designer property export format always puts fill first.
+  rect[fill="#{$svgDefaultColor}"],
+  rect[style^="fill:#{$svgDefaultColor}"],
+  path[fill="#{$svgDefaultColor}"],
+  path[style^="fill:#{$svgDefaultColor}"],
+  ellipse[fill="#{$svgDefaultColor}"],
+  ellipse[style^="fill:#{$svgDefaultColor}"],
+  circle[fill="#{$svgDefaultColor}"],
+  circle[style^="fill:#{$svgDefaultColor}"] {
+    fill: var(--textColor) !important;
+  }
 
-    rect[style*="#{$svgDefaultColor}"] {
-      fill: var(--textColor) !important;
-    }
+  rect[stroke="#{$svgDefaultColor}"],
+  rect[style*="stroke:#{$svgDefaultColor}"],
+  path[stroke="#{$svgDefaultColor}"],
+  path[style*="stroke:#{$svgDefaultColor}"],
+  ellipse[stroke="#{$svgDefaultColor}"],
+  ellipse[style*="stroke:#{$svgDefaultColor}"],
+  circle[stroke="#{$svgDefaultColor}"],
+  circle[style*="stroke:#{$svgDefaultColor}"] {
+    stroke: var(--textColor) !important;
   }
 }
 
@@ -302,8 +331,7 @@ svg {
 
 #hero {
   & > #hero-body {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 0rem;
   }
 }
 
@@ -360,7 +388,7 @@ svg {
   height: 40rem;
 }
 
-#hero-diamonds {
+.hero-diamonds {
   height: 20px;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -402,7 +430,7 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
-    // color: var(--textColor);
+    color: var(--textColor);
   }
 }
 

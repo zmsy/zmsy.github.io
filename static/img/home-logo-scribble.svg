@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 3334 2000" version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
-    xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3334 2000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
     <g id="Swooshing-baseball" serif:id="Swooshing baseball">
         <g>
             <path d="M1586.63,1197.05c18.993,-6.793 92.204,7.435 96.098,109.532c4.555,-110.64 -34.395,-138.65 -46.839,-148.04" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
@@ -18,12 +16,11 @@
         <g transform="matrix(0.997231,-0.0743616,0.0743616,0.997231,-68.4579,-52.4678)">
             <text x="502.259px" y="1136.75px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">zach</text>
         </g>
-        <g transform="matrix(0.999676,0.0254647,-0.0254647,0.999676,16.9746,3.95539)">
-            <text x="999.326px" y="968.157px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">morrisse<tspan x="1434.4px " y="968.157px ">y</tspan>
-            </text>
+        <g id="_-morrissey-" serif:id="(morrissey)" transform="matrix(0.999676,0.0254647,-0.0254647,0.999676,16.9746,3.95539)">
+            <text x="999.326px" y="968.157px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">morrissey</text>
         </g>
         <g transform="matrix(0.998325,0.0578547,-0.0578547,0.998325,44.9241,-9.69175)">
-            <text x="1749.86px" y="926.74px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">softw<tspan x="2037.19px " y="926.74px ">a</tspan>re</text>
+            <text x="1749.86px" y="926.74px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">software</text>
         </g>
         <g transform="matrix(0.9976,-0.0692436,0.0692436,0.9976,-60.828,10.9353)">
             <text x="2352.47px" y="1183.65px" style="font-family:'PatuaOne-Regular', 'Patua One';font-size:113.035px;fill:#38332a;">engineer</text>
@@ -557,8 +554,8 @@
         <path d="M1458.79,1594.42c0.236,2.237 1.651,4.919 2.55,7.016" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
     </g>
     <path id="Squiggly" d="M373.563,170.931c-14.446,6.902 -100.186,77.228 -100.017,88.288c0.049,3.181 116.648,-22.187 120.239,-14.87c0.894,1.821 -68.847,43.309 -67.47,46.045c1.979,3.931 68.644,-10.819 82.66,3.403c13.825,14.029 -33.361,36.693 -29.449,48.33c3.195,9.508 37.616,-4.704 45.634,1.358c9.049,6.842 -15.154,22.526 -12.159,30.254c1.772,4.572 35.24,7.557 33.107,13.594" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
-    <path d="M674.345,1669.63c37.291,-12.098 71.135,-18.015 108.091,-0.509c22.065,10.452 43.574,34.521 68.59,36.898c27.125,2.577 56.683,-29.617 81.691,-21.879c33.053,10.227 21.327,55.895 63.009,52.732" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
-    <path d="M537.443,1164.76c23.054,4.962 44.228,44.811 68.624,48.014c65.942,8.658 91.254,-56.59 145.467,6.068" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
+    <path id="Squiggly-3" serif:id="Squiggly 3" d="M674.345,1669.63c37.291,-12.098 71.135,-18.015 108.091,-0.509c22.065,10.452 43.574,34.521 68.59,36.898c27.125,2.577 56.683,-29.617 81.691,-21.879c33.053,10.227 21.327,55.895 63.009,52.732" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
+    <path id="Squiggly-2" serif:id="Squiggly 2" d="M537.443,1164.76c23.054,4.962 44.228,44.811 68.624,48.014c65.942,8.658 91.254,-56.59 145.467,6.068" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
     <g id="Pin">
         <path d="M2959.87,1507.34c-4.03,-10.605 -46.246,12.627 -45.05,21.371l8.414,17.707c-0,-0 13.308,4.021 14.3,5.558c2.094,3.247 9.027,13.691 9.619,17.899c0.204,1.447 -7.105,8.861 -9.803,11.079c-8.702,7.155 -5.554,20.952 1.59,28.73c9.63,-20.128 52.493,-38.768 69.928,-34.785c0,0 -4.744,-18.982 -24.62,-15.092c-2.795,0.547 -8.94,3.369 -11.049,0.859c-4.312,-5.13 -9.373,-13.959 -12.186,-19.972c-1.039,-2.221 7.304,-19.197 7.304,-19.197c0,0 -6.407,-11.035 -8.447,-14.157Z" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
         <path d="M2987.3,1596.68c10.248,-6.09 18.675,-13.69 21.78,-21.663" style="fill:none;stroke:#38332a;stroke-width:10.42px;"/>
@@ -596,8 +593,10 @@
         <path d="M2014.44,1668.5c10.736,-1.399 31.142,-30.335 31.298,-44.571c-10.253,3.754 -29.756,23.779 -31.298,44.571Z" style="fill:#38332a;stroke:#38332a;stroke-width:8.33px;"/>
         <path d="M2317.02,1662.78c1.038,6.324 20.056,22.061 29.292,24.164c-2.56,-6.381 -15.787,-20.342 -29.292,-24.164Z" style="fill:#38332a;stroke:#38332a;stroke-width:8.33px;"/>
     </g>
-    <path d="M1836.96,1466.12c40.771,-12.5 67.308,16.6 99.529,0" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
-    <path d="M1867.18,1545.4c21.482,-8.334 34.636,17.832 51.95,9.675" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
-    <path d="M1611.41,1435.9c36.632,16.667 56.594,-12.36 84.892,0.372" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
-    <path d="M1555.42,1514.46c28.908,-12.5 45.971,16.666 66.546,-0" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
+    <g id="Waves1" serif:id="Waves">
+        <path d="M1836.96,1466.12c40.771,-12.5 67.308,16.6 99.529,0" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
+        <path d="M1867.18,1545.4c21.482,-8.334 34.636,17.832 51.95,9.675" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
+        <path d="M1611.41,1435.9c36.632,16.667 56.594,-12.36 84.892,0.372" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
+        <path d="M1555.42,1514.46c28.908,-12.5 45.971,16.666 66.546,-0" style="fill:none;stroke:#38332a;stroke-width:8.33px;"/>
+    </g>
 </svg>
