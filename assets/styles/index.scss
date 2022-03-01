@@ -67,6 +67,66 @@ a {
 
 #dark-mode-button {
   width: 6rem;
+  margin: 1rem auto;
+}
+
+.dark-mode-selector {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  // padding: 0rem 0rem;
+  border: 1px solid var(--backgroundColor);
+  // border-radius: 0rem;
+  // border: none;
+  background: var(--secondaryBackgroundColor);
+  height: auto;
+  color: var(--backgroundColor);
+
+  &:hover {
+    color: var(--backgroundAccentColor);
+  }
+
+  &:focus {
+    color: var(--backgroundAccentColor);
+    &:not(:active) {
+      box-shadow: none;
+    }
+  }
+
+  #rainbow-label {
+    margin: 0rem 0rem 0.25rem 0rem;
+  }
+
+  #rainbow {
+    padding: 0.125rem;
+    height: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--textColor);
+    background: linear-gradient(
+      to right,
+      /** hard gradient is made by defining endpoints. */ var(--backgroundColor)
+        0%,
+      var(--backgroundColor) 10%,
+      var(--backgroundAccentColor) 10%,
+      var(--backgroundAccentColor) 20%,
+      var(--secondaryBackgroundColor) 20%,
+      var(--secondaryBackgroundColor) 30%,
+      var(--titleTextColor) 30%,
+      var(--titleTextColor) 40%,
+      var(--subtitleTextColor) 40%,
+      var(--subtitleTextColor) 50%,
+      var(--textColor) 50%,
+      var(--textColor) 60%,
+      var(--accent1Color) 60%,
+      var(--accent1Color) 70%,
+      var(--accent2Color) 70%,
+      var(--accent2Color) 80%,
+      var(--accent3Color) 80%,
+      var(--accent3Color) 90%,
+      var(--accent4Color) 90%,
+      var(--accent4Color) 100%
+    );
+  }
 }
 
 #logo-text {
@@ -414,7 +474,6 @@ svg {
   h2 {
     font-family: $subtitle-fonts;
     font-size: 2rem;
-    color: var(--subtitleTextColor);
   }
 
   i {
@@ -438,7 +497,6 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
-    color: var(--textColor);
   }
 }
 
