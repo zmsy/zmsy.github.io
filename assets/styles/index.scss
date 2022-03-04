@@ -67,6 +67,66 @@ a {
 
 #dark-mode-button {
   width: 6rem;
+  margin: 1rem auto;
+}
+
+.dark-mode-selector {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  // padding: 0rem 0rem;
+  border: 1px solid var(--backgroundColor);
+  // border-radius: 0rem;
+  // border: none;
+  background: var(--secondaryBackgroundColor);
+  height: auto;
+  color: var(--backgroundColor);
+
+  &:hover {
+    color: var(--backgroundAccentColor);
+  }
+
+  &:focus {
+    color: var(--backgroundAccentColor);
+    &:not(:active) {
+      box-shadow: none;
+    }
+  }
+
+  #rainbow-label {
+    margin: 0rem 0rem 0.25rem 0rem;
+  }
+
+  #rainbow {
+    padding: 0.125rem;
+    height: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--textColor);
+    background: linear-gradient(
+      to right,
+      /** hard gradient is made by defining endpoints. */ var(--backgroundColor)
+        0%,
+      var(--backgroundColor) 10%,
+      var(--backgroundAccentColor) 10%,
+      var(--backgroundAccentColor) 20%,
+      var(--secondaryBackgroundColor) 20%,
+      var(--secondaryBackgroundColor) 30%,
+      var(--titleTextColor) 30%,
+      var(--titleTextColor) 40%,
+      var(--subtitleTextColor) 40%,
+      var(--subtitleTextColor) 50%,
+      var(--textColor) 50%,
+      var(--textColor) 60%,
+      var(--accent1Color) 60%,
+      var(--accent1Color) 70%,
+      var(--accent2Color) 70%,
+      var(--accent2Color) 80%,
+      var(--accent3Color) 80%,
+      var(--accent3Color) 90%,
+      var(--accent4Color) 90%,
+      var(--accent4Color) 100%
+    );
+  }
 }
 
 #logo-text {
@@ -75,14 +135,17 @@ a {
   font-family: $display-fonts;
 }
 
-#logo-img {
+#logo-img,
+.logo-img {
   padding: 0px;
+  display: flex;
   justify-content: flex-end;
-  width: 40px;
+  max-width: 40px;
+  height: auto;
   transition: 0.2s ease-in-out;
 }
 
-#logo-img:hover {
+.logo-img:hover {
   transform: rotate(180deg);
 }
 
@@ -309,6 +372,37 @@ a {
   circle[style*="stroke:#{$svgDefaultColor}"] {
     stroke: var(--textColor) !important;
   }
+
+  // queries for individual accent colors. this should probably
+  // be replaced by an scss variable at some point.
+
+  path[style^="fill:#d85d44"],
+  rect[style^="fill:#d85d44"],
+  circle[style^="fill:#d85d44"],
+  ellipse[style^="fill:#d85d44"] {
+    fill: var(--accent1Color) !important;
+  }
+
+  path[style^="fill:#3a89c9"],
+  ellipse[style^="fill:#3a89c9"],
+  circle[style^="fill:#3a89c9"],
+  rect[style^="fill:#3a89c9"] {
+    fill: var(--accent2Color) !important;
+  }
+
+  path[style^="fill:#9665c7"],
+  ellipse[style^="fill:#9665c7"],
+  circle[style^="fill:#9665c7"],
+  rect[style^="fill:#9665c7"] {
+    fill: var(--accent3Color) !important;
+  }
+
+  path[style^="fill:#fbd136"],
+  ellipse[style^="fill:#fbd136"],
+  circle[style^="fill:#fbd136"],
+  rect[style^="fill:#fbd136"] {
+    fill: var(--accent4Color) !important;
+  }
 }
 
 svg {
@@ -414,7 +508,6 @@ svg {
   h2 {
     font-family: $subtitle-fonts;
     font-size: 2rem;
-    color: var(--subtitleTextColor);
   }
 
   i {
@@ -438,7 +531,6 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
-    color: var(--textColor);
   }
 }
 

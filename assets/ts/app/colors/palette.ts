@@ -46,3 +46,20 @@ export const paletteList: Array<Palette> = [
   defaultPaletteLight,
   defaultPaletteDark,
 ];
+
+/**
+ * Determine which palette should be used as a starting point.
+ */
+export const getStartingPalette = (): Palette => {
+  // Check to see if the user has dark mode enabled in CSS. First need
+  // to check if the `matchMedia` is defined because otherwise the browser
+  // doesn't support dark mode.
+  let startingPalette: Palette = defaultPaletteLight;
+  if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    startingPalette = defaultPaletteDark;
+  }
+  return startingPalette;
+}

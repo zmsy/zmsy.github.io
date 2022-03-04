@@ -3,13 +3,11 @@
   <div class="hero-body" id="hero-body">
     <div class="container has-text-centered">
       <div class="is-hidden-tablet">
-        {{ partial "svg.html" (dict "src"
-        "static/img/home-logo-scribble-compact.svg" "class" "hero-badge-mobile")
-        }}
+        {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-mobile.svg") }}
       </div>
       <div class="is-hidden-mobile">
-        {{ partial "svg.html" (dict "src" "static/img/home-logo-scribble.svg"
-        "class" "hero-badge") }}
+        {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble.svg" "class"
+        "hero-badge") }}
       </div>
     </div>
   </div>
@@ -18,30 +16,30 @@
   <div class="columns home-columns is-centered is-multiline">
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
       <a href="/blog">
-        {{ partial "svg.html" (dict "src" "static/img/blog-logo.svg" "class"
+        {{ partial "svg.html" (dict "src" "assets/img/blog-logo.svg" "class"
         "column-logo") }}
       </a>
-      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class"
+      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
       "hero-diamonds") }}
       <a href="/blog"><h2 class="home-title">Blog</h2></a>
       <p>{{ $.Params.blog_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
       <a href="/projects">
-        {{ partial "svg.html" (dict "src" "static/img/projects-logo.svg" "class"
+        {{ partial "svg.html" (dict "src" "assets/img/projects-logo.svg" "class"
         "column-logo") }}
       </a>
-      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class"
+      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
       "hero-diamonds") }}
       <a href="/projects"><h2 class="home-title">Projects</h2></a>
       <p>{{ $.Params.projects_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
       <a href="/about">
-        {{ partial "svg.html" (dict "src" "static/img/about-logo.svg" "class"
+        {{ partial "svg.html" (dict "src" "assets/img/about-logo.svg" "class"
         "column-logo") }}
       </a>
-      {{ partial "svg.html" (dict "src" "static/img/diamonds-dark.svg" "class"
+      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
       "hero-diamonds") }}
       <a href="/about"><h2 class="home-title">About Me</h2></a>
       <p>{{ $.Params.about_me_tagline }}</p>
