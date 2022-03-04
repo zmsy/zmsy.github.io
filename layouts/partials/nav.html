@@ -3,7 +3,8 @@
     <nav class="navbar" role="navigation" id="top">
       <div class="navbar-brand">
         <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          <img id="logo-img" src="/media/logo.svg" alt="Go to Homepage" />
+          {{/*  <img id="logo-img" src="/media/logo.svg" alt="Go to Homepage" />  */}}
+          {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
         </a>
         <a class="navbar-item" href="{{ .Site.BaseURL }}">
           <div class="is-3" id="logo-text">{{ .Site.Title }}</div>

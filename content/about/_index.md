@@ -1,7 +1,7 @@
 ---
 title: "About"
 description: "Zach Morrissey, Software engineer. Seattle, WA."
-tagline: "Fire me an email if you'd like to connect or have questions about what you're looking at here. Photo courtesy of [Frank Greif](https://frankgreifphotography.com) as part of his [Best Friends series](https://www.frankgreifphotography.com/#/dogs/)."
+tagline: "Fire me an email if you'd like to connect or have questions about what you're looking at here."
 ---
 
 ## Who Even Writes This Stuff?
@@ -23,9 +23,8 @@ If you like the site, feel free to steal [the code for it on Github](https://git
 
 ### Site
 
-- **hugo** - Static site generator.
-- **bulma + scss** - Flexbox-based CSS framework, with customizations.
-- **webpack** - Processing scss, minifying files, etc.
+- **hugo** - Static site generator, build JS via [`esbuild`](https://esbuild.github.io/).
+- **bulma + scss** - My preferred flexbox-based CSS framework, with customizations.
 - **github actions** - For building & deploying to S3.
 
 ### Projects

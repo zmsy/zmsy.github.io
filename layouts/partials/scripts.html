@@ -1,8 +1,11 @@
 {{ $inject := slice "ts/preact-inject.ts" }}
+{{ $externals := slice "react" "react-dom" }}
+{{ $minify := not .Site.BuildDrafts }}
 {{ $settings := dict
-  "minify" true
+  "minify" $minify
   "target" "es2018"
   "inject" $inject
+  "externals" $externals
   "JSXFactory" "h"
   "JSXFragment" "Fragment"
 }}
