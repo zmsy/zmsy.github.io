@@ -3,7 +3,7 @@
  */
 
 import { Palette, getStartingPalette } from "../app/colors";
-import create from "zustand";
+import create from "zustand/vanilla";
 
 /**
  * Parent state container for the entire app.
