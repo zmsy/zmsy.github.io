@@ -24,7 +24,7 @@ params:
   icons:
     - Icon: fa-linkedin-square
       Alt: View my LinkedIn profile.
-      Url: https://www.linkedin.com/in/zmsyco
+      Url: https://www.linkedin.com/in/zmsy
     - Icon: fa-github
       Alt: Check out my Github.
       Url: https://github.com/zmsy
