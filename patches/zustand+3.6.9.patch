@@ -1,0 +1,13 @@
+diff --git a/node_modules/zustand/index.js b/node_modules/zustand/index.js
+index c55fe1e..985b8bc 100644
+--- a/node_modules/zustand/index.js
++++ b/node_modules/zustand/index.js
+@@ -2,7 +2,7 @@
+ 
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+-var react = require('react');
++var react = require('preact/compat');
+ 
+ function createStore(createState) {
+   var state;

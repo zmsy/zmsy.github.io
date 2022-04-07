@@ -6,6 +6,8 @@
   "license": "MIT",
   "dependencies": {
     "bulma": "^0.8.2",
+    "clsx": "^1.1.1",
+    "patch-package": "^6.4.7",
     "preact": "^10.6.5",
     "zustand": "^3.6.9"
   },
@@ -14,11 +16,12 @@
     "preview": "npm run dev -- -D -F",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "deploy-ci": "hugo-official -v deploy --maxDeletes -1 --invalidateCDN",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "patch-zustand": "npm run patch-package zustand"
   },
   "devDependencies": {
-    "typescript": "^4.5.5",
     "eslint": "^8.7.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
   }
 }
