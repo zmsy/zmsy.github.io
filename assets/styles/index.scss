@@ -41,6 +41,7 @@ a {
 
 .navbar-menu {
   box-shadow: none;
+  background-color: var(--backgroundColor);
 }
 
 .navbar-item {
@@ -61,6 +62,7 @@ a {
 }
 
 .navbar-burger {
+  color: var(--textColor);
   margin-top: auto;
   height: 3.25rem;
 }
