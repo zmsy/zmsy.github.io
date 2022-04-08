@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "hugo server",
-    "preview": "npm run dev -- -D -F",
+    "preview": "npm run dev -- -D -F --disableFastRender",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "deploy-ci": "hugo-official -v deploy --maxDeletes -1 --invalidateCDN",
     "prettier": "prettier",

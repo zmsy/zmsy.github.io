@@ -3,20 +3,17 @@
  */
 
 import { FunctionComponent } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect } from "preact/hooks";
+import { useStore } from "ts/store";
 
 import {
-  Palette,
   setPaletteCSS,
   defaultPaletteDark,
   defaultPaletteLight,
-  getStartingPalette,
 } from "ts/app/colors";
 
 export const ColorPicker: FunctionComponent = () => {
-  const [colorPalette, setColorPalette] = useState<Palette>(
-    getStartingPalette()
-  );
+  const { colorPalette, setColorPalette } = useStore();
   const darkModeEnabled = () =>
     colorPalette.name.toLowerCase().endsWith("dark");
 
