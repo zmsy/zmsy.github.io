@@ -229,7 +229,7 @@ a {
   li {
     color: var(--textColor);
     font-size: 1.2rem;
-    text-align: justify;
+    text-align: left;
   }
 
   strong {
@@ -428,6 +428,8 @@ svg {
 /* HEROES AND SUBTITLES */
 
 #hero {
+  margin: 1.5rem 0rem;
+
   & > #hero-body {
     padding: 0rem;
   }
