@@ -501,6 +501,13 @@ svg {
   margin-bottom: 0rem;
 }
 
+.menu-drinks-logo {
+  max-width: 15rem;
+  // force important because the actual svg file doesn't get
+  // exported with more specific classname/id.
+  margin: 0rem auto !important;
+}
+
 .hero-title {
   font-size: 5.5rem;
 }

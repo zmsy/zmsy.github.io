@@ -6,6 +6,8 @@ description: "What's on tap at the Morrissey household?"
 
 # Drinks
 
+{{< svg src="drinks.svg" class="menu-drinks-logo" >}}
+
 ## This Week's Specials
 
 ##### Pineapple Gimlet
@@ -67,6 +69,14 @@ bourbon, amaro montenegro, lemon juice, aperol
 ##### House Margarita
 
 tequila, lime juice, grand marnier, agave nectar
+
+##### Spicy Margarita
+
+tequila, mezcal, lime juice, grand marnier, jalapeno slices
+
+##### Oaxaca Old Fashioned
+
+tequila, mezcal, agave nectar, bitters
 
 ##### Vieux Carré
 
