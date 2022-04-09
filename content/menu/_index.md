@@ -18,13 +18,17 @@ description: "What's on tap at the Morrissey household?"
 
 bourbon, sweet vermouth, [banana oleo saccharum](https://sustainablebartender.com/banana-peel-syrup/)
 
+##### Kelly's Margarita
+
+creyente mezcal, lime, grand marnier, agave nectar, muddled jalapeño & cilantro
+
 ##### Palm Daiquiri
 
 white rum, lime, [coconut sugar syrup](https://www.amazon.com/365-WFM-Organic-Coconut-Sugar/dp/B08LY42T7P)
 
 ##### Blackberry Tom Collins
 
-gin, lemon juice, [whidbey island blackberry liqueur](https://www.whidbeydistillery.com/products/blackberry-liqueur), soda water
+gin, lemon, [whidbey island blackberry liqueur](https://www.whidbeydistillery.com/products/blackberry-liqueur), soda water
 
 
 
@@ -52,11 +56,11 @@ vodka, dry vermouth, orange bitters, olive brine
 
 ##### Whiskey Sour
 
-bourbon, lemon juice, simple syrup, egg white
+bourbon, lemon, simple syrup, egg white
 
 ##### Tom Collins ★ _(Zach's Pick)_
 
-gin, lemon juice, simple syrup, soda water
+gin, lemon, simple syrup, soda water
 
 ##### Negroni
 
@@ -64,19 +68,19 @@ gin, sweet vermouth, campari
 
 ##### Paper Plane
 
-bourbon, amaro montenegro, lemon juice, aperol
+bourbon, [amaro montenegro](https://www.amaromontenegro.com/en), lemon, aperol
 
 ##### House Margarita
 
-tequila, lime juice, grand marnier, agave nectar
-
-##### Spicy Margarita
-
-tequila, mezcal, lime juice, grand marnier, jalapeno slices
+tequila, lime, grand marnier, agave nectar
 
 ##### Oaxaca Old Fashioned
 
 tequila, mezcal, agave nectar, bitters
+
+##### Corn 'n Oil
+
+white rum, [falernum](https://alpenz.com/product-falernum.html), bitters
 
 ##### Vieux Carré
 
@@ -93,3 +97,15 @@ gin, lime, maraschino, green chartreuse
 ##### Sidecar
 
 brandy, lemon, grand marnier
+
+##### Sexy Toothpaste
+
+just a shot of fernet branca
+
+##### Espresso Martini
+
+vodka, [mr. black](https://mrblack.co/us/), espresso, simple syrup
+
+##### Americano
+
+campari, sweet vermouth, soda
