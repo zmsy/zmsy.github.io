@@ -16,4 +16,6 @@ document.getElementById("navbar-toggle").addEventListener("click", function () {
 
 // set the default palette if it's not already
 const darkModeButton = document.getElementById("dark-mode-button");
-render(<ColorPicker />, darkModeButton);
+if (darkModeButton) {
+  render(<ColorPicker />, darkModeButton);
+}
