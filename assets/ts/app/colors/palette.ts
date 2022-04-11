@@ -62,4 +62,4 @@ export const getStartingPalette = (): Palette => {
     startingPalette = defaultPaletteDark;
   }
   return startingPalette;
-}
+};

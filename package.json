@@ -17,7 +17,8 @@
     "new-blog": "hugo new --kind blog-bundle",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "deploy-ci": "hugo-official -v deploy --maxDeletes -1 --invalidateCDN",
-    "prettier": "prettier"
+    "format": "prettier --write ./assets",
+    "format-check": "prettier --check ./assets"
   },
   "devDependencies": {
     "eslint": "^8.7.0",
