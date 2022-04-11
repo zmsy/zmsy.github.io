@@ -10,6 +10,8 @@ description: "What's on tap at the Morrissey household?"
 
 ## This Week's Specials
 
+_Apr 10, 2022_
+
 ##### Pineapple Gimlet
 
 [pineapple rind cordial](https://www.youtube.com/watch?v=3am0RhECCeo), gin
@@ -58,7 +60,7 @@ vodka, dry vermouth, orange bitters, olive brine
 
 bourbon, lemon, simple syrup, egg white
 
-##### Tom Collins ★ _(Zach's Pick)_
+##### Tom Collins (★ _Zach's Pick_)
 
 gin, lemon, simple syrup, soda water
 
@@ -109,3 +111,7 @@ vodka, [mr. black](https://mrblack.co/us/), espresso, simple syrup
 ##### Americano
 
 campari, sweet vermouth, soda
+
+##### Vallhund
+
+aquavit, sweet vermouth, cynar
