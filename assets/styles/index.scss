@@ -1,6 +1,4 @@
-@import "./fonts.scss";
 @import "./custom_bulma.scss";
-@import "./icons.scss";
 
 /*
 Main scss file.
@@ -29,6 +27,12 @@ a {
   &:hover {
     color: var(--accent2Color);
   }
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  color: var(--titleTextColor);
+  font-size: 1.25rem;
 }
 
 /* NAV */
