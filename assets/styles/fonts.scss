@@ -1,0 +1,47 @@
+/*
+-----
+FONTS
+-----
+
+Loads up the individual font files and associates them to specific
+font-face properties.
+
+*/
+
+@font-face {
+  font-family: "Patua One";
+  font-weight: 400;
+  font-display: block;
+  src: url("/fonts/patua-one/patua-one-latin-400-normal.woff2") format("woff2"),
+    url("/fonts/patua-one/patua-one-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/work-sans/work-sans-latin-ext-400-normal.woff2")
+      format("woff2"),
+    url("/fonts/work-sans/work-sans-latin-ext-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/work-sans/work-sans-latin-ext-400-italic.woff2")
+      format("woff2"),
+    url("/fonts/work-sans/work-sans-latin-ext-400-italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/work-sans/work-sans-latin-ext-700-normal.woff2")
+      format("woff2"),
+    url("/fonts/work-sans/work-sans-latin-ext-700-normal.woff") format("woff");
+}
