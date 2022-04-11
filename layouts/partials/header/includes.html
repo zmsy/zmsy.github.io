@@ -2,10 +2,16 @@
 {{/*  <link rel="preload" href="/fonts/patua-one/patua-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/work-sans/work-sans-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   */}}
+
+{{ $preload := resources.Get "styles/preload.scss" }}
+{{ $opts1 := dict "targetPath" "css/preload.css" "outputStyle" "compressed" "enableSourceMap" true }}
+{{ $preloadStyle := $preload | resources.ToCSS $opts1 | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $preloadStyle.RelPermalink }}" integrity="{{ $preloadStyle.Data.Integrity }}">
+
 {{/*  compile and build the main css file  */}}
 {{ $scss := resources.Get "styles/index.scss" }}
-{{ $opts := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
-{{ $style := $scss | resources.ToCSS $opts | resources.Fingerprint "sha256" }}
+{{ $opts2 := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
+{{ $style := $scss | resources.ToCSS $opts2 | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 <link rel="icon" type="image/png" href="/media/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/media/favicon-16x16.png" sizes="16x16" />

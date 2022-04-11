@@ -86,8 +86,11 @@ deployment:
       cloudFrontDistributionID: E2J483KQFED0KD
 
   matchers:
+    # oft-changing resources of this site are fingerprinted,
+    # so a 90+ day cache is fine for most everything.
+    # https://web.dev/uses-long-cache-ttl/
     - pattern: "^.+\\.(js|css|woff|woff2|svg|ttf)$"
-      cacheControl: "public,max-age=2628000"
+      cacheControl: "public,max-age=8380800"
     - pattern: "^.+\\.(png|jpg|jpeg|mp4|gif)$"
       cacheControl: "public,max-age=259200"
     - pattern: "^.+\\.(html|xml|json)$"
