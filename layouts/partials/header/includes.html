@@ -1,7 +1,7 @@
 {{/*  preload critical font files  */}}
-{{/*  <link rel="preload" href="/fonts/patua-one/patua-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/work-sans/work-sans-latin-ext-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  */}}
+<link rel="preload" href="/fonts/patua-one/patua-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/work-sans/work-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
 
 {{ $preload := resources.Get "styles/preload.scss" }}
 {{ $opts1 := dict "targetPath" "css/preload.css" "outputStyle" "compressed" "enableSourceMap" true }}
