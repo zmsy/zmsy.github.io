@@ -22,13 +22,13 @@ params:
     - Url: /about
       Name: About
   icons:
-    - Icon: fa-linkedin-square
+    - Icon: icon-linkedin-square
       Alt: View my LinkedIn profile.
       Url: https://www.linkedin.com/in/zmsy
-    - Icon: fa-github
+    - Icon: icon-github
       Alt: Check out my Github.
       Url: https://github.com/zmsy
-    - Icon: fa-twitter
+    - Icon: icon-twitter
       Alt: Check out my sparsely used Twitter account.
       Url: https://twitter.com/_zmsy
 

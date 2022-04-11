@@ -1,6 +1,10 @@
 <section class="section">
   <div class="blog-post">
-    <h2><a class="title title-dark is-size-2-touch" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <h2>
+      <a class="title title-dark blog-title is-size-1-touch" href="{{ .Permalink }}">
+        {{ .Title }}
+      </a>
+    </h2>
     <p class="meta">
       written by
       <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">

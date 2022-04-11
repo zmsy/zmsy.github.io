@@ -5,6 +5,8 @@
   "author": "Zach Morrissey",
   "license": "MIT",
   "dependencies": {
+    "@fontsource/patua-one": "^4.5.5",
+    "@fontsource/work-sans": "^4.5.7",
     "bulma": "^0.8.2",
     "preact": "^10.6.5",
     "zustand": "^3.6.9"
@@ -12,13 +14,14 @@
   "scripts": {
     "dev": "hugo server",
     "preview": "npm run dev -- -D -F",
+    "new-blog": "hugo new --kind blog-bundle",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "deploy-ci": "hugo-official -v deploy --maxDeletes -1 --invalidateCDN",
     "prettier": "prettier"
   },
   "devDependencies": {
-    "typescript": "^4.5.5",
     "eslint": "^8.7.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
   }
 }

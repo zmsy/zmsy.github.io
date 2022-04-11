@@ -7,7 +7,7 @@ publishDate: 2018-12-18
 {{< image src="best-of-2018.png" alt="Best of 2018" style="border: 0px" >}}
 
 <div>
-<p style="text-align:center;margin-bottom: 0rem;"><i class="fa fa-spotify fa-3x" aria-hidden="true"></i> <b>Spotify Best of Lists</b></p>
+<p style="text-align:center;margin-bottom: 0rem;"><span class="icon-spotify"></span><b> Spotify Best of Lists</b></p>
 <p style="text-align:center;margin-bottom: 1rem;"><p style="text-align:center;margin-bottom: 1rem;"><a href="">2019</a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/67Y2qD0dvwXKWolPn1lW3v?si=szcaBBmmTCSPYiYyxxlD_g"><b>2018</b></a>
  | <a href="https://open.spotify.com/user/zmorrissey/playlist/6IHh5JRgjDbeziZ3TJcEpE?si=fvnJZDCVRqyBFhKSK6AdDg">2017</a>
