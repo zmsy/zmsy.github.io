@@ -4,4 +4,5 @@
   alt="{{ $alt }}"
   {{ with .Get "class" }} class="{{.}}" {{ end }}
   {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}
+  loading="lazy"
   />
