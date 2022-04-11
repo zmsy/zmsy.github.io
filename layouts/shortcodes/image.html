@@ -1,6 +1,8 @@
 {{ $img := $.Page.Resources.GetMatch (.Get "src")}} {{ $alt := .Get "alt" }}
 <img
   src="{{ $img.RelPermalink }}"
+  width="{{ $img.Width }}"
+  height="{{ $img.Height }}"
   alt="{{ $alt }}"
   {{ with .Get "class" }} class="{{.}}" {{ end }}
   {{ with .Get "style" }} style="{{ . | safeCSS }}" {{ end }}
