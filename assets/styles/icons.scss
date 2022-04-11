@@ -25,8 +25,9 @@
   text-transform: none;
   line-height: 1;
 
-  /* icons should be same color as title text */
-  color: var(--titleTextColor) !important;
+  /* custom */
+  color: var(--titleTextColor);
+  font-size: 1.25rem;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;

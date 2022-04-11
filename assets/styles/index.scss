@@ -585,4 +585,16 @@ svg {
     width: 25rem;
     margin: 0.25rem auto;
   }
+
+  & #footer-icons {
+    max-width: 15rem;
+    margin: 0.5rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    [class^="icon-"] {
+      // inverted icon colors for the footer.
+      color: var(--backgroundColor);
+    }
+  }
 }
