@@ -290,9 +290,13 @@ a {
 
   code {
     color: var(--accent3Color);
-    background-color: var(--backgroundAccentColor);
     font-family: $code-fonts;
     font-size: 0.875rem;
+  }
+
+  /* class used by syntax highlighter for code blocks */
+  .highlight {
+    margin-bottom: 0.5rem;
   }
 
   /* admonitions */
