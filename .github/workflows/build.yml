@@ -31,6 +31,9 @@ jobs:
       - name: NPM Install
         run: npm install
 
+      - name: NPM Check Formatting
+        run: npm run format-check
+
       - name: Build
         run: HUGO_ENVIRONMENT=production hugo -v --minify
 
