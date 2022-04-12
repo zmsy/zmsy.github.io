@@ -70,7 +70,6 @@ Based on [a suggestion from Lighthouse](https://web.dev/render-blocking-resource
 </header>
 ```
 
-Extra credit: For a _really_ comprehensive approach, you can also [inline a Data URI containing _only_ the critical unicode ranges](https://github.com/zachleat/web-font-loading-recipes/blob/master/critical-foft-data-uri.html#L10) to largely cut down on either [Flash of Unstyled Text (FOUT) or Flash of Invisible Text (FOIT)](https://css-tricks.com/fout-foit-foft/).
 
 ##### Preload Links
 
@@ -81,11 +80,29 @@ An extremely simple yet effective approach - You can add links into the HTML to 
 <link rel="preload" href="/fonts/my-fancy-font2.woff2" as="font" type="font/woff2" crossorigin>
 ```
 
-[More info on preload links](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) on MDN.
+Both of these, used together, are a pretty good starting strategy for font loading. [More info on preload links](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) on MDN.
+
+Here's the before picture, with _just_ the inlined `@font-face` declarations.
+
+{{<image src="waterfall_1.png" alt="DevTools resources loading waterfall, before optimization.">}}
+
+And here's the result after adding preload links for the two fonts that are most often used.
+
+{{<image src="waterfall_2.png" alt="DevTools resources loading waterfall, after adding preload links.">}}
+
+You can see that the two most important fonts, the 400-weight [Latin unicode subset](https://jrgraphix.net/r/Unicode/0020-007F) is requested _immediately_ after the HTML is parsed. This makes the FOIT on site load much quicker.
+
+##### Even Further Optimization
+
+For a _really_ comprehensive approach, you can also [preload the smallest possible font containing _only_ the critical unicode ranges](https://github.com/zachleat/web-font-loading-recipes/blob/master/critical-foft-preload.html#L7) to largely cut down on either [Flash of Unstyled Text (FOUT) or Flash of Invisible Text (FOIT)](https://css-tricks.com/fout-foit-foft/). Once this is complete, the browser can request the full fonts on its own and FOUT is drastically lessened.
+
+I haven't gone this far yet.
 
 ### 4. Use System Fonts If Possible
 
 In messing around with this site, I realized that there's a lot you can get out of the web safe fonts that are available on most machines. If I use the system `sans-serif`, it looks _pretty_ good compared to my custom body sans-serif font that I'm using already. It's something to consider. One can [absolutely create great designs using only system fonts](https://iainbean.com/posts/2021/system-fonts-dont-have-to-be-ugly/).
+
+It's worth at least going through the list and seeing which ones [would look good as a fallback](https://www.cssfontstack.com/) in the meantime.
 
 ## Results
 
