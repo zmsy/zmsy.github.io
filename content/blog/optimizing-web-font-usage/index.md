@@ -2,7 +2,6 @@
 title: "Optimizing Web Font Usage For Faster Page Loads"
 description: "Why and how to migrate off of Google Fonts for a more customizable user experience."
 publishDate: 2022-04-09T14:31:22-07:00
-draft: true
 ---
 
 ## So s l o o w w w w
