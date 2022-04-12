@@ -1,0 +1,105 @@
+---
+title: "Optimizing Web Font Usage For Faster Page Loads"
+description: "Why and how to migrate off of Google Fonts for a more customizable user experience."
+publishDate: 2022-04-09T14:31:22-07:00
+draft: true
+---
+
+## So s l o o w w w w
+
+There's no excuse for this site to be anything other than blazing fast: Relatively (by web standards) low amount of content, few images, and virtually no interactivity. After doing some research, by far the slowest part of loading this website for most users was loading font files. There were two main ones that I cared about:
+
+1. **Google Fonts** - Two typefaces loaded from here: One for titles/navigation and one for the body.
+2. **Font Awesome Icons** - These were used for adding in icons for links to Twitter, Instagram, LinkedIn, etc.
+
+I had originally used [Google Fonts](https://fonts.google.com/) because it's _trivially_ easy to get up and running with and has the potential to look way better than using [available web safe fonts](https://www.cssfontstack.com/).
+
+Here's a look at [what Lighthouse scored](https://pagespeed.web.dev/report?url=https%3A%2F%2Fzmsy.co%2Fblog) my site's `/blog` path.
+
+{{<image src="lighthouse_times.png">}}
+
+Clearly the biggest issue is the site styling.
+
+{{<image src="lighthouse_opportunity.png">}}
+
+Ignoring the CSS bundle for the time being, let's look into the two latter items in this list. First is a call to fetch FontAwesome icons, and the second is the call to Google Fonts. These two combine for quite a lot of the time prior to first contentful paint.
+
+## Strategies for Improving Site Loading Performance
+
+### 1. Self-hosting vs. CDN
+
+Since I've got not control over the performance of Google Fonts or 3rd-Party CDNs, self-hosting the fonts was an obvious next step. The approach here for text fonts: Use the same fonts from [Fontsource](https://fontsource.org/) instead, and host them as static files. This also helps with user privacy for those on this site. I'm no longer forcing them to connect to Google or other miscellaneous CDNs in order to view the site as intended.
+
+This happened to be a benefit in my case, but it's not _always_ the right decision. For example, [Github Pages doesn't allow custom cache-control headers, and defaults to a low TTL of 600 seconds](https://retirednotout.uk/blog/2021/05/cache-control-for-github-pages), so there are trade-offs between your first load performance and subsequent loads.
+
+### 2. Reduce File Sizes
+
+There were separate approaches here for either text fonts or icons:
+
+##### Subsetting your Typeface for Common Usage
+
+The original version of the body font for this site was a big 50+ kilobyte file that contained _all_ glyphs and styles (normal + italic) of the font. For this version, I'm [subsetting this font](http://thenewcode.com/878/Slash-Page-Load-Times-With-CSS-Font-Subsetting) in two ways:
+
+1. Two character sets (Latin & Latin-Ext), specified by utilizing the [unicode range](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range) values provided by FontSource.
+2. Three specific fonts for this `@font-face` rule: 400 Normal, 400 Italic, and 700 Normal. This covers virtually all of my most common use cases.
+
+There's a [great python package named `fonttools`](https://github.com/fonttools/fonttools) you can use to create custom subsets to your liking.
+
+##### Custom Icon Font
+
+For icons (which I had been retrieving using a 3rd-Party CDN), I instead opted to generate a small subset of the icons using a [Icon Font Generator](https://icomoon.io/app). When you download the font, it provides some nice CSS stubs that create a new `@font-face` rule for the font and examples of how you'd use them.
+
+The end result is drastically smaller than the batteries-included version from a CDN.
+
+### 3. Load Your Fonts ASAP
+
+##### Inlining CSS
+
+Based on [a suggestion from Lighthouse](https://web.dev/render-blocking-resources/?utm_source=lighthouse&utm_medium=lr#how-to-eliminate-render-blocking-scripts), I took all of the CSS that declared `@font-face` rules and inlined it into a separate `<style>` tag in the header. This way, fonts get requested in just 1-hop after HTML load, and don't require the additional step of 1. fetch HTML, 2. fetch main CSS bundle, then 3. fetch individual font files. This was my basic first-pass optimization.
+
+```html
+<header>
+  <style>
+    @font-face {
+      font-family: "Patua One";
+      font-weight: 400;
+      font-style: normal;
+      src: url("/fonts/patua-one/patua-one-latin-400-normal.woff2") format("woff2"),
+        url("/fonts/patua-one/patua-one-latin-400-normal.woff") format("woff");
+    }
+  </style>
+</header>
+```
+
+Extra credit: For a _really_ comprehensive approach, you can also [inline a Data URI containing _only_ the critical unicode ranges](https://github.com/zachleat/web-font-loading-recipes/blob/master/critical-foft-data-uri.html#L10) to largely cut down on either [Flash of Unstyled Text (FOUT) or Flash of Invisible Text (FOIT)](https://css-tricks.com/fout-foit-foft/).
+
+##### Preload Links
+
+An extremely simple yet effective approach - You can add links into the HTML to preload these fonts. This can have better performance than my first pass above, because preload links come earlier in the waterfall.
+
+```html
+<link rel="preload" href="/fonts/my-fancy-font1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/my-fancy-font2.woff2" as="font" type="font/woff2" crossorigin>
+```
+
+[More info on preload links](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) on MDN.
+
+### 4. Use System Fonts If Possible
+
+In messing around with this site, I realized that there's a lot you can get out of the web safe fonts that are available on most machines. If I use the system `sans-serif`, it looks _pretty_ good compared to my custom body sans-serif font that I'm using already. It's something to consider. One can [absolutely create great designs using only system fonts](https://iainbean.com/posts/2021/system-fonts-dont-have-to-be-ugly/).
+
+## Results
+
+Let's see how Lighthouse marks this now that the font usage has been improved:
+
+{{<image src="lighthouse_times_2.png" alt="Lighthouse scores after font optimization.">}}
+
+Some real improvements! Some still to be done here, but nothing left within the scope of font usage.
+
+## Links & Other Information
+
+- Sort your `url()` calls to get font files from most-to-least modern, which for most developers today usually seems to just include WOFF2 first and WOFF second. Past that, there's rapidly diminishing returns for browser legacy support (i.e. [older than IE9](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts#web_fonts)). There's no penalty for supporting older browsers by having additional fallbacks, but the file sizes you'll serve will tend to be larger.
+- Use [the font-face declaration correctly](https://www.hacksoft.io/blog/using-multiple-font-files-the-right-way) and you'll be able to utilize some of the browser's built-in mechanisms for improving performance for font fetching.
+- Look into the [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) descriptor and you can choose between some tradeoffs of style vs. performance.
+- The [CSS font matching algorithm](https://drafts.csswg.org/css-fonts-3/#font-matching-algorithm) is actually quite easy to understand and will help you grasp the way the browser is choosing which font to show for a particular typeface.
+- These are very, very basic optimizations that I used personally. If you're interested in even deeper dives into the methodology, check out [web-font-loading-recipes](https://github.com/zachleat/web-font-loading-recipes) on Github.
