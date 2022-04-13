@@ -10,7 +10,7 @@
 {{/*  compile and build the main css file  */}}
 {{ $scss := resources.Get "styles/index.scss" }}
 {{ $opts := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
-{{ $style := $scss | resources.ToCSS $opts | resources.PostCSS | resources.Fingerprint "sha256" }}
+{{ $style := $scss | resources.ToCSS $opts | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 <link rel="icon" type="image/png" href="/media/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/media/favicon-16x16.png" sizes="16x16" />

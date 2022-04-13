@@ -345,6 +345,7 @@ a {
 
 /** SVG */
 .color-responsive-svg {
+  /* purgecss start ignore */
   // Paths match the text color, text in font must be exported as curves
   path {
     // must use important here because it gets overridden by the inline
@@ -367,26 +368,20 @@ a {
   // properly select individual components which _should_ or _should not_ be
   // colored appropriately. This first "fill" selector checks start of string
   // the affinity designer property export format always puts fill first.
-  rect[fill="#{$svgDefaultColor}"],
-  rect[style^="fill:#{$svgDefaultColor}"],
-  path[fill="#{$svgDefaultColor}"],
-  path[style^="fill:#{$svgDefaultColor}"],
-  ellipse[fill="#{$svgDefaultColor}"],
-  ellipse[style^="fill:#{$svgDefaultColor}"],
-  circle[fill="#{$svgDefaultColor}"],
-  circle[style^="fill:#{$svgDefaultColor}"] {
-    fill: var(--textColor) !important;
-  }
+  $tags: (rect, path, ellipse, circle);
+  $colors: ($svgDefaultColor, $svgAlternateColor);
+  @each $tag in $tags {
+    // match anything filled w text color
+    #{$tag}[fill="#{$svgDefaultColor}"],
+    #{$tag}[style^="fill:#{$svgDefaultColor}"] {
+      fill: var(--textColor) !important;
+    }
 
-  rect[stroke="#{$svgDefaultColor}"],
-  rect[style*="stroke:#{$svgDefaultColor}"],
-  path[stroke="#{$svgDefaultColor}"],
-  path[style*="stroke:#{$svgDefaultColor}"],
-  ellipse[stroke="#{$svgDefaultColor}"],
-  ellipse[style*="stroke:#{$svgDefaultColor}"],
-  circle[stroke="#{$svgDefaultColor}"],
-  circle[style*="stroke:#{$svgDefaultColor}"] {
-    stroke: var(--textColor) !important;
+    // match any svg with stroke of textColor
+    #{$tag}[stroke="#{$svgDefaultColor}"],
+    #{$tag}[style*="stroke:#{$svgDefaultColor}"] {
+      stroke: var(--textColor) !important;
+    }
   }
 
   rect[fill="#{$svgAlternateColor}"],
@@ -440,6 +435,7 @@ a {
   rect[style^="fill:#{$accent4DefaultColor}"] {
     fill: var(--accent4Color) !important;
   }
+  /* purgecss end ignore */
 }
 
 svg {
