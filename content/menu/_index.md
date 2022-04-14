@@ -8,9 +8,15 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-## This Week's Specials
-
 _Apr 10, 2022_
+
+## In The Fridge
+
+- Guinness
+- Block 15 Fresh Hop Crush
+- Dru Bru Kölsch
+
+## This Week's Specials
 
 ##### Pineapple Gimlet
 
@@ -20,7 +26,7 @@ _Apr 10, 2022_
 
 bourbon, sweet vermouth, [banana oleo saccharum](https://sustainablebartender.com/banana-peel-syrup/)
 
-##### Kelly's Margarita
+##### Kelly's Spicy Mezcal-arita
 
 creyente mezcal, lime, grand marnier, agave nectar, muddled jalapeño & cilantro
 
@@ -31,8 +37,6 @@ white rum, lime, [coconut sugar syrup](https://www.amazon.com/365-WFM-Organic-Co
 ##### Blackberry Tom Collins
 
 gin, lemon, [whidbey island blackberry liqueur](https://www.whidbeydistillery.com/products/blackberry-liqueur), soda water
-
-
 
 ## Classics
 
@@ -64,9 +68,9 @@ bourbon, lemon, simple syrup, egg white
 
 gin, lemon, simple syrup, soda water
 
-##### Negroni
+##### Negroni / Boulevardier
 
-gin, sweet vermouth, campari
+gin (or bourbon), sweet vermouth, campari
 
 ##### Paper Plane
 
@@ -82,23 +86,15 @@ tequila, mezcal, agave nectar, bitters
 
 ##### Corn 'n Oil
 
-white rum, [falernum](https://alpenz.com/product-falernum.html), bitters
+rum, [falernum](https://alpenz.com/product-falernum.html), bitters
 
 ##### Vieux Carré
 
 bourbon, cognac, sweet vermouth, bénédictine, peychaud's bitters
 
-##### Sazerac
-
-rye, demerara syrup, peychaud's bitters, spritz of absinthe
-
 ##### The Last Word
 
 gin, lime, maraschino, green chartreuse
-
-##### Sidecar
-
-brandy, lemon, grand marnier
 
 ##### Sexy Toothpaste
 
@@ -108,10 +104,10 @@ just a shot of fernet branca
 
 vodka, [mr. black](https://mrblack.co/us/), espresso, simple syrup
 
-##### Americano
+## Low-proof / No-proof
 
-campari, sweet vermouth, soda
-
-##### Vallhund
-
-aquavit, sweet vermouth, cynar
+- Sparkling Water
+- Water
+- Bitters & Soda
+- Citrus & Soda
+- Coffee / Espresso
