@@ -50,8 +50,16 @@ a {
   background-color: var(--backgroundColor);
 }
 
-.navbar-item {
+a.navbar-item {
   color: var(--subtitleTextColor);
+
+  &.is-tab {
+    font-size: 1.125rem;
+  }
+
+  &:hover {
+    background-color: var(--backgroundAccentColor);
+  }
 }
 
 #navbar-columns {
@@ -64,7 +72,8 @@ a {
 
 .navbar-end a:hover,
 .fa:hover {
-  color: var(--accent2Color);
+  background-color: var(--backgroundAccentColor);
+  color: var(--subtitleTextColor);
 }
 
 .navbar-burger {
@@ -286,10 +295,16 @@ a {
   pre {
     font-family: $code-fonts;
     font-size: 0.875rem;
+
+    code {
+      background-color: inherit;
+      color: inherit;
+    }
   }
 
   code {
     color: var(--accent3Color);
+    background-color: var(--backgroundAccentColor);
     font-family: $code-fonts;
     font-size: 0.875rem;
   }
@@ -343,9 +358,8 @@ a {
   }
 }
 
-/** SVG */
+/* SVG */
 .color-responsive-svg {
-  /* purgecss start ignore */
   // Paths match the text color, text in font must be exported as curves
   path {
     // must use important here because it gets overridden by the inline
@@ -369,73 +383,38 @@ a {
   // colored appropriately. This first "fill" selector checks start of string
   // the affinity designer property export format always puts fill first.
   $tags: (rect, path, ellipse, circle);
-  $colors: ($svgDefaultColor, $svgAlternateColor);
+  $colors: (
+    $svgDefaultColor: var(--textColor),
+    $svgAlternateColor: var(--backgroundColor),
+  );
+  $accentColors: (
+    $accent1DefaultColor: var(--accent1Color),
+    $accent2DefaultColor: var(--accent2Color),
+    $accent3DefaultColor: var(--accent3Color),
+    $accent4DefaultColor: var(--accent4Color),
+  );
   @each $tag in $tags {
-    // match anything filled w text color
-    #{$tag}[fill="#{$svgDefaultColor}"],
-    #{$tag}[style^="fill:#{$svgDefaultColor}"] {
-      fill: var(--textColor) !important;
+    @each $color, $colorVar in $colors {
+      // match anything filled w text color
+      #{$tag}[fill="#{$color}"],
+      #{$tag}[style^="fill:#{$color}"] {
+        fill: $colorVar !important;
+      }
+
+      // match any svg with stroke of textColor
+      #{$tag}[stroke="#{$color}"],
+      #{$tag}[style*="stroke:#{$color}"] {
+        stroke: $colorVar !important;
+      }
     }
 
-    // match any svg with stroke of textColor
-    #{$tag}[stroke="#{$svgDefaultColor}"],
-    #{$tag}[style*="stroke:#{$svgDefaultColor}"] {
-      stroke: var(--textColor) !important;
+    // queries for individual accent colors.
+    @each $accent, $accentVar in $accentColors {
+      #{$tag}[style^="fill:#{$accent}"] {
+        fill: $accentVar !important;
+      }
     }
   }
-
-  rect[fill="#{$svgAlternateColor}"],
-  rect[style^="fill:#{$svgAlternateColor}"],
-  path[fill="#{$svgAlternateColor}"],
-  path[style^="fill:#{$svgAlternateColor}"],
-  ellipse[fill="#{$svgAlternateColor}"],
-  ellipse[style^="fill:#{$svgAlternateColor}"],
-  circle[fill="#{$svgAlternateColor}"],
-  circle[style^="fill:#{$svgAlternateColor}"] {
-    fill: var(--backgroundColor) !important;
-  }
-
-  rect[stroke="#{$svgAlternateColor}"],
-  rect[style*="stroke:#{$svgAlternateColor}"],
-  path[stroke="#{$svgAlternateColor}"],
-  path[style*="stroke:#{$svgAlternateColor}"],
-  ellipse[stroke="#{$svgAlternateColor}"],
-  ellipse[style*="stroke:#{$svgAlternateColor}"],
-  circle[stroke="#{$svgAlternateColor}"],
-  circle[style*="stroke:#{$svgAlternateColor}"] {
-    stroke: var(--backgroundColor) !important;
-  }
-
-  // queries for individual accent colors.
-
-  path[style^="fill:#{$accent1DefaultColor}"],
-  rect[style^="fill:#{$accent1DefaultColor}"],
-  circle[style^="fill:#{$accent1DefaultColor}"],
-  ellipse[style^="fill:#{$accent1DefaultColor}"] {
-    fill: var(--accent1Color) !important;
-  }
-
-  path[style^="fill:#{$accent2DefaultColor}"],
-  ellipse[style^="fill:#{$accent2DefaultColor}"],
-  circle[style^="fill:#{$accent2DefaultColor}"],
-  rect[style^="fill:#{$accent2DefaultColor}"] {
-    fill: var(--accent2Color) !important;
-  }
-
-  path[style^="fill:#{$accent3DefaultColor}"],
-  ellipse[style^="fill:#{$accent3DefaultColor}"],
-  circle[style^="fill:#{$accent3DefaultColor}"],
-  rect[style^="fill:#{$accent3DefaultColor}"] {
-    fill: var(--accent3Color) !important;
-  }
-
-  path[style^="fill:#{$accent4DefaultColor}"],
-  ellipse[style^="fill:#{$accent4DefaultColor}"],
-  circle[style^="fill:#{$accent4DefaultColor}"],
-  rect[style^="fill:#{$accent4DefaultColor}"] {
-    fill: var(--accent4Color) !important;
-  }
-  /* purgecss end ignore */
 }
 
 svg {
