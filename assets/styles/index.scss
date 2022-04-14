@@ -5,14 +5,15 @@ Main scss file.
 This creates the main.css file and the same variables can use bulma variables.
 */
 
-html {
+html,
+body {
+  overscroll-behavior-y: none;
   background-color: var(--backgroundColor);
 }
 
 body {
   font-family: $reading-fonts;
-  background-color: var(--backgroundColor);
-  color: var(--textColor); // replace with --text
+  color: var(--textColor);
 }
 
 h1 {
