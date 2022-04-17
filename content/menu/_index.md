@@ -8,35 +8,37 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Apr 10, 2022_
+_Apr 17, 2022_
 
 ## In The Fridge
 
-- Guinness
-- Block 15 Fresh Hop Crush
+- High Noon Lime Seltzer
+- Pfriem Pale
 - Dru Bru Kölsch
+- Reuben's Crushable
+- Block 15 Emerging Sunshine
 
 ## This Week's Specials
 
-##### Pineapple Gimlet
+##### Bloody Mary / Caesar
 
-[pineapple rind cordial](https://www.youtube.com/watch?v=3am0RhECCeo), gin
+aquavit, [bloody mary mix](https://punchdrink.com/recipes/state-street-bloody-mary/), lemon. optionally clamato-style for caesar
 
-##### Ban-hattan
+##### Mimosa
 
-bourbon, sweet vermouth, [banana oleo saccharum](https://sustainablebartender.com/banana-peel-syrup/)
+oj, sparkling wine
 
-##### Kelly's Spicy Mezcal-arita
+##### Americano
 
-creyente mezcal, lime, grand marnier, agave nectar, muddled jalapeño & cilantro
-
-##### Palm Daiquiri
-
-white rum, lime, [coconut sugar syrup](https://www.amazon.com/365-WFM-Organic-Coconut-Sugar/dp/B08LY42T7P)
+soda water, sweet vermouth, aperol
 
 ##### Blackberry Tom Collins
 
 gin, lemon, [whidbey island blackberry liqueur](https://www.whidbeydistillery.com/products/blackberry-liqueur), soda water
+
+##### Pineapple Gimlet
+
+[pineapple rind cordial](https://www.youtube.com/watch?v=3am0RhECCeo), gin
 
 ## Classics
 
@@ -67,10 +69,6 @@ bourbon, lemon, simple syrup, egg white
 ##### Tom Collins (★ _Zach's Pick_)
 
 gin, lemon, simple syrup, soda water
-
-##### Negroni / Boulevardier
-
-gin (or bourbon), sweet vermouth, campari
 
 ##### Paper Plane
 
@@ -106,8 +104,9 @@ vodka, [mr. black](https://mrblack.co/us/), espresso, simple syrup
 
 ## Low-proof / No-proof
 
-- Sparkling Water
 - Water
+- Sparkling Water
 - Bitters & Soda
 - Citrus & Soda
 - Coffee / Espresso
+- Tonic
