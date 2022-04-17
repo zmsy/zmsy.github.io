@@ -1,6 +1,5 @@
 ---
 title: "House Menu"
-subtitle: "What's on tap?"
 description: "What's on tap at the Morrissey household?"
 ---
 
