@@ -1,8 +1,6 @@
 <footer class="footer">
     <div class="container has-text-centered">
-      <p>
-        {{ partial "svg.html" (dict "src" "assets/img/footer.svg" "class" "footer-dots") }}      
-      </p>
+      {{ partial "svg.html" (dict "src" "assets/img/footer.svg" "class" "footer-dots") }}
       <div id="footer-icons">
         {{ range .Site.Params.icons }}
         <a href="{{ .Url }}">
