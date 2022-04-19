@@ -7,8 +7,14 @@ This creates the main.css file and the same variables can use bulma variables.
 
 html,
 body {
+  overscroll-behavior-x: none;
   overscroll-behavior-y: none;
   background-color: var(--backgroundColor);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 body {
@@ -39,7 +45,6 @@ a {
 /* NAV */
 
 .navbar {
-  /* padding: 0rem 3rem 0rem 3rem; */
   background-color: var(--backgroundColor);
   align-items: flex-end;
   font-family: $display-fonts;
@@ -64,11 +69,14 @@ a.navbar-item {
 }
 
 #navbar-columns {
-  margin-bottom: 0rem;
+  margin: 0rem;
+  overflow: hidden;
 }
 
 #navbar-column {
+  margin: 0rem;
   padding-bottom: 0rem;
+  overflow: hidden;
 }
 
 .navbar-end a:hover,
@@ -80,7 +88,7 @@ a.navbar-item {
 .navbar-burger {
   color: var(--textColor);
   margin-top: auto;
-  height: 3.25rem;
+  // height: 3.25rem;
 }
 
 #dark-mode-button {
@@ -179,6 +187,11 @@ a.navbar-item {
 .meta {
   text-align: center;
   margin-top: 1em;
+}
+
+.columns {
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
 
 /* CONTENT */
@@ -596,7 +609,7 @@ svg {
   }
 
   & .footer-dots {
-    width: 25rem;
+    max-width: 25rem;
     margin: 0.25rem auto;
   }
 
