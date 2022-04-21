@@ -22,6 +22,11 @@ body {
   color: var(--textColor);
 }
 
+#body {
+  // full height, minus approx footer + header height
+  min-height: calc(100vh - 10rem - 5rem);
+}
+
 h1 {
   font-family: $hero-fonts;
   font-size: 5rem;
@@ -471,8 +476,8 @@ svg {
   color: var(--titleTextColor);
 }
 
-#about-container {
-  margin-top: 2rem;
+#about-card {
+  margin-bottom: 2rem;
 }
 
 #about-photo {
