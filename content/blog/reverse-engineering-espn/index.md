@@ -22,7 +22,10 @@ My feeble attempts tweeting at ESPN's customer service line didn't seem to be es
 
 ## Sleuthing, Part 1 - What Info is Available?
 
-Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'm not fully certain what the outcome of the calculation _should_ be. I can tell in some ways what it should _not_ be, but that's it.
+Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'm not fully certain what the outcome of the calculation _should_ be. I can tell in some ways what it should _not_ be, but that's it. So I've got a few challenges here:
+
+1. What formula is ESPN _currently_ using to derive RC?
+2. Is the derivation wrong, or is the wrong data being passed to it?
 
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
 
