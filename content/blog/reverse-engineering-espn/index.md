@@ -105,13 +105,13 @@ Formula:
 "((a + b - c - d + (2.4 * (e + b + f))) * ((g + (b * 0.26) + (f * 0.53) + (h * 0.64) - (i * 0.03)) + (3 * (e + b + f))) / (9 * (e + b + f))) - (0.9 * (e + b + f))"
 ```
 
-This...doesn't look like any of the formulas I've seen thus far.
+This...doesn't look like any of the formulas I've seen thus far. Just by looking at the coefficients in use here, it seems closest to the [2002 formulation of RC defined on Captain Calculator](https://captaincalculator.com/sports/baseball/runs-created-calculator/), which has some heavy overlap with this.
 
 Another issue here is that the arguments are anonymous. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
 
-_PHOTO HERE OF THE ARGUMENTS_
+{{<image src="f-same-formula-arguments.png">}}
 
-When I look at the arguments here for Yelich vs. other players, it seems to be the same set of arguments. So how, with the same inputs, are we getting separate outputs? RC, in all of its derivations, is a deterministic formula.
+When I look at the arguments here for Yelich, it seems to be the same set of values passed as arguments for every player. So how, with the same inputs, are we getting separate outputs? RC, in all of its derivations, is a deterministic formula.
 
 #### What Are These Arguments?
 
@@ -120,5 +120,7 @@ Let's see if we can find the data actually being used. So first thing, loaded up
 {{<image src="e-network-responses.png">}}
 
 Nice! This payload looks promising. Inspecting further, it looks like we've got some entries called `rosterForCurrentScoringPeriod` that contains a player array with a `stats` dictionary.
+  
+{{<image src="g-stats-for-current-period.png">}}
   
 ## The Correct Calculation
