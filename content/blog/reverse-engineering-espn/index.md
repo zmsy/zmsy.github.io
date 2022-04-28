@@ -16,7 +16,7 @@ There really aren't that many things I can say are consistent between the differ
 
 So you can imagine my surprise to see my sure-to-turn-it-around-someday-soon team member Christian Yelich with `-.2` in his RC column for the past 7 days.
 
-_phoneA - INSERT PHOTO HERE_
+{{<image src="phonea-negative-rc.png">}}
 
 My feeble attempts tweeting at ESPN's customer service line didn't seem to be escalating in time for this to not affect our season, so I decided to figure out for myself _why_ this was wrong and provide them with the most precise reproduction of how their current RC derivation is off.
 
@@ -41,11 +41,11 @@ Ideally, I want to find some statistics from other websites (ESPN's display does
 
 Current RC value shown in ESPN, as of morning of 4/28 (No games played yet today): **5.9 Runs Created**
 
-_phoneB - PHOTO OF CURRENT SEASON TOTAL RUNS CREATED_
+{{<image src="phoneb-team-page-current-total.png">}}
 
 However, navigating to the player page in ESPN (again, as of morning 4/28), I'm being shown something different: **6.3 Runs Created**
 
-_captureA - PHOTO OF PLAYER PAGE TOTAL RUNS CREATED_
+{{<image src="a-yelich_career_rc.png">}}
 
 So this means my original assumptions of a single, universal derivation for RC are incorrect. Which gives me hope! The second one displayed here _may_ be more correct than this first one.
 
@@ -79,8 +79,6 @@ D = ((2.4 x C) + A) x ((3 x C) + B))
 Runs Created (2002) = (D ÷ (9 x C)) – (0.9 x C)
 ```
 
-
-
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
 
 Since I'm primarily a fullstack web developer these days, felt natural to try next to see if I could just debug this like something I'd debug on one of my own websites. So first thing I did was open Firefox Developer Tools and check to see if the page is using React or some similar framework that I can look into.
@@ -96,6 +94,8 @@ _captureC - CAPTURE HERE OF THE DERIVATION ON TEAM PAGE DEVTOOLS_
 Since we had _two_ different values on different pages for the Runs Created metric, let me check [Yelich's individual player page in ESPN](https://www.espn.com/mlb/player/stats/_/id/31283/christian-yelich)...
 
 _captureD - CAPTURE HERE OF THE PLAYER PAGE DEVTOOLS_
+
+Unfortunately, this one is just passed as a value and there's no derivation on it. Turns out there's a MobX store on this page that's open to investigation, but unfortunately it doesn't contain anything other than values. No derivation formula. I'm guessing that these formulas are calculated server-side for this page.
 
 ### Runs Created, ESPN Version
 
