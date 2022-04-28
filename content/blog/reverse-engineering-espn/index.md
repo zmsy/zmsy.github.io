@@ -4,7 +4,7 @@ description: "Using some minor sleuthing and publicly available information, I f
 publishDate: 2022-04-28
 ---
 
-Runs Created is a baseball stat that's largely arbitrary and derived. It [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of derivation formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
+Runs Created is a baseball stat that's largely arbitrary and derived. It [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
 
 Why care about it? Like WAR, RC is effectively a way to derive a **useful absolute number reflective of a batter's overall offensive productivity**. Since the _actual_ positive numbers in baseball can be misleading (RBI, R, SB, H) in some scenarios, it's a nice way of smoothing over small sample sizes.
 
@@ -12,13 +12,15 @@ We love it in my fantasy baseball league as a primary indicator of your team's o
 
 ## That Ain't Right
 
-There really aren't that many things I can say are consistent between the different derivations of the stat, but the one obvious quality constraint: Runs Created should never be negative.
+There really aren't that many things I can say are consistent between the different derivations of the stat, but the one obvious quality constraint: Runs Created should _never_ be negative.
 
-So you can imagine my surprise to see my squad member Christian Yelich with `-.2` in his RC column for the past 7 days.
+So you can imagine my surprise to see my sure-to-turn-it-around-someday-soon team member Christian Yelich with `-.2` in his RC column for the past 7 days.
 
-_INSERT PHOTO HERE_
+_phoneA - INSERT PHOTO HERE_
 
 My feeble attempts tweeting at ESPN's customer service line didn't seem to be escalating in time for this to not affect our season, so I decided to figure out for myself _why_ this was wrong and provide them with the most precise reproduction of how their current RC derivation is off.
+
+I'm taking the assumption here that 1. there is a single RC formula at ESPN and 2. it's used for both single-day and aggregate stats. Given my history of observing it through the several years that I've played fantasy baseball, this seems like a fair set of assumptions.
 
 ## Sleuthing, Part 1 - What Info is Available?
 
@@ -27,19 +29,88 @@ Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'
 1. What formula is ESPN _currently_ using to derive RC?
 2. Is the derivation wrong, or is the wrong data being passed to it?
 
-#### Corroborating the information displayed
+#### Corroborating the Result Displayed in ESPN
 
 Ideally, I want to find some statistics from other websites (ESPN's display doesn't show most of the values that it uses as calculation arguments), so I'll use stats on a defined time period: The season so far, as of end-of-day 2022-04-27.
 
 [Fangraphs 2022 Season Stats (Through 4/28)](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=y&type=0&season=2022&month=1000&season1=2022&ind=0&team=23&rost=0&age=0&filter=&players=0&startdate=2022-03-01&enddate=2022-04-27)
 
-| Player | G | AB | PA | H | 1B | 2B | 3B | HR | R | RBI | BB | SO | HBP | SF | SH | GDP | SB | CS |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Christian Yelich | 18 | 65 | 76 | 12 | 7 | 4 | 0 | 1 | 8 | 8 | 8 | 19 | 1 | 2 | 0 | 0 | 2 | 0 |
+| Player | G | AB | PA | H | 1B | 2B | 3B | HR | R | TB | RBI | BB | IBB | SO | HBP | SF | SH | GDP | SB | CS |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Christian Yelich | 18 | 65 | 76 | 12 | 7 | 4 | 0 | 1 | 8 | 19 | 8 | 8 | 0 | 19 | 1 | 2 | 0 | 0 | 2 | 0 |
 
+Current RC value shown in ESPN, as of morning of 4/28 (No games played yet today): **5.9 Runs Created**
+
+_phoneB - PHOTO OF CURRENT SEASON TOTAL RUNS CREATED_
+
+However, navigating to the player page in ESPN (again, as of morning 4/28), I'm being shown something different: **6.3 Runs Created**
+
+_captureA - PHOTO OF PLAYER PAGE TOTAL RUNS CREATED_
+
+So this means my original assumptions of a single, universal derivation for RC are incorrect. Which gives me hope! The second one displayed here _may_ be more correct than this first one.
+
+### Calculating Using Existing RC Formulas
+
+There's a handful of different RC formulas available online, so let's plug these numbers in to see what we'll get. These formulas are from [Baseball Reference's acronyms page](https://www.baseball-reference.com/about/bat_glossary.shtml), but I've used the full terms below so things are slightly clearer. If you're confused by any of the terms used, [Baseball Reference has a handy glossary](https://abbreviations.yourdictionary.com/articles/basic-baseball-stats-abbreviations.html).
+
+#### Baseball Reference Canonical Version
+
+Formula:
+
+```
+(H + BB - CS + HBP - GIDP) * (TB + (.26 * (BB - IBB + HBP)) + (.52 * (SH + SF + SB))))(AB+BB+HBP+SH+SF)
+(Hits + Walks - Caught Stealing + Hit By Pitch - Ground Into Double Play) * (Total Bases + (.26 * (Walks - Intentional Walks + Hit By Pitch)) + (.52 * (Sacrifice Hits + Sacrifice Flies + Stolen Bases)) * (At Bats + Walks + Hit By Pitch + Sacrifice Hits + Sacrifice Flies)
+```
+
+Output: 
+
+#### Stolen Bases Method
+
+```
+Runs Created (Stolen Base Method) = ((Hits + Walks – Caught Stealing) x (Total Bases + (0.55 x Stolen Bases))) ÷ (At Bats + Walks)
+
+Runs Created (Technical Method) = ((Hits + Walks – Caught Stealing + Hit by Pitch – Ground into Double Play) x (Total Bases x (0.26 x (Walks – Intentional Walks + Hit by Pitch)) + (0.52 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)))) ÷ (At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies)
+
+Runs Created (2002 version):
+A = Hits + Walks – Caught Stealing + Hit by Pitch – Ground Into Double Play
+B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs) + (0.29 x (Walks – Intentional Walks + Hit by Pitch)) + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)) – (0.4 x Strikeouts)
+C = At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies
+D = ((2.4 x C) + A) x ((3 x C) + B))
+Runs Created (2002) = (D ÷ (9 x C)) – (0.9 x C)
+```
 
 
 
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
+
+Since I'm primarily a fullstack web developer these days, felt natural to try next to see if I could just debug this like something I'd debug on one of my own websites. So first thing I did was open Firefox Developer Tools and check to see if the page is using React or some similar framework that I can look into.
+
+Bam, the page is rendered using React.
+
+_captureB - CAPTURE HERE OF THE REACT DEVTOOLS_
+
+Navigating to the individual cell being rendered and BAM! They keep the derivation in memory, passed to the cell via props.
+
+_captureC - CAPTURE HERE OF THE DERIVATION ON TEAM PAGE DEVTOOLS_
+
+Since we had _two_ different values on different pages for the Runs Created metric, let me check [Yelich's individual player page in ESPN](https://www.espn.com/mlb/player/stats/_/id/31283/christian-yelich)...
+
+_captureD - CAPTURE HERE OF THE PLAYER PAGE DEVTOOLS_
+
+### Runs Created, ESPN Version
+
+Formula:
+
+```
+"((a + b - c - d + (2.4 * (e + b + f))) * ((g + (b * 0.26) + (f * 0.53) + (h * 0.64) - (i * 0.03)) + (3 * (e + b + f))) / (9 * (e + b + f))) - (0.9 * (e + b + f))"
+```
+
+This...doesn't look like any of the formulas I've seen thus far.
+
+Another issue here is that the arguments are anonymous. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
+
+_PHOTO HERE OF THE ARGUMENTS_
+
+When I look at the arguments here for Yelich vs. other players, it seems to be the same set of arguments. So how, with the same inputs, are we getting separate outputs? RC, in all of its derivations, is a deterministic formula.
 
 ## The Correct Calculation
