@@ -113,4 +113,12 @@ _PHOTO HERE OF THE ARGUMENTS_
 
 When I look at the arguments here for Yelich vs. other players, it seems to be the same set of arguments. So how, with the same inputs, are we getting separate outputs? RC, in all of its derivations, is a deterministic formula.
 
+#### What Are These Arguments?
+
+Let's see if we can find the data actually being used. So first thing, loaded up the network tab and sent another request to the same page to see if that set of data was being transferred over the wire.
+  
+{{<image src="e-network-responses.png">}}
+
+Nice! This payload looks promising. Inspecting further, it looks like we've got some entries called `rosterForCurrentScoringPeriod` that contains a player array with a `stats` dictionary.
+  
 ## The Correct Calculation
