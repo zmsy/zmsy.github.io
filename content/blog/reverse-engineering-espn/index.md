@@ -85,15 +85,15 @@ Since I'm primarily a fullstack web developer these days, felt natural to try ne
 
 Bam, the page is rendered using React.
 
-_captureB - CAPTURE HERE OF THE REACT DEVTOOLS_
+{{<image src="b-react_devtools.png">}}
 
 Navigating to the individual cell being rendered and BAM! They keep the derivation in memory, passed to the cell via props.
 
-_captureC - CAPTURE HERE OF THE DERIVATION ON TEAM PAGE DEVTOOLS_
+{{<image src="c-team_page_devtools.png">}}
 
 Since we had _two_ different values on different pages for the Runs Created metric, let me check [Yelich's individual player page in ESPN](https://www.espn.com/mlb/player/stats/_/id/31283/christian-yelich)...
 
-_captureD - CAPTURE HERE OF THE PLAYER PAGE DEVTOOLS_
+{{<image src="d-yelich_player_page_devtools.png">}}
 
 Unfortunately, this one is just passed as a value and there's no derivation on it. Turns out there's a MobX store on this page that's open to investigation, but unfortunately it doesn't contain anything other than values. No derivation formula. I'm guessing that these formulas are calculated server-side for this page.
 
