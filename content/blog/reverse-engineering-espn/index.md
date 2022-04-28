@@ -1,7 +1,7 @@
 ---
 title: Reverse Engineering ESPN's Incorrect "Runs Created" Stat
 description: "Using some minor sleuthing and publicly available information, I figured out how the calculation used for Runs Created was wrong."
-publishDate: 2022-04-27
+publishDate: 2022-04-28
 ---
 
 Runs Created is a baseball stat that's largely arbitrary and derived. It [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of derivation formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
@@ -26,6 +26,19 @@ Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'
 
 1. What formula is ESPN _currently_ using to derive RC?
 2. Is the derivation wrong, or is the wrong data being passed to it?
+
+#### Corroborating the information displayed
+
+Ideally, I want to find some statistics from other websites (ESPN's display doesn't show most of the values that it uses as calculation arguments), so I'll use stats on a defined time period: The season so far, as of end-of-day 2022-04-27.
+
+[Fangraphs 2022 Season Stats (Through 4/28)](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=y&type=0&season=2022&month=1000&season1=2022&ind=0&team=23&rost=0&age=0&filter=&players=0&startdate=2022-03-01&enddate=2022-04-27)
+
+| Player | G | AB | PA | H | 1B | 2B | 3B | HR | R | RBI | BB | SO | HBP | SF | SH | GDP | SB | CS |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Christian Yelich | 18 | 65 | 76 | 12 | 7 | 4 | 0 | 1 | 8 | 8 | 8 | 19 | 1 | 2 | 0 | 0 | 2 | 0 |
+
+
+
 
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
 
