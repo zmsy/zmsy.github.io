@@ -53,31 +53,63 @@ So this means my original assumptions of a single, universal derivation for RC a
 
 There's a handful of different RC formulas available online, so let's plug these numbers in to see what we'll get. These formulas are from [Baseball Reference's acronyms page](https://www.baseball-reference.com/about/bat_glossary.shtml), but I've used the full terms below so things are slightly clearer. If you're confused by any of the terms used, [Baseball Reference has a handy glossary](https://abbreviations.yourdictionary.com/articles/basic-baseball-stats-abbreviations.html).
 
-#### Baseball Reference Canonical Version
+I've calculated these using the as-of-today stats from Fangraphs above.
+
+#### Basic Version
+
+This is a simple approach, using only a few common metrics.  
+
+Formula:
+  
+```
+((Hits + Walks) x Total Bases) ÷ (At Bats + Walks)
+```
+
+Output: 
+
+There's also the "Baseball Reference" flavor of the basic version here, which takes Hit By Pitch & Sacrifice Fly into account:
+
+```
+((Hits + Walks + HBP) x Total Bases) ÷ (At Bats + Walks + HBP + SF)
+```
+
+Output: (Same in this instance, since Yelich has 0 in both of those categories)
+
+#### Baseball Reference Canonical Version (a.k.a. "Technical Method")
 
 Formula:
 
+This is the Baseball Reference preferred method where data is available. Considering baseball data is available on their site for something on the order of 130 years, this is not always the case.
+
 ```
-(H + BB - CS + HBP - GIDP) * (TB + (.26 * (BB - IBB + HBP)) + (.52 * (SH + SF + SB))))(AB+BB+HBP+SH+SF)
-(Hits + Walks - Caught Stealing + Hit By Pitch - Ground Into Double Play) * (Total Bases + (.26 * (Walks - Intentional Walks + Hit By Pitch)) + (.52 * (Sacrifice Hits + Sacrifice Flies + Stolen Bases)) * (At Bats + Walks + Hit By Pitch + Sacrifice Hits + Sacrifice Flies)
+((Hits + Walks – Caught Stealing + Hit by Pitch – Ground into Double Play) x (Total Bases x (0.26 x (Walks – Intentional Walks + Hit by Pitch)) + (0.52 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)))) ÷ (At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies)
 ```
 
 Output: 
 
 #### Stolen Bases Method
 
+Another fallback method used where only some data is available.
+  
 ```
-Runs Created (Stolen Base Method) = ((Hits + Walks – Caught Stealing) x (Total Bases + (0.55 x Stolen Bases))) ÷ (At Bats + Walks)
+((Hits + Walks – Caught Stealing) x (Total Bases + (0.55 x Stolen Bases))) ÷ (At Bats + Walks)
+```
 
-Runs Created (Technical Method) = ((Hits + Walks – Caught Stealing + Hit by Pitch – Ground into Double Play) x (Total Bases x (0.26 x (Walks – Intentional Walks + Hit by Pitch)) + (0.52 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)))) ÷ (At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies)
+Output:
 
-Runs Created (2002 version):
+#### 2002 Method
+
+This is another flavor of the "Technical" method defined above:
+
+```
 A = Hits + Walks – Caught Stealing + Hit by Pitch – Ground Into Double Play
 B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs) + (0.29 x (Walks – Intentional Walks + Hit by Pitch)) + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)) – (0.4 x Strikeouts)
 C = At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies
 D = ((2.4 x C) + A) x ((3 x C) + B))
 Runs Created (2002) = (D ÷ (9 x C)) – (0.9 x C)
 ```
+
+Output:
 
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
 
