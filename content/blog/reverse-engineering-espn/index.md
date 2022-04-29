@@ -222,19 +222,23 @@ Nice! This payload looks promising. Inspecting further, it looks like we've got 
 {{<image src="g-stats-for-current-period.png">}}
   
 Intuitively, this made sense to me. The arguments in the formula above were _keys_ and not _values_. So likely, this is using those sets of keys to find stats from this stats object, keyed by some sort of stat id value. Unfortunately, it doesn't seem like the stat _names_ are available elsewhere in the payload, just more values to corroborate what's in the payload with what's display in the UI.
+  
+Looking back into the UI, the stat ID value is displayed on all of the stats visible in the table. This should help me map arguments to these pretty well.
+
+{{<image src="h-devtools-stat-id-value.png">}}
 
 Searching through these, it's fairly intuitive to map some of them back to the 2002 formula using their position in the formula, and others it's possible to do by finding examples of that stat in use.
 
 **De-anonymized ESPN RC arguments:**
 
-* `a` - **Hits**. Values line up in the JSON payload with the value for hits displayed on the page.
-* `b` - **Walks**. Used positionally in multiple places in the same way as the 2002 calculation.
-* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once in the calculation so it doesn't matter which is which.
+* `a` - **Hits**. Values line up in calculation, and stat id value matches the UI display in React DevTools.
+* `b` - **Walks**. Used positionally in multiple places in the same way as the 2002 calculation, and id value lined up with UI.
+* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once in the calculation so it doesn't matter which is which. Swapping these two would net the same result.
 * `d` - **Ground into Double Play** - See above.
-* `e` - **At bats** - Remembering that the "C" portion of the calculation quantifies Opportunities, this is the base denominator of the calculation.
-* `f` - **Hit by Pitch** - Or something like HBP. Based on what's being calculated, this is like one of Hit by Pitch, Sacrifice Hits, or Sacrifice Flies. It's used in multiple places, similar to the 2002 version.
-* `g` - 
-* `h` - 
+* `e` - **At Bats** - Remembering that the "C" portion of the calculation quantifies Opportunities, this is the base denominator of the calculation. This id value aligned with UI.
+* `f` - **Sacrifice Flies** - Based on what's being calculated, this is either Hit by Pitch, Sacrifice Hits, or Sacrifice Flies. It's used in multiple places, similar to the 2002 version. I found some examples of this aligning with the values shown on the player's full-year stats page on ESPN, so SF seems the most likely.
+* `g` - **Total Bases** - This was only obvious after looking at several other pages, since TB is rarely displayed in the UI in ESPN.
+* `h` - **Stolen Bases** - Our league doesn't use Stolen Bases as a metric (hint: [because stolen bases aren't a good idea in baseball, and are generally useless as a statistic](https://batflipsandnerds.com/2018/11/03/analytics-and-its-effects-on-the-mlb-the-stolen-base/)), but this one was easy to corroborate across a few different players.
 * `i` - **Strikeouts** - Based on how little of an impact Ks have on RC calculations writ large, this seemed like a safe assumption to make. The coefficient is an order of magnitude lower in the ESPN calculation, so this will be even a smaller impact.
 
 ## The Correct Calculation
