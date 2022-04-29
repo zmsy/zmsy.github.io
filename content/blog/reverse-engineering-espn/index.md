@@ -1,6 +1,6 @@
 ---
-title: Reverse Engineering Incorrect Stats in ESPN Fantasy Baseball
-description: "Using some minor sleuthing and publicly available information, I figured out how the calculation used for Runs Created was wrong."
+title: Reverse Engineering Anomalous Stats in ESPN Fantasy Baseball
+description: "Using some minor sleuthing and publicly available information, I investigated why ESPN's calculation used for Runs Created was producing weird outputs."
 publishDate: 2022-04-28
 ---
 
