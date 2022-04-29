@@ -249,9 +249,13 @@ Let's look at another example of RC being negative and show these arguments in t
   
 This is the top currently available batter in our league, Whit Merrifield. He's owned in most leagues because he loves stealing bases. He's not owned in ours because we don't care. His 2022 stats, for the calculation:
 
-| H | BB | CS | GDP | AB | SF | TB | SB | SO |
-|---|----|----|-----|----|----|----|----|----|
-| 9 | 3  | 0  | 3   | 71 | 1  | 11 | 3  | 11 |
+| G  | AB | PA | H | 1B | 2B | 3B | HR | R | TB | 
+|----|----|----|---|----|----|----|----|---|----|
+| 17 | 71 | 75 | 9 | 7  | 2  | 0  | 0  | 3 | 11 |
+
+| RBI | BB | IBB | SO | HBP | SF | SH | GDP | SB | CS |
+|-----|----|-----|----|-----|----|----|-----|----|----|
+|  4  | 3  |  0  | 11 |  0  | 1  |  0 |  3  |  3 | 0  |
   
 Let's plug these into the ESPN RC formula and see if we can identify why this output is negative.
   
@@ -280,4 +284,6 @@ Let D = ((2.4 x C) + A) x ((3 x C) + B))
 RC = (D ÷ (9 x C)) – (0.9 x C)
 ```
 
-Output: **1.xx Runs Created**
+Output: **-0.67 Runs Created**
+
+Welp, that's unfortunate. Turns out my assumption that RC would never be negative with any of the official calculations was also wrong.
