@@ -196,9 +196,9 @@ Just by looking at the coefficients in use here, it seems this is a variation on
 Formatting this to look more like the official calculation above:
 
 ```
-A = a + b - c - d;
-B = g + b * 0.26 + f * 0.53 + h * 0.64 - i * 0.03;
-C = e + b + f;
+A = a + b - c - d
+B = g + (b * 0.26) + (f * 0.53) + (h * 0.64) - (i * 0.03)
+C = e + b + f
 D = ((2.4 * C) + A) x ((3 * C) + B))
 RC = (D ÷ (9 x C)) – (0.9 x C)
 ```
@@ -241,4 +241,43 @@ Searching through these, it's fairly intuitive to map some of them back to the 2
 * `h` - **Stolen Bases** - Our league doesn't use Stolen Bases as a metric (hint: [because stolen bases aren't a good idea in baseball, and are generally useless as a statistic](https://batflipsandnerds.com/2018/11/03/analytics-and-its-effects-on-the-mlb-the-stolen-base/)), but this one was easy to corroborate across a few different players.
 * `i` - **Strikeouts** - Based on how little of an impact Ks have on RC calculations writ large, this seemed like a safe assumption to make. The coefficient is an order of magnitude lower in the ESPN calculation, so this will be even a smaller impact.
 
-## The Correct Calculation
+## Correcting the Calculation
+
+Let's look at another example of RC being negative and show these arguments in that calculation now. This is `-.6`.
+
+{{<image src="" >}}
+  
+This is the top currently available batter in our league, Whit Merrifield. He's owned in most leagues because he loves stealing bases. He's not owned in ours because we don't care. His 2022 stats, for the calculation:
+
+| H | BB | CS | GDP | AB | SF | TB | SB | SO |
+|---|----|----|-----|----|----|----|----|----|
+| 9 | 3  | 0  | 3   | 71 | 1  | 11 | 3  | 11 |
+  
+Let's plug these into the ESPN RC formula and see if we can identify why this output is negative.
+  
+```
+A = 9 + 3 - 0 - 3 = 9
+B = 11 + (3 * 0.26) + (1 * 0.53) + (3 * 0.64) - (11 * 0.03) = 13.9
+C = e + b + f = 75
+D = ((2.4 * C) + A) x ((3 * C) + B)) = 45,152.1
+RC = (D ÷ (9 x C)) – (0.9 x C)
+```
+
+Output: **-0.61 Runs Created**
+
+In this scenario, the numerator is just simply not high enough. The denominator is _seemingly more correct_ in this case, because the missing statistics shouldn't actually affect it that much. The offensive value in the A and B portions of the calculation is too low.
+  
+What does the 2002 calculation say Whit's actual Runs Created should be?
+  
+```
+Let A = Hits + Walks – Caught Stealing + Hit by Pitch – Ground Into Double Play
+Let B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs)
+        + (0.29 x (Walks – Intentional Walks + Hit by Pitch))
+        + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases))
+        – (0.4 x Strikeouts)
+Let C = At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies
+Let D = ((2.4 x C) + A) x ((3 x C) + B))
+RC = (D ÷ (9 x C)) – (0.9 x C)
+```
+
+Output: **1.xx Runs Created**
