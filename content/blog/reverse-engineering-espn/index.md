@@ -134,14 +134,28 @@ Output: **5.8 Runs Created**
 This is another flavor of the "Technical" method defined above:
 
 ```
+Formula:
 Let A = Hits + Walks – Caught Stealing + Hit by Pitch – Ground Into Double Play
-Let B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs) + (0.29 x (Walks – Intentional Walks + Hit by Pitch)) + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases)) – (0.4 x Strikeouts)
+Let B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs)
+        + (0.29 x (Walks – Intentional Walks + Hit by Pitch))
+        + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases))
+        – (0.4 x Strikeouts)
 Let C = At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies
 Let D = ((2.4 x C) + A) x ((3 x C) + B))
-Runs Created (2002) = (D ÷ (9 x C)) – (0.9 x C)
+RC = (D ÷ (9 x C)) – (0.9 x C)
+
+Calculation:
+Let A = 12 + 8 – 0 + 1 – 0 = 21
+Let B = (1.125 x 7) + (1.69 x 4) + (3.02 x 0) + (3.73 x 1)
+        + (0.29 x (8 – 0 + 1))
+        + (0.492 x (0 + 2 + 2))
+        – (0.4 x 19) = 22.183
+Let C = 65 + 8 + 1 + 0 + 2 = 76
+Let D = ((2.4 x C) + A) x ((3 x C) + B)) = 50,887.2
+RC = (49,495.97 ÷ (9 x 76)) – (0.9 x 76)
 ```
 
-Output:
+Output: **5.99 Runs Created**
 
 ## Sleuthing, Part 2 - React DevTools + API Response Investigations
 
@@ -155,9 +169,9 @@ Navigating to the individual cell being rendered and...
 
 **There it is.**
 
-They pass the actual derivation formula to the individual table cell as props, and the calculation is run on the client. We've got the actual formula they're using now, so time to see where it's going wrong.
-
 {{<image src="c-team_page_devtools.png">}}
+
+They pass the actual derivation formula to the individual table cell as props, and the calculation is run on the client. We've got the actual formula they're using now, so time to see where it's going wrong.
 
 As one other curiosity, can we figure out where that other number, `6.3` on the player page was coming from?
 
@@ -169,15 +183,29 @@ Bummer. Unfortunately, this one is just passed as a value and there's no derivat
 
 ### Runs Created, ESPN Version
 
-Formula:
+Formula, directly from ESPN's app:
 
 ```
-"((a + b - c - d + (2.4 * (e + b + f))) * ((g + (b * 0.26) + (f * 0.53) + (h * 0.64) - (i * 0.03)) + (3 * (e + b + f))) / (9 * (e + b + f))) - (0.9 * (e + b + f))"
+((a + b - c - d + 2.4 * (e + b + f)) *
+  (g + b * 0.26 + f * 0.53 + h * 0.64 - i * 0.03 + 3 * (e + b + f))) /
+  (9 * (e + b + f)) - 0.9 * (e + b + f)
 ```
 
-This...doesn't look like any of the formulas I've seen thus far. Just by looking at the coefficients in use here, it seems closest to the [2002 formulation of RC](https://en.wikipedia.org/wiki/Runs_created#2002_version_of_runs_created), which has some heavy overlap with this.
+Just by looking at the coefficients in use here, it seems this is a variation on the [2002 formulation of RC](https://en.wikipedia.org/wiki/Runs_created#2002_version_of_runs_created).
 
-Another issue here is that the arguments are anonymous. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
+Formatting this to look more like the official calculation above:
+
+```
+A = a + b - c - d;
+B = g + b * 0.26 + f * 0.53 + h * 0.64 - i * 0.03;
+C = e + b + f;
+D = ((2.4 * C) + A) x ((3 * C) + B))
+RC = (D ÷ (9 x C)) – (0.9 x C)
+```
+
+So we've got the formula now.
+
+The remaining issue here in correcting these values is that the arguments are anonymous. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
 
 {{<image src="f-same-formula-arguments.png">}}
 
@@ -193,4 +221,20 @@ Nice! This payload looks promising. Inspecting further, it looks like we've got 
   
 {{<image src="g-stats-for-current-period.png">}}
   
+Intuitively, this made sense to me. The arguments in the formula above were _keys_ and not _values_. So likely, this is using those sets of keys to find stats from this stats object, keyed by some sort of stat id value. Unfortunately, it doesn't seem like the stat _names_ are available elsewhere in the payload, just more values to corroborate what's in the payload with what's display in the UI.
+
+Searching through these, it's fairly intuitive to map some of them back to the 2002 formula using their position in the formula, and others it's possible to do by finding examples of that stat in use.
+
+**De-anonymized ESPN RC arguments:**
+
+* `a` - **Hits**. Values line up in the JSON payload with the value for hits displayed on the page.
+* `b` - **Walks**. Used positionally in multiple places in the same way as the 2002 calculation.
+* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once in the calculation so it doesn't matter which is which.
+* `d` - **Ground into Double Play** - See above.
+* `e` - **At bats** - Remembering that the "C" portion of the calculation quantifies Opportunities, this is the base denominator of the calculation.
+* `f` - **Hit by Pitch** - Or something like HBP. Based on what's being calculated, this is like one of Hit by Pitch, Sacrifice Hits, or Sacrifice Flies. It's used in multiple places, similar to the 2002 version.
+* `g` - 
+* `h` - 
+* `i` - **Strikeouts** - Based on how little of an impact Ks have on RC calculations writ large, this seemed like a safe assumption to make. The coefficient is an order of magnitude lower in the ESPN calculation, so this will be even a smaller impact.
+
 ## The Correct Calculation
