@@ -245,7 +245,7 @@ Searching through these, it's fairly intuitive to map some of them back to the 2
 
 Let's look at another example of RC being negative and show these arguments in that calculation now. This is `-.6`.
 
-{{<image src="" >}}
+{{<image src="phonec-whit-merrifield-negative-rc.png" >}}
   
 This is the top currently available batter in our league, Whit Merrifield. He's owned in most leagues because he loves stealing bases. He's not owned in ours because we don't care. His 2022 stats, for the calculation:
 
