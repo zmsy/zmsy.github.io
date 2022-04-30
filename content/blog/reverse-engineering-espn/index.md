@@ -4,7 +4,7 @@ description: "Using some minor sleuthing and publicly available information, I i
 publishDate: 2022-04-28
 ---
 
-"Runs Created" is a baseball stat that's largely arbitrary and derived. It [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
+"Runs Created" is a baseball stat that's largely arbitrary and derived. It metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
 
 Why care about it? Like WAR, RC is effectively a way to derive a **useful absolute number reflective of a batter's overall offensive productivity**. Since the _actual_ positive numbers in baseball can be misleading (RBI, R, SB, H) in some scenarios, it's a nice way of smoothing over small sample sizes.
 
@@ -16,13 +16,13 @@ Here's the concept of it, at it's most basic form:
 
 Plugging those in, **Runs Created = (A + B) / C**.
 
-We love it in my fantasy baseball league as a primary indicator of your team's offensive performance. If nothing else because [FanGraph's wRC+ stats](https://library.fangraphs.com/offense/wrc/) is our preferred way of judging batters overall value. It's "Weight Runs Created+", meaning that it's a [version of Runs Created weight for external factors like field or year](https://www.mlb.com/glossary/advanced-stats/weighted-runs-created-plus) and changed such that the league mean is 100. Over 100, you're above average. Below, you're lacking.
+We love it in my fantasy baseball league as a primary indicator of your team's offensive performance. If nothing else because [FanGraph's wRC+ stats](https://library.fangraphs.com/offense/wrc/) is our preferred way of judging batters overall value. It's "Weight Runs Created+", meaning that it's a [version of Runs Created weight for external factors like field or year](https://www.mlb.com/glossary/advanced-stats/weighted-runs-created-plus) and changed such that the league mean is 100. Over 100 means you're an above average hitter and vice versa.
 
-## That Ain't Right
+## Something's... Not Right Here
 
-There really aren't that many things I can say are consistent between the different derivations of the stat, but the one obvious quality constraint: Runs Created should _never_ be negative.
+There really aren't that many things I can say are consistent between the different derivations of the stat, but the one obvious quality constraint: **Runs Created should never be negative.** Creating a run, which is a positive integer, seems like it should preclude that.
 
-So you can imagine my surprise to see my sure-to-turn-it-around-someday-soon team member Christian Yelich with `-.2` in his RC column for the past 7 days. What the heck? Sure he's having a rough year, but he's certainly not _subtracting_ runs from his team. As far as I know, baseball runs never go below zero.
+So you can imagine my surprise to see my sure-to-turn-it-around-someday-soon team member Christian Yelich with `-.2` in his RC column for the past 7 days. What the heck? Sure he's having a rough year (alright, three years), but he's certainly not _subtracting runs from his team_. As far as I know, baseball runs never go below zero. Put baseball-inept me in the batter's box to face 98mph heaters and I still wouldn't be able to accomplish that.
 
 {{<image src="phonea-negative-rc.png">}}
 
@@ -32,7 +32,7 @@ I'm taking the assumption here that 1. there is a single RC formula at ESPN and 
 
 ## Sleuthing, Part 1 - What Info is Available?
 
-Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'm not fully certain what the outcome of the calculation _should_ be. I can tell in some ways what it should _not_ be, but that's it. So I've got a few challenges here:
+Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'm not fully certain what the outcome of the calculation _should_ be. I can tell in some ways what it should _not_ be, but that's it. So I've got a few questions to answer:
 
 1. What formula is ESPN _currently_ using to derive RC?
 2. Is the derivation wrong, or is the wrong data being passed to it?
@@ -203,23 +203,21 @@ D = ((2.4 * C) + A) x ((3 * C) + B))
 RC = (D ÷ (9 x C)) – (0.9 x C)
 ```
 
-So we've got the formula now.
+So we've **got the formula** now. Nice!
 
-The remaining issue here in correcting these values is that the arguments are anonymous. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
+...but the **arguments are anonymous**. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
 
 {{<image src="f-same-formula-arguments.png">}}
 
-When I look at the arguments here for Yelich, it seems to be the same set of values passed as arguments for every player. So how, with the same inputs, are we getting separate outputs? RC, in all of its derivations, is a deterministic formula.
+When I look at the arguments here for Yelich, it seems to be the same set of values passed as arguments for every player. So how, with the same inputs, are we getting separate outputs? Runs Created is, in all of its derivations, a deterministic formula.
 
 #### What Are These Arguments?
 
-Let's see if we can find the data actually being used. So first thing, loaded up the network tab and sent another request to the same page to see if that set of data was being transferred over the wire.
-  
-{{<image src="e-network-responses.png">}}
+Let's go back to the React DevTools for a moment to see if there's any information we can gather.
 
-Nice! This payload looks promising. Inspecting further, it looks like we've got some entries called `rosterForCurrentScoringPeriod` that contains a player array with a `stats` dictionary.
+Inspecting further, it looks like we've got an entry called `rawStats` array with keys that look _exactly_ like those argument mappings from before.
   
-{{<image src="g-stats-for-current-period.png">}}
+{{<image src="k-raw-stats.png">}}
   
 Intuitively, this made sense to me. The arguments in the formula above were _keys_ and not _values_. So likely, this is using those sets of keys to find stats from this stats object, keyed by some sort of stat id value. Unfortunately, it doesn't seem like the stat _names_ are available elsewhere in the payload, just more values to corroborate what's in the payload with what's display in the UI.
   
@@ -231,15 +229,26 @@ Searching through these, it's fairly intuitive to map some of them back to the 2
 
 **De-anonymized ESPN RC arguments:**
 
-* `a` - **Hits**. Values line up in calculation, and stat id value matches the UI display in React DevTools.
+* `a` - **Hits**. Values line up in calculation, and stat ID value matches the UI display in React DevTools.
 * `b` - **Walks**. Used positionally in multiple places in the same way as the 2002 calculation, and id value lined up with UI.
-* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once in the calculation so it doesn't matter which is which. Swapping these two would net the same result.
+* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once so it doesn't matter which is which. Swapping these two would net the same result.
 * `d` - **Ground into Double Play** - See above.
-* `e` - **At Bats** - Remembering that the "C" portion of the calculation quantifies Opportunities, this is the base denominator of the calculation. This id value aligned with UI.
+* `e` - **At Bats** - Remembering that the denominator portion of the calculation quantifies Opportunities, this is the most basic representation of how many opportunities a player gets. Also, this ID value aligned with UI so that's nice.
 * `f` - **Sacrifice Flies** - Based on what's being calculated, this is either Hit by Pitch, Sacrifice Hits, or Sacrifice Flies. It's used in multiple places, similar to the 2002 version. I found some examples of this aligning with the values shown on the player's full-year stats page on ESPN, so SF seems the most likely.
 * `g` - **Total Bases** - This was only obvious after looking at several other pages, since TB is rarely displayed in the UI in ESPN.
 * `h` - **Stolen Bases** - Our league doesn't use Stolen Bases as a metric (hint: [because stolen bases aren't a good idea in baseball, and are generally useless as a statistic](https://batflipsandnerds.com/2018/11/03/analytics-and-its-effects-on-the-mlb-the-stolen-base/)), but this one was easy to corroborate across a few different players.
 * `i` - **Strikeouts** - Based on how little of an impact Ks have on RC calculations writ large, this seemed like a safe assumption to make. The coefficient is an order of magnitude lower in the ESPN calculation, so this will be even a smaller impact.
+
+Mapping those back, here's the **ESPN RC Formula with named arguments**:
+
+```
+A = Hits + Walks - Caught Stealing - Ground into Double Play
+B = Total Bases + (Walks * 0.26) + (Sacrifice Flies * 0.53)
+    + (Stolen Bases * 0.64) - (Strikeouts * 0.03)
+C = At Bats + Walks + Sacrifice Flies
+D = ((2.4 * C) + A) x ((3 * C) + B))
+RC = (D ÷ (9 x C)) – (0.9 x C)
+```
 
 ## Correcting the Calculation
 
@@ -262,7 +271,7 @@ Let's plug these into the ESPN RC formula and see if we can identify why this ou
 ```
 A = 9 + 3 - 0 - 3 = 9
 B = 11 + (3 * 0.26) + (1 * 0.53) + (3 * 0.64) - (11 * 0.03) = 13.9
-C = e + b + f = 75
+C = 71 + 3 + 1 = 75
 D = ((2.4 * C) + A) x ((3 * C) + B)) = 45,152.1
 RC = (D ÷ (9 x C)) – (0.9 x C)
 ```
@@ -274,16 +283,45 @@ In this scenario, the numerator is just simply not high enough. The denominator 
 What does the 2002 calculation say Whit's actual Runs Created should be?
   
 ```
-Let A = Hits + Walks – Caught Stealing + Hit by Pitch – Ground Into Double Play
-Let B = (1.125 x Singles) + (1.69 x Doubles) + (3.02 x Triples) + (3.73 x Home Runs)
-        + (0.29 x (Walks – Intentional Walks + Hit by Pitch))
-        + (0.492 x (Sacrifice Hits + Sacrifice Flies + Stolen Bases))
-        – (0.4 x Strikeouts)
-Let C = At Bats + Walks + Hit by Pitch + Sacrifice Hits + Sacrifice Flies
+Let A = 9 + 3 – 0 + 0 – 3
+Let B = (1.125 x 7) + (1.69 x 2) + (3.02 x 0) + (3.73 x 0)
+        + (0.29 x (3 – 0 + 0))
+        + (0.492 x (0 + 1 + 3))
+        – (0.4 x 11)
+Let C = 71 + 3 + 0 + 0 + 1
 Let D = ((2.4 x C) + A) x ((3 x C) + B))
 RC = (D ÷ (9 x C)) – (0.9 x C)
 ```
 
 Output: **-0.67 Runs Created**
 
-Welp, that's unfortunate. Turns out my assumption that RC would never be negative with any of the official calculations was also wrong.
+{{< svg src="yuck.svg" style="height: 5rem;">}}
+
+Welp, that's unfortunate. Turns out my assumption that RC would never be negative with any of the official calculations was also wrong. Feels...not right.
+
+Other calculation results:
+
+- Basic Method: **1.78**
+- Stolen Bases Method: **1.76**
+- Technical Method: **1.66**
+
+All of these intuitively seem more correct to me.
+
+So turns out, ESPN's approach isn't necessarily *wrong* here, as it's just a modified version of a calculation for which I don't like the result. The name "Runs Created" to me implies that you can only _add_ runs to your teams total, and you should never be able to CREATE negative runs.
+
+## But... Something's Broken Here, Right?
+
+Just accepting that the calculation works differently than I assumed for years and that the weirdness in the UI didn't sit well with me, so I dug a little more. The actual issue is two-part here:
+
+1. I didn't understand that some RC calculations can be negative and,
+2. Some of the calculations are bugged and just wrong. The results for those is `.0` every time.
+
+Almost all of the players on my team's 7-day RC calculations are zero:
+
+{{< image src="j-incorrect-rc-values.png" >}}
+
+Plugging the top row's values into the ESPN RC formula, the RC column should read **2.68 Runs Created**.
+
+I don't have any answers here, but this is an actually invalid output. I'm guessing this is a null safety issue, because when you check the `rawStats` object, at least one of the argument values is missing every time this returns `.0`. I thought to try to pinpoint this, but the minified code makes that a chore.
+
+Welp, that's that. Unsatisfying conclusion. I'll leave the poor folks on the ESPN support line alone and just use the other calculation where I can.
