@@ -4,7 +4,7 @@ description: "Using some minor sleuthing and publicly available information, I i
 publishDate: 2022-04-28
 ---
 
-"Runs Created" is a baseball stat that's largely arbitrary and derived. It metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
+**"Runs Created"** is a baseball stat that's largely arbitrary and derived. It metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
 
 Why care about it? Like WAR, RC is effectively a way to derive a **useful absolute number reflective of a batter's overall offensive productivity**. Since the _actual_ positive numbers in baseball can be misleading (RBI, R, SB, H) in some scenarios, it's a nice way of smoothing over small sample sizes.
 
@@ -231,7 +231,7 @@ Searching through these, it's fairly intuitive to map some of them back to the 2
 
 * `a` - **Hits**. Values line up in calculation, and stat ID value matches the UI display in React DevTools.
 * `b` - **Walks**. Used positionally in multiple places in the same way as the 2002 calculation, and id value lined up with UI.
-* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. Neither are displayed in ESPN UI for determining correctness, but they're only used once so it doesn't matter which is which. Swapping these two would net the same result.
+* `c` - **Caught Stealing** - `c`/`d` are interchangeable here. These seemed to align with data shown (hard at this point in the year due to small sample size), but they're only used once so it doesn't matter which is which. Swapping these two would net the same result.
 * `d` - **Ground into Double Play** - See above.
 * `e` - **At Bats** - Remembering that the denominator portion of the calculation quantifies Opportunities, this is the most basic representation of how many opportunities a player gets. Also, this ID value aligned with UI so that's nice.
 * `f` - **Sacrifice Flies** - Based on what's being calculated, this is either Hit by Pitch, Sacrifice Hits, or Sacrifice Flies. It's used in multiple places, similar to the 2002 version. I found some examples of this aligning with the values shown on the player's full-year stats page on ESPN, so SF seems the most likely.
