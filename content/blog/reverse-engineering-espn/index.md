@@ -65,7 +65,7 @@ So this means my original assumptions of a single, universal derivation for RC a
 
 There's a handful of different RC formulas available online, so let's plug these numbers in to see what we'll get. These formulas are from [Baseball Reference's acronyms page](https://www.baseball-reference.com/about/bat_glossary.shtml), but I've used the full terms below so things are slightly clearer. If you're confused by any of the terms used, [Baseball Reference has a handy glossary](https://abbreviations.yourdictionary.com/articles/basic-baseball-stats-abbreviations.html).
 
-I've calculated these using the as-of-today stats from Fangraphs above, and truncated each to a precision of 1 decimal point.
+I've calculated these using the as-of-today stats from Fangraphs above, and truncated the precision of each.
 
 #### Basic Version
 
@@ -166,6 +166,8 @@ Bam, the page is rendered using React.
 {{<image src="b-react_devtools.png">}}
 
 Navigating to the individual cell being rendered and...
+
+{{< svg src="boom.svg" style="height: 15rem;">}}
 
 **There it is.**
 
