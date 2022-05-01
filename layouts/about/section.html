@@ -18,15 +18,10 @@
 
           <!-- card content -->
           <div class="card-content">
-            <div class="level">
+            <div class="level is-mobile">
               <div class="level-left">
                 <div class="level-item">
-                  <p class="image is-48x48" id="about-logo">
-                    <img
-                      src="/media/logo.svg"
-                      alt="Zach Morrissey & Howie the Dog"
-                    />
-                  </p>
+                  {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
                 </div>
 
                 <div class="level-item">
