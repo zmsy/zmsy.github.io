@@ -4,7 +4,7 @@ description: "Using some minor sleuthing and publicly available information, I i
 publishDate: 2022-04-28
 ---
 
-**"Runs Created"** is a baseball stat that's largely arbitrary and derived. It metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created) and has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
+**"Runs Created"** (RC) is an arbitrary, but useful, metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created). It has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
 
 Why care about it? Like WAR, RC is effectively a way to derive a **useful absolute number reflective of a batter's overall offensive productivity**. Since the _actual_ positive numbers in baseball can be misleading (RBI, R, SB, H) in some scenarios, it's a nice way of smoothing over small sample sizes.
 
@@ -16,7 +16,7 @@ Here's the concept of it, at it's most basic form:
 
 Plugging those in, **Runs Created = (A + B) / C**.
 
-We love it in my fantasy baseball league as a primary indicator of your team's offensive performance. If nothing else because [FanGraph's wRC+ stats](https://library.fangraphs.com/offense/wrc/) is our preferred way of judging batters overall value. It's "Weight Runs Created+", meaning that it's a [version of Runs Created weight for external factors like field or year](https://www.mlb.com/glossary/advanced-stats/weighted-runs-created-plus) and changed such that the league mean is 100. Over 100 means you're an above average hitter and vice versa.
+We love it in my fantasy baseball league as a primary indicator of your team's offensive performance. If nothing else because [FanGraph's wRC+ stats](https://library.fangraphs.com/offense/wrc/) is our preferred way of judging batters overall value. It's "Weight Runs Created+", meaning that it's a [version of Runs Created weight for external factors like field or year](https://www.mlb.com/glossary/advanced-stats/weighted-runs-created-plus) and inflated such that the league mean is 100. An RC of over 100 implies an above average hitter (and vice versa).
 
 ## Something's... Not Right Here
 
@@ -41,7 +41,7 @@ Since RC isn't explicitly defined, it's hard for me to supervise this effort: I'
 
 Ideally, I want to find some statistics from other websites (ESPN's display doesn't show most of the values that it uses as calculation arguments), so I'll use stats on a defined time period: The season so far, as of end-of-day 2022-04-27.
 
-[Fangraphs 2022 Season Stats (Through 4/28)](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=y&type=0&season=2022&month=1000&season1=2022&ind=0&team=23&rost=0&age=0&filter=&players=0&startdate=2022-03-01&enddate=2022-04-27)
+[Christian Yelich 2022 Season Stats (Through 4/28)](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=y&type=0&season=2022&month=1000&season1=2022&ind=0&team=23&rost=0&age=0&filter=&players=0&startdate=2022-03-01&enddate=2022-04-27)
 
 | G | AB | PA | H | 1B | 2B | 3B | HR | R | TB | 
 |---|----|----|---|----|----|----|----|---|----|
