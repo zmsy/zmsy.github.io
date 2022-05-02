@@ -510,6 +510,8 @@ svg {
 
 #about-card {
   margin-bottom: 2rem;
+  background: var(--backgroundColor);
+  color: var(--titleTextColor);
 }
 
 #about-photo {
