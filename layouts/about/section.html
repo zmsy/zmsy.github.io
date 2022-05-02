@@ -1,17 +1,20 @@
-{{ define "main" }} {{ partial "hero.html" . }}
+{{ define "main" }}
 <section class="section" id="main">
   <div class="container" id="about-container">
+    {{ partial "hero.html" . }}
     <div class="columns is-centered">
+    
       <div class="column is-6">
         <div class="content">
           {{ .Content }}
         </div>
       </div>
+
       <div class="column is-4">
         <div class="card">
           <!-- image -->
           <div class="card-image">
-            <figure class="image is-4by3" id="about-photo">
+            <figure class="image" id="about-photo">
               <img src="/img/about.jpg" alt="My dog Howie and myself." />
             </figure>
           </div>
@@ -21,7 +24,10 @@
             <div class="level is-mobile">
               <div class="level-left">
                 <div class="level-item">
-                  {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
+                  {{ partial "svg.html" (dict
+                    "src" "assets/img/home-logo-scribble-small.svg"
+                    "class" "logo-img" 
+                  )}}
                 </div>
 
                 <div class="level-item">
@@ -45,19 +51,25 @@
 
             <!-- level -->
             <div class="level is-mobile">
-              <a class="level-item" href="mailto:zachjmorrissey@gmail.com">
+              <a class="level-item" href="{{ .Site.Params.AuthorEmail }}">
                 <span class="icon-envelope"></span>
               </a>
               <a
                 class="level-item"
-                href="https://www.linkedin.com/in/zach-morrissey-6b096431/"
+                href="{{ .Site.Params.LinkedInUrl }}"
               >
                 <span class="icon-linkedin-square"></span>
               </a>
-              <a class="level-item" href="https://twitter.com/_zmsy">
+              <a
+                class="level-item"
+                href="https://twitter.com/{{ .Site.Params.TwitterHandle }}"
+              >
                 <span class="icon-twitter"></span>
               </a>
-              <a class="level-item" href="https://github.com/zmsy">
+              <a
+                class="level-item"
+                href="https://github.com/{{ .Site.Params.GithubUser }}"
+              >
                 <span class="icon-github"></span>
               </a>
               <a
