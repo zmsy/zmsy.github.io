@@ -1,14 +1,14 @@
 ---
 title: "About"
-description: "Zach Morrissey, Software engineer. Seattle, WA."
-tagline: "Fire me an email if you'd like to connect or have questions about what you're looking at here."
+description: "Zach Morrissey, Software Engineer. Seattle, WA."
+tagline: "Reach out if you've got questions or would like to connect."
 ---
 
 ## Who Even Writes This Stuff?
 
 <hr>
 
-I'm a software engineer and a data/statistics lover.
+I'm a software engineer and a data/statistics enthusiast.
 
 ### Purpose 
 
