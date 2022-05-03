@@ -17,7 +17,7 @@
     </p>
     <p class="blog-preview-description">{{ .Description | safeHTML }}</p>
     <div class="blog-preview-link-holder">
-      <p>Read More</p>
+      <a href="{{ .Permalink }}">Read More</a>
       <a href="{{ .Permalink }}">
         {{ partial "svg.html" (dict
           "src" "assets/img/blog-preview-link.svg"

@@ -552,14 +552,15 @@ svg {
   flex-flow: row nowrap;
   justify-content: flex-end;
 
-  p {
-    margin: auto 1rem;
+  a {
+    color: var(--textColor);
+    margin: auto 0.25rem;
     font-family: $hero-fonts;
     font-size: 1.5rem;
   }
 
   .blog-preview-link {
-    height: 2.5rem;
+    height: 2rem;
     margin: 1rem 0rem;
   }
 }
