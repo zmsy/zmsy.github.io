@@ -47,6 +47,10 @@ a {
   font-size: 1.25rem;
 }
 
+.icon-large {
+  font-size: 2rem;
+}
+
 /* NAV */
 
 .navbar {
@@ -326,7 +330,7 @@ a.navbar-item {
   }
 
   code {
-    color: var(--accent3Color);
+    color: var(--accent2Color);
     background-color: var(--backgroundAccentColor);
     font-family: $code-fonts;
     font-size: 0.875rem;
@@ -449,13 +453,38 @@ svg {
 }
 
 /** PAGE SPACING */
-.blog-post {
+.blog-post,
+.blog-preview {
   margin-bottom: 8rem;
 }
 
 .pagination {
+  justify-content: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  align-content: center;
+
+  // to keep the center item aligned regardless
+  // of whether the sides are links or not
+  .pagination-left,
+  .pagination-right {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  .pagination-text {
+    color: var(--textColor);
+    font-family: $hero-fonts;
+    font-size: 1.25rem;
+  }
+
+  .pagination-disabled figure {
+    display: none;
+  }
+
+  figure {
+    height: 2rem;
+  }
 }
 
 /* HEROES AND SUBTITLES */
@@ -504,6 +533,35 @@ svg {
   font-weight: normal;
   font-size: 1.5rem;
   color: var(--titleTextColor);
+}
+
+.blog-preview-title {
+  font-family: $hero-fonts;
+  font-weight: normal;
+  font-size: 3rem;
+  color: var(--titleTextColor);
+}
+
+.blog-preview-description {
+  font-size: 1.25rem;
+}
+
+.blog-preview-link-holder {
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+
+  p {
+    margin: auto 1rem;
+    font-family: $hero-fonts;
+    font-size: 1.5rem;
+  }
+
+  .blog-preview-link {
+    height: 2.5rem;
+    margin: 1rem 0rem;
+  }
 }
 
 /* ABOUT PAGE */
@@ -633,7 +691,7 @@ svg {
     margin: 0.5rem auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     [class^="icon-"] {
       // inverted icon colors for the footer.
       color: var(--backgroundColor);
