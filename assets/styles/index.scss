@@ -47,6 +47,10 @@ a {
   font-size: 1.25rem;
 }
 
+.icon-large {
+  font-size: 2rem;
+}
+
 /* NAV */
 
 .navbar {
@@ -449,7 +453,8 @@ svg {
 }
 
 /** PAGE SPACING */
-.blog-post {
+.blog-post,
+.blog-preview {
   margin-bottom: 8rem;
 }
 
@@ -505,6 +510,36 @@ svg {
   font-size: 1.5rem;
   color: var(--titleTextColor);
 }
+
+.blog-preview-title {
+  font-family: $hero-fonts;
+  font-weight: normal;
+  font-size: 3rem;
+  color: var(--titleTextColor);
+}
+
+.blog-preview-description {
+  font-size: 1.25rem;
+}
+
+.blog-preview-link-holder {
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+
+  p {
+    margin: auto 1rem;
+    font-family: $hero-fonts;
+    font-size: 1.5rem;
+  }
+
+  .blog-preview-link {
+    height: 2.5rem;
+    margin: 1rem 0rem;
+  }
+}
+
 
 /* ABOUT PAGE */
 

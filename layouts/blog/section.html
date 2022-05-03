@@ -6,7 +6,7 @@
       {{ .Content }}
       <ul class="contents">
         {{ range $paginator.Pages }}
-        {{ partial "blog_post.html" . }}
+        {{ partial "blog_preview.html" . }}
         {{ end }}
       </ul>
       {{ partial "pagination.html" $paginator }}
