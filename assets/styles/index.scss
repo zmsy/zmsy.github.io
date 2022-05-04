@@ -540,6 +540,7 @@ svg {
   font-weight: normal;
   font-size: 3rem;
   color: var(--titleTextColor);
+  word-break: break-word;
 }
 
 .blog-preview-description {
@@ -556,11 +557,12 @@ svg {
     color: var(--textColor);
     margin: auto 0.25rem;
     font-family: $hero-fonts;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .blog-preview-link {
     height: 2rem;
+    max-width: 7rem;
     margin: 1rem 0rem;
   }
 }
