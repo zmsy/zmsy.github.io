@@ -455,7 +455,7 @@ svg {
 /** PAGE SPACING */
 .blog-post,
 .blog-preview {
-  margin-bottom: 8rem;
+  margin-bottom: 3rem;
 }
 
 .pagination {
@@ -670,6 +670,12 @@ svg {
 
   & .home-title {
     margin-bottom: 1rem;
+  }
+
+  .home-link {
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
   }
 }
 
