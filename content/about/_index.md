@@ -8,7 +8,7 @@ tagline: "Reach out if you've got questions or would like to connect."
 
 <hr>
 
-I'm a software engineer and a data/statistics enthusiast.
+I'm a software engineer and a data/statistics enthusiast. Fan of dogs. Enjoy tinkering and using my hands. Love wandering out in the woods. I like to create food and drink recipes.
 
 ### Purpose 
 
@@ -16,21 +16,12 @@ Shameless self-promotion.
 
 ## Site Architecture
 
-<hr>
-
-If you like the site, feel free to steal [the code for it on Github](https://github.com/zmsy/zmsy.co).
-
-
-### Site
+Created with:
 
 - **hugo** - Static site generator, build JS via [`esbuild`](https://esbuild.github.io/).
 - **bulma + scss** - My preferred flexbox-based CSS framework, with customizations.
 - **github actions** - For building & deploying to S3.
-
-### Projects
-
-- **python** - Data visualizations, pipelines, etc. The glue between pretty much everything else here.
-- **aws** - S3 for hosting, EC2 for compute requirements, and more for random ad-hoc works.
+- **preact + zustand** - Lightweight frontend UI tooling.
 
 ## Artwork & Photography 
 <hr class="hr-subtitle">

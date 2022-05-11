@@ -15,33 +15,33 @@
 <section>
   <div class="columns home-columns is-centered is-multiline">
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/blog">
+      <a href="/blog" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/blog-logo.svg" "class"
         "column-logo") }}
+        {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
+        "hero-diamonds") }}
+        <h2 class="home-title">Blog</h2>
       </a>
-      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
-      "hero-diamonds") }}
-      <a href="/blog"><h2 class="home-title">Blog</h2></a>
       <p>{{ $.Params.blog_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/projects">
+      <a href="/projects" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/projects-logo.svg" "class"
-        "column-logo") }}
+          "column-logo") }}
+        {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
+        "hero-diamonds") }}
+        <h2 class="home-title">Projects</h2>
       </a>
-      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
-      "hero-diamonds") }}
-      <a href="/projects"><h2 class="home-title">Projects</h2></a>
       <p>{{ $.Params.projects_tagline }}</p>
     </div>
     <div class="column is-3-desktop is-4-tablet-only has-text-centered">
-      <a href="/about">
+      <a href="/about" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/about-logo.svg" "class"
         "column-logo") }}
+        {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
+        "hero-diamonds") }}
+        <h2 class="home-title">About Me</h2>
       </a>
-      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class"
-      "hero-diamonds") }}
-      <a href="/about"><h2 class="home-title">About Me</h2></a>
       <p>{{ $.Params.about_me_tagline }}</p>
     </div>
   </div>
