@@ -77,4 +77,4 @@ Conceptually, this was all super familiar to me from using Jinja2 in Flask, usin
 
 Jekyll is and has always been the grandaddy of all static site generators, and the support from its plugin ecosystem far eclipses that of a smaller project like Lektor. Primarily, I am a fan of the editing interface and models / templating system (Jinja2 is still my favorite) in Lektor. Jekyll, however, has a lot more eyes on it and gets a lot more love from a maintenance perspective. 
 
-I gained a lot along the way though - the Jekyll portion will only render the static files that create the site itself. The next version of this site is going to a separate Flask API running on a different server, which will serve up data and information for the interactive [Projects](/projects) page.
+I gained a lot along the way though - the Jekyll portion will only render the static files that create the site itself. The next version of this site is going to a separate Flask API running on a different server, which will serve up data and information for the interactive [Projects](/recipes) page.

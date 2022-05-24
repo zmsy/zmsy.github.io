@@ -18,8 +18,8 @@ params:
       Name: Home
     - Url: /blog
       Name: Blog
-    - Url: /projects
-      Name: Projects
+    - Url: /recipes
+      Name: Recipes
     - Url: /about
       Name: About
   icons:

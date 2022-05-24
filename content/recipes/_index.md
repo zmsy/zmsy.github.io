@@ -1,7 +1,6 @@
 ---
-title: "Projects"
-description: "Software and data projects that I've worked on or contributed to."
-kind: 
+title: "Recipes"
+description: "Hand-crafted recipes for cocktails, lunches, dinners, desserts, and more."
 ---
 
 ## Where Are All The Projects?
