@@ -7,37 +7,25 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Apr 17, 2022_
-
-## In The Fridge
-
-- High Noon Lime Seltzer
-- Pfriem Pale
-- Dru Bru Kölsch
-- Reuben's Crushable
-- Block 15 Emerging Sunshine
+_May 24, 2022_
 
 ## This Week's Specials
 
-##### Bloody Mary / Caesar
+##### Tamarind Daiquiri
 
-aquavit, [bloody mary mix](https://punchdrink.com/recipes/state-street-bloody-mary/), lemon. optionally clamato-style for caesar
+Rum, [tamarind stock](https://www.foodandwine.com/cocktails-spirits/tamarind-cocktails#45cf8e57563dceb429d1d4a6f5b99556), lime juice
 
-##### Mimosa
+##### Mai Tai
 
-oj, sparkling wine
+Rum, lime, grand marnier, orgeat
 
-##### Americano
+##### Hibiscus Collins
 
-soda water, sweet vermouth, aperol
+gin, lemon, [hibiscus syrup](https://imbibemagazine.com/recipe/summer-gimlet-recipe-van-down-by-the-river/), sparkling water
 
-##### Blackberry Tom Collins
+##### Lake Washington Boulevard-ier
 
-gin, lemon, [whidbey island blackberry liqueur](https://www.whidbeydistillery.com/products/blackberry-liqueur), soda water
-
-##### Pineapple Gimlet
-
-[pineapple rind cordial](https://www.youtube.com/watch?v=3am0RhECCeo), gin
+bourbon, [amaro amorino](https://www.letterpressdistilling.com/cocktails/amaro-amorino-cocktails/), sweet vermouth
 
 ## Classics
 
@@ -57,7 +45,7 @@ gin, dry vermouth, orange bitters
 
 rye, sweet vermouth, bitters
 
-##### Dirty Vodka Martini ★ _(Kelly's Pick)_
+##### Dirty Vodka Martini
 
 vodka, dry vermouth, orange bitters, olive brine
 
@@ -65,7 +53,7 @@ vodka, dry vermouth, orange bitters, olive brine
 
 bourbon, lemon, simple syrup, egg white
 
-##### Tom Collins (★ _Zach's Pick_)
+##### Tom Collins
 
 gin, lemon, simple syrup, soda water
 
