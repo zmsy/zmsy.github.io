@@ -7,7 +7,7 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_May 24, 2022_
+_May 25, 2022_
 
 ## This Week's Specials
 
@@ -23,9 +23,9 @@ Rum, lime, grand marnier, orgeat
 
 gin, lemon, [hibiscus syrup](https://imbibemagazine.com/recipe/summer-gimlet-recipe-van-down-by-the-river/), sparkling water
 
-##### Lake Washington Boulevard-ier
+##### Seattle Paper Plane
 
-bourbon, [amaro amorino](https://www.letterpressdistilling.com/cocktails/amaro-amorino-cocktails/), sweet vermouth
+bourbon, [amaro amorino](https://www.letterpressdistilling.com/cocktails/amaro-amorino-cocktails/), lemon, aperol
 
 ## Classics
 
