@@ -5,9 +5,8 @@
   "author": "Zach Morrissey",
   "license": "MIT",
   "dependencies": {
-    "@fontsource/patua-one": "^4.5.5",
-    "@fontsource/work-sans": "^4.5.7",
     "bulma": "^0.9.3",
+    "clsx": "^1.1.1",
     "preact": "^10.6.5",
     "zustand": "^3.6.9"
   },
@@ -21,6 +20,8 @@
     "format-check": "prettier --check ./assets"
   },
   "devDependencies": {
+    "@fontsource/patua-one": "^4.5.5",
+    "@fontsource/work-sans": "^4.5.7",
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "eslint": "^8.7.0",
     "postcss": "^8.4.12",

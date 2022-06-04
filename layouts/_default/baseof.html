@@ -2,6 +2,7 @@
 <html
   xmlns="http://www.w3.org/1999/xhtml"
   {{ with .Site.LanguageCode }} xml:lang="{{.}}" lang="{{.}}" {{end}}
+  class="is-clipped"
 >
 <head>
   {{ partial "header/site.html" . }}
@@ -9,6 +10,7 @@
   {{ partial "header/seo.html" . }}
 </head>
 <body>
+  <div id="nav-modal"></div>
   {{ partialCached "nav.html" . }}
   <div id="body">
     {{ block "main" . }}

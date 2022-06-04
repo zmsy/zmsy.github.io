@@ -707,3 +707,49 @@ svg {
     }
   }
 }
+
+/* MODAL */
+
+.modal {
+  .modal-content {
+    background-color: var(--backgroundColor);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0rem 0.5rem;
+    width: fit-content;
+    min-height: 15rem;
+
+    .modal-horizontal-separator {
+      padding: 1rem 1.5rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      li {
+        a {
+          display: flex;
+          flex-flow: row nowrap;
+
+          span {
+            padding: 0.5rem;
+            font-family: $subtitle-fonts;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--subtitleTextColor);
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+          }
+
+          img {
+            height: 5rem;
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
