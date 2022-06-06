@@ -720,7 +720,15 @@ svg {
     min-height: 15rem;
 
     .modal-horizontal-separator {
-      padding: 1rem 1.5rem;
+      width: 8rem;
+      padding: 1rem 0rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .modal-icon {
+      height: 5rem;
+      padding: 0.5rem;
     }
 
     ul {
@@ -742,11 +750,6 @@ svg {
             display: flex;
             flex-flow: column nowrap;
             justify-content: center;
-          }
-
-          img {
-            height: 5rem;
-            padding: 0.5rem;
           }
         }
       }

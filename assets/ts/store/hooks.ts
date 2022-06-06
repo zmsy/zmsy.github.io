@@ -1,4 +1,4 @@
-import create from "zustand";
+import create from "zustand/esm";
 import { ZmsyState } from "./types";
 
 import { baseStore } from "./store";
