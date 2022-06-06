@@ -1,0 +1,132 @@
+diff --git a/node_modules/zustand/context.d.ts b/node_modules/zustand/context.d.ts
+index 5ef5dad..e1cd303 100644
+--- a/node_modules/zustand/context.d.ts
++++ b/node_modules/zustand/context.d.ts
+@@ -1,4 +1,4 @@
+-import { ReactNode } from 'react';
++import { ReactNode } from 'preact/compat';
+ import { EqualityChecker, State, StateSelector, UseBoundStore } from 'zustand';
+ /**
+  * @deprecated Use `typeof MyContext.useStore` instead.
+diff --git a/node_modules/zustand/context.js b/node_modules/zustand/context.js
+index 4ecac6e..7f6d94a 100644
+--- a/node_modules/zustand/context.js
++++ b/node_modules/zustand/context.js
+@@ -2,7 +2,7 @@
+ 
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+-var react = require('react');
++var react = require('preact/compat');
+ 
+ function createContext() {
+   var ZustandContext = react.createContext(undefined);
+diff --git a/node_modules/zustand/esm/context.d.ts b/node_modules/zustand/esm/context.d.ts
+index 5ef5dad..e1cd303 100644
+--- a/node_modules/zustand/esm/context.d.ts
++++ b/node_modules/zustand/esm/context.d.ts
+@@ -1,4 +1,4 @@
+-import { ReactNode } from 'react';
++import { ReactNode } from 'preact/compat';
+ import { EqualityChecker, State, StateSelector, UseBoundStore } from 'zustand';
+ /**
+  * @deprecated Use `typeof MyContext.useStore` instead.
+diff --git a/node_modules/zustand/esm/context.js b/node_modules/zustand/esm/context.js
+index ee29428..b02daa2 100644
+--- a/node_modules/zustand/esm/context.js
++++ b/node_modules/zustand/esm/context.js
+@@ -1,4 +1,4 @@
+-import { createContext as createContext$1, useRef, createElement, useContext, useMemo } from 'react';
++import { createContext as createContext$1, useRef, createElement, useContext, useMemo } from 'preact/compat';
+ 
+ function createContext() {
+   const ZustandContext = createContext$1(void 0);
+diff --git a/node_modules/zustand/esm/context.mjs b/node_modules/zustand/esm/context.mjs
+index ee29428..b02daa2 100644
+--- a/node_modules/zustand/esm/context.mjs
++++ b/node_modules/zustand/esm/context.mjs
+@@ -1,4 +1,4 @@
+-import { createContext as createContext$1, useRef, createElement, useContext, useMemo } from 'react';
++import { createContext as createContext$1, useRef, createElement, useContext, useMemo } from 'preact/compat';
+ 
+ function createContext() {
+   const ZustandContext = createContext$1(void 0);
+diff --git a/node_modules/zustand/esm/index.js b/node_modules/zustand/esm/index.js
+index 2383c4c..6bf4eb7 100644
+--- a/node_modules/zustand/esm/index.js
++++ b/node_modules/zustand/esm/index.js
+@@ -1,4 +1,4 @@
+-import { useReducer, useRef, useDebugValue, useEffect, useLayoutEffect } from 'react';
++import { useReducer, useRef, useDebugValue, useEffect, useLayoutEffect } from 'preact/compat';
+ 
+ function createStore(createState) {
+   let state;
+diff --git a/node_modules/zustand/esm/index.mjs b/node_modules/zustand/esm/index.mjs
+index 2383c4c..6bf4eb7 100644
+--- a/node_modules/zustand/esm/index.mjs
++++ b/node_modules/zustand/esm/index.mjs
+@@ -1,4 +1,4 @@
+-import { useReducer, useRef, useDebugValue, useEffect, useLayoutEffect } from 'react';
++import { useReducer, useRef, useDebugValue, useEffect, useLayoutEffect } from 'preact/compat';
+ 
+ function createStore(createState) {
+   let state;
+diff --git a/node_modules/zustand/index.js b/node_modules/zustand/index.js
+index c55fe1e..985b8bc 100644
+--- a/node_modules/zustand/index.js
++++ b/node_modules/zustand/index.js
+@@ -2,7 +2,7 @@
+ 
+ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+-var react = require('react');
++var react = require('preact/compat');
+ 
+ function createStore(createState) {
+   var state;
+diff --git a/node_modules/zustand/system/context.development.js b/node_modules/zustand/system/context.development.js
+index d94bb20..c627834 100644
+--- a/node_modules/zustand/system/context.development.js
++++ b/node_modules/zustand/system/context.development.js
+@@ -1,4 +1,4 @@
+-System.register(['react'], (function (exports) {
++System.register(['preact/compat'], (function (exports) {
+   'use strict';
+   var createContext$1, useRef, createElement, useContext, useMemo;
+   return {
+diff --git a/node_modules/zustand/system/index.development.js b/node_modules/zustand/system/index.development.js
+index e5985fa..e48019c 100644
+--- a/node_modules/zustand/system/index.development.js
++++ b/node_modules/zustand/system/index.development.js
+@@ -1,4 +1,4 @@
+-System.register(['react'], (function (exports) {
++System.register(['preact/compat'], (function (exports) {
+   'use strict';
+   var useReducer, useRef, useDebugValue, useEffect, useLayoutEffect;
+   return {
+diff --git a/node_modules/zustand/umd/context.development.js b/node_modules/zustand/umd/context.development.js
+index b0137d1..62b4c42 100644
+--- a/node_modules/zustand/umd/context.development.js
++++ b/node_modules/zustand/umd/context.development.js
+@@ -1,6 +1,6 @@
+ (function (global, factory) {
+-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
+-  typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
++  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('preact/compat')) :
++  typeof define === 'function' && define.amd ? define(['exports', 'preact/compat'], factory) :
+   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.zustandContext = {}, global.React));
+ })(this, (function (exports, react) { 'use strict';
+ 
+diff --git a/node_modules/zustand/umd/index.development.js b/node_modules/zustand/umd/index.development.js
+index 0271d68..735eee7 100644
+--- a/node_modules/zustand/umd/index.development.js
++++ b/node_modules/zustand/umd/index.development.js
+@@ -1,6 +1,6 @@
+ (function (global, factory) {
+-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
+-  typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
++  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('preact/compat')) :
++  typeof define === 'function' && define.amd ? define(['exports', 'preact/compat'], factory) :
+   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.zustand = {}, global.React));
+ })(this, (function (exports, react) { 'use strict';
+ 
