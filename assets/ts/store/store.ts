@@ -3,7 +3,7 @@
  */
 
 import { getStartingPalette } from "../app/colors";
-import create from "zustand/esm/vanilla";
+import create from "zustand/vanilla";
 
 import { ZmsyState } from "./types";
 
