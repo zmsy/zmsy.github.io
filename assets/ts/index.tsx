@@ -7,7 +7,6 @@ import { render } from "preact";
 
 import { Modal } from "./components";
 import { baseStore } from "./store";
-// import { ColorPicker } from "./components";
 
 // toggle the active menu on tap
 document.getElementById("navbar-toggle").addEventListener("click", function () {
@@ -20,3 +19,7 @@ const navModal = document.getElementById("nav-modal");
 if (navModal) {
   render(<Modal id="nav-modal" />, navModal);
 }
+
+document.addEventListener("load", (e) => {
+  console.log(`Document loaded: ${e.timeStamp}`);
+});
