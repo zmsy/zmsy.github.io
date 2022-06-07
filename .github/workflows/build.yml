@@ -25,7 +25,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.81.0"
+          hugo-version: "0.100.1"
           extended: true
 
       - name: NPM Install
@@ -35,7 +35,7 @@ jobs:
         run: npm run format-check
 
       - name: Build
-        run: HUGO_ENVIRONMENT=production hugo -v --minify
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
