@@ -1,13 +1,7 @@
-{{ $inject := slice "ts/preact-inject.ts" }}
-{{ $externals := slice "react" "react-dom" }}
 {{ $minify := not .Site.BuildDrafts }}
 {{ $settings := dict
   "minify" $minify
   "target" "es2018"
-  "inject" $inject
-  "externals" $externals
-  "JSXFactory" "h"
-  "JSXFragment" "Fragment"
   "format" "esm"
 }}
 {{/* Built the JS and apply a secure fingerprint. */}}
