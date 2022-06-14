@@ -34,6 +34,10 @@ jobs:
       - name: NPM Check Formatting
         run: npm run format-check
 
+        # zustand/preact package patching
+      - name: NPM Patch Package
+        run: npm run patch
+
       - name: Build
         run: npm run build
 
