@@ -5,10 +5,8 @@
   "author": "Zach Morrissey",
   "license": "MIT",
   "dependencies": {
-    "bulma": "^0.9.4",
-    "clsx": "^1.1.1",
-    "preact": "^10.7.3",
-    "zustand": "^3.7.2"
+    "alpinejs": "^3.10.2",
+    "bulma": "^0.9.4"
   },
   "scripts": {
     "dev": "hugo server",
@@ -19,6 +17,7 @@
     "format-check": "prettier --check ./assets"
   },
   "devDependencies": {
+    "@types/alpinejs": "^3.7.0",
     "@fontsource/patua-one": "^4.5.7",
     "@fontsource/work-sans": "^4.5.10",
     "@fullhuman/postcss-purgecss": "^4.1.3",
