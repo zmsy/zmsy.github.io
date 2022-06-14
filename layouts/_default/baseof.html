@@ -10,7 +10,7 @@
   {{ partial "header/seo.html" . }}
 </head>
 <body>
-  <div id="nav-modal"></div>
+  {{ partialCached "modal.html" . }}
   {{ partialCached "nav.html" . }}
   <div id="body">
     {{ block "main" . }}

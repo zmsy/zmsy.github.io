@@ -1,0 +1,61 @@
+<div
+  class="modal"
+  x-data
+  x-show="$store.nav.open"
+  :class="{ 'is-active': $store.nav.open }"
+>
+  <div class="modal-background" x-on:click="$store.nav.toggle()"></div>
+  <div class="modal-content">
+    {{ partial "svg.html" (dict
+      "src" "assets/img/horizontal-separator.svg"
+      "class" "modal-horizontal-separator"
+    ) }}
+    <ul>
+      <li>
+        <a href="/">
+          {{ partial "svg.html" (dict
+            "src" "assets/img/icons/home-icon.svg"
+            "class" "modal-icon"
+          ) }}
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/blog">
+          {{ partial "svg.html" (dict
+            "src" "assets/img/icons/blog-icon.svg"
+            "class" "modal-icon"
+          ) }}
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
+        <a href="/recipes">
+          {{ partial "svg.html" (dict
+            "src" "assets/img/icons/recipes-icon.svg"
+            "class" "modal-icon"
+          ) }}
+          <span>Recipes</span>
+        </a>
+      </li>
+      <li>
+        <a href="/about">
+          {{ partial "svg.html" (dict
+            "src" "assets/img/icons/about-icon.svg"
+            "class" "modal-icon"
+          ) }}
+          <span>About</span>
+        </a>
+      </li>
+    </ul>
+    {{ partial "svg.html" (dict
+      "src" "assets/img/horizontal-separator.svg"
+      "class" "modal-horizontal-separator"
+    ) }}
+  </div>
+  <button
+    class="modal-close is-large"
+    aria-label="close"
+    x-on:click="$store.nav.toggle()"
+  ></button>
+</div>

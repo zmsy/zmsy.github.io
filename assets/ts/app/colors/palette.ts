@@ -1,5 +1,6 @@
 /** Custom color palettes. */
 
+import { setPaletteCSS } from "./util";
 import { Palette } from "./types";
 
 /** Default set of colors for the site */
@@ -42,24 +43,32 @@ export const defaultPaletteDark: Palette = {
  * Default set of palettes to make available from the custom
  * color picker option.
  */
-export const paletteList: Array<Palette> = [
-  defaultPaletteLight,
-  defaultPaletteDark,
-];
+export const palettesMap = {
+  light: defaultPaletteLight,
+  dark: defaultPaletteDark,
+};
+export type PaletteKey = keyof typeof palettesMap;
+
+/**
+ * Set a palette active by name.
+ */
+export const setPaletteActive = (key: PaletteKey) => {
+  setPaletteCSS(palettesMap[key]);
+};
 
 /**
  * Determine which palette should be used as a starting point.
  */
-export const getStartingPalette = (): Palette => {
+export const getStartingPalette = (): PaletteKey => {
   // Check to see if the user has dark mode enabled in CSS. First need
   // to check if the `matchMedia` is defined because otherwise the browser
   // doesn't support dark mode.
-  let startingPalette: Palette = defaultPaletteLight;
+  let startingPalette: PaletteKey = "light";
   if (
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   ) {
-    startingPalette = defaultPaletteDark;
+    startingPalette = "dark";
   }
   return startingPalette;
 };
