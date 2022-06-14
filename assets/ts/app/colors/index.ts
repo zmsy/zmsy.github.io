@@ -1,3 +1,3 @@
 export * from "./palette";
-export * from "./color-util";
+export * from "./util";
 export * from "./types";
