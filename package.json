@@ -16,13 +16,15 @@
     "new-blog": "hugo new --kind blog-bundle",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "format": "prettier --write ./assets",
-    "format-check": "prettier --check ./assets"
+    "format-check": "prettier --check ./assets",
+    "patch": "patch-package"
   },
   "devDependencies": {
     "@fontsource/patua-one": "^4.5.7",
     "@fontsource/work-sans": "^4.5.10",
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "eslint": "^8.17.0",
+    "patch-package": "^6.4.7",
     "postcss": "^8.4.14",
     "postcss-cli": "^9.1.0",
     "prettier": "^2.6.2",
