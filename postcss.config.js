@@ -11,6 +11,8 @@ module.exports = {
         "modal-background",
         "modal-content",
         "modal-close",
+        "modal-icon",
+        "modal-horizontal-separator",
       ],
     },
   },
