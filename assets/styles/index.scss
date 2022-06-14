@@ -712,6 +712,7 @@ svg {
 
 /* MODAL */
 
+/*! postcss start ignore */
 .modal {
   .modal-content {
     background-color: var(--backgroundColor);
@@ -758,3 +759,4 @@ svg {
     }
   }
 }
+/*! postcss end ignore */
