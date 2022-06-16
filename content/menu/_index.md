@@ -3,35 +3,33 @@ title: "House Menu"
 description: "What's on tap at the Morrissey household?"
 ---
 
-# Drinks
-
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_May 25, 2022_
+_June 24th, 2022_
 
 ## This Week's Specials
 
-##### Tamarind Daiquiri
+##### PNW Collins
 
-Rum, [tamarind stock](https://www.foodandwine.com/cocktails-spirits/tamarind-cocktails#45cf8e57563dceb429d1d4a6f5b99556), lime juice
+gin, [brovo douglas fir liqueur](https://brovospirits.com/douglas-fir-liqueur/), lime, soda
 
-##### Mai Tai
+##### Brown Butter Sour
 
-Rum, lime, grand marnier, orgeat
+bourbon, brown butter syrup, lemon
 
-##### Hibiscus Collins
+##### UW Dawg Pride
 
-gin, lemon, [hibiscus syrup](https://imbibemagazine.com/recipe/summer-gimlet-recipe-van-down-by-the-river/), sparkling water
+white rum, [purple ube syrup](https://www.tastingtable.com/686195/ube-syrup-cocktail-recipe-liquor-lab/), lemon
 
-##### Seattle Paper Plane
+##### Rosé Manhattan
 
-bourbon, [amaro amorino](https://www.letterpressdistilling.com/cocktails/amaro-amorino-cocktails/), lemon, aperol
+bourbon, [rosé vermouth](https://brovospirits.com/pink-rose-vermouth/), orange bitters
 
 ## Classics
 
 ##### Old Fashioned
 
-bourbon, maple syrup, bitters
+bourbon, maple syrup, house bitters
 
 ##### Planter's Punch
 

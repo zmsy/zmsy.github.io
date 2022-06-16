@@ -526,6 +526,11 @@ svg {
   font-weight: normal;
   font-size: 4.5rem;
   color: var(--titleTextColor);
+
+  &:not(.is-spaced) + .subtitle {
+    // override default bulma spacing
+    margin-top: 0rem;
+  }
 }
 
 .subtitle {
@@ -712,7 +717,6 @@ svg {
 
 /* MODAL */
 
-/*! postcss start ignore */
 .modal {
   .modal-content {
     background-color: var(--backgroundColor);
@@ -760,4 +764,3 @@ svg {
     }
   }
 }
-/*! postcss end ignore */
