@@ -455,7 +455,7 @@ svg {
 /** PAGE SPACING */
 .blog-post,
 .blog-preview {
-  margin-bottom: 3rem;
+  margin-bottom: 8rem;
 }
 
 .pagination {
@@ -540,6 +540,10 @@ svg {
   color: var(--titleTextColor);
 }
 
+#blog-preview-container {
+  max-width: 45rem;
+}
+
 .blog-preview-title {
   font-family: $hero-fonts;
   font-weight: normal;
@@ -570,6 +574,11 @@ svg {
     max-width: 7rem;
     margin: 1rem 0rem;
   }
+}
+
+/* RECIPES PAGE */
+.recipes-container {
+  margin: 0rem auto;
 }
 
 /* ABOUT PAGE */
@@ -692,6 +701,7 @@ svg {
   background-color: var(--secondaryBackgroundColor);
   color: var(--backgroundColor);
   border-top: 1rem solid var(--backgroundAccentColor);
+  padding-top: 2rem;
 
   strong {
     color: var(--backgroundColor);
@@ -699,7 +709,7 @@ svg {
 
   & .footer-dots {
     max-width: 25rem;
-    margin: 0.25rem auto;
+    margin: 1rem auto;
   }
 
   & #footer-icons {

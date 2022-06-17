@@ -1,29 +1,27 @@
-<section class="section">
-  <div class="blog-preview">
-    <h2>
-      <a class="blog-preview-title is-size-2-touch" href="{{ .Permalink }}">
-        {{ .Title }}
-      </a>
-    </h2>
-    <p class="meta">
-      written by
-      <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
-        {{ .Site.Params.AuthorName }}
-      </a>
-      on {{ .PublishDate.Format "2006-01-02" }}
-    </p>
-    <p>
-      {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class" "hero-diamonds") }}
-    </p>
-    <p class="blog-preview-description">{{ .Description | safeHTML }}</p>
-    <div class="blog-preview-link-holder">
-      <a href="{{ .Permalink }}">Read More</a>
-      <a href="{{ .Permalink }}">
-        {{ partial "svg.html" (dict
-          "src" "assets/img/blog-preview-link.svg"
-          "class" "blog-preview-link"
-        ) }}
-      </a>
-    </div>
+<div class="blog-preview">
+  <h2>
+    <a class="blog-preview-title is-size-2-touch" href="{{ .Permalink }}">
+      {{ .Title }}
+    </a>
+  </h2>
+  <p class="meta">
+    written by
+    <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
+      {{ .Site.Params.AuthorName }}
+    </a>
+    on {{ .PublishDate.Format "2006-01-02" }}
+  </p>
+  <p>
+    {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class" "hero-diamonds") }}
+  </p>
+  <p class="blog-preview-description">{{ .Description | safeHTML }}</p>
+  <div class="blog-preview-link-holder">
+    <a href="{{ .Permalink }}">Read More</a>
+    <a href="{{ .Permalink }}">
+      {{ partial "svg.html" (dict
+        "src" "assets/img/blog-preview-link.svg"
+        "class" "blog-preview-link"
+      ) }}
+    </a>
   </div>
-</section>
+</div>
