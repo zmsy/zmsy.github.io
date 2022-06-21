@@ -12,9 +12,11 @@
 <body>
   <div id="nav-modal"></div>
   {{ partialCached "nav.html" . }}
-  {{ block "main" . }}
-  <!-- Main content div -->
-  {{ end }}
+  <div id="body">
+    {{ block "main" . }}
+    <!-- Main content div -->
+    {{ end }}
+  </div>
   {{ partialCached "footer.html" . }}
   {{ partial "scripts.html" . }}
   {{ template "_internal/google_analytics_async.html" . }}
