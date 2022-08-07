@@ -5,7 +5,7 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_June 24th, 2022_
+_Auguest 6th, 2022_
 
 ## This Week's Specials
 
