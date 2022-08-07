@@ -9,21 +9,25 @@ _June 24th, 2022_
 
 ## This Week's Specials
 
-##### PNW Collins
+##### Bianco Negroni
 
-gin, [brovo douglas fir liqueur](https://brovospirits.com/douglas-fir-liqueur/), lime, soda
+gin, sweet vermouth, [fast penny spirits amaricano bianca](https://shop.fastpennyspirits.com/products/amaricano-bianca)
+
+##### Stiggins Fancy Daiquiri
+
+[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), lime, simple syrup
 
 ##### Brown Butter Sour
 
 bourbon, brown butter syrup, lemon
 
-##### UW Dawg Pride
+##### Gin Basil Melon Smash
 
-white rum, [purple ube syrup](https://www.tastingtable.com/686195/ube-syrup-cocktail-recipe-liquor-lab/), lemon
+gin, melon oleo saccharum, basil, lemon
 
-##### Rosé Manhattan
+##### Paloma
 
-bourbon, [rosé vermouth](https://brovospirits.com/pink-rose-vermouth/), orange bitters
+tequila, lime, grapefruit soda
 
 ## Classics
 
