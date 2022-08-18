@@ -5,21 +5,17 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Auguest 6th, 2022_
+_Auguest 17th, 2022 - Happy Bday Shane!_
 
 ## This Week's Specials
 
 ##### Bianco Negroni
 
-gin, sweet vermouth, [fast penny spirits amaricano bianca](https://shop.fastpennyspirits.com/products/amaricano-bianca)
+gin, dry vermouth, [fast penny spirits amaricano bianca](https://shop.fastpennyspirits.com/products/amaricano-bianca)
 
-##### Stiggins Fancy Daiquiri
+##### Triple Yellow
 
-[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), lime, simple syrup
-
-##### Brown Butter Sour
-
-bourbon, brown butter syrup, lemon
+[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), lemon, pineapple syrup
 
 ##### Gin Basil Melon Smash
 
