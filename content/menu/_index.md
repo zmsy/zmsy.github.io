@@ -5,7 +5,7 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Auguest 17th, 2022 - Happy Bday Shane!_
+_Auguest 24th, 2022 - Cheers to Mont Blanc!_
 
 ## This Week's Specials
 
@@ -13,13 +13,17 @@ _Auguest 17th, 2022 - Happy Bday Shane!_
 
 gin, dry vermouth, [fast penny spirits amaricano bianca](https://shop.fastpennyspirits.com/products/amaricano-bianca)
 
-##### Triple Yellow
+##### Tropical Old Fashioned
 
-[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), lemon, pineapple syrup
+[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), melon syrup 
 
-##### Gin Basil Melon Smash
+##### Pine Marten
 
-gin, melon oleo saccharum, basil, lemon
+vodka, [douglas fir liqueur](https://brovospirits.com/douglas-fir-liqueur/), dry vermouth
+
+##### Pineapple Collins
+
+gin, lemon, pineapple syrup, sparkling water
 
 ##### Paloma
 
