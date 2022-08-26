@@ -21,25 +21,21 @@
 
           <!-- card content -->
           <div class="card-content">
-            <div class="level is-mobile">
-              <div class="level-left">
-                <div class="level-item">
-                  {{ partial "svg.html" (dict
-                    "src" "assets/img/projects-logo.svg"
-                    "class" "about-logo" 
-                  )}}
-                </div>
+            <div id="main">
+              <div>
+                {{ partial "svg.html" (dict
+                  "src" "assets/img/projects-logo.svg"
+                  "class" "about-logo" 
+                )}}
+              </div>
 
-                <div class="level-item">
-                  <div>
-                    <p id="about-cardtitle">{{ .Site.Params.AuthorName }}</p>
-                    <p>
-                      <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
-                        @{{ .Site.Params.TwitterHandle }}
-                      </a>
-                    </p>
-                  </div>
-                </div>
+              <div>
+                <p id="about-cardtitle">{{ .Site.Params.AuthorName }}</p>
+                <p>
+                  <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
+                    @{{ .Site.Params.TwitterHandle }}
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -49,31 +45,21 @@
               {{ .Params.Tagline | markdownify }}
             </div>
 
-            <!-- level -->
-            <div class="level is-mobile">
-              <a class="level-item" href="{{ .Site.Params.AuthorEmail }}">
+            <!-- icons array -->
+            <div id="icons">
+              <a href="{{ .Site.Params.AuthorEmail }}">
                 <span class="icon-envelope"></span>
               </a>
-              <a
-                class="level-item"
-                href="{{ .Site.Params.LinkedInUrl }}"
-              >
+              <a href="{{ .Site.Params.LinkedInUrl }}">
                 <span class="icon-linkedin-square"></span>
               </a>
-              <a
-                class="level-item"
-                href="https://twitter.com/{{ .Site.Params.TwitterHandle }}"
-              >
+              <a href="https://twitter.com/{{ .Site.Params.TwitterHandle }}">
                 <span class="icon-twitter"></span>
               </a>
-              <a
-                class="level-item"
-                href="https://github.com/{{ .Site.Params.GithubUser }}"
-              >
+              <a href="https://github.com/{{ .Site.Params.GithubUser }}">
                 <span class="icon-github"></span>
               </a>
               <a
-                class="level-item"
                 href="https://www.instagram.com/howiethesamoyed"
                 alt="Like the dog? Here's his Instagram!"
               >
