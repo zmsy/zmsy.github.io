@@ -30,7 +30,7 @@ export const ColorPicker: FunctionComponent = () => {
   useEffect(() => setPaletteCSS(colorPalette), [colorPalette]);
 
   return (
-    <button class="button dark-mode-selector" onClick={toggleDarkMode}>
+    <button class="dark-mode-selector" onClick={toggleDarkMode}>
       <p id="rainbow-label">Choose Color Theme</p>
       <p id="rainbow" />
     </button>
