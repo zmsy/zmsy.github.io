@@ -1,9 +1,10 @@
 ---
 type: recipe
+layout: recipe
 title: Scrub-Jay
-description: A sweetened vinegar reduction gives this spiced old-fashioned riff with a slighty tangy, sour twist.
-subtitle: A sweetened vinegar reduction gives this spiced old-fashioned riff with a slighty tangy, sour twist.
-kingdom: drink
+description: A sweetened vinegar reduction gives this spiced old-fashioned riff a slighty tangy, sour twist.
+subtitle: A sweetened vinegar reduction gives this spiced old-fashioned riff a slighty tangy, sour twist.
+kingdom: drinks
 category: cocktails
 publishDate: 2018-03-01
 recipeIngredients:
@@ -19,12 +20,11 @@ recipeYield:
 cookTime: PT10M
 prepTime: PT05M
 totalTime: PT15M
-draft: true
 ---
 
 A beautiful vinegar reduction sauce can be the absolute star of an savory dish; retaining some its hallmark sour flavor, but taking on a sweeter and more viscous form. It adds a tart counterpoint to an otherwise rich meal.
 
-In the Scrub-Jay, a vinegar reduction plays a similar role, but is used to add some additional character to a normally dark and spirit-forward drink. The end result is a well-rounded, savory take on an old-fashioned that give it a unique 
+In the Scrub-Jay, a vinegar reduction plays a similar role, but is used to add some additional character to a normally dark and spirit-forward drink. The end result is a well-rounded, savory take on an old-fashioned that give it a distinctly unique appeal.
 
 ## Making the Reduction
 

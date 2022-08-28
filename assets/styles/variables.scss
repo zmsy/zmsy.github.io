@@ -28,10 +28,16 @@ $accent4DefaultColor: #fbd136;
 html {
   --backgroundColor: #faf9f9;
   --backgroundAccentColor: #dcdbd9;
+  /** opposite background color. */
   --secondaryBackgroundColor: #2a363b;
+  /** h1, nav */
   --titleTextColor: #100b03;
+  /** h2, h3 */
   --subtitleTextColor: #38332a;
+  /** Main body font color. */
   --textColor: #3f3b35;
+  /** Light text color, minimum WCAG standard contrast. */
+  --textColorLowContrast: #7b7262;
   --accent1Color: #d85d44;
   --accent2Color: #3a89c9;
   --accent3Color: #9665c7;
@@ -49,6 +55,7 @@ html {
     --titleTextColor: #faf9f9;
     --subtitleTextColor: #dcdbd9;
     --textColor: #dcdbd9;
+    --textColorLowContrast: #c8bfaf;
     --accent1Color: #fbd136;
     --accent2Color: #d85d44;
     --accent3Color: #3a89c9;

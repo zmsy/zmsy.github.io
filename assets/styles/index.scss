@@ -542,8 +542,44 @@ svg {
 }
 
 /* RECIPES PAGE */
-.recipes-container {
-  margin: 0rem auto;
+.recipe-list {
+  display: flex;
+  flex-flow: row wrap;
+
+  .recipe-card {
+    max-width: calc((100% / 3) - (2 * 1rem));
+    background: var(--backgroundColor);
+    box-shadow: none;
+    border: 1px solid var(--backgroundAccentColor);
+
+    // .recipe-card-image {}
+    .recipe-card-content {
+      .recipe-card-title {
+        color: var(--titleTextColor);
+        margin-bottom: 0.25rem;
+      }
+
+      .recipe-card-subtitle {
+        margin-bottom: 0.5rem;
+        color: var(--textColorLowContrast);
+      }
+
+      .recipe-card-description {
+        color: var(--textColor);
+        font-size: large;
+        margin-bottom: 1rem;
+      }
+
+      .recipe-card-date {
+        color: var(--accent2Color);
+      }
+
+      hr {
+        height: 0.25rem;
+        background-color: var(--backgroundAccentColor);
+      }
+    }
+  }
 }
 
 /* ABOUT PAGE */
@@ -554,7 +590,7 @@ svg {
   color: var(--titleTextColor);
 
   /** Main section w/ name and info. */
-  #main {
+  #about-card-main {
     display: flex;
     align-items: center;
     align-content: flex-start;

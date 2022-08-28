@@ -1,10 +1,13 @@
 {{ define "main" }}
+{{ $paginator := .Paginator }}
 <section class="section" id="main">
   <div class="container is-max-desktop">
-      {{ partial "hero.html" . }}
-      <div class="content">
-        {{ .Content }}
-      </div>
+    {{ partial "hero.html" . }}
+    <div class="recipe-list">
+    {{ range $paginator.Pages }}
+    {{ partial "recipe_preview.html" . }}
+    {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}

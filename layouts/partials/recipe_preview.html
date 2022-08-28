@@ -1,0 +1,14 @@
+<div class="card recipe-card">
+  <div class="card-image recipe-card-image">
+    <figure class="image is-4by3">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Image of {{ .Title }} recipe.">
+    </figure>
+  </div>
+  <div class="card-content recipe-card-content">
+    <p class="title recipe-card-title is-3">{{ .Title }}</p>
+    <p class="subtitle recipe-card-subtitle is-6">{{ .Params.Kingdom }} > {{ .Params.Category }}</p>
+    <hr>
+    <p class="recipe-card-description">{{ .Description }}</p>
+    <p class="recipe-card-date">{{ .PublishDate.Format "Jan 2, 2006" }}</p>
+  </div>
+</div>
