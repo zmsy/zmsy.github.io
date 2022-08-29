@@ -545,9 +545,14 @@ svg {
 .recipe-list {
   display: flex;
   flex-flow: row wrap;
+  gap: $recipeGap;
 
   .recipe-card {
-    max-width: calc((100% / 3) - (2 * 1rem));
+    // num entries per row, offset by the calculated gap between them.
+    max-width: calc(
+      (100% / #{$recipesPerRow}) -
+        ((#{$recipeGapsPerRow} * #{$recipeGap}) / #{$recipesPerRow})
+    );
     background: var(--backgroundColor);
     box-shadow: none;
     border: 1px solid var(--backgroundAccentColor);
@@ -555,6 +560,7 @@ svg {
     // .recipe-card-image {}
     .recipe-card-content {
       .recipe-card-title {
+        font-size: 2rem;
         color: var(--titleTextColor);
         margin-bottom: 0.25rem;
       }
@@ -571,12 +577,14 @@ svg {
       }
 
       .recipe-card-date {
+        font-size: small;
         color: var(--accent2Color);
       }
 
       hr {
-        height: 0.25rem;
-        background-color: var(--backgroundAccentColor);
+        margin: 0.75rem 0rem;
+        height: 0.125rem;
+        background-color: var(--accent4Color);
       }
     }
   }

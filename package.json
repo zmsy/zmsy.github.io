@@ -14,6 +14,7 @@
     "dev": "hugo server",
     "preview": "npm run dev -- -D -F",
     "new-blog": "hugo new --kind blog-bundle",
+    "new-recipe": "hugo new --kind recipe-bundle",
     "build": "HUGO_ENVIRONMENT=production hugo -v --minify",
     "format": "prettier --write ./assets",
     "format-check": "prettier --check ./assets",

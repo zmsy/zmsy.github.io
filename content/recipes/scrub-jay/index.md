@@ -1,12 +1,12 @@
 ---
-type: recipe
-layout: recipe
+type: recipes
+layout: recipes
 title: Scrub-Jay
 description: A sweetened vinegar reduction gives this spiced old-fashioned riff a slighty tangy, sour twist.
 subtitle: A sweetened vinegar reduction gives this spiced old-fashioned riff a slighty tangy, sour twist.
 kingdom: drinks
 category: cocktails
-publishDate: 2018-03-01
+publishDate: 2022-04-01
 recipeIngredients:
 - "2oz Bourbon"
 - "0.5oz Sweetened Vinegar Reduction"

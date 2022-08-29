@@ -17,7 +17,8 @@ $subtitle-fonts: Patua One, Lucida Bright, sans-serif;
 $reading-fonts: "Work Sans", sans-serif;
 $code-fonts: monaco, Consolas, Andale Mono, Lucida Console, monospace;
 
-/* COLORS */
+/* COLOR THEME */
+
 $svgDefaultColor: #38332a;
 $svgAlternateColor: #faf9f9;
 $accent1DefaultColor: #d85d44;
@@ -63,6 +64,15 @@ html {
     --illustrationsColor: #dcdbd9;
   }
 }
+
+/** RECIPES PAGE */
+
+/** Gap between recipes in the flex list. */
+$recipeGap: 1rem;
+/** How many recipes should show up in each row. */
+$recipesPerRow: 3;
+/** Number of gaps between entries, there's no gap on each end. */
+$recipeGapsPerRow: $recipesPerRow - 1;
 
 // overridde bulma colors, this is to have it default to the light theme
 $black: #100b03; // `icons` default body font, largely unused except for icons

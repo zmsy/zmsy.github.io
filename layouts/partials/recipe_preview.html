@@ -5,7 +5,7 @@
     </figure>
   </div>
   <div class="card-content recipe-card-content">
-    <p class="title recipe-card-title is-3">{{ .Title }}</p>
+    <a class="title recipe-card-title" href="{{ .Permalink }}">{{ .Title }}</a>
     <p class="subtitle recipe-card-subtitle is-6">{{ .Params.Kingdom }} > {{ .Params.Category }}</p>
     <hr>
     <p class="recipe-card-description">{{ .Description }}</p>

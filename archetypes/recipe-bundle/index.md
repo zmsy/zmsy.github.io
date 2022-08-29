@@ -1,5 +1,5 @@
 ---
-type: recipe
+type: recipes
 title: "Recipe title"
 description: "Recipe description"
 subtitle: "Recipe subtitle - shows up just beneath the recipe name"
@@ -7,7 +7,7 @@ publishDate: {{ .Date }}
 # kingdom = highest level categorization on the site
 kingdom: drink
 category: cocktails
-# this is where the recipe JSON-LD is defined
+# --- RECIPE JSON-LD ---
 # reference: https://schema.org/Recipe
 # google required properties:
 # https://developers.google.com/search/docs/advanced/structured-data/recipe#structured-data-type-definitions
