@@ -542,6 +542,7 @@ svg {
 }
 
 /* RECIPES PAGE */
+
 .recipe-list {
   display: flex;
   flex-flow: row wrap;
@@ -562,7 +563,8 @@ svg {
       .recipe-card-title {
         font-size: 2rem;
         color: var(--titleTextColor);
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        display: block;
       }
 
       .recipe-card-subtitle {
@@ -587,6 +589,40 @@ svg {
         background-color: var(--accent4Color);
       }
     }
+  }
+}
+
+/** Individual recipe. */
+.recipe {
+  margin: 3rem 0rem;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid var(--accent1Color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+
+  .recipe-header-prefix {
+    color: var(--accent2Color);
+  }
+
+  ul {
+    list-style: inside;
+    padding: 0rem 1rem;
+
+    li {
+      margin: 0.25rem 0rem;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-family: $hero-fonts;
+    color: var(--subtitleTextColor);
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
 }
 

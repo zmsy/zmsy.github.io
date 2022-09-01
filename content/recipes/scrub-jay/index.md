@@ -43,5 +43,3 @@ As it cools, the mixture will thicken up and become more viscous.
 The [Old-Fashioned](https://www.liquor.com/recipes/bourbon-old-fashioned/) has a myriad variants, and for the most part they all are built of the same parts. A healthy pour of base spirit, a small dose of sweetener, a few dashes of bitters, and some essential oils expressed from a citrus peel. The only _brightness_ or acidity offered to the drink usually is in the form of the citrus expression.
 
 The Scrub-Jay cocktail flips that paradigm on its head by reducing a sour ingredient down to a syrup. It's _just_ acidic to make the drink feel a little lighter, but it's still sweet enough to act as a syrup and sweetener. You get some of the refreshingly sour aspect of a shaken drink without the citrus juice.
-
-## Recipe
