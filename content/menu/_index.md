@@ -5,29 +5,29 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Auguest 24th, 2022 - Cheers to Mont Blanc!_
+_September 29th, 2022 - Happy B-day Kelly!_
 
 ## This Week's Specials
 
-##### Bianco Negroni
+##### Le Manhattenois
 
-gin, dry vermouth, [fast penny spirits amaricano bianca](https://shop.fastpennyspirits.com/products/amaricano-bianca)
+Cognac, [Ratafia Champenois](https://www.champagne-mg.com/ratafia-champenois), Bitters
 
-##### Tropical Old Fashioned
+##### Northern Lights
 
-[pineapple rum](https://www.plantationrum.com/plantation-stiggins-fancy-pineapple), melon syrup 
+Clarified Daiquiri (Rum, Lime, Simple Syrup), Float of Green Chartreuse
 
-##### Pine Marten
+##### Galata Bridge
 
-vodka, [douglas fir liqueur](https://brovospirits.com/douglas-fir-liqueur/), dry vermouth
+Gin, Lemon, Nectarine Syrup, [Orange Blossom Cream](https://www.epicurious.com/recipes/food/views/orange-blossom-cream-363724), Pistachio Brittle Dust
 
-##### Pineapple Collins
+##### Riviera Afternoon (Non-alcoholic)
 
-gin, lemon, pineapple syrup, sparkling water
+Lemon Rhubarb Shrub, Bitters, Soda Water
 
-##### Paloma
+##### Fro' Melo' (Non-alcoholic)
 
-tequila, lime, grapefruit soda
+Lime Juice, Cream of Coconut, Coconut Water, Melon Ice
 
 ## Classics
 
