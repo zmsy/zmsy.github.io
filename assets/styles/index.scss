@@ -222,6 +222,13 @@ a.navbar-item {
     margin-top: 1.5rem;
   }
 
+  a {
+    color: var(--textColor);
+    text-decoration: underline;
+    text-decoration-thickness: 0.125rem;
+    text-decoration-color: var(--accent1Color);
+  }
+
   p,
   ul,
   ol,
