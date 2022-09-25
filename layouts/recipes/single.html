@@ -4,9 +4,16 @@
   <div class="column is-8 is-12-touch">
     <section class="section">
       <div class="content">
+        <a class="jump-to-recipe" href="{{ .Permalink }}#actual-recipe">
+          Jump to Recipe
+        </a>
         {{ .Content }}
+        {{ partial "svg.html" (dict
+          "src" "assets/img/horizontal-separator.txt"
+          "id" "recipe-horizontal-separator"
+        ) }}
+        {{ partial "recipe.html" . }}
       </div>
-      {{ partial "recipe.html" . }}
     </section>
   </div>
 </div>

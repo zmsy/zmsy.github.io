@@ -13,7 +13,7 @@ category: cocktails
 # https://developers.google.com/search/docs/advanced/structured-data/recipe#structured-data-type-definitions
 #
 # array of ingredients for the recipe
-recipeIngredient:
+recipeIngredients:
   - Ingredient 1
 # array of specific instructions for making the recipe
 recipeInstructions:

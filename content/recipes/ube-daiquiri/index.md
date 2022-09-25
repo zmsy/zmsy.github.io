@@ -9,14 +9,15 @@ publishDate: 2022-08-29T08:11:48-07:00
 kingdom: drink
 category: cocktails
 # --- RECIPE JSON-LD ---
-recipeIngredient:
+recipeIngredients:
   - 0.75oz Ube Syrup
   - 0.75oz Lime juice
   - 2oz White Rum
+  - "Garnish: Lime wheel"
 # array of specific instructions for making the recipe
 recipeInstructions:
-  - For the Ube Syrup: Combine 1:1 simple syrup with ube extract at a 35:1 ratio. 
-  - Add all ingredients to shaker and shake vigorously to combine. Double-strain into a chilled glass and garnish with a lime wheel (if desired).
+  - "For the Ube Syrup: Combine 6oz of 1:1 simple syrup with 1tsp of Ube extract. Shake vigorously to combine. "
+  - Add all ingredients to shaker and shake vigorously to combine. Double-strain into a chilled glass and garnish with a lime wheel.
 recipeYield:
   - 1 Drink
 cookTime: PT5M
@@ -24,10 +25,16 @@ prepTime: PT15M
 totalTime: PT20M
 ---
 
-While it's commonplace to see Ube-flavored baked goods these days, it's a somewhat ingredient to use in a cocktail. Ube is [a type of yam originating in southeast Asia](https://en.wikipedia.org/wiki/Dioscorea_alata), in reality. It's got a sweet potato-like flavor and a stark, deep purple hue. Combined with sugar, it's reminiscent of a lot of flavors that you may not expect to find: sugary breakfast cereals, cake frosting, honey.
+While it's commonplace to see Ube-flavored baked goods these days, it's a somewhat ingredient to use in a cocktail. Ube is [a type of yam originating in southeast Asia](https://en.wikipedia.org/wiki/Dioscorea_alata), in reality. It's got a sweet potato-like flavor and a stark, deep purple hue. Combined with sugar, it's reminiscent of a lot of flavors that you may not expect to find: sugary breakfast cereals, cake frosting, malt powder, honey.
 
-Using ube extract in a syrup form provides a 
+## Making the Ube Syrup
 
-## Recipe Information
+Using Ube extract in a syrup form is quick and easy, but be very careful: It's great at instantly staining _anything_ it touches. Preferably, do any measuring/combining over a sink or plastic cutting board. Don't wear white.
 
-This is a paragraph.
+If you've not made 1:1 simple syrup before: Combine equal parts sugar and water (by volume or weight, the difference is minimal) in a small saucepan and gently heat over medium-low until all sugar is dissolved. Take off the heat and let cool before saving in a bottle, jar, or other container.
+
+To make the Ube syrup, just add 1tsp for every 6oz of simple syrup. This can be scaled up or down at the same ratio. Using less Ube gives a more vibrant purple color to the finished drink, but a noticeably weaker Ube flavor.
+
+## Why You Should Make This Recipe
+
+The taste of the Ube syrup immediately makes you nostalgic for a variety of tastes that this recipe doesn't even contain. Cake frosting comes to mind, but also baked goods, sweet puff pastry. There's something uniquely bready or malty about the flavor that's hard to pin down. It's delicious and comes as quite a surprise when seeing the inky, opaque look of the drink.

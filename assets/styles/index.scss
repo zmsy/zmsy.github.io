@@ -593,6 +593,21 @@ svg {
 }
 
 /** Individual recipe. */
+.jump-to-recipe {
+  display: block;
+  color: var(--accent1Color);
+  margin: 0rem auto 2rem;
+  text-align: center;
+  font-variant: all-small-caps;
+  font-weight: bold;
+}
+
+#recipe-horizontal-separator {
+  width: 10rem;
+  height: 2rem;
+  margin: 2rem auto;
+}
+
 .recipe {
   margin: 3rem 0rem;
   display: flex;
@@ -600,14 +615,16 @@ svg {
   border: 1px solid var(--accent1Color);
   border-radius: 0.5rem;
   padding: 2rem;
+  font-size: 1.25rem;
 
   .recipe-header-prefix {
     color: var(--accent2Color);
   }
 
   ul {
-    list-style: inside;
-    padding: 0rem 1rem;
+    list-style-type: disc;
+    list-style-position: outside;
+    padding: 0rem 2rem;
 
     li {
       margin: 0.25rem 0rem;
