@@ -462,11 +462,18 @@ svg {
 /* HEROES AND SUBTITLES */
 
 #hero {
-  margin: 1.5rem 0rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 
   & > #hero-body {
     padding: 0rem;
   }
+}
+
+.hero-narrow {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-title {

@@ -25,7 +25,7 @@ prepTime: PT15M
 totalTime: PT20M
 ---
 
-While it's commonplace to see Ube-flavored baked goods these days, it's a somewhat ingredient to use in a cocktail. Ube is [a type of yam originating in southeast Asia](https://en.wikipedia.org/wiki/Dioscorea_alata), in reality. It's got a sweet potato-like flavor and a stark, deep purple hue. Combined with sugar, it's reminiscent of a lot of flavors that you may not expect to find: sugary breakfast cereals, cake frosting, malt powder, honey.
+While it's commonplace to see Ube-flavored baked goods these days, it's still a somewhat uncommon ingredient to use in a cocktail. Ube is [a type of yam originating in southeast Asia](https://en.wikipedia.org/wiki/Dioscorea_alata), in reality. It's got a sweet potato-like flavor and a stark, deep purple hue. Combined with sugar, it's reminiscent of a lot of flavors: sugary breakfast cereals, cake frosting, malt powder, honey.
 
 ## Making the Ube Syrup
 
@@ -37,4 +37,6 @@ To make the Ube syrup, just add 1tsp for every 6oz of simple syrup. This can be 
 
 ## Why You Should Make This Recipe
 
-The taste of the Ube syrup immediately makes you nostalgic for a variety of tastes that this recipe doesn't even contain. Cake frosting comes to mind, but also baked goods, sweet puff pastry. There's something uniquely bready or malty about the flavor that's hard to pin down. It's delicious and comes as quite a surprise when seeing the inky, opaque look of the drink.
+The taste of the Ube syrup imparts a sense of nostalgia for sweets. Cake frosting comes to mind, but also baked goods, sweet pastries. There's something uniquely bready or malty about the flavor that's hard to pin down.  It's delicious and comes as quite a surprise when seeing the inky, opaque look of the drink.
+
+Give it a whirl!

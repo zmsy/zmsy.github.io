@@ -32,6 +32,8 @@ For the reduction, you're looking for a **ratio of 4 parts Apple Cider Vinegar t
 
 Starting with a wide saucepan on medium heat, you add in the ingredients to the reduction and simmer them until reduced by the desired amount (notes in the recipe below, this can be done in two basic ways).
 
+#### Reduction Technique
+
 Get a ruler, a marked bench scraper, a chopstick, or something else with markings on the side and take note of how far up the measuring device the current mixture goes. As the mixture reduces, keep an eye on how far it's reduced by looking at the measuring device once more. This prevents the need to pour off the hot mixture into a measuring cup.
 
 The goal is to **reduce to the mixture to about 1/3 of it's original volume**. Using a simple example from the ratio above, if you used 4oz Apple Cider Vinegar and 1 oz Maple Syrup, you'd be looking for a little more than 1.5oz of final mixture.
