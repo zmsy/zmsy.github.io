@@ -21,9 +21,13 @@ Clarified Daiquiri (Rum, Lime, Simple Syrup), Float of Green Chartreuse
 
 Gin, Lemon, Nectarine Syrup, [Orange Blossom Cream](https://www.epicurious.com/recipes/food/views/orange-blossom-cream-363724), Pistachio Brittle Dust
 
+##### Spaghett
+
+Aperol, Lemon Juice, [Rainier](https://www.bonappetit.com/story/wet-city-brewing-spaghett)
+
 ##### Riviera Afternoon (Non-alcoholic)
 
-Lemon Rhubarb Shrub, Bitters, Soda Water
+[Lemon Rhubarb Shrub](https://www.feastingathome.com/rhubarb-shrub/), Bitters, Soda Water
 
 ##### Fro' Melo' (Non-alcoholic)
 
