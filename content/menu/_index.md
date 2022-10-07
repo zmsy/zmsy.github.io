@@ -5,33 +5,25 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_September 29th, 2022 - Happy B-day Kelly!_
+_October 7th, 2022 - Edith's Pasta Party Night!_
 
 ## This Week's Specials
 
-##### Le Manhattenois
+##### Oaxaca Old-fashioned
 
-Cognac, [Ratafia Champenois](https://www.champagne-mg.com/ratafia-champenois), Bitters
+tequila, mezcal, agave nectar, bitters
 
-##### Northern Lights
+##### Rumlet
 
-Clarified Daiquiri (Rum, Lime, Simple Syrup), Float of Green Chartreuse
+white rum, homemade lime cordial
 
-##### Galata Bridge
+##### Double Lemon Collins
 
-Gin, Lemon, Nectarine Syrup, [Orange Blossom Cream](https://www.epicurious.com/recipes/food/views/orange-blossom-cream-363724), Pistachio Brittle Dust
+gin, lemon, oleo saccharum
 
-##### Spaghett
+##### Amaro Sour
 
-Aperol, Lemon Juice, [Rainier](https://www.bonappetit.com/story/wet-city-brewing-spaghett)
-
-##### Riviera Afternoon (Non-alcoholic)
-
-[Lemon Rhubarb Shrub](https://www.feastingathome.com/rhubarb-shrub/), Bitters, Soda Water
-
-##### Fro' Melo' (Non-alcoholic)
-
-Lime Juice, Cream of Coconut, Coconut Water, Melon Ice
+amaro amorino, bourbon, lemon, simple, egg white, nutmeg
 
 ## Classics
 
