@@ -5,25 +5,25 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_October 7th, 2022 - Edith's Pasta Party Night!_
+_October 14th, 2022_
 
 ## This Week's Specials
 
-##### Oaxaca Old-fashioned
+##### Flannel Shirt
 
-tequila, mezcal, agave nectar, bitters
+rye, apple cider, lemon, averna, allspice dram, demerara syrup
 
-##### Rumlet
+##### Penicillin
 
-white rum, homemade lime cordial
+bourbon, lemon, honey syrup, float of smokey peated scotch
 
-##### Double Lemon Collins
+##### Sazerac
 
-gin, lemon, oleo saccharum
+rye, cognac, demerara syrup, peychaud's bitters, absinthe rinse
 
-##### Amaro Sour
+##### Halekulani
 
-amaro amorino, bourbon, lemon, simple, egg white, nutmeg
+bourbon, lemon, lime, pineapple, demerara syrup, grenadine, tiki bitters
 
 ## Classics
 
@@ -54,6 +54,10 @@ bourbon, lemon, simple syrup, egg white
 ##### Tom Collins
 
 gin, lemon, simple syrup, soda water
+
+##### Negroni
+
+gin, campari, sweet vermouth
 
 ##### Paper Plane
 
