@@ -5,13 +5,13 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_October 14th, 2022_
+_October 22nd, 2022_
 
 ## This Week's Specials
 
-##### Flannel Shirt
+##### Hibiscus Margarita
 
-rye, apple cider, lemon, averna, allspice dram, demerara syrup
+tequila, hibiscus syrup, lime, orange curaçao
 
 ##### Penicillin
 
@@ -21,9 +21,9 @@ bourbon, lemon, honey syrup, float of smokey peated scotch
 
 rye, cognac, demerara syrup, peychaud's bitters, absinthe rinse
 
-##### Halekulani
+##### Spaghett
 
-bourbon, lemon, lime, pineapple, demerara syrup, grenadine, tiki bitters
+aperol, lemon, [lite beer](https://www.bonappetit.com/story/wet-city-brewing-spaghett)
 
 ## Classics
 
