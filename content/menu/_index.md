@@ -5,21 +5,21 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_October 22nd, 2022_
+_November 3rd, 2022_
 
 ## This Week's Specials
 
-##### Hibiscus Margarita
+##### Poor Richard
 
-tequila, hibiscus syrup, lime, orange curaçao
+sweet vermouth, lemon, cranberry cordial, dry cider
 
-##### Penicillin
+##### Gente Manhattan
 
-bourbon, lemon, honey syrup, float of smokey peated scotch
+rye, sweet vermouth, amaro di angostura
 
-##### Sazerac
+##### Beachcomber Collins
 
-rye, cognac, demerara syrup, peychaud's bitters, absinthe rinse
+amaro meletti, grapefruit juice, soda water
 
 ##### Spaghett
 
