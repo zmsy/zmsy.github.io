@@ -9,21 +9,25 @@ _November 3rd, 2022_
 
 ## This Week's Specials
 
-##### Poor Richard
-
-sweet vermouth, lemon, cranberry cordial, dry cider
-
 ##### Gente Manhattan
 
-rye, sweet vermouth, amaro di angostura
+rye, sweet vermouth, [amaro di angostura](https://angosturabitters.com/portfolio/amaro-di-angostura/)
 
-##### Beachcomber Collins
+##### Penicillin
 
-amaro meletti, grapefruit juice, soda water
+bourbon, lemon, honey syrup, float of peated scotch
 
 ##### Spaghett
 
 aperol, lemon, [lite beer](https://www.bonappetit.com/story/wet-city-brewing-spaghett)
+
+##### Devil's Day Afternoon (Non-Alcoholic)
+
+[san pellegrino sanbitter](https://www.seriouseats.com/soda-sanbitter-from-san-pellegrino), grapefruit, lemon, agave syrup, cinnamon
+
+##### Salted Rosemary Paloma (Non-Alcoholic)
+
+grapefruit, lemon, salted rosemary syrup, soda water
 
 ## Classics
 
