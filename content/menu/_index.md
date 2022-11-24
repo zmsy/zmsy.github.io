@@ -5,29 +5,25 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_November 3rd, 2022_
+_November 24th, 2022 - Happy Thanksgiving_
 
 ## This Week's Specials
+
+##### Mai Tai
+
+rum, grand marnier, lime, orgeat syrup
+
+##### Poor Richard
+
+sweet vermouth, lemon, cranberry cordial, dry cider
+
+##### Aperol Spritz
+
+aperol, sparkling wine, soda water
 
 ##### Gente Manhattan
 
 rye, sweet vermouth, [amaro di angostura](https://angosturabitters.com/portfolio/amaro-di-angostura/)
-
-##### Penicillin
-
-bourbon, lemon, honey syrup, float of peated scotch
-
-##### Spaghett
-
-aperol, lemon, [lite beer](https://www.bonappetit.com/story/wet-city-brewing-spaghett)
-
-##### Devil's Day Afternoon (Non-Alcoholic)
-
-[san pellegrino sanbitter](https://www.seriouseats.com/soda-sanbitter-from-san-pellegrino), grapefruit, lemon, agave syrup, cinnamon
-
-##### Salted Rosemary Paloma (Non-Alcoholic)
-
-grapefruit, lemon, salted rosemary syrup, soda water
 
 ## Classics
 
