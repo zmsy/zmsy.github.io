@@ -5,25 +5,21 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_November 24th, 2022 - Happy Thanksgiving_
+_Dec 11th 2022 - English Pie Night!_
 
 ## This Week's Specials
 
-##### Mai Tai
+##### Gin & Tonic
+
+Homemade Tonic Syrup, Sparkling Water, Gin
+
+##### Gimlet
+
+Gin, Lime Cordial
+
+##### Mai Tai (Because Why Not)
 
 rum, grand marnier, lime, orgeat syrup
-
-##### Poor Richard
-
-sweet vermouth, lemon, cranberry cordial, dry cider
-
-##### Aperol Spritz
-
-aperol, sparkling wine, soda water
-
-##### Gente Manhattan
-
-rye, sweet vermouth, [amaro di angostura](https://angosturabitters.com/portfolio/amaro-di-angostura/)
 
 ## Classics
 
