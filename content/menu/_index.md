@@ -5,7 +5,7 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Dec 11th 2022 - English Pie Night!_
+_Dec 17th 2022 - Xmas Party!_
 
 ## This Week's Specials
 
@@ -13,13 +13,17 @@ _Dec 11th 2022 - English Pie Night!_
 
 Homemade Tonic Syrup, Sparkling Water, Gin
 
-##### Gimlet
+##### Rum Gimlet
 
-Gin, Lime Cordial
+Rum, Lime Cordial
 
-##### Mai Tai (Because Why Not)
+##### Guinness Caramel Old Fashioned
 
-rum, grand marnier, lime, orgeat syrup
+Rye, Bitters, Guinness Caramel
+
+##### N/A Spritz
+
+Sanbitter, Sparkling Water
 
 ## Classics
 
