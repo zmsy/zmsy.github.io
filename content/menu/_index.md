@@ -5,25 +5,29 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Dec 17th 2022 - Xmas Party!_
+_Dec 31st 2022 - Space Prom!_
 
 ## This Week's Specials
 
 ##### Gin & Tonic
 
-Homemade Tonic Syrup, Sparkling Water, Gin
+homemade tonic syrup, sparkling water, gin
 
-##### Rum Gimlet
+##### Kingston Negroni
 
-Rum, Lime Cordial
+jamaican rum, campari, sweet vermouth
 
-##### Guinness Caramel Old Fashioned
+##### Sherry-Caramel Old Fashioned
 
-Rye, Bitters, Guinness Caramel
+añejo tequila, sherry caramel, bitters
 
-##### N/A Spritz
+##### The Devil's Day Off (Non-Alcoholic)
 
-Sanbitter, Sparkling Water
+grapefruit juice, lime juice, agave nectar, cinnamon, sanbitter
+
+##### Optimist Pint (Non-Alcoholic)
+
+lime juice, pineapple syrup, tiki bitters, soda water
 
 ## Classics
 
