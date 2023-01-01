@@ -7,17 +7,17 @@ description: "What's on tap at the Morrissey household?"
 
 _Dec 31st 2022 - NYE Space Prom!_
 
-## This Week's Specials
+## End of the Year Specials
 
 ##### RIP to the Queen
 
 homemade tonic syrup, sparkling water, gin
 
-##### Caribbean Music Video
+##### These Gays Are Trying to Kill Me
 
-jamaican rum, campari, sweet vermouth
+rye, campari, sweet vermouth
 
-##### Iberian Adventure
+##### Sexy European Sax Man
 
 añejo tequila, sherry caramel, bitters
 
@@ -25,11 +25,19 @@ añejo tequila, sherry caramel, bitters
 
 coffee, demerara sugar syrup, irish whiskey (can be omitted), cinnamon whipped cream
 
-##### Tripledemic Booster (Non-Alcoholic)
+##### Purple Air Quality Index
+
+blackberry liqueur, champagne
+
+##### Tripledemic Booster
+
+(non-alcoholic)
 
 grapefruit juice, lime juice, agave nectar, cinnamon, sanbitter
 
-##### 2023 Optimist (Non-Alcoholic)
+##### Soaking Wet Dinghy Ride to the Full Moon Festival
+
+(non-alcoholic)
 
 lime juice, pineapple syrup, tiki bitters, soda water
 
