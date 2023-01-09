@@ -3,11 +3,11 @@
 <section class="section">
   <div class="container" id="blog-preview-container">
     {{ .Content }}
-    <ul class="contents">
+    <div class="contents">
       {{ range $paginator.Pages }}
       {{ partial "blog_preview.html" . }}
       {{ end }}
-    </ul>
+    </div>
     {{ partial "pagination.html" $paginator }}
   </div>
 </section>

@@ -2,7 +2,11 @@
   <div class="column is-10 is-12-touch" id="navbar-column">
     <nav class="navbar" role="navigation" id="top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="{{ .Site.BaseURL }}">
+        <a
+          class="navbar-item"
+          href="{{ .Site.BaseURL }}"
+          aria-label="Return to the homepage"
+        >
           {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
         </a>
         <a class="navbar-item" href="{{ .Site.BaseURL }}">
