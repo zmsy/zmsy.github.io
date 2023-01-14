@@ -5,41 +5,41 @@ description: "What's on tap at the Morrissey household?"
 
 {{< svg src="drinks.svg" class="menu-drinks-logo" >}}
 
-_Dec 31st 2022 - NYE Space Prom!_
+_Jan 14th, 2023_ - Mocktail Night!_
 
-## End of the Year Specials
+## Mocktail Night Specials
 
-##### RIP to the Queen
+##### Purple Painkiller
 
-homemade tonic syrup, sparkling water, gin
+pineapple juice, cream of coconut, ube syrup, orange juice
 
-##### These Gays Are Trying to Kill Me
-
-rye, campari, sweet vermouth
-
-##### Sexy European Sax Man
-
-añejo tequila, sherry caramel, bitters
-
-##### House Hunters International
-
-coffee, demerara sugar syrup, irish whiskey (can be omitted), cinnamon whipped cream
-
-##### Purple Air Quality Index
-
-blackberry liqueur, champagne
-
-##### Tripledemic Booster
-
-(non-alcoholic)
-
-grapefruit juice, lime juice, agave nectar, cinnamon, sanbitter
-
-##### Soaking Wet Dinghy Ride to the Full Moon Festival
-
-(non-alcoholic)
+##### Full Moon Festival
 
 lime juice, pineapple syrup, tiki bitters, soda water
+
+##### Grapefruit Shandy
+
+athletic ipa, grapefruit juice, grapefruit oleo saccharum, demerara syrup
+
+(can be made w/ alcoholic beer if desired)
+
+##### Driver #3
+
+celery cucumber juice, mint, lemon italian soda
+
+##### N/A Spritz
+
+sanbittér (or crodino), soda water, orange
+
+## Mocktail Night eh, uh, Non-Mocktails
+
+##### Kingston Negroni
+
+campari, sweet vermouth, smith & cross
+
+##### Aperol Spritz
+
+aperol, sparkling wine, soda
 
 ## Classics
 
