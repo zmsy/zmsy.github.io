@@ -1,0 +1,27 @@
+{{/**
+   * Figure partial for images in html templates.
+   * 
+   * There's also a shortcode for this; this is primarily used to serve
+   * images that'll get included in markup rather than in markdown files.
+   *
+   * Required params:
+   * - src
+   * - width
+   * - height
+   *
+   * Optional params:
+   * - alt
+   */}}
+{{ $src := .Get "src" }}
+{{ $image := .Resources.GetMatch $src }}
+
+{{ $webp := $image.Resize (printf "%dx%d webp" .Get "width" .Get "height") }}
+{{ $jpg := $image.Resize (printf "%dx%d jpg" .Get "width" .Get "height") }}
+
+<figure {{ with .Get "class" }} class="{{.}}" {{ end }}>
+  <picture>
+    <source srcset="{{ $webp.Permalink }}" type="image/webp" alt="{{ .Get `alt` }}">
+  <img src="{{ $jpg.Permalink }}" alt="{{ .Get `alt` }}" defer>
+  </picture>
+</figure>
+

@@ -1,8 +1,10 @@
 <div class="card recipe-card">
+  <p>{{ printf "%#v" . }}</p>
   <div class="card-image recipe-card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Image of {{ .Title }} recipe.">
-    </figure>
+    {{/*  {{ partial "figure.html" (dict 
+      "class" "image is-4by3"
+      "alt" "Image of {{ .Title }} recipe."
+    )}}  */}}
   </div>
   <div class="card-content recipe-card-content">
     <a class="title recipe-card-title" href="{{ .Permalink }}">{{ .Title }}</a>
