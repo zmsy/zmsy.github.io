@@ -5,11 +5,6 @@ Credit to:
 https://gist.github.com/georgeblck/7cf142e467cb98d44be2b83b14c8b935
 */}}
 
-{{/*
-    hugo will resize to all of these sizes that are smaller than your original.
-    configure if you like!
-*/}}
-
 {{/* hugo will resize to all of these sizes that are smaller than your original.
      configure if you like! */}}
 {{ $sizes := (slice "480" "800" "1200" "1500") }}
@@ -17,31 +12,82 @@ https://gist.github.com/georgeblck/7cf142e467cb98d44be2b83b14c8b935
 {{/* get file that matches the filename as specified as src="" in shortcode */}}
 {{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
 
-<figure{{ with .Get "class" }} class="{{ . }}" {{ end }}>
+<figure class="figure-picture {{ with .Get "class" }}{{ . }}{{ end }}">
   {{- if .Get "link" -}}
-  <a href="{{ .Get "link" }}" {{ with .Get "target" }} target="{{ . }}" {{ end }}{{ with .Get "rel" }} rel="{{ . }}" {{ end }}>
-    {{- end }}
-    {{ if $src }}
+    <a
+      href="{{ .Get "link" }}"
+      {{ with .Get "target" }} target="{{ . }}" {{ end }}
+      {{ with .Get "rel" }} rel="{{ . }}" {{ end }}
+    >
+  {{- end }}
+  {{ if $src }}
     <picture>
-      <source {{ if (isset .Params "viewport") }} {{- with .Get "viewport" }} sizes="{{ . }}" {{ end -}} {{ else }} sizes="(min-width: 35em) 1200px, 100vw" {{ end }} srcset='
-      {{ range $sizes }}
-        {{ if ge $src.Width . }}{{ ($src.Resize (printf "%sx webp" .)).Permalink }} {{ (printf "%sw" .) }},{{ end }}
-      {{ end }}' type="image/webp">
+      <source
+        {{ if (isset .Params "viewport") }}
+          {{- with .Get "viewport" }}
+            sizes="{{ . }}"
+          {{ end -}}
+        {{ else }} sizes="(min-width: 35em) 1200px, 100vw"
+        {{ end }}
+        srcset='
+        {{ range $sizes }}
+          {{ if ge $src.Width . }}
+            {{ ($src.Resize (printf "%sx webp" .)).Permalink }} {{ (printf "%sw" .) }},
+          {{ end }}
+        {{ end }}
+        ' type="image/webp">
       <source {{ if (isset .Params "viewport") }} {{- with .Get "viewport" }} sizes="{{ . }}" {{ end -}} {{ else }} sizes="(min-width: 35em) 1200px, 100vw" {{ end }} srcset='
       {{ range $sizes }}
         {{ if ge $src.Width . }}{{ ($src.Resize (printf "%sx jpg" .)).Permalink }} {{ (printf "%sw" .) }},{{ end }}
       {{ end }}' type="image/jpeg">
       {{ end }}
-      <img {{ if $src }} {{ if (isset .Params "viewport") }} {{- with .Get "viewport" }} sizes="{{ . }}" {{ end -}} {{ else }} sizes="(min-width: 35em) 1200px, 100vw" {{ end }}
-        {{/* only srcset images smaller than or equal to the src (original) image size, as Hugo will upscale small images */}} srcset='
+      <img
+        {{ if $src }}
+          {{ if (isset .Params "viewport") }}
+            {{- with .Get "viewport" }}
+              sizes="{{ . }}"
+            {{ end -}}
+          {{ else }}
+            sizes="(min-width: 35em) 1200px, 100vw"
+          {{ end }}
+          {{/* only srcset images smaller <= src image size, Hugo upscales small images */}}
+          srcset='
             {{ range $sizes }}
-                   {{ if ge $src.Width . }}{{ ($src.Resize (printf "%sx webp" .)).Permalink }} {{ (printf "%sw" .) }},{{ end }}
-            {{ end }}' {{/* when no support for srcset (old browsers, RSS), we load small (800px) */}} {{/* if image smaller than 800, then load the image itself as jpg */}} {{ if ge $src.Width "800" }}
-        src="{{ ($src.Resize "800x webp").Permalink }}" {{ else }}src="{{ ($src.Resize "jpg").Permalink }}" {{ end }} {{ else }} {{/* fall back to stock hugo behaviour when image is not available in bundle */}} src="{{ .Get "src" }}" {{ end }}
-        {{ if (isset .Params "async") }} {{- with .Get "async" }} async="{{ . }}" {{ end -}} {{ else }} async="on" {{ end }} {{ if (isset .Params "loading") }} {{- with .Get "loading" }} loading="{{ . }}" {{ end -}} {{ else }} loading="lazy"
-        {{ end }} {{- if or (.Get "alt") (.Get "caption") }} alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}" {{- end -}} {{- with .Get "width" }} width="{{ . }}" {{ end -}} {{- with .Get "height" }}
-        height="{{ . }}" {{ end -}}
-        /> <!-- Closing img tag -->
+              {{ if ge $src.Width . }}
+                {{ ($src.Resize (printf "%sx webp" .)).Permalink }} {{ (printf "%sw" .) }},
+              {{ end }}
+            {{ end }}'
+          {{/* if cant srcset (old browsers, RSS), load small (800px) */}}
+          {{/* if imageSize <= 800, load image as jpg */}}
+          {{ if ge $src.Width "800" }}
+            src="{{ ($src.Resize "800x webp").Permalink }}"
+          {{ else }}
+            src="{{ ($src.Resize "jpg").Permalink }}"
+          {{ end }}
+        {{ else }}
+          {{/* fall back to stock hugo behaviour when image not available in bundle */}}
+          src="{{ .Get "src" }}"
+        {{ end }}
+        {{ if (isset .Params "async") }}
+          {{- with .Get "async" }}
+            async="{{ . }}"
+          {{ end -}}
+        {{ else }}
+          async="on"
+        {{ end }}
+        {{ if (isset .Params "loading") }}
+          {{- with .Get "loading" }}
+            loading="{{ . }}"
+          {{ end -}}
+        {{ else }}
+          loading="lazy"
+        {{ end }}
+        {{- if or (.Get "alt") (.Get "caption") }}
+          alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+        {{- end -}}
+        {{- with .Get "width" }} width="{{ . }}" {{ end -}}
+        {{- with .Get "height" }} height="{{ . }}" {{ end -}}
+      /> <!-- Closing img tag -->
       {{ if $src }}
     </picture> <!-- Closing picture tag -->
     {{ end }}
@@ -50,16 +96,17 @@ https://gist.github.com/georgeblck/7cf142e467cb98d44be2b83b14c8b935
   {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
   <figcaption>
     {{ with (.Get "title") -}}
-    <h4>{{ . }}</h4>
+      <h4>{{ . }}</h4>
     {{- end -}}
     {{- if or (.Get "caption") (.Get "attr") -}}
-    <p>
+      <p>
       {{- .Get "caption" | markdownify -}}
       {{- with .Get "attrlink" }}
-      <a href="{{ . }}">
-        {{- end -}}
-        {{- .Get "attr" | markdownify -}}
-        {{- if .Get "attrlink" }}</a>{{ end }}</p>
+        <a href="{{ . }}">
+      {{- end -}}
+      {{- .Get "attr" | markdownify -}}
+      {{- if .Get "attrlink" }}</a>{{ end }}
+      </p>
     {{- end }}
   </figcaption>
   {{- end }}

@@ -361,6 +361,20 @@ a.navbar-item {
     margin-left: 0rem;
     margin-right: 0rem;
   }
+
+  /**
+   * Figures with pictures rendered in them. These don't need maximum
+   * height restrictions like the svg files do.
+   */
+  & .figure-picture {
+    height: auto;
+
+    figcaption {
+      p {
+        text-align: center;
+      }
+    }
+  }
 }
 
 /* SVG */
