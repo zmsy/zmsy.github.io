@@ -2,7 +2,6 @@
 title: "Bye Hugo, Hello Astro"
 description: "Hugo lost out in terms of developer experience and understandability. Let's see how Astro."
 publishDate: 2023-01-28T13:35:56-08:00
-draft: true
 ---
 
 Look, I get that I don't publish too much blog content. I'm rarely in the mood to actually write blog posts, and I rarely have content that warrants them. When that does happen, it's great, but it sure does seem like every third or fourth post here is me migrating the site to a new static site generator or web framework.
