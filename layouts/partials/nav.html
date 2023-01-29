@@ -1,31 +1,27 @@
-<div class="columns is-centered" id="navbar-columns">
-  <div class="column is-10 is-12-touch" id="navbar-column">
-    <nav class="navbar" role="navigation" id="top">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
-        </a>
-        <a class="navbar-item" href="{{ .Site.BaseURL }}">
-          <div class="is-3" id="logo-text">{{ .Site.Title }}</div>
-        </a>
-        <span class="navbar-burger" id="navbar-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </div>
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          {{ range .Site.Params.icons }}
-          <a class="navbar-item is-hidden-mobile" href="{{ .Url }}">
-            <span class="{{ .Icon }}" title="{{ .Alt}}"></span>
-          </a>
-          {{ end }}
-          {{ range .Site.Params.nav }}
-          <a class="navbar-item is-tab" href="{{ .Url }}">{{ .Name }}</a>
-          {{ end }}
-        </div>
-      </div>
-    </nav>
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ .Site.BaseURL }}">
+      {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }}
+    </a>
+    <a class="navbar-item" href="{{ .Site.BaseURL }}">
+      <div class="is-3" id="logo-text">{{ .Site.Title }}</div>
+    </a>
+    <span class="navbar-burger" id="navbar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
   </div>
-</div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      {{ range .Site.Params.icons }}
+      <a class="navbar-item is-hidden-mobile" href="{{ .Url }}">
+        <span class="{{ .Icon }}" title="{{ .Alt}}"></span>
+      </a>
+      {{ end }}
+      {{ range .Site.Params.nav }}
+      <a class="navbar-item is-tab" href="{{ .Url }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+  </div>
+</nav>
