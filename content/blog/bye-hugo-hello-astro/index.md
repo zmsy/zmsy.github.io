@@ -1,6 +1,6 @@
 ---
 title: "Bye Hugo, Hello Astro"
-description: "Hugo lost out in terms of developer experience and understandability. Let's see how Astro."
+description: "Hugo lost out in terms of developer experience and understandability. Let's see how Astro fares in that regard."
 publishDate: 2023-01-28T13:35:56-08:00
 ---
 
