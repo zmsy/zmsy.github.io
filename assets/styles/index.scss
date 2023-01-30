@@ -452,18 +452,31 @@ svg {
 
 /* HEROES AND SUBTITLES */
 
-#hero {
+.hero {
   margin: 1.5rem 0rem;
 
-  & > #hero-body {
+  .hero-body {
     padding: 0rem;
+
+    div {
+      text-align: center;
+    }
+
+    .container {
+      @include touch {
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 
-.hero-title {
-  font-size: 5.5rem;
-}
-
+/** hero displays for the svg main banner */
 .hero-badge {
   margin-top: 1rem;
   height: 40rem;
@@ -697,6 +710,10 @@ svg {
   border-top: 1rem solid var(--backgroundAccentColor);
   padding-top: 2rem;
 
+  container {
+    text-align: center;
+  }
+
   strong {
     color: var(--backgroundColor);
   }
@@ -716,6 +733,10 @@ svg {
       // inverted icon colors for the footer.
       color: var(--backgroundColor);
     }
+  }
+
+  p {
+    text-align: center;
   }
 }
 

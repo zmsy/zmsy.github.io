@@ -1,11 +1,11 @@
-<section class="hero is-medium" id="hero">
-  <div class="hero-body" id="hero-body">
-    <div class="container has-text-centered">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
       {{ with $.Params.title }}
-      <h1 class="title title-dark is-size-1-touch">{{ $.Params.title }}</h1>
+      <h1 class="title">{{ $.Params.title }}</h1>
       {{ end }}
       {{ with $.Params.subtitle }}
-      <h2 class="subtitle subtitle-dark is-size-5-touch">{{ $.Params.subtitle }}</h2>
+      <h2 class="subtitle">{{ $.Params.subtitle }}</h2>
       {{ end }}
       {{ partial "svg.html" (dict "src" "assets/img/diamonds-dark.svg" "class" "hero-diamonds") }}
     </div>

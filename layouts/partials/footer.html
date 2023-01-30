@@ -1,15 +1,14 @@
 <footer class="footer">
-    <div class="container has-text-centered">
-      {{ partial "svg.html" (dict "src" "assets/img/footer.svg" "class" "footer-dots") }}
-      <div id="footer-icons">
-        {{ range .Site.Params.icons }}
-        <a href="{{ .Url }}">
-          <span class="{{ .Icon }}" title="{{ .Alt}}"></span>
-        </a>
-        {{ end }}
-      </div>
-      <p id="footer-text"><strong>zmsy.co</strong> - by Zach Morrissey</p>
-      <p>Copyright © {{ now.Year }}</p>
-      {{/*  <p><div id="dark-mode-button"></div></p>  */}}
+  <div class="container">
+    {{ partial "svg.html" (dict "src" "assets/img/footer.svg" "class" "footer-dots") }}
+    <div id="footer-icons">
+      {{ range .Site.Params.icons }}
+      <a href="{{ .Url }}">
+        <span class="{{ .Icon }}" title="{{ .Alt}}"></span>
+      </a>
+      {{ end }}
     </div>
+    <p><strong>zmsy.co</strong> - by Zach Morrissey</p>
+    <p>Copyright © {{ now.Year }}</p>
+  </div>
 </footer>
