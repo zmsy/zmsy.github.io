@@ -57,7 +57,18 @@ a {
   background-color: var(--backgroundColor);
   align-items: flex-end;
   font-family: $display-fonts;
-  margin: auto;
+  margin: 0rem auto;
+  height: 4rem;
+  max-width: 73.5rem;
+  align-items: center;
+}
+
+.navbar-brand {
+  align-items: center;
+
+  @include touch {
+    padding: 0.5rem;
+  }
 }
 
 .navbar-menu {
@@ -77,17 +88,6 @@ a.navbar-item {
   }
 }
 
-#navbar-columns {
-  margin: 0rem;
-  overflow: hidden;
-}
-
-#navbar-column {
-  margin: 0rem;
-  padding-bottom: 0rem;
-  overflow: hidden;
-}
-
 .navbar-end a:hover,
 .fa:hover {
   background-color: var(--backgroundAccentColor);
@@ -96,8 +96,6 @@ a.navbar-item {
 
 .navbar-burger {
   color: var(--textColor);
-  margin-top: auto;
-  // height: 3.25rem;
 }
 
 #dark-mode-button {
@@ -454,18 +452,31 @@ svg {
 
 /* HEROES AND SUBTITLES */
 
-#hero {
+.hero {
   margin: 1.5rem 0rem;
 
-  & > #hero-body {
+  .hero-body {
     padding: 0rem;
+
+    div {
+      text-align: center;
+    }
+
+    .container {
+      @include touch {
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
 
-.hero-title {
-  font-size: 5.5rem;
-}
-
+/** hero displays for the svg main banner */
 .hero-badge {
   margin-top: 1rem;
   height: 40rem;
@@ -699,6 +710,10 @@ svg {
   border-top: 1rem solid var(--backgroundAccentColor);
   padding-top: 2rem;
 
+  container {
+    text-align: center;
+  }
+
   strong {
     color: var(--backgroundColor);
   }
@@ -718,6 +733,10 @@ svg {
       // inverted icon colors for the footer.
       color: var(--backgroundColor);
     }
+  }
+
+  p {
+    text-align: center;
   }
 }
 
