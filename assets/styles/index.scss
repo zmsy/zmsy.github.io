@@ -5,6 +5,11 @@ Main scss file.
 This creates the main.css file and the same variables can use bulma variables.
 */
 
+html {
+  // prevent any overflow outside of the html element.
+  overflow: hidden !important;
+}
+
 html,
 body {
   overscroll-behavior-x: none;
@@ -665,7 +670,12 @@ svg {
 }
 
 .home-columns {
+  justify-content: center;
   margin-top: 1rem;
+
+  .column {
+    text-align: center;
+  }
 
   h2 {
     font-family: $subtitle-fonts;
@@ -691,7 +701,7 @@ svg {
     margin: auto;
   }
 
-  & .home-title {
+  .home-title {
     margin-bottom: 1rem;
   }
 

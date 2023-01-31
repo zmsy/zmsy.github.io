@@ -24,6 +24,7 @@ Created with:
 - **preact + zustand** - Lightweight frontend UI tooling.
 
 ## Artwork & Photography 
-<hr class="hr-subtitle">
+
+<hr>
 
 Unless otherwise noted, all of the artwork, photos, diagrams, charts and graphics posted here on the sites are created by me, with the sole intent of being displayed here for your enjoyment.
