@@ -16,7 +16,7 @@ type ModalProps = {
   id: string;
 };
 
-export const Modal: FunctionComponent<ModalProps> = ({ id, children }) => {
+export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
   const { navOpen, setNavOpen } = useStore();
   const handleClickAway = () => setNavOpen(false);
   return (

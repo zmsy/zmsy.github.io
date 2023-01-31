@@ -13,8 +13,8 @@
   </div>
 </section>
 <section>
-  <div class="columns home-columns is-centered is-multiline">
-    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+  <div class="columns home-columns">
+    <div class="column is-3-desktop is-4-tablet-only">
       <a href="/blog" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/blog-logo.svg" "class"
         "column-logo") }}
@@ -24,7 +24,7 @@
       </a>
       <p>{{ $.Params.blog_tagline }}</p>
     </div>
-    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+    <div class="column is-3-desktop is-4-tablet-only">
       <a href="/recipes" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/recipes-logo.svg" "class"
           "column-logo") }}
@@ -34,7 +34,7 @@
       </a>
       <p>{{ $.Params.recipes_tagline }}</p>
     </div>
-    <div class="column is-3-desktop is-4-tablet-only has-text-centered">
+    <div class="column is-3-desktop is-4-tablet-only">
       <a href="/about" class="home-link">
         {{ partial "svg.html" (dict "src" "assets/img/about-logo.svg" "class"
         "column-logo") }}
