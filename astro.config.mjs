@@ -10,5 +10,8 @@ export default defineConfig({
 	server: {
 		// nostalgic for my hugo days i guess
 		port: 1314,
+	},
+	ssr: {
+		noExternal: ['bulma'],
 	}
 });

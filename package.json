@@ -15,8 +15,7 @@
     "@astrojs/rss": "^2.1.0",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^2.0.2",
-    "bulma": "^0.9.4",
-    "react-bulma-components": "^4.1.0"
+    "bulma": "^0.9.4"
   },
   "devDependencies": {
     "sass": "^1.58.0"
