@@ -1,5 +1,6 @@
 ---
 import { siteInfo, contactInfo } from "../consts";
+import InlineSVG from "./InlineSvg.astro";
 
 type NavIcon = {
   url: string;
@@ -41,10 +42,13 @@ const navLinks: Array<NavLink> = [
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href={siteInfo.baseUrl}>
-      <!-- {{ partial "svg.html" (dict "src" "assets/img/home-logo-scribble-small.svg" "class" "logo-img") }} -->
+      <InlineSVG
+        file={"/src/svg/home-logo-scribble-small.svg"}
+        className="logo-img"
+      />
     </a>
     <a class="navbar-item" href="{{ .Site.BaseURL }}">
-      <div class="is-3" id="logo-text">{siteInfo.title}</div>
+      <div id="logo-text">{siteInfo.title}</div>
     </a>
     <span class="navbar-burger" id="navbar-toggle">
       <span></span>
@@ -55,18 +59,18 @@ const navLinks: Array<NavLink> = [
   <div class="navbar-menu">
     <div class="navbar-end">
       {
-        navIcons.map(({ alt, icon, url }) => {
+        navIcons.map(({ alt, icon, url }) => (
           <a class="navbar-item is-hidden-mobile" href={url}>
             <span class={icon} title={alt} />
-          </a>;
-        })
+          </a>
+        ))
       }
       {
-        navLinks.map(({ url, name }) => {
+        navLinks.map(({ url, name }) => (
           <a class="navbar-item is-tab" href={url}>
             {name}
-          </a>;
-        })
+          </a>
+        ))
       }
     </div>
   </div>

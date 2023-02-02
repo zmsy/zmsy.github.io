@@ -1,9 +1,20 @@
 ---
-export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
-
+export interface Props {
+  /** Name of the svg file in the /src/svg folder */
+  file: `/src/svg/${string}.svg`;
+  /** An additional class to apply to the component. */
+  className?: string;
 }
 
+const { file, className } = Astro.props;
+
+// import as raw in order to read as text. vite will complain that this
+// is not statically analyzable, which is why the ignore comment is here.
+const { default: html } = await import(/* @vite-ignore */ `${file}?raw`);
 ---
-<figure class="color-responsive-svg">
-  <!-- {{ .src | readFile | safeHTML }} -->
+
+<figure
+  class:list={["color-responsive-svg", className !== undefined && className]}
+>
+  <Fragment set:html={html} />
 </figure>
