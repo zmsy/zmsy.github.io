@@ -1,13 +1,58 @@
 ---
+import InlineSvg from "./InlineSvg.astro";
+import { navIcons } from "./Navigation.astro";
+
 const today = new Date();
 ---
 
 <footer>
-  &copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+  <div class="container">
+    <InlineSvg file={"/src/svg/footer.svg"} className="footer-dots" />
+    <div id="footer-icons">
+      {
+        navIcons.map(({ alt, icon, url }) => (
+          <a class="is-hidden-mobile" href={url}>
+            <span class={icon} title={alt} />
+          </a>
+        ))
+      }
+    </div>
+    <p><strong>zmsy.co</strong> - by Zach Morrissey</p>
+    <p>Copyright © {today.getFullYear()}</p>
+  </div>
 </footer>
 <style>
   footer {
-    padding: 25px;
+    background-color: var(--secondaryBackgroundColor);
+    color: var(--backgroundColor);
+    border-top: 1rem solid var(--backgroundAccentColor);
+    padding: 2rem 0rem;
+    text-align: center;
+  }
+
+  strong {
+    color: var(--backgroundColor);
+  }
+
+  .footer-dots {
+    max-width: 25rem;
+    margin: 1rem auto;
+  }
+
+  #footer-icons {
+    max-width: 15rem;
+    margin: 0.5rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  /* inverted icon colors for the footer. */
+  #footer-icons [class^="icon-"] {
+    color: var(--backgroundColor);
+  }
+
+  p {
     text-align: center;
   }
 </style>
