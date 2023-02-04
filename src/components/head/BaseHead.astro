@@ -1,6 +1,7 @@
 ---
 import "../../styles/index.scss";
 import Preload from "./Preload.astro";
+import Variables from "./Variables.astro";
 
 export interface Props {
   title: string;
@@ -44,3 +45,4 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 
 <!-- immediately fetch fonts and icons -->
 <Preload />
+<Variables />

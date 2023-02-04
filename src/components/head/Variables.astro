@@ -1,0 +1,39 @@
+---
+/**
+ * CSS variables for styling downstream content.
+ */
+---
+
+<style is:global>
+  html {
+    --backgroundColor: #faf9f9;
+    --backgroundAccentColor: #dcdbd9;
+    --secondaryBackgroundColor: #2a363b;
+    --titleTextColor: #100b03;
+    --subtitleTextColor: #38332a;
+    --textColor: #3f3b35;
+    --accent1Color: #d85d44;
+    --accent2Color: #3a89c9;
+    --accent3Color: #9665c7;
+    --accent4Color: #fbd136;
+    --illustrationsColor: #3f3b35;
+  }
+
+  // If the user prefers dark mode, set the colors to match the
+  // dark mode palette.
+  @media (prefers-color-scheme: dark) {
+    html {
+      --backgroundColor: #2a363b;
+      --backgroundAccentColor: #3c525c;
+      --secondaryBackgroundColor: #faf9f9;
+      --titleTextColor: #faf9f9;
+      --subtitleTextColor: #dcdbd9;
+      --textColor: #dcdbd9;
+      --accent1Color: #fbd136;
+      --accent2Color: #d85d44;
+      --accent3Color: #3a89c9;
+      --accent4Color: #9665c7;
+      --illustrationsColor: #dcdbd9;
+    }
+  }
+</style>
