@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../../components/head/BaseHead.astro";
-import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import Navigation from "../../components/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 
@@ -33,7 +33,7 @@ const posts = (await getCollection("blog")).sort(
     </style>
   </head>
   <body>
-    <Header />
+    <Navigation />
     <main>
       <section>
         <ul>
