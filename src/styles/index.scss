@@ -309,34 +309,6 @@ a.navbar-item {
     margin-bottom: 0.5rem;
   }
 
-  /* admonitions */
-  .admonition {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-  }
-
-  .admonition-info,
-  .admonition-note {
-    background-color: var(--accent4Color);
-  }
-
-  .admonition-tip {
-    background-color: var(--accent2Color);
-
-    p {
-      color: var(--backgroundColor);
-    }
-  }
-
-  .admonition-warning {
-    background-color: var(--accent1Color);
-
-    p {
-      color: var(--backgroundColor);
-    }
-  }
-
   & .twitter-tweet {
     margin-left: auto;
     margin-right: auto;
