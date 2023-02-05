@@ -1,0 +1,74 @@
+---
+/**
+ * Full width hero text.
+ */
+export interface props {
+  /** Main hero text. */
+  title: string;
+  /** Subtitle text below the main hero text. */
+  subtitle?: string;
+}
+
+import InlineSvg from "./InlineSvg.astro";
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">{title}</h1>
+      {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
+      <InlineSvg
+        file={"/src/svg/diamonds-dark.svg"}
+        className={"hero-diamonds"}
+      />
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  .hero {
+    margin: 1.5rem 0rem;
+
+    .hero-body {
+      padding: 0rem;
+
+      div {
+        text-align: center;
+      }
+
+      .container {
+        @include touch {
+          h1 {
+            font-size: 3.5rem;
+          }
+
+          h2 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  /** hero displays for the svg main banner */
+  .hero-badge {
+    margin-top: 1rem;
+    height: 40rem;
+  }
+
+  .hero-badge-mobile {
+    margin-top: 0rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-diamonds {
+    height: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
