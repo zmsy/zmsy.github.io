@@ -19,12 +19,6 @@ const { default: html } = await import(/* @vite-ignore */ `${file}?raw`);
   <Fragment set:html={html} />
 </figure>
 <style lang="scss">
-  svg {
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-  }
-
   .color-responsive-svg {
     /* Paths match the text color, text in font must be exported as curves */
     path {

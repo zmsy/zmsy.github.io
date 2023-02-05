@@ -7,7 +7,7 @@
 <style is:global>
   html {
     /* prevent any overflow outside of the html element. */
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
   }
 
   body {
@@ -15,6 +15,16 @@
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
     overflow: auto;
+  }
+
+  main {
     min-height: 100vh;
+  }
+
+  /* force all svgs to fit to the size of the parent container */
+  svg {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
   }
 </style>

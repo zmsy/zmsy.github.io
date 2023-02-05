@@ -10,11 +10,6 @@ body {
   color: var(--textColor);
 }
 
-#body {
-  // full height, minus approx footer + header height
-  min-height: calc(100vh - 10rem - 5rem);
-}
-
 h1 {
   font-family: var(--heroFonts);
   font-size: 5rem;
@@ -27,6 +22,19 @@ a {
   &:hover {
     color: var(--accent2Color);
   }
+}
+
+/** hero svgs for the main landing page */
+.hero-badge {
+  margin-top: 1rem;
+  height: 40rem;
+}
+
+.hero-badge-mobile {
+  margin-top: 0rem;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* NAV */
