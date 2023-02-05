@@ -7,7 +7,7 @@ This creates the main.css file and the same variables can use bulma variables.
 
 
 body {
-  font-family: $reading-fonts;
+  font-family: var(--readingFonts);
   color: var(--textColor);
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  font-family: $hero-fonts;
+  font-family: var(--heroFonts);
   font-size: 5rem;
   text-decoration: none;
 }
@@ -45,7 +45,7 @@ a {
 .navbar {
   background-color: var(--backgroundColor);
   align-items: flex-end;
-  font-family: $display-fonts;
+  font-family: var(--displayFonts);
   margin: 0rem auto;
   height: 4rem;
   max-width: 73.5rem;
@@ -123,7 +123,7 @@ a.navbar-item {
 #logo-text {
   font-size: 32px;
   justify-content: flex-start;
-  font-family: $display-fonts;
+  font-family: var(--displayFonts);
 }
 
 #logo-img,
@@ -172,7 +172,7 @@ a.navbar-item {
 
   .pagination-text {
     color: var(--textColor);
-    font-family: $hero-fonts;
+    font-family: var(--heroFonts);
     font-size: 1.25rem;
   }
 
@@ -233,7 +233,7 @@ a.navbar-item {
 }
 
 .title {
-  font-family: $hero-fonts;
+  font-family: var(--heroFonts);
   font-weight: normal;
   font-size: 4.5rem;
   color: var(--titleTextColor);
@@ -245,7 +245,7 @@ a.navbar-item {
 }
 
 .subtitle {
-  font-family: $hero-subtitle-fonts;
+  font-family: var(--heroSubtitleFonts);
   font-weight: normal;
   font-size: 1.5rem;
   color: var(--titleTextColor);
@@ -256,7 +256,7 @@ a.navbar-item {
 }
 
 .blog-preview-title {
-  font-family: $hero-fonts;
+  font-family: var(--heroFonts);
   font-weight: normal;
   font-size: 3rem;
   color: var(--titleTextColor);
@@ -276,7 +276,7 @@ a.navbar-item {
   a {
     color: var(--textColor);
     margin: auto 0.25rem;
-    font-family: $hero-fonts;
+    font-family: var(--heroFonts);
     font-size: 1.25rem;
   }
 
@@ -326,7 +326,7 @@ a.navbar-item {
     }
 
     #about-cardtitle {
-      font-family: $subtitle-fonts;
+      font-family: var(--subtitleFonts);
       font-size: 1.5rem;
       margin-top: 0rem;
       margin-bottom: 0rem;
@@ -380,7 +380,7 @@ a.navbar-item {
 
   summary {
     font-size: 2rem;
-    font-family: $hero-fonts;
+    font-family: var(--heroFonts);
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
@@ -408,7 +408,7 @@ a.navbar-item {
   }
 
   h2 {
-    font-family: $subtitle-fonts;
+    font-family: var(--subtitleFonts);
     font-size: 2rem;
   }
 
@@ -478,7 +478,7 @@ a.navbar-item {
 
           span {
             padding: 0.5rem;
-            font-family: $subtitle-fonts;
+            font-family: var(--subtitleFonts);
             font-size: 1.5rem;
             font-weight: 400;
             color: var(--subtitleTextColor);
