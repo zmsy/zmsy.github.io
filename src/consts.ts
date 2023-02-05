@@ -19,8 +19,8 @@ export const contactInfo = {
   githubUser: "zmsy",
   githubUrl: "https://github.com/zmsy",
   linkedInUser: "zmsy",
-  LinkedInUrl: "https://www.linkedin.com/in/zmsy",
+  linkedInUrl: "https://www.linkedin.com/in/zmsy",
   twitterUser: "_zmsy",
   twitterUrl: "https://twitter.com/_zmsy",
-  HowieInstagram: "https://www.instagram.com/howiethesamoyed",
+  howieInstagram: "https://www.instagram.com/howiethesamoyed",
 }
