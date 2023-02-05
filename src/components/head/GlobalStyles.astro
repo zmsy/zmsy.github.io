@@ -1,0 +1,20 @@
+---
+/**
+ * Global css.
+ */
+---
+
+<style is:global>
+  html {
+    /* prevent any overflow outside of the html element. */
+    overflow: hidden !important;
+  }
+
+  body {
+    background-color: var(--backgroundColor);
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    overflow: auto;
+    min-height: 100vh;
+  }
+</style>

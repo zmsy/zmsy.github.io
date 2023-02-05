@@ -1,4 +1,4 @@
-import { Palette } from "../app/colors";
+import { Palette } from "../../../../src/components/app/colors";
 
 /**
  * Parent state container for the entire app.

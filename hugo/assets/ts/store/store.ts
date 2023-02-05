@@ -2,7 +2,7 @@
  * State store for the website.
  */
 
-import { getStartingPalette } from "../app/colors";
+import { getStartingPalette } from "../../../../src/components/app/colors";
 import create from "zustand/vanilla";
 
 import { ZmsyState } from "./types";
