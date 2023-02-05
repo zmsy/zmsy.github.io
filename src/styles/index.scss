@@ -5,7 +5,6 @@ Main scss file.
 This creates the main.css file and the same variables can use bulma variables.
 */
 
-
 body {
   font-family: var(--readingFonts);
   color: var(--textColor);
@@ -28,16 +27,6 @@ a {
   &:hover {
     color: var(--accent2Color);
   }
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-  color: var(--titleTextColor);
-  font-size: 1.25rem;
-}
-
-.icon-large {
-  font-size: 2rem;
 }
 
 /* NAV */

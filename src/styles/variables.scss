@@ -8,18 +8,10 @@ The colors override default bulma colors.
 
 */
 
-/* COLORS */
-$svgDefaultColor: #38332a;
-$svgAlternateColor: #faf9f9;
-$accent1DefaultColor: #d85d44;
-$accent2DefaultColor: #3a89c9;
-$accent3DefaultColor: #9665c7;
-$accent4DefaultColor: #fbd136;
-
 // overridde bulma colors, this is to have it default to the light theme
 $black: #100b03; // `icons` default body font, largely unused except for icons
 $black-bis: #18130d; // `titleText` title, subtitle, h1
-$black-ter: $svgDefaultColor; // `subtitleText` h2
+$black-ter: #38332a; // `subtitleText` h2
 $grey-darker: #3f3b35; // `text` main text color, h3-6
 $grey-dark: #5e564b; // unused
 $grey: #8f8980; // unused
