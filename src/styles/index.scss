@@ -37,10 +37,9 @@ a {
 
 .hero-diamonds {
   height: 1.25rem;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1rem auto;
 }
+
 
 .meta {
   text-align: center;
@@ -181,53 +180,6 @@ a {
   details[open] summary:after {
     font-family: "icomoon";
     content: " \f139";
-  }
-}
-
-#home-main-section {
-  padding-top: 12rem;
-}
-
-.home-columns {
-  justify-content: center;
-  margin-top: 1rem;
-
-  .column {
-    text-align: center;
-  }
-
-  h2 {
-    font-family: var(--subtitleFonts);
-    font-size: 2rem;
-  }
-
-  i {
-    font-size: 2.5rem;
-  }
-
-  p {
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    font-size: 1.125rem;
-  }
-
-  .column-logo {
-    height: 100px;
-    width: 100px;
-    margin: auto;
-  }
-
-  .home-title {
-    margin-bottom: 1rem;
-  }
-
-  .home-link {
-    cursor: pointer;
-    text-decoration: none;
-    display: block;
   }
 }
 

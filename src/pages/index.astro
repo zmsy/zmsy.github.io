@@ -17,19 +17,22 @@ const sections: Array<{
   {
     name: "Blog",
     href: "/blog",
-    tagline: "",
+    tagline:
+      "A collection of writings on technology, programming, data analysis, visualization, and other topics.",
     svg: "/src/svg/blog-logo.svg",
   },
   {
     name: "Recipes",
     href: "/recipes",
-    tagline: "",
+    tagline:
+      "I write recipes! Check out some delicious food, drink, and dessert that I've crafted over the years.",
     svg: "/src/svg/recipes-logo.svg",
   },
   {
-    name: "About",
+    name: "About Me",
     href: "/about",
-    tagline: "",
+    tagline:
+      "Learn more about me: Where I've come from, where I'm headed, and what I'll be doing along the way there.",
     svg: "/src/svg/about-logo.svg",
   },
 ];
@@ -39,6 +42,53 @@ const sections: Array<{
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <style lang="scss">
+      section:where(.hero) {
+        margin: 2.5rem auto 1.5rem;
+      }
+      .home-columns {
+        justify-content: center;
+        margin-top: 1rem;
+
+        .column {
+          text-align: center;
+        }
+
+        h2 {
+          font-family: var(--subtitleFonts);
+          font-size: 2rem;
+        }
+
+        i {
+          font-size: 2.5rem;
+        }
+
+        p {
+          margin-bottom: 2rem;
+          margin-top: 2rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          padding: 1rem;
+          font-size: 1.125rem;
+        }
+
+        .column-logo {
+          height: 100px;
+          width: 100px;
+          margin: auto;
+        }
+
+        .home-title {
+          margin-bottom: 1rem;
+        }
+
+        .home-link {
+          cursor: pointer;
+          text-decoration: none;
+          display: block;
+        }
+      }
+    </style>
   </head>
   <body>
     <Navigation />
@@ -83,10 +133,5 @@ const sections: Array<{
       </section>
     </main>
     <Footer />
-    <style>
-      section:where(.hero) {
-        margin-top: 1.5rem;
-      }
-    </style>
   </body>
 </html>
