@@ -6,31 +6,32 @@ const today = new Date();
 ---
 
 <footer>
-  <div class="container">
-    <InlineSvg file={"/src/svg/footer.svg"} className="footer-dots" />
-    <div id="footer-icons">
-      {
-        navIcons.map(({ alt, icon, url }) => (
-          <a class="is-hidden-mobile" href={url}>
-            <span class={icon} title={alt} />
-          </a>
-        ))
-      }
-    </div>
-    <p><strong>zmsy.co</strong> - by Zach Morrissey</p>
-    <p>Copyright © {today.getFullYear()}</p>
+  <InlineSvg file={"/src/svg/footer.svg"} className="footer-dots" />
+  <div id="footer-icons">
+    {
+      navIcons.map(({ alt, icon, url }) => (
+        <a class="is-hidden-mobile" href={url}>
+          <span class={icon} title={alt} />
+        </a>
+      ))
+    }
   </div>
+  <p><strong>zmsy.co</strong> - by Zach Morrissey</p>
+  <p>Copyright © {today.getFullYear()}</p>
 </footer>
 <style>
   footer {
+    display: flex;
+    flex-flow: column nowrap;
     background-color: var(--secondaryBackgroundColor);
     color: var(--backgroundColor);
     border-top: 1rem solid var(--backgroundAccentColor);
-    padding: 2rem 0rem;
+    padding: 2rem 1.5rem 6rem;
     text-align: center;
   }
 
   strong {
+    /* TODO: remove, caused by bulma taking priority over scoped astro styles */
     color: var(--backgroundColor);
   }
 

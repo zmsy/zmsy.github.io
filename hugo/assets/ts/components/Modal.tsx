@@ -59,7 +59,7 @@ export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
         />
       </div>
       <button
-        class="modal-close is-large"
+        class="modal-close
         aria-label="close"
         onClick={handleClickAway}
       ></button>

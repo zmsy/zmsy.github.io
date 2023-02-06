@@ -1,7 +1,8 @@
 ---
+export type SvgFile = `/src/svg/${string}.svg`;
 export interface Props {
   /** Name of the svg file in the /src/svg folder */
-  file: `/src/svg/${string}.svg`;
+  file: SvgFile;
   /** An additional class to apply to the component. */
   className?: string;
 }
