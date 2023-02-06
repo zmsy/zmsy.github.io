@@ -1,5 +1,5 @@
 ---
-import { siteInfo, contactInfo } from "../consts";
+import { contactInfo, siteInfo } from "../consts";
 import InlineSVG from "./InlineSvg.astro";
 
 type NavIcon = {
@@ -72,3 +72,73 @@ const navLinks: Array<NavLink> = [
     </div>
   </div>
 </nav>
+<style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as bulma_mixins;
+
+  nav {
+    background-color: var(--backgroundColor);
+    color: var(--subtitleTextColor);
+    align-items: flex-end;
+    font-family: var(--displayFonts);
+    margin: 0rem auto;
+    height: 4rem;
+    max-width: 73.5rem;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    background-color: var(--backgroundColor);
+
+    align-items: center;
+
+    @include bulma_mixins.touch {
+      padding: 0.5rem;
+    }
+  }
+
+  .navbar-menu {
+    box-shadow: none;
+    background-color: var(--backgroundColor);
+  }
+
+  a.navbar-item {
+    color: var(--subtitleTextColor);
+
+    &.is-tab {
+      font-size: 1.125rem;
+    }
+
+    &:hover {
+      background-color: var(--backgroundAccentColor);
+    }
+  }
+
+  .navbar-end a:hover,
+  .fa:hover {
+    background-color: var(--backgroundAccentColor);
+    color: var(--subtitleTextColor);
+  }
+
+  .navbar-burger {
+    color: var(--textColor);
+  }
+
+  #logo-text {
+    font-size: 32px;
+    justify-content: flex-start;
+    font-family: var(--displayFonts);
+  }
+
+  .logo-img {
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 40px;
+    height: auto;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+</style>
