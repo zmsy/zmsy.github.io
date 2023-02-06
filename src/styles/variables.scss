@@ -1,0 +1,31 @@
+/*
+---------
+VARIABLES
+---------
+
+This set of variables is used to derive the downstream stuff in the regular css files.
+The colors override default bulma colors.
+
+*/
+
+// overridde bulma colors, this is to have it default to the light theme
+$black: #100b03; // `icons` default body font, largely unused except for icons
+$black-bis: #18130d; // `titleText` title, subtitle, h1
+$black-ter: #38332a; // `subtitleText` h2
+$grey-darker: #3f3b35; // `text` main text color, h3-6
+$grey-dark: #5e564b; // unused
+$grey: #8f8980; // unused
+$grey-light: #bab6af; // unused
+$grey-lighter: #dcdbd9; // `backgroundAccent` used by <hr> + footer border
+$white-ter: #f0efef; // unused
+$white-bis: #f5f4f4; // unused
+$white: #faf9f9; // `background`
+
+// bulma-required colors
+$orange: #d85d44;
+$yellow: #fbd136;
+$green: #23d160;
+$turquoise: #8cc9bf;
+$blue: #3a89c9;
+$purple: #9665c7; // `code` inline code segments
+$red: #d34141;
