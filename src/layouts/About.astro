@@ -2,12 +2,23 @@
 /**
  * Layout for the about page on the site.
  */
-import InlineSvg from "../components/InlineSvg.astro";
-import Hero from "../components/Hero.astro";
-import BaseHead from "../components/head/BaseHead.astro";
-import Navigation from "../components/Navigation.astro";
+import type { MarkdownLayoutProps } from "astro";
 import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import Hero from "../components/Hero.astro";
+import InlineSvg from "../components/InlineSvg.astro";
+import MarkdownContent from "../components/mdx/MarkdownContent.astro";
+import Navigation from "../components/Navigation.astro";
 import { contactInfo } from "../consts";
+
+type Props = MarkdownLayoutProps<{
+  /** Page title. */
+  title: string;
+  /** Page description, rendered as a subtitle. */
+  description: string;
+  /** Author tagline, displayed below the author name. */
+  tagline: string;
+}>;
 
 const {
   authorName,
@@ -26,12 +37,14 @@ const icons = {
   [githubUrl]: "icon-github",
   [howieInstagram]: "icon-paw",
 };
+
+const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <BaseHead title={"About"} description={""} />
+    <BaseHead title={frontmatter.title} description={frontmatter.description} />
     <style lang="scss">
       #about-card {
         margin-bottom: 2rem;
@@ -107,9 +120,9 @@ const icons = {
           <Hero title="About" />
           <div class="columns is-centered">
             <div class="column is-6">
-              <div class="content">
+              <MarkdownContent>
                 <slot />
-              </div>
+              </MarkdownContent>
             </div>
 
             <div class="column is-4">
@@ -135,13 +148,17 @@ const icons = {
                       <p id="about-cardtitle">{authorName}</p>
                       <p>
                         <a href={twitterUrl}>
-                          {twitterUser}
+                          {`@${twitterUser}`}
                         </a>
                       </p>
                     </div>
                   </div>
 
                   <hr />
+
+                  <div class="content about-content">
+                    {frontmatter.tagline}
+                  </div>
 
                   <!-- icons array -->
                   <div id="icons">

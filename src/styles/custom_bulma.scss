@@ -1,12 +1,4 @@
-// 1. Import the initial variables
 @import "../../node_modules/bulma/sass/base/minireset.sass";
-@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
-@import "../../node_modules/bulma/sass/utilities/functions.sass";
-
-// 2. Set custom variables
-@import "./variables.scss";
-
-// 3. import the rest of bulma that we care about
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 @import "../../node_modules/bulma/sass/base/generic.sass";
 @import "../../node_modules/bulma/sass/helpers/_all.sass";

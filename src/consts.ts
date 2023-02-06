@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION = 'Zach Morrissey, software engineer. Seattle, WA.
 
 export const siteInfo = {
   baseUrl: 'https://zmsy.co',
-  title: 'zmsy',
+  title: 'zmsy.co',
   description: 'Zach Morrissey, software engineer. Seattle, WA.',
 };
 

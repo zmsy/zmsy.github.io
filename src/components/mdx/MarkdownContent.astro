@@ -1,13 +1,15 @@
 ---
 /**
- * Basic wrapper for Markdown content that adds the content stylings to the rendered outputs.
+ * Basic wrapper for Markdown content that adds the content stylings to the
+ * rendered outputs. The styles are marked global because they should be on any
+ * page that uses this element.
  */
 ---
 
 <div class="content">
   <slot />
 </div>
-<style lang="scss">
+<style lang="scss" is:global>
   .content {
     h1:first-child,
     h2:first-child,
