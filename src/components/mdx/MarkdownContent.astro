@@ -4,6 +4,10 @@
  * rendered outputs. The styles are marked global because they should be on any
  * page that uses this element.
  */
+export type Props = {
+  // pass children to <slot /> by default
+  children?: any;
+};
 ---
 
 <div class="content">

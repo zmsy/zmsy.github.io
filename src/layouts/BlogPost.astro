@@ -1,46 +1,42 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/head/BaseHead.astro";
 import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import Hero from "../components/Hero.astro";
+import MarkdownContent from "../components/mdx/MarkdownContent.astro";
 import Navigation from "../components/Navigation.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, publishDate, updatedDate, heroImage } = Astro.props;
+const { title, description, publishDate } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style>
-      .title {
-        font-size: 2em;
-        margin: 0.25em 0 0;
-      }
-      hr {
-        border-top: 1px solid #ddd;
-        margin: 1rem 0;
+    <style lang="scss">
+      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+      article {
+        margin: 0 auto 8rem;
+        max-width: var(--blogPostWidth);
+
+        @include mixins.touch {
+          // no max-width on touch
+          max-width: unset;
+          margin: 0 1rem 8rem;
+        }
       }
     </style>
   </head>
-
   <body>
     <Navigation />
     <main>
       <article>
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
-        {publishDate && <time>{publishDate}</time>}
-        {
-          updatedDate && (
-            <div>
-              Last updated on <time>{updatedDate}</time>
-            </div>
-          )
-        }
-        <hr />
-        <slot />
+        <Hero title={title} publishDate={publishDate} />
+        <MarkdownContent>
+          <slot />
+        </MarkdownContent>
       </article>
     </main>
     <Footer />

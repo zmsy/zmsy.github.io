@@ -1,18 +1,22 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		publishDate: z.date(),
-		updatedDate: z
-			.string()
-			.optional()
-			.transform((str) => (str ? new Date(str) : undefined)),
-		heroImage: z.string().optional(),
-	}),
+  schema: z.object({
+		/**
+		 * Title, displays in link previews and tab header. Prefixed with 'zmsy | '
+		 */
+    title: z.string(),
+		/** HTTP <head> description for the post, shows up in short links. */
+    description: z.string(),
+		/** Date when blog post was first published. */
+    publishDate: z.date(),
+		/** Last date of this blog post being updated. */
+    updatedDate: z
+      .date()
+      .optional(),
+		/** Main image for the post, if there is one. */
+    heroImage: z.string().optional(),
+  }),
 });
 
 // const recipes = defineCollection({
