@@ -32,7 +32,7 @@ const today = new Date();
 
   strong {
     /* TODO: remove, caused by bulma taking priority over scoped astro styles */
-    color: var(--backgroundColor);
+    color: var(--backgroundColor) !important;
   }
 
   .footer-dots {
@@ -40,7 +40,7 @@ const today = new Date();
     margin: 1rem auto;
   }
 
-  #footer-icons {
+  div {
     max-width: 15rem;
     margin: 0.5rem auto;
     display: flex;
