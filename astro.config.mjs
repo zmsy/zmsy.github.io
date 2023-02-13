@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://zmsy.co',
+	output: "static",
 	integrations: [mdx(), sitemap()],
 	server: {
 		// nostalgic for my hugo days i guess
@@ -13,5 +14,8 @@ export default defineConfig({
 	},
 	ssr: {
 		noExternal: ['bulma'],
-	}
+	},
+	markdown: {
+		syntaxHighlight: 'prism',
+	},
 });

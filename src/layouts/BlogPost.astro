@@ -33,7 +33,7 @@ const { title, description, publishDate } = Astro.props;
     <Navigation />
     <main>
       <article>
-        <Hero title={title} publishDate={publishDate} />
+        <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
         <MarkdownContent>
           <slot />
         </MarkdownContent>
