@@ -52,11 +52,6 @@ a {
 }
 
 /** PAGE SPACING */
-.blog-post,
-.blog-preview {
-  margin-bottom: 8rem;
-}
-
 .pagination {
   justify-content: center;
   margin-top: 1rem;
@@ -103,42 +98,6 @@ a {
   font-weight: normal;
   font-size: 1.5rem;
   color: var(--titleTextColor);
-}
-
-#blog-preview-container {
-  max-width: 45rem;
-}
-
-.blog-preview-title {
-  font-family: var(--heroFonts);
-  font-weight: normal;
-  font-size: 3rem;
-  color: var(--titleTextColor);
-  word-break: break-word;
-}
-
-.blog-preview-description {
-  font-size: 1.25rem;
-}
-
-.blog-preview-link-holder {
-  margin-top: 1rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-
-  a {
-    color: var(--textColor);
-    margin: auto 0.25rem;
-    font-family: var(--heroFonts);
-    font-size: 1.25rem;
-  }
-
-  .blog-preview-link {
-    height: 2rem;
-    max-width: 7rem;
-    margin: 1rem 0rem;
-  }
 }
 
 /* RECIPES PAGE */

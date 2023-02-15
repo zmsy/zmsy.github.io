@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { contactInfo } from "../consts";
+import InlineSvg from "./InlineSvg.astro";
+
+type Props = Pick<
+  CollectionEntry<"blog">["data"],
+  "title" | "publishDate" | "description"
+> & { slug: string };
+
+const { title, publishDate, description, slug } = Astro.props;
+const url = `/blog/${slug}`;
+---
+
+<div class="blog-preview">
+  <h2>
+    <a class="blog-preview-title is-size-2-touch" href={url}>
+      {title}
+    </a>
+  </h2>
+  <p class="meta">
+    written by
+    <a href={contactInfo.twitterUrl}>
+      {contactInfo.authorName}
+    </a>
+    on {publishDate.toLocaleDateString()}
+  </p>
+  <p>
+    <InlineSvg
+      file={"/src/svg/diamonds-dark.svg"}
+      className={"hero-diamonds"}
+    />
+  </p>
+  <p class="blog-preview-description">{description}</p>
+  <div class="blog-preview-link-holder">
+    <a href={url}>Read More</a>
+    <a href={url}>
+      <InlineSvg
+        file={"/src/svg/blog-preview-link.svg"}
+        className={"blog-preview-link"}
+      />
+    </a>
+  </div>
+</div>
+<style lang="scss">
+  .blog-preview {
+    margin-bottom: 8rem;
+  }
+
+  .blog-preview-title {
+    font-family: var(--heroFonts);
+    font-weight: normal;
+    font-size: 3rem;
+    color: var(--titleTextColor);
+    word-break: break-word;
+  }
+
+  .blog-preview-description {
+    font-size: 1.25rem;
+  }
+
+  .blog-preview-link-holder {
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+
+    a {
+      color: var(--textColor);
+      margin: auto 0.25rem;
+      font-family: var(--heroFonts);
+      font-size: 1.25rem;
+    }
+
+    .blog-preview-link {
+      height: 2rem;
+      max-width: 7rem;
+      margin: 1rem 0rem;
+    }
+  }
+</style>

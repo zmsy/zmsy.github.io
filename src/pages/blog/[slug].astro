@@ -2,19 +2,22 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
+type Props = CollectionEntry<"blog">;
+
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return (
     posts
       // sort by publishDate descending
-      .sort((a, b) => (a.data.publishDate < b.data.publishDate ? 1 : -1))
+      .sort(
+        (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+      )
       .map((post) => ({
         params: { slug: post.slug },
         props: post,
       }))
   );
 }
-type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
