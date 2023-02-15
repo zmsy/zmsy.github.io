@@ -51,36 +51,6 @@ a {
   margin-right: 0rem;
 }
 
-/** PAGE SPACING */
-.pagination {
-  justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  align-content: center;
-
-  // to keep the center item aligned regardless
-  // of whether the sides are links or not
-  .pagination-left,
-  .pagination-right {
-    flex-grow: 1;
-    flex-basis: 0;
-  }
-
-  .pagination-text {
-    color: var(--textColor);
-    font-family: var(--heroFonts);
-    font-size: 1.25rem;
-  }
-
-  .pagination-disabled figure {
-    display: none;
-  }
-
-  figure {
-    height: 2rem;
-  }
-}
-
 .title {
   font-family: var(--heroFonts);
   font-weight: normal;
