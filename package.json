@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^0.15.1",
+    "@astrojs/preact": "^2.0.3",
     "@astrojs/rss": "^2.1.0",
     "@astrojs/sitemap": "^1.0.0",
     "astro": "^2.0.2",
-    "bulma": "^0.9.4"
+    "bulma": "^0.9.4",
+    "preact": "^10.12.1"
   },
   "devDependencies": {
     "sass": "^1.58.0"
