@@ -74,43 +74,6 @@ a {
   margin: 0rem auto;
 }
 
-/* FOOD MENU */
-
-.menu-drinks-logo {
-  max-width: 15rem;
-  // force important because the actual svg file doesn't get
-  // exported with more specific classname/id.
-  margin: 1rem auto !important;
-}
-
-.menu-content {
-  .menu-text-header {
-    display: inline-block;
-  }
-
-  // custom formatting for H2 headers in the menu
-  details > summary,
-  summary::-webkit-details-marker {
-    list-style: none;
-  }
-
-  summary {
-    font-size: 2rem;
-    font-family: var(--heroFonts);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  summary::after {
-    font-family: "icomoon";
-    content: " \f13a";
-  }
-  details[open] summary:after {
-    font-family: "icomoon";
-    content: " \f139";
-  }
-}
-
 /* MODAL */
 
 .modal {

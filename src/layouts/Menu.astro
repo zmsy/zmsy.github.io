@@ -30,12 +30,17 @@ const {
       @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
       article {
         margin: 0 auto 8rem;
-        max-width: var(--blogPreviewWidth);
+        max-width: var(--menuWidth);
 
         @include mixins.touch {
           // no max-width on touch
           max-width: unset;
           margin: 0 2rem 8rem;
+        }
+
+        .menu-drinks-logo {
+          max-width: 15rem;
+          margin: 1rem auto;
         }
       }
     </style>
