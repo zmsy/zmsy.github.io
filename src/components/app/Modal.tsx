@@ -1,8 +1,6 @@
-import clsx from "clsx";
-import { FunctionComponent } from "preact";
+import type { FunctionComponent } from "preact";
 
-import { useStore } from "ts/store";
-import { Figure } from "./Figure";
+import { Figure } from "../../../hugo/assets/ts/components/Figure";
 
 /** See note in Figure.tsx for why these are .txt files. */
 import blogIcon from "../../img/icons/blog-icon.txt";
@@ -17,10 +15,10 @@ type ModalProps = {
 };
 
 export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
-  const { navOpen, setNavOpen } = useStore();
-  const handleClickAway = () => setNavOpen(false);
+  // todo: fix handler
+  const handleClickAway = () => {};
   return (
-    <div id={id} class={clsx("modal", navOpen && "is-active")}>
+    <div id={id} className={"modal is-active"}>
       <div class="modal-background" onClick={handleClickAway}></div>
       <div class="modal-content">
         <Figure
@@ -58,11 +56,7 @@ export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
           svg={hrzSeparator}
         />
       </div>
-      <button
-        class="modal-close
-        aria-label="close"
-        onClick={handleClickAway}
-      ></button>
+      <button class="modal-close" onClick={handleClickAway} />
     </div>
   );
 };
