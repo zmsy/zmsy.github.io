@@ -1,27 +1,22 @@
 import type { FunctionComponent } from "preact";
 
-import { Figure } from "../../../hugo/assets/ts/components/Figure";
+import { Figure } from "./Figure";
 
-/** See note in Figure.tsx for why these are .txt files. */
-import blogIcon from "../../img/icons/blog-icon.txt";
-import homeIcon from "../../img/icons/home-icon.txt";
-import aboutIcon from "../../img/icons/about-icon.txt";
-import recipesIcon from "../../img/icons/recipes-icon.txt";
-import hrzSeparator from "../../img/horizontal-separator.txt";
 import { useStore } from "@nanostores/preact";
 import { navModalOpen } from "./store";
 import clsx from "clsx";
 
-type ModalProps = {
-  /** Must have a unique identifier. */
-  id: string;
-};
+import blogIcon from "../../svg/icons/blog-icon.svg"
+import homeIcon from "../../svg/icons/home-icon.svg";
+import aboutIcon from "../../svg/icons/about-icon.svg";
+import recipesIcon from "../../svg/icons/recipes-icon.svg";
+import hrzSeparator from "../../svg/horizontal-separator.svg";
 
-export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
-  const $navModalOpen = useStore(navModalOpen);
+export const NavModal: FunctionComponent<{}> = () => {
+  const $open = useStore(navModalOpen);
   const handleClickAway = () => navModalOpen.set(false);
   return (
-    <div id={id} className={clsx(["modal", $navModalOpen && "is-active"])}>
+    <div id="nav-modal" className={clsx(["modal", $open && "is-active"])}>
       <div class="modal-background" onClick={handleClickAway}></div>
       <div class="modal-content">
         <Figure

@@ -3,7 +3,7 @@
 */
 
 import clsx from "clsx";
-import { FunctionComponent } from "preact";
+import type { FunctionComponent } from "preact";
 
 type FigureProps = {
   /** Text source of the SVG file. */

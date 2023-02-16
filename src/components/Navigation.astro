@@ -1,5 +1,6 @@
 ---
 import { contactInfo, siteInfo } from "../consts";
+import { NavModal } from "./app/NavModal";
 import InlineSVG from "./InlineSvg.astro";
 
 type NavIcon = {
@@ -71,6 +72,7 @@ const navLinks: Array<NavLink> = [
       }
     </div>
   </div>
+  <NavModal />
 </nav>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as bulma_mixins;
