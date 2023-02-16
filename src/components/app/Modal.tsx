@@ -8,6 +8,9 @@ import homeIcon from "../../img/icons/home-icon.txt";
 import aboutIcon from "../../img/icons/about-icon.txt";
 import recipesIcon from "../../img/icons/recipes-icon.txt";
 import hrzSeparator from "../../img/horizontal-separator.txt";
+import { useStore } from "@nanostores/preact";
+import { navModalOpen } from "./store";
+import clsx from "clsx";
 
 type ModalProps = {
   /** Must have a unique identifier. */
@@ -15,10 +18,10 @@ type ModalProps = {
 };
 
 export const Modal: FunctionComponent<ModalProps> = ({ id }) => {
-  // todo: fix handler
-  const handleClickAway = () => {};
+  const $navModalOpen = useStore(navModalOpen);
+  const handleClickAway = () => navModalOpen.set(false);
   return (
-    <div id={id} className={"modal is-active"}>
+    <div id={id} className={clsx(["modal", $navModalOpen && "is-active"])}>
       <div class="modal-background" onClick={handleClickAway}></div>
       <div class="modal-content">
         <Figure
