@@ -12,11 +12,16 @@ import Navigation from "../components/Navigation.astro";
       description={"Couldn't find what you were looking for. Sorry!"}
     />
   </head>
+
   <body>
     <Navigation />
     <main>
-      <article>
-        <h1>Page not found! Go back <a href="/">home</a>?</h1>
+      <!-- for some reason, <style> tag didn't work so these are inlined. -->
+      <article
+        style="width: 20rem; margin: 8rem auto 0rem; text-align: center;"
+      >
+        <h1 style="font-size: 2rem">Page not found!</h1>
+        <p>Go <a href="/">back home</a>?</p>
       </article>
     </main>
     <Footer />
