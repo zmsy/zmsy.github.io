@@ -40,7 +40,6 @@ a {
   margin: 1rem auto;
 }
 
-
 .meta {
   text-align: center;
   margin-top: 1em;
@@ -77,14 +76,14 @@ a {
 
 /* FOOD MENU */
 
-.menu-content {
-  .menu-drinks-logo {
-    max-width: 15rem;
-    // force important because the actual svg file doesn't get
-    // exported with more specific classname/id.
-    margin: 0rem auto !important;
-  }
+.menu-drinks-logo {
+  max-width: 15rem;
+  // force important because the actual svg file doesn't get
+  // exported with more specific classname/id.
+  margin: 1rem auto !important;
+}
 
+.menu-content {
   .menu-text-header {
     display: inline-block;
   }
