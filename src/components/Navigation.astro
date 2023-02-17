@@ -1,6 +1,7 @@
 ---
 import { contactInfo, siteInfo } from "../consts";
 import { NavModal } from "./app/NavModal";
+import { NavModalToggle } from "./app/NavModalToggle";
 import InlineSVG from "./InlineSvg.astro";
 
 type NavIcon = {
@@ -48,11 +49,7 @@ const navLinks: Array<NavLink> = [
     <a class="navbar-item" href="/">
       <div id="logo-text">{siteInfo.title}</div>
     </a>
-    <span class="navbar-burger" id="navbar-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
+    <NavModalToggle client:load />
   </div>
   <div class="navbar-menu">
     <div class="navbar-end">
@@ -72,10 +69,10 @@ const navLinks: Array<NavLink> = [
       }
     </div>
   </div>
-  <NavModal />
+  <NavModal client:load />
 </nav>
 <style lang="scss">
-  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as bulma_mixins;
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
 
   nav {
     background-color: var(--backgroundColor);
@@ -93,7 +90,7 @@ const navLinks: Array<NavLink> = [
 
     align-items: center;
 
-    @include bulma_mixins.touch {
+    @include mixins.touch {
       padding: 0.5rem;
     }
   }
@@ -108,10 +105,18 @@ const navLinks: Array<NavLink> = [
 
     &.is-tab {
       font-size: 1.125rem;
+      // align visually with 'zmsy.co' text
+      min-height: 2.75rem;
     }
 
     &:hover {
       background-color: var(--backgroundAccentColor);
+    }
+  }
+
+  .navbar-end {
+    @include mixins.desktop {
+      align-items: flex-end;
     }
   }
 
@@ -121,7 +126,9 @@ const navLinks: Array<NavLink> = [
     color: var(--subtitleTextColor);
   }
 
-  .navbar-burger {
+  :global(.navbar-burger) {
+    height: 4rem;
+    width: 4rem;
     color: var(--textColor);
   }
 
