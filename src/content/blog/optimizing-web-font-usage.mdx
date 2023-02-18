@@ -3,6 +3,13 @@ title: "Optimizing Web Font Usage For Faster Page Loads"
 description: "Why and how to migrate off of Google Fonts for a more customizable user experience."
 publishDate: 2022-04-09T14:31:22-07:00
 ---
+import lighthouseTimes from "@src/images/blog/optimizing-web-font-usage/lighthouse_times.png";
+import lighthouseTimes2 from "@src/images/blog/optimizing-web-font-usage/lighthouse_times_2.png";
+import lighthouseOpportunity from "@src/images/blog/optimizing-web-font-usage/lighthouse_opportunity.png";
+import waterfall1 from "@src/images/blog/optimizing-web-font-usage/waterfall_1.png";
+import waterfall2 from "@src/images/blog/optimizing-web-font-usage/waterfall_2.png";
+
+import { Image } from '@astrojs/image/components';
 
 ## So s l o o w w w w
 
@@ -15,11 +22,11 @@ I had originally used [Google Fonts](https://fonts.google.com/) because it's _tr
 
 Here's a look at [what Lighthouse scored](https://pagespeed.web.dev/report?url=https%3A%2F%2Fzmsy.co%2Fblog) my site's `/blog` path.
 
-{{<image src="lighthouse_times.png">}}
+<Image src={lighthouseTimes} />
 
 Clearly the biggest issue is the site styling.
 
-{{<image src="lighthouse_opportunity.png">}}
+<Image src={lighthouseOpportunity} />
 
 Ignoring the CSS bundle for the time being, let's look into the two latter items in this list. First is a call to fetch FontAwesome icons, and the second is the call to Google Fonts. These two combine for quite a lot of the time prior to first contentful paint.
 
@@ -84,11 +91,11 @@ Both of these, used together, are a pretty good starting strategy for font loadi
 
 Here's the before picture, with _just_ the inlined `@font-face` declarations.
 
-{{<image src="waterfall_1.png" alt="DevTools resources loading waterfall, before optimization.">}}
+<Image src={waterfall1} />
 
 And here's the result after adding preload links for the two fonts that are most often used.
 
-{{<image src="waterfall_2.png" alt="DevTools resources loading waterfall, after adding preload links.">}}
+<Image src={waterfall2} />
 
 You can see that the two most important fonts, the 400-weight [Latin unicode subset](https://jrgraphix.net/r/Unicode/0020-007F) is requested _immediately_ after the HTML is parsed. This makes the FOIT on site load much quicker.
 
@@ -108,7 +115,7 @@ It's worth at least going through the list and seeing which ones [would look goo
 
 Let's see how Lighthouse marks this now that the font usage has been improved:
 
-{{<image src="lighthouse_times_2.png" alt="Lighthouse scores after font optimization.">}}
+<Image src={lighthouseTimes2} />
 
 Some real improvements! Some still to be done here, but nothing left within the scope of font usage.
 

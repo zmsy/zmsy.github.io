@@ -3,11 +3,20 @@ title: Discovering PICO-8
 description: "PICO-8 might just be the coolest little programming environment that exists today. Love old-school videogames? You'll love this."
 publishDate: 2018-05-03
 ---
-body:
+
+import pico8 from "@src/images/blog/discovering-pico-8/pico-8.png";
+import pico8Cli from "@src/images/blog/discovering-pico-8/pico-8_cli.png";
+import pico8IDE from "@src/images/blog/discovering-pico-8/pico-8_ide.png";
+import pico8BounceCode from "@src/images/blog/discovering-pico-8/pico-8_bounce.png";
+import pico8Bounce from "@src/images/blog/discovering-pico-8/pico-8_bounce.gif?url";
+import pico8Bounce2 from "@src/images/blog/discovering-pico-8/pico-8_bounce2.gif?url";
+import pico8Bounce3 from "@src/images/blog/discovering-pico-8/pico-8_bounce3.gif?url";
+
+import { Image } from '@astrojs/image/components';
 
 The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. This thing looks _damn fun_ to program for, and it comes batteries-included for most tasks so you can get up and running in no time.
 
-{{< image src="pico-8.png" alt="PICO 8 Illustration From Lexaloffle" >}}
+<Image src={pico8} />
 
 #### Highlights
 
@@ -21,11 +30,9 @@ On top of all that, the VM that runs the PICO-8 cartridge has been ported to har
 
 People make some _suuuuuuuuuuper_ cool stuff with it.
 
-<!-- Examples -->
+{/* Examples */}
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is easily the most fun I&#39;ve had working on a project! If you like what you see, give it a shot, and let me know what you think! Not nearly finished yet, but it already feels so good!<a href="https://twitter.com/hashtag/acceler8?src=hash&amp;ref_src=twsrc%5Etfw">#acceler8</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a><a href="https://t.co/dWOhl3zRfW">https://t.co/dWOhl3zRfW</a> <a href="https://t.co/aAjSnCcqjC">pic.twitter.com/aAjSnCcqjC</a></p>&mdash; Master of None (@Alturos) <a href="https://twitter.com/Alturos/status/991155950328348672?ref_src=twsrc%5Etfw">May 1, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Just started messing around with <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> but it&#39;s pretty fun for weekend hobby dev. <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://t.co/6bkoP3w2e5">pic.twitter.com/6bkoP3w2e5</a></p>&mdash; Ted Ajax Dobyns (@TedAjax) <a href="https://twitter.com/TedAjax/status/995712327398768641?ref_src=twsrc%5Etfw">May 13, 2018</a></blockquote>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Remember: this is a sneaking mission...&quot;<a href="https://twitter.com/hashtag/mono8?src=hash&amp;ref_src=twsrc%5Etfw">#mono8</a> <a href="https://twitter.com/hashtag/screenshotsaturday?src=hash&amp;ref_src=twsrc%5Etfw">#screenshotsaturday</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiegames?src=hash&amp;ref_src=twsrc%5Etfw">#indiegames</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/guerrillawars?src=hash&amp;ref_src=twsrc%5Etfw">#guerrillawars</a> <a href="https://twitter.com/hashtag/monogame?src=hash&amp;ref_src=twsrc%5Etfw">#monogame</a> <a href="https://twitter.com/hashtag/metalgear?src=hash&amp;ref_src=twsrc%5Etfw">#metalgear</a> <a href="https://t.co/NFWUkgK3uC">pic.twitter.com/NFWUkgK3uC</a></p>&mdash; Matt Hughson (@matthughson) <a href="https://twitter.com/matthughson/status/989359766332891136?ref_src=twsrc%5Etfw">April 26, 2018</a></blockquote>
 
@@ -53,11 +60,11 @@ The things that helped me learn PICO-8, by subject area:
 
 The first place you'll land is the command line in PICO-8, which is used to launch all of the other screens. It looks exactly like you'd expect it to.
 
-{{< image src="pico-8_cli.png" alt="PICO 8 Command Line" >}}
+<Image src={pico8Cli} />
 
 There's also a built-in IDE for developing games! This is where you can write your lua code, edit sprites, create background tiles and more.
 
-{{< image src="pico-8_ide.png" alt="PICO 8 Integrated Development Environment" >}}
+<Image src={pico8IDE} />
 
 Multiple other pages in the editor exist for purposes of creating assets for these two pages: A sprite editor, a tile editor, a SFX editor, and a music arrangement screen. Combining all of these, you can make pretty convincing graphics & sound pretty quickly.
 
@@ -73,9 +80,9 @@ There are basically only three functions to know:
 
 Using these, I ended up trying to do what most people try to do their first time using any 2D graphics program: make a ball bounce across the screen.
 
-{{< image src="pico-8_bounce.png" alt="PICO-8 code to bounce a ball." >}}
+<Image src={pico8BounceCode} />
 
-{{< image src="pico-8_bounce.gif" alt="PICO-8 bouncing ball" >}}
+<img src={pico8Bounce} />
 
 It works! But hey - this isn't interactive, so we can't _quite_ call it a game yet. Here's how we'll do that.
 
@@ -83,7 +90,7 @@ It works! But hey - this isn't interactive, so we can't _quite_ call it a game y
 * Change the velocity based on that button. This time we're adding a random positive velocity to the ball.
 * Display some message or feedback so that I can tell I implemented it correctly.
 
-{{< image src="pico-8_bounce2.gif" alt="PICO-8 bouncing ball" >}}
+<img src={pico8Bounce2} />
 
 Nice. But now, since this is a videogame we want to update a few more things:
 
@@ -91,7 +98,7 @@ Nice. But now, since this is a videogame we want to update a few more things:
 * Add more natural slowdowns to the bounces. As the ball bounces off the floor, it should lose some of its velocity.
 * Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
 
-{{< image src="pico-8_bounce3.gif" alt="PICO-8 bouncing ball" >}}
+<img src={pico8Bounce3} />
 
 ## What's Next? (To be continued in Part 2)
 

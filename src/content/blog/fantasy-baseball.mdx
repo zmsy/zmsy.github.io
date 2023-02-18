@@ -4,6 +4,11 @@ description: "There's a lot of cool stuff you can do with available baseball dat
 publishDate: 2018-03-15
 ---
 
+import copyAsCurl from "@src/images/blog/fantasy-baseball/copy_as_curl.png";
+import pageSize from "@src/images/blog/fantasy-baseball/page_size.png";
+
+import { Image } from '@astrojs/image/components';
+
 ## Winning Fantasy Baseball in Style
 
 The advantages of doing my pre-season due diligence by scouting out the best fantasy baseball players often evaporates about 3 rounds into the draft. Since I can't win in the draft, why not automate my in-season scouting efforts?
@@ -68,13 +73,13 @@ There were two issues I was trying to solve for.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
 
-{{< image src="page_size.png" alt="Fangraphs Page Size Dropdown" >}}
+<Image src={pageSize} alt="Fangraphs Page Size Dropdown" />
 
 1. Navigate to the chrome developer tools network tab.
 2. Filter to `method:POST` so you only get the form post and none of the other resource requests.
 3. Right click on the post and select `copy` > `copy as cURL (bash)`. 
 
-{{< image src="copy_as_curl.png" alt="Chrome Network Tab for Fangraphs Page" >}}
+<Image src={copyAsCurl} alt="Chrome Network Tab for Fangraphs Page" />
 
 I ripped that data out into two files, `get_fangraphs.sh` (send the request), and `fangraphs_form_data.txt`. Since the data is over a certain volume with curl, you need to store it in its own file and load it using the `-d` flag.
 
@@ -226,7 +231,7 @@ with open('pitchers_projections.html', 'r') as phtml:
 
 This means we've got 5 inputs - one for rosters, two for projections, and two for actuals. Time to get crankin' on the analysis part!
 
-## Joining and Visualizing in Pandas/Seaborn
+## Joining It Into One
 
 First we need to join the datasets together into two dataframes that will make things easier to use: batters and pitchers. Roster information goes into both.
 
@@ -239,5 +244,7 @@ dfb = pd.merge(dfb, dfb_act, how='left', on='Name', suffixes=('', '.a'))
 dfp = pd.merge(dfp_proj, df_rost, how='left', on='Name', suffixes=('.p', '.r'))
 dfp = pd.merge(dfp, dfp_act, how='left', on='Name', suffixes=('', '.a'))
 ```
+
+Now you've got a working dataset! I keep the updated code for generating these on [Github](https://github.com/zmsy/airflow/tree/master/dags/lib) as part of my generic Airflow scripts repo if you want to play around with it. It's mostly built for the stats that we care about, so feel free to customize to your liking.
 
 [Also - If you use Fangraphs data a lot, it's worth considering becoming a member and supporting them a bit!](https://www.fangraphs.com/plus/product/fangraphs-membership/)

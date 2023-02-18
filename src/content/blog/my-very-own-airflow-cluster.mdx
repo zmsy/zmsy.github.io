@@ -4,9 +4,14 @@ description: "My data needs have expanded over the years, and it took a full Air
 publishDate: 2018-06-25
 ---
 
+import airflowLogo from "@src/images/blog/my-very-own-airflow-cluster/airflow.png";
+
+import { Image } from '@astrojs/image/components';
+import InlineSvg from "@src/components/InlineSvg.astro";
+
 As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
 
-{{< image src="airflow.png" alt="Airflow screenshot">}}
+<Image src={airflowLogo} />
 
 As opposed to this paradigm:
 
@@ -45,7 +50,7 @@ There are plenty of ways that you can configure Airflow. There are varying level
 
 Here's diagram of how it works.
 
-{{< svg src="airflow-diagram.svg" style="height: 20rem" >}}
+<InlineSvg file={'/src/svg/blog/my-very-own-airflow-cluster/airflow-diagram.svg'} className='large' />
 
 For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
@@ -68,7 +73,7 @@ There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/conc
 
 Fittingly, the DAG is a graph, both directed and acyclic. Task execution flows in only one direction.
 
-{{< svg src="airflow-dag.svg" >}}
+<InlineSvg file={'/src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg'} />
 
 - The arrows indicate execution order.
 - An arrow from task 1 to task 2 implies task 1 is a dependency for task 2. If task 1 fails, task 2 will not execute.

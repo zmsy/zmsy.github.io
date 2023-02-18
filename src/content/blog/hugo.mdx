@@ -8,7 +8,11 @@ draft: false
 image: hugo.png
 ---
 
-{{< image src="hugo.png" alt="Hugo bills itself as 'The world’s fastest framework for building websites'" >}}
+import hugoLogo from "@src/images/blog/hugo/hugo.png";
+
+import { Image } from '@astrojs/image/components';
+
+<Image src={hugoLogo} />
 
 One of the biggest changes for this blog happened just now - this blog switched from Lektor to [Hugo](https://gohugo.io/). For me, it's been a revolution in how personally productive I can be. I'm expecting that this will improve how quickly I can write and publish blog articles here and, maybe, even lead to me publishing more than 1x per ~3-6month period. I don't intend this to be a dead blog, and I'm putting in the work to make that the case.
 

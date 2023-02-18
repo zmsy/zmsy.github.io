@@ -4,7 +4,11 @@ description: "In the era of React-driven pages, Webpack is a powerful tool to ha
 publishDate: 2018-06-09
 ---
 
-{{< image src="gulp_to_webpack.png" alt="Gulp to Webpack Transition" >}}
+import webpackLogo from "@src/images/blog/from-gulp-to-webpack-4/gulp_to_webpack.png";
+
+import { Image } from '@astrojs/image/components';
+
+<Image src={webpackLogo} />
 
 I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of  Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
  
@@ -38,13 +42,13 @@ Gulp pipelines usually have 1 or more inputs of the same filetype, and then prod
 ```js
 // Process main scss for the site.
 gulp.task('main-css', function() {
-    return gulp.src('./src/index.scss')
-        .pipe(rename('main.min.css'))
-        .pipe(source_maps.init())
-        .pipe(sass({ outputStyle: 'expanded' }))
-        .pipe(clean_css())
-        .pipe(source_maps.write('.'))
-        .pipe(gulp.dest('../assets/css/'));
+  return gulp.src('./src/index.scss')
+    .pipe(rename('main.min.css'))
+    .pipe(source_maps.init())
+    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(clean_css())
+    .pipe(source_maps.write('.'))
+    .pipe(gulp.dest('../assets/css/'));
 });
 ```
 
