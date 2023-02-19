@@ -6,7 +6,11 @@ const today = new Date();
 ---
 
 <footer>
-  <InlineSvg file={"/src/svg/footer.svg"} className="footer-dots" />
+  <InlineSvg
+    id="footer-svg"
+    file={"/src/svg/footer.svg"}
+    className="footer-dots"
+  />
   <div id="footer-icons">
     {
       navIcons.map(({ alt, icon, url }) => (
@@ -30,9 +34,13 @@ const today = new Date();
     text-align: center;
   }
 
-  strong {
-    /* TODO: remove, caused by bulma taking priority over scoped astro styles */
-    color: var(--backgroundColor) !important;
+  footer strong {
+    color: var(--backgroundColor);
+  }
+
+  /* Override the existing color-responsive-svg styles for inverted footer. */
+  :global(#footer-svg > svg > path) {
+    stroke: var(--backgroundColor) !important;
   }
 
   .footer-dots {

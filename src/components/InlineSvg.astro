@@ -5,9 +5,14 @@ export interface Props {
   file: SvgFile;
   /** An additional class to apply to the component. */
   className?: string;
+  /** Id to add to the <figure> element, for narrower CSS scoping. */
+  id?: string;
 }
 
-const { file, className } = Astro.props;
+const { id, file, className } = Astro.props;
+
+// conditionally pass id to the figure component
+const idProps = { ...(id !== undefined && { id }) };
 
 // import as raw in order to read as text. vite will complain that this
 // is not statically analyzable, which is why the ignore comment is here.
@@ -15,18 +20,21 @@ const { default: html } = await import(/* @vite-ignore */ `${file}?raw`);
 ---
 
 <figure
+  {...idProps}
   class:list={["color-responsive-svg", className !== undefined && className]}
 >
   <Fragment set:html={html} />
 </figure>
 <style lang="scss" is:global>
+  @use "../styles/variables.scss" as variables;
+
   .color-responsive-svg {
     /* Paths match the text color, text in font must be exported as curves */
     path {
       /*
-     * must use important here because it gets overridden by the inline
-     * stroke color, which is more specific.
-     */
+       * must use important here because it gets overridden by the inline
+       * stroke color, which is more specific.
+       */
       stroke: var(--textColor) !important;
     }
 
@@ -49,14 +57,14 @@ const { default: html } = await import(/* @vite-ignore */ `${file}?raw`);
    */
     $tags: (rect, path, ellipse, circle);
     $colors: (
-      "svgDefaultColor": var(--textColor),
-      "svgAlternateColor": var(--backgroundColor),
+      variables.$svgDefaultColor: var(--subtitleTextColor),
+      variables.$svgAlternateColor: var(--backgroundColor),
     );
     $accentColors: (
-      "accent1DefaultColor": var(--accent1Color),
-      "accent2DefaultColor": var(--accent2Color),
-      "accent3DefaultColor": var(--accent3Color),
-      "accent4DefaultColor": var(--accent4Color),
+      variables.$accent1DefaultColor: var(--accent1Color),
+      variables.$accent2DefaultColor: var(--accent2Color),
+      variables.$accent3DefaultColor: var(--accent3Color),
+      variables.$accent4DefaultColor: var(--accent4Color),
     );
     @each $tag in $tags {
       @each $color, $colorVar in $colors {

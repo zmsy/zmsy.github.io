@@ -1,12 +1,20 @@
-/*
----------
-VARIABLES
----------
+/**
+ * This set of variables is used to derive the downstream stuff in the regular
+ * css files. This is _only_ for things that need to be used as part of a
+ * selector or within bulma. If it's something that's only ever used as a
+ * _value_, it should go in the Variables.astro file.
+ */
 
-This set of variables is used to derive the downstream stuff in the regular css files.
-The colors override default bulma colors.
 
-*/
+// INITIAL VARIABLES. Since some of the elements on the site (namely SVGs) have
+// values prepopulated on first load, these are defined so that they can be used
+// selectors.
+$svgDefaultColor: #38332a;
+$svgAlternateColor: #faf9f9;
+$accent1DefaultColor: #d85d44;
+$accent2DefaultColor: #3a89c9;
+$accent3DefaultColor: #9665c7;
+$accent4DefaultColor: #fbd136;
 
 // overridde bulma colors, this is to have it default to the light theme
 $black: #100b03; // `icons` default body font, largely unused except for icons
