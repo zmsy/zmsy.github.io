@@ -16,6 +16,8 @@ const blog = defineCollection({
       .optional(),
 		/** Main image for the post, if there is one. */
     heroImage: z.string().optional(),
+    /** seo keywords */
+    keywords: z.array(z.string()).optional(),
   }),
 });
 
