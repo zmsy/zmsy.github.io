@@ -12,7 +12,7 @@ updatedDate: "March 05 2023"
 
 I'm a software engineer and a data/statistics enthusiast. Fan of dogs. Enjoy tinkering and using my hands. Love wandering out in the woods. I like to create food and drink recipes.
 
-### Purpose 
+### Purpose
 
 Shameless self-promotion.
 
@@ -25,7 +25,7 @@ Created with:
 - **github actions** - For building & deploying to Github Pages.
 - **preact + zustand** - Lightweight frontend UI tooling.
 
-## Artwork & Photography 
+## Artwork & Photography
 
 <hr>
 

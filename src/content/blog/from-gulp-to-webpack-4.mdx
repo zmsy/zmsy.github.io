@@ -6,12 +6,12 @@ publishDate: 2018-06-09
 
 import webpackLogo from "@src/images/blog/from-gulp-to-webpack-4/gulp_to_webpack.png";
 
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 
 <Image src={webpackLogo} />
 
-I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of  Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
- 
+I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
+
 ## Reasons for Switching
 
 Gulp is very good at creating flexible tasks to be run on a regular basis. Webpack and Gulp, however, are two separate tools with completely different aims.
@@ -32,7 +32,6 @@ Gulp is very good at creating flexible tasks to be run on a regular basis. Webpa
 - NPM package installation and management is still more difficult than it seems like it should be. Since NPM packages take a more Unix-like 'single function' approach, it drastically increases the amount of dependencies per project (this website has 754 dependencies right now).
 - Transitioning from a working Webpack 2/3 config to Webpack 4 (either using config or zero-config options) is difficult.
 
-
 ## What does it look like?
 
 #### Previously - Gulp
@@ -41,14 +40,15 @@ Gulp pipelines usually have 1 or more inputs of the same filetype, and then prod
 
 ```js
 // Process main scss for the site.
-gulp.task('main-css', function() {
-  return gulp.src('./src/index.scss')
-    .pipe(rename('main.min.css'))
+gulp.task("main-css", function () {
+  return gulp
+    .src("./src/index.scss")
+    .pipe(rename("main.min.css"))
     .pipe(source_maps.init())
-    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(sass({ outputStyle: "expanded" }))
     .pipe(clean_css())
-    .pipe(source_maps.write('.'))
-    .pipe(gulp.dest('../assets/css/'));
+    .pipe(source_maps.write("."))
+    .pipe(gulp.dest("../assets/css/"));
 });
 ```
 
@@ -59,33 +59,29 @@ Gulp tasks operate on inputs and outputs, so you don't necessarily need to set t
 Whereas Webpack configs look to an entrypoint (normally `./src/index.js` by convention) and bundle all of the dependencies for that file.
 
 ```js
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "production",
   output: {
-    path: path.dirname(__dirname) + '/assets/static/gen',
-    filename: "[name].js"
+    path: path.dirname(__dirname) + "/assets/static/gen",
+    filename: "[name].js",
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "main.css",
-      chunkFilename: "[name].css"
-    })
+      chunkFilename: "[name].css",
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'style-loader',
-          'sass-loader'
-        ]
-      }
-    ]
-  }
+        use: [MiniCssExtractPlugin.loader, "style-loader", "sass-loader"],
+      },
+    ],
+  },
 };
 ```
 
@@ -93,7 +89,7 @@ In prior versions of Webpack it was required to make many more things explicit, 
 
 ## Lessons Learned
 
-The biggest struggle in using Webpack is bridging the gap between the concepts and the implementation. 
+The biggest struggle in using Webpack is bridging the gap between the concepts and the implementation.
 
 - The concepts are well established and internally consistent. [Check out the documentation](https://webpack.js.org/concepts/) if you're curious about what any of the terms / verbs used in Webpack-speak mean.
 - The implementation is where things are difficult. It's very tough to translate the concepts espoused in how Webpack _should_ operate to how it actually _does_ operate.

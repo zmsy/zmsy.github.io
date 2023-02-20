@@ -5,7 +5,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "paths": {
-      "@src/*": ["src/*"],
+      "@src/*": ["src/*"]
     }
   }
 }

@@ -57,7 +57,7 @@ export const palettes = {
       illustrations: "#dcdbd9",
     },
   },
-    defaultLight: {
+  defaultLight: {
     name: "Default Light",
     colors: {
       background: "#faf9f9",
@@ -84,4 +84,3 @@ export const setPaletteCSS = (palette: Palette): void => {
     );
   });
 };
-

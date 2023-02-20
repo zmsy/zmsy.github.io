@@ -41,12 +41,12 @@ I didn't love Hugo for many reasons I'll go into below. I was actually [_quite a
 
 My goals for the Hugo version were:
 
-- **Fast build times** - Why? I'm not entirely sure. But it seemed incredibly important at the time. 
+- **Fast build times** - Why? I'm not entirely sure. But it seemed incredibly important at the time.
 - **No Webpack** - I hate webpack. I won't really go into it because I don't think my arguments for why I hate it are entirely defensible, but I just... do. The UX of it is terrible. [Hugo Pipes](https://gohugo.io/hugo-pipes/) with built-in Sass and TS/JS bundling using esbuild seemed awesome. And they are awesome. This was actually one of my favorite parts.
 - **Fully static** - I still didn't intend at the point I chose Hugo for there to be much in the way of interactivity on the site, outside of some sprinkles of Javascript here and there.
 - **Sprinkles of interactivity without a full React runtime** - This is still something I'm working out, even after I've moved off of Hugo.
-    - My conundrum: After being spoiled by frameworks, I don't want direct DOM manipulation. Vanilla JS holds no particular sway for me. On the flipside, I don't love the idea of a dinky little personal site like mine having to load several hundred kilobytes of JS. It's not an app. I want something lean, but modern.
-    - I wrote this version using [preact](https://preactjs.com/) as the view framework and [zustand](https://zustand-demo.pmnd.rs/) for managing state. It worked ok, but it was quite confusing to get working.
+  - My conundrum: After being spoiled by frameworks, I don't want direct DOM manipulation. Vanilla JS holds no particular sway for me. On the flipside, I don't love the idea of a dinky little personal site like mine having to load several hundred kilobytes of JS. It's not an app. I want something lean, but modern.
+  - I wrote this version using [preact](https://preactjs.com/) as the view framework and [zustand](https://zustand-demo.pmnd.rs/) for managing state. It worked ok, but it was quite confusing to get working.
 - **Easy integration with Github Actions & Github Pages** - Hugo's story here is awesome. I had a very easy time publishing new content out to the ether. I've got a [Menu page](/menu) that is used to show the house menu when guests come over and want me to make them drinks. Almost all of my quick little content updates are new drink options I'm putting there.
 
 This version was less of a pain, but certainly wasn't straightforward. For reasons I'll go into below.
@@ -58,7 +58,7 @@ This... I suppose is the launch post for the Astro version!
 I'm going with [Astro.build](https://astro.build/) as my static site generator and I'm hoping to make the developer experience better. It met a number of criteria I was looking for. I was inspired after reading through [the launch post for Astro 2.0](https://astro.build/blog/astro-2/).
 
 - **Good Developer Experience** - This was the primary goal this time around. I want developing this site to be intuitive and enjoyable.
-- **Typescript integration** - After using Typescript in my frontend and backend-related work for the past few years, it's hard to go back. I want everything typed, I want as much of that generated for me as possible, and I don't want to have to do much work to make that happen. 
+- **Typescript integration** - After using Typescript in my frontend and backend-related work for the past few years, it's hard to go back. I want everything typed, I want as much of that generated for me as possible, and I don't want to have to do much work to make that happen.
 - **Vite-based builds** - I love Vite as a devtool and want to use it more.
 - **Ship less code to the client** - This was quite appealing for my own conundrum of 1. framework-based interactivity but 2. no heavy runtime.
 - **Preact support** - I've wanted to continue using Preact if I could. I think it's just an incredible technology, in how much of the React API it supports while being so small. The best part is how compatible it is with React, so if I find it too incompatible I'll just switch Astro to use React itself.
@@ -89,7 +89,7 @@ I think that Hugo is _still the best static site generator for those who aren't 
 
 Since I'm now building one or two more interactive sections (like the [Recipes page](/recipes)), my goals for the build tools here are a little different.
 
-1. **Fast client experience** - I'd like pages to load extremely quickly, and have a snappy user experience. 
+1. **Fast client experience** - I'd like pages to load extremely quickly, and have a snappy user experience.
 1. **Fully static** - I want to build the site with Github Actions and serve it via Github Pages.
 1. **Intuitive DX & Editing experience** - I want typescript autocompletions, easy templating, scoped css, easy build tools, quick feedback loops, the whole enchilada.
 1. **Flexibility** - Ability to build rich interactive experience in some parts of the site (the "Recipes" section primarily), and not pay a page size penalty on areas of the site that don't need it.

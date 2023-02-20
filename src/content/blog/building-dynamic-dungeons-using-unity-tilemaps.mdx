@@ -3,6 +3,7 @@ title: Building Dynamic Dungeons using Unity Tilemaps
 description: Generating a dungeon layout is both an art and a science. There's a lot of confusingly different approaches, and here's how I tackled the problem.
 publishDate: 2019-02-11
 ---
+
 import dungeonOfDeneb from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_of_deneb_capture.png";
 import tilePalette from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/tile_palette.png";
 import dungeonLayout1 from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_layout_1.png";
@@ -10,13 +11,13 @@ import dungeonLayout2 from "@src/images/blog/building-dynamic-dungeons-using-uni
 import dungeonLayout3 from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_layout_3.png";
 import dungeonLayoutTiled from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_layout_tiled.png";
 
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 
 In one of the last projects I'm doing for school, I'm working on a game wherein everything in the game is _procedurally generated_ using a dungeon-building algorithm.
 
 ## Fresh Content Each Time
 
-One of the main draws of building a [Roguelike game](https://en.wikipedia.org/wiki/Roguelike) is figuring out how to procedurally generate dungeons. While it's difficult to replicate the high-quality hand-crafted content of titles like _Legend of Zelda: A Link to the Past_, you can approximate a lot of the same experience while coming up with a new layout each time the game is loaded. 
+One of the main draws of building a [Roguelike game](https://en.wikipedia.org/wiki/Roguelike) is figuring out how to procedurally generate dungeons. While it's difficult to replicate the high-quality hand-crafted content of titles like _Legend of Zelda: A Link to the Past_, you can approximate a lot of the same experience while coming up with a new layout each time the game is loaded.
 
 Achieving this is, as you may imagine, pretty difficult.
 
@@ -30,10 +31,10 @@ The dungeon I built is based on a Unity Tilemap, which is effective a grid of 1x
 
 The unity objects involved:
 
-* Two tilemaps (Created by Game Object > 2D Object > Tilemap). Spawning a tilemap will create a Grid object as its parent. I created two Tilemaps and connected them to the same parent. I attached my `Dungeon.cs` building script as a component to this parent.
-    * Floor tilemap - This is what I use to tile the floor background, and this is the main data for the dungeon layout (since walls are just created using the floor layout).
-    * Walls (Collidable) tilemap - This one has a collider added to it, so the player can't walk through them.
-* Tile Palette - This contains all of the floor / wall tiles that I use to build the dungeon. It's nice to have one of these so you can manually paint some on if you want.
+- Two tilemaps (Created by Game Object > 2D Object > Tilemap). Spawning a tilemap will create a Grid object as its parent. I created two Tilemaps and connected them to the same parent. I attached my `Dungeon.cs` building script as a component to this parent.
+  - Floor tilemap - This is what I use to tile the floor background, and this is the main data for the dungeon layout (since walls are just created using the floor layout).
+  - Walls (Collidable) tilemap - This one has a collider added to it, so the player can't walk through them.
+- Tile Palette - This contains all of the floor / wall tiles that I use to build the dungeon. It's nice to have one of these so you can manually paint some on if you want.
 
 <Image src={tilePalette} />
 
@@ -64,14 +65,14 @@ Go!
 
 First, a key, so you can understand what you're looking at:
 
-* Rooms:
-    * Green / White = starting room / starting area
-    * Red = boss room
-    * Light blue = harder-than-starter area, Dark Blue = advanced area
-    * Yellow = room with a key
-* Corridors:
-    * White - Parent/child relationship in tree
-    * Yellow - Optional corridor added between two rooms in the same subtree.
+- Rooms:
+  - Green / White = starting room / starting area
+  - Red = boss room
+  - Light blue = harder-than-starter area, Dark Blue = advanced area
+  - Yellow = room with a key
+- Corridors:
+  - White - Parent/child relationship in tree
+  - Yellow - Optional corridor added between two rooms in the same subtree.
 
 <Image src={dungeonLayout1} />
 

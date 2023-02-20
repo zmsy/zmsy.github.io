@@ -6,7 +6,7 @@ publishDate: 2018-06-25
 
 import airflowLogo from "@src/images/blog/my-very-own-airflow-cluster/airflow.png";
 
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 import InlineSvg from "@src/components/InlineSvg.astro";
 
 As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
@@ -44,13 +44,16 @@ There's a number of gotchas you should know prior to using one of the DAG engine
 
 There are plenty of ways that you can configure Airflow. There are varying levels of complexity for varying levels of requirements, specified by the Executor types (i.e. what does what in your scenario).
 
-* **SequentialExecutor** - Uses SQLite as a backend, and executes tasks for testing/debugging. This is generally what you'd run on your own machine if you're just testing a workflow.
-* **LocalExecutor** - Threaded local executor that uses just a DB connection as a backend.
-* **CeleryExecutor** - For distributing tasks out to worker nodes. This uses Celery as a queue. Requires you to set up other nodes as worker nodes.
+- **SequentialExecutor** - Uses SQLite as a backend, and executes tasks for testing/debugging. This is generally what you'd run on your own machine if you're just testing a workflow.
+- **LocalExecutor** - Threaded local executor that uses just a DB connection as a backend.
+- **CeleryExecutor** - For distributing tasks out to worker nodes. This uses Celery as a queue. Requires you to set up other nodes as worker nodes.
 
 Here's diagram of how it works.
 
-<InlineSvg file={'/src/svg/blog/my-very-own-airflow-cluster/airflow-diagram.svg'} className='large' />
+<InlineSvg
+  file={"/src/svg/blog/my-very-own-airflow-cluster/airflow-diagram.svg"}
+  className="large"
+/>
 
 For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
@@ -73,7 +76,7 @@ There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/conc
 
 Fittingly, the DAG is a graph, both directed and acyclic. Task execution flows in only one direction.
 
-<InlineSvg file={'/src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg'} />
+<InlineSvg file={"/src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg"} />
 
 - The arrows indicate execution order.
 - An arrow from task 1 to task 2 implies task 1 is a dependency for task 2. If task 1 fails, task 2 will not execute.
@@ -105,12 +108,11 @@ t5.set_upstream(t3)
 
 Now that this is defined, you can instantiate a DAG Run from the webserver.
 
-
 ## Notes On Running Airflow
 
 There have been a lot of [justifiable claims against Airflow's deployment story](https://news.ycombinator.com/item?id=17030102); it can be very frustrating. Scaling Airflow is confusing and fault-prone. For those who don't want to deal with the headache of managing the installation on their own, Google offers a [hosted Airflow services called Cloud Composer](https://cloud.google.com/composer/docs/concepts/features), or you can look into alternatives like Luigi or Mara. While I don't fully love Airflow, I still haven't found something better.
 
-Headaches aside, it's still worth using a DAG engine because of the great improvements in both the quality and visibility of batch processing jobs. 
+Headaches aside, it's still worth using a DAG engine because of the great improvements in both the quality and visibility of batch processing jobs.
 
 ### Features to Avoid
 

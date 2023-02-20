@@ -1,6 +1,6 @@
 # zmsy.co
 
-Personal website of [Zach Morrissey](https://twitter.com/_zmsy), data analytics/visualization enthusiast. 
+Personal website of [Zach Morrissey](https://twitter.com/_zmsy), data analytics/visualization enthusiast.
 
 [![zmsy Home Page Logo](/assets/img/home-logo-scribble.svg)](https://zmsy.co)
 
@@ -13,15 +13,17 @@ This is a static site built using [Astro.build](https://astro.build).
 ### Stack
 
 ##### Front
-* `html`
-* `(s)css`
-* `bulma`
-* `js`
-* `preact`
+
+- `html`
+- `(s)css`
+- `bulma`
+- `js`
+- `preact`
 
 ##### Back
-* `astro.build`
-* `github pages`
+
+- `astro.build`
+- `github pages`
 
 ## Build
 

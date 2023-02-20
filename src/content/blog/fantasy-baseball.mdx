@@ -7,7 +7,7 @@ publishDate: 2018-03-15
 import copyAsCurl from "@src/images/blog/fantasy-baseball/copy_as_curl.png";
 import pageSize from "@src/images/blog/fantasy-baseball/page_size.png";
 
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 
 ## Winning Fantasy Baseball in Style
 
@@ -68,7 +68,7 @@ Player projections are common source of scouting information for our league. Sin
 
 There were two issues I was trying to solve for.
 
-1. **Not enough players** - URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once. 
+1. **Not enough players** - URL parameters & form fields didn't seem to contain an ability to get more than 50 players at once.
 2. **Confusing ASP.net forms** - These use built-in Microsoft libraries that send back somewhere between 50-60kb of base64-encoded page state data, which is a lot of added noise for my purposes.
 
 Using the network tab, I found that the link for 'page size' allowed me to request higher amounts of players than the values in the form dropdown.
@@ -77,7 +77,7 @@ Using the network tab, I found that the link for 'page size' allowed me to reque
 
 1. Navigate to the chrome developer tools network tab.
 2. Filter to `method:POST` so you only get the form post and none of the other resource requests.
-3. Right click on the post and select `copy` > `copy as cURL (bash)`. 
+3. Right click on the post and select `copy` > `copy as cURL (bash)`.
 
 <Image src={copyAsCurl} alt="Chrome Network Tab for Fangraphs Page" />
 
@@ -115,8 +115,8 @@ In addition to projections, having in-season results helps improve our judgment 
 
 Getting the ongoing statistics on a per-player basis turned out to be much easier than anything related to the projections. With a little manipulation of URL parameters, you can easily create a page for scraping that contains all of the necessary information in one go.
 
-* [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
-* [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
+- [Pitching Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=pit&lg=al&qual=y&type=c,36,37,38,40,-1,120,121,217,-1,24,41,42,43,44,-1,117,118,119,-1,6,45,124,-1,62,122,13&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_100000)
+- [Batting Stats](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=al&qual=y&type=8&season=2018&month=0&season1=2018&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_10000)
 
 Creating a short script to parse out player rows and add them to another csv for consumption later on turned out to be short work once I figured this bit out. Here's the script I used (uses requests and beautifulsoup, similar to above):
 
@@ -142,14 +142,14 @@ def parse_array_from_fangraphs_html(input_html, out_file_name):
     # parse input
     soup = BeautifulSoup(input_html, "lxml")
     table = soup.find("table", {"class": "rgMasterTable"})
-    
+
     # get headers
     headers_html = table.find("thead").find_all("th")
     headers = []
     for header in headers_html:
         headers.append(header.text)
     print(headers)
-    
+
     # get rows
     rows = []
     rows_html = table.find("tbody").find_all("tr")
@@ -158,13 +158,13 @@ def parse_array_from_fangraphs_html(input_html, out_file_name):
         for cell in row.find_all("td"):
             row_data.append(cell.text)
         rows.append(row_data)
-    
+
     # write to CSV file
     with open(out_file_name, "w") as out_file:
         writer = csv.writer(out_file)
         writer.writerow(headers)
         writer.writerows(rows)
-        
+
 parse_array_from_fangraphs_html(batters_html, 'batters_actuals.csv')
 parse_array_from_fangraphs_html(pitchers_html, 'pitchers_actuals.csv')
 ```
@@ -177,20 +177,19 @@ Normally, I would use pandas [read_html](https://pandas.pydata.org/pandas-docs/s
 
 #### Batting Stats
 
-* **HR**: Home Runs
-* **K**: Strikeouts
-* **RC**: Runs Created (AB \* OBP \* SLG)
-* **OBP**: On Base Percentage
-* **SLG**: Slugging Percentage
+- **HR**: Home Runs
+- **K**: Strikeouts
+- **RC**: Runs Created (AB \* OBP \* SLG)
+- **OBP**: On Base Percentage
+- **SLG**: Slugging Percentage
 
 #### Pitching Stats
 
-* **HR**: Home Runs Against
-* **K**: Strikeouts
-* **ERA**: Earned Run Average
-* **QS**: Quality Starts
-* **OBA**: On-Base Percentage Against
-
+- **HR**: Home Runs Against
+- **K**: Strikeouts
+- **ERA**: Earned Run Average
+- **QS**: Quality Starts
+- **OBA**: On-Base Percentage Against
 
 ! There are plenty of different scoring methods used in fantasy. If you want to try this on yours, you can edit the code to use your own categories instead.
 

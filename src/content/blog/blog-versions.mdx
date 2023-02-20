@@ -12,21 +12,22 @@ Hopefully others can glean some useful information from my mistakes that I made 
 
 ## Version 1 - Django + Bootstrap (Late 2014)
 
-Having put all of the intense, focused effort that is googling 'python web framework' in 2014, Django was tops and Flask had only been recently announced. At this point I had absolutely zero serious web development under my belt, so I was using the _copy and paste from Stack Overflow_ method of development. What came of this was not pretty, and fortunately I've burned all the evidence. 
+Having put all of the intense, focused effort that is googling 'python web framework' in 2014, Django was tops and Flask had only been recently announced. At this point I had absolutely zero serious web development under my belt, so I was using the _copy and paste from Stack Overflow_ method of development. What came of this was not pretty, and fortunately I've burned all the evidence.
 
 Tech used:
-* Python
-* Django
-* Bootstrap
-* jQuery
+
+- Python
+- Django
+- Bootstrap
+- jQuery
 
 ### What I Learned
 
-* **Node, node, node** - In trying to use Bootstrap and a few other js dependencies, I found node.js and how npm worked. This was the first real exposure I had to any other cli + package manager system outside python.
-* **SCSS** - Oh man, you can write `$orange` and place it everywhere? Heck yes you can.
-* **jQuery DOM selection** - While the current version of this site doesn't use jQuery, I learned a lot by using the dom selection methods from jQuery. The `$(element)` syntax was so straightforward that it helped me bang out a lot of low-quality code really quick, which was the aim at that point. This was prior to any formal Javascript training of mine.
-* **Responsiveness** - Going into this version, I was still used to `m.blank.com` style mobile pages. Seeing Bootstrap respond to different breakpoints really changed how I see mobile development working.
-* **Javascript** - This was the first time I'd ever written any amount of materially useful javascript. The final version of this site has relatively little js, but the first version had some callbacks to a database where I rendered blog posts after the page loaded. Seemed cool at the time.
+- **Node, node, node** - In trying to use Bootstrap and a few other js dependencies, I found node.js and how npm worked. This was the first real exposure I had to any other cli + package manager system outside python.
+- **SCSS** - Oh man, you can write `$orange` and place it everywhere? Heck yes you can.
+- **jQuery DOM selection** - While the current version of this site doesn't use jQuery, I learned a lot by using the dom selection methods from jQuery. The `$(element)` syntax was so straightforward that it helped me bang out a lot of low-quality code really quick, which was the aim at that point. This was prior to any formal Javascript training of mine.
+- **Responsiveness** - Going into this version, I was still used to `m.blank.com` style mobile pages. Seeing Bootstrap respond to different breakpoints really changed how I see mobile development working.
+- **Javascript** - This was the first time I'd ever written any amount of materially useful javascript. The final version of this site has relatively little js, but the first version had some callbacks to a database where I rendered blog posts after the page loaded. Seemed cool at the time.
 
 I never really got a grasp on _anything_ at this point, to be quite honest. I was using a Bootstrap template that I was trying to populate with information. I used the [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate) as a basis for what I was doing, but it harmed my efforts in the end since it added a lot of noise that I didn't understand. As a total web dev beginner, this was a mistake.
 
@@ -36,19 +37,19 @@ This version was very similar to Django, except for the fact that I was using Fl
 
 ### What I Learned
 
-* **Bootstrap** - This is probably a bit overkill for a personal blog, but at the time that I was making this version it seemed that basically everything was based on Bootstrap.
-* **Grid Layouts** - Grids are super, super, super, super useful. Seeing how I was never particularly sure _how_ I should layout my site, the most useful part of a grid for me was giving me a decision structure that I could look at the stuff on the site and say "This should go here". It simplifies the terrifyingly open-ended process of creating a page from scratch.
-* **Database Interaction** - The majority of my job for several years now has been interacting with databases, but the prospect of doing that from an application server had never really occurred to me. Using an application to regularly write information to the database brings with a whole host of new problems that are never really encountered if you're not using a database for production purposes.
-
+- **Bootstrap** - This is probably a bit overkill for a personal blog, but at the time that I was making this version it seemed that basically everything was based on Bootstrap.
+- **Grid Layouts** - Grids are super, super, super, super useful. Seeing how I was never particularly sure _how_ I should layout my site, the most useful part of a grid for me was giving me a decision structure that I could look at the stuff on the site and say "This should go here". It simplifies the terrifyingly open-ended process of creating a page from scratch.
+- **Database Interaction** - The majority of my job for several years now has been interacting with databases, but the prospect of doing that from an application server had never really occurred to me. Using an application to regularly write information to the database brings with a whole host of new problems that are never really encountered if you're not using a database for production purposes.
 
 ## Version 3 - Flask + Bulma (2016 / 2017)
 
 Having gotten tired of Bootstrap and not particularly liking Less as a CSS pre-processor, I switched over to [Bulma](https://bulma.io/) for a number of reasons. Considering this is a personal site and I'm at no particular risk of alienating any part of my target audience, I decided to go with a flexbox-based framework for layouts, which would make my life a lot easier. Additionally, it didn't ship with any Javascript so that greatly improved my life. There was nothing easy about
 
 ### What I Learned:
-* **Web Servers Are Still A Thing** - Deploying to a real web server meant that I could no longer just the `app.run()` method that came with Flask. People use these _alongside_ a normal webserver like nginx/apache? That's nuts!
-* **Docker** - Containerization! Even though my final website I created was just flat files, this version was basically one that made it so that I could use a Docker container with nginx installed, add all of my dependencies, and then run it and have it work every time.
-* **Gulp** - This was the first build tool that I ended up using, and its straightforward nature was excellent. Found it easy to pick up, and very powerful. The chaining of commands was really an excellent way of introducing myself to frontend build systems.
+
+- **Web Servers Are Still A Thing** - Deploying to a real web server meant that I could no longer just the `app.run()` method that came with Flask. People use these _alongside_ a normal webserver like nginx/apache? That's nuts!
+- **Docker** - Containerization! Even though my final website I created was just flat files, this version was basically one that made it so that I could use a Docker container with nginx installed, add all of my dependencies, and then run it and have it work every time.
+- **Gulp** - This was the first build tool that I ended up using, and its straightforward nature was excellent. Found it easy to pick up, and very powerful. The chaining of commands was really an excellent way of introducing myself to frontend build systems.
 
 ## Version 4 - Lektor + Bulma (2018)
 
@@ -60,21 +61,20 @@ I primarily chose a static site generator mostly because I want people to have f
 
 A static site generator takes many of the innovations of dynamic web frameworks and uses that logic to be able to render things out to flat files for serving up using a web server.
 
-* **Models** - You define types of pages by creating a model, which defines which data fields will be contained therein.
-* **Templates** - These are the HTML layouts that a model's content gets populated into.
-* **Content** - This is the individual pieces of content that make their way onto the website. Oftentimes, these are either markdown blog posts or some other type of generated content.
+- **Models** - You define types of pages by creating a model, which defines which data fields will be contained therein.
+- **Templates** - These are the HTML layouts that a model's content gets populated into.
+- **Content** - This is the individual pieces of content that make their way onto the website. Oftentimes, these are either markdown blog posts or some other type of generated content.
 
 Conceptually, this was all super familiar to me from using Jinja2 in Flask, using a database to represent both the model (database schema) and the content (database rows).
 
 ### What I Learned When I Finally Made a Version Worth Deploying
 
-* **Static Sites Generators** - They're _stupid_ easy to deploy. I can basically have a CI tool do the build and then push the files up to the web server and that's _it_. No database is good when you don't have a particular need for one.
-* **Lektor** - This particular SSG has its own editing interface you can use to write things, so it makes creating new blog posts easy. I'm planning on trying to learn it well enough to be able to contribute back at some point.
-* **Webpack** - Similar to how I was using gulp, I've switched to Webpack as a learning opportunity, and because it has a good integration with Lektor. At first impression, I _really_ hated the config system I was using in 2.x and 3.x, but was a fan of the tool itself. Fortunately, Webpack 4 has just released with it's 0-config option, so I decided to use it. I found [this webpack 4 tutorial](https://www.valentinog.com/blog/webpack-4-tutorial/) very helpful.
-
+- **Static Sites Generators** - They're _stupid_ easy to deploy. I can basically have a CI tool do the build and then push the files up to the web server and that's _it_. No database is good when you don't have a particular need for one.
+- **Lektor** - This particular SSG has its own editing interface you can use to write things, so it makes creating new blog posts easy. I'm planning on trying to learn it well enough to be able to contribute back at some point.
+- **Webpack** - Similar to how I was using gulp, I've switched to Webpack as a learning opportunity, and because it has a good integration with Lektor. At first impression, I _really_ hated the config system I was using in 2.x and 3.x, but was a fan of the tool itself. Fortunately, Webpack 4 has just released with it's 0-config option, so I decided to use it. I found [this webpack 4 tutorial](https://www.valentinog.com/blog/webpack-4-tutorial/) very helpful.
 
 ## Version 5 - The Switch to Jekyll Approaches (2018...?)
 
-Jekyll is and has always been the grandaddy of all static site generators, and the support from its plugin ecosystem far eclipses that of a smaller project like Lektor. Primarily, I am a fan of the editing interface and models / templating system (Jinja2 is still my favorite) in Lektor. Jekyll, however, has a lot more eyes on it and gets a lot more love from a maintenance perspective. 
+Jekyll is and has always been the grandaddy of all static site generators, and the support from its plugin ecosystem far eclipses that of a smaller project like Lektor. Primarily, I am a fan of the editing interface and models / templating system (Jinja2 is still my favorite) in Lektor. Jekyll, however, has a lot more eyes on it and gets a lot more love from a maintenance perspective.
 
 I gained a lot along the way though - the Jekyll portion will only render the static files that create the site itself. The next version of this site is going to a separate Flask API running on a different server, which will serve up data and information for the interactive [Projects](/recipes) page.

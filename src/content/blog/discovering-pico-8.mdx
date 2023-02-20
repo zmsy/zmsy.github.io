@@ -12,7 +12,7 @@ import pico8Bounce from "@src/images/blog/discovering-pico-8/pico-8_bounce.gif?u
 import pico8Bounce2 from "@src/images/blog/discovering-pico-8/pico-8_bounce2.gif?url";
 import pico8Bounce3 from "@src/images/blog/discovering-pico-8/pico-8_bounce3.gif?url";
 
-import { Image } from '@astrojs/image/components';
+import { Image } from "@astrojs/image/components";
 
 The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. This thing looks _damn fun_ to program for, and it comes batteries-included for most tasks so you can get up and running in no time.
 
@@ -20,29 +20,76 @@ The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', whic
 
 #### Highlights
 
-* Lua scripting.
-* 16-color palette.
-* 128 x 128 pixel screen size.
-* 32k cartridge sizes.
-* 4-channel sound.
+- Lua scripting.
+- 16-color palette.
+- 128 x 128 pixel screen size.
+- 32k cartridge sizes.
+- 4-channel sound.
 
 On top of all that, the VM that runs the PICO-8 cartridge has been ported to hardware! It's being included in all $9 [C.H.I.P.](https://getchip.com/pages/chip) computers by default now, so you can actually get a hardware implementation of the PICO-8 fantasy console for use in your own home.
 
 People make some _suuuuuuuuuuper_ cool stuff with it.
 
 {/* Examples */}
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is easily the most fun I&#39;ve had working on a project! If you like what you see, give it a shot, and let me know what you think! Not nearly finished yet, but it already feels so good!<a href="https://twitter.com/hashtag/acceler8?src=hash&amp;ref_src=twsrc%5Etfw">#acceler8</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a><a href="https://t.co/dWOhl3zRfW">https://t.co/dWOhl3zRfW</a> <a href="https://t.co/aAjSnCcqjC">pic.twitter.com/aAjSnCcqjC</a></p>&mdash; Master of None (@Alturos) <a href="https://twitter.com/Alturos/status/991155950328348672?ref_src=twsrc%5Etfw">May 1, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Remember: this is a sneaking mission...&quot;<a href="https://twitter.com/hashtag/mono8?src=hash&amp;ref_src=twsrc%5Etfw">#mono8</a> <a href="https://twitter.com/hashtag/screenshotsaturday?src=hash&amp;ref_src=twsrc%5Etfw">#screenshotsaturday</a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">#pico8</a> <a href="https://twitter.com/hashtag/indiegames?src=hash&amp;ref_src=twsrc%5Etfw">#indiegames</a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">#indiedev</a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">#gamedev</a> <a href="https://twitter.com/hashtag/guerrillawars?src=hash&amp;ref_src=twsrc%5Etfw">#guerrillawars</a> <a href="https://twitter.com/hashtag/monogame?src=hash&amp;ref_src=twsrc%5Etfw">#monogame</a> <a href="https://twitter.com/hashtag/metalgear?src=hash&amp;ref_src=twsrc%5Etfw">#metalgear</a> <a href="https://t.co/NFWUkgK3uC">pic.twitter.com/NFWUkgK3uC</a></p>&mdash; Matt Hughson (@matthughson) <a href="https://twitter.com/matthughson/status/989359766332891136?ref_src=twsrc%5Etfw">April 26, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en">
+  <p lang="en" dir="ltr">
+    This is easily the most fun I&#39;ve had working on a project! If you like
+    what you see, give it a shot, and let me know what you think! Not nearly
+    finished yet, but it already feels so good!
+    <a href="https://twitter.com/hashtag/acceler8?src=hash&amp;ref_src=twsrc%5Etfw">
+      #acceler8
+    </a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">
+      #pico8
+    </a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">
+      #indiedev
+    </a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">
+      #gamedev
+    </a>
+    <a href="https://t.co/dWOhl3zRfW">https://t.co/dWOhl3zRfW</a>{" "}
+    <a href="https://t.co/aAjSnCcqjC">pic.twitter.com/aAjSnCcqjC</a>
+  </p>
+  &mdash; Master of None (@Alturos) <a href="https://twitter.com/Alturos/status/991155950328348672?ref_src=twsrc%5Etfw">May 1, 2018</a>
+</blockquote>
+<script
+  async
+  src="https://platform.twitter.com/widgets.js"
+  charset="utf-8"
+></script>
+
+<blockquote class="twitter-tweet" data-lang="en">
+  <p lang="en" dir="ltr">
+    &quot;Remember: this is a sneaking mission...&quot;
+    <a href="https://twitter.com/hashtag/mono8?src=hash&amp;ref_src=twsrc%5Etfw">
+      #mono8
+    </a> <a href="https://twitter.com/hashtag/screenshotsaturday?src=hash&amp;ref_src=twsrc%5Etfw">
+      #screenshotsaturday
+    </a> <a href="https://twitter.com/hashtag/pico8?src=hash&amp;ref_src=twsrc%5Etfw">
+      #pico8
+    </a> <a href="https://twitter.com/hashtag/indiegames?src=hash&amp;ref_src=twsrc%5Etfw">
+      #indiegames
+    </a> <a href="https://twitter.com/hashtag/indiedev?src=hash&amp;ref_src=twsrc%5Etfw">
+      #indiedev
+    </a> <a href="https://twitter.com/hashtag/gamedev?src=hash&amp;ref_src=twsrc%5Etfw">
+      #gamedev
+    </a> <a href="https://twitter.com/hashtag/guerrillawars?src=hash&amp;ref_src=twsrc%5Etfw">
+      #guerrillawars
+    </a> <a href="https://twitter.com/hashtag/monogame?src=hash&amp;ref_src=twsrc%5Etfw">
+      #monogame
+    </a> <a href="https://twitter.com/hashtag/metalgear?src=hash&amp;ref_src=twsrc%5Etfw">
+      #metalgear
+    </a> <a href="https://t.co/NFWUkgK3uC">pic.twitter.com/NFWUkgK3uC</a>
+  </p>
+  &mdash; Matt Hughson (@matthughson) <a href="https://twitter.com/matthughson/status/989359766332891136?ref_src=twsrc%5Etfw">April 26, 2018</a>
+</blockquote>
 
 ## Let's Give It a Shot
 
 Starting out, I checked out [this instructional youtube playlist](https://www.youtube.com/watch?v=M7azf71z0QE) by TeamworkCast. It helped me get an idea of what I wanted to create with PICO-8 (alongside being super entertaining). So now I was in a place where I had to figure out:
 
-* Game programming patterns. How do people make games, well, 
-* Designing movement and obstacles.
-* Sounds & sound editing.
+- Game programming patterns. How do people make games, well,
+- Designing movement and obstacles.
+- Sounds & sound editing.
 
 Super easy, right? Well, no. Turns out people spend their entire lives getting good at these things. I've been doing a lot of research into how to get better at it though.
 
@@ -74,9 +121,9 @@ Since I don't have the depth of experience to be able to make a legitimate video
 
 There are basically only three functions to know:
 
-* `_update()` - Update the game state. Change objects position, behavior, etc. to match the game state.
-* `_draw()` - Give directions for what to draw on screen.
-* `_init()` - Initialize game state (only if you need to).
+- `_update()` - Update the game state. Change objects position, behavior, etc. to match the game state.
+- `_draw()` - Give directions for what to draw on screen.
+- `_init()` - Initialize game state (only if you need to).
 
 Using these, I ended up trying to do what most people try to do their first time using any 2D graphics program: make a ball bounce across the screen.
 
@@ -86,17 +133,17 @@ Using these, I ended up trying to do what most people try to do their first time
 
 It works! But hey - this isn't interactive, so we can't _quite_ call it a game yet. Here's how we'll do that.
 
-* Add some listening for button presses using `btnp()`. This determines whether or not a button was pressed that was _not_ pressed during the prior frame.
-* Change the velocity based on that button. This time we're adding a random positive velocity to the ball.
-* Display some message or feedback so that I can tell I implemented it correctly.
+- Add some listening for button presses using `btnp()`. This determines whether or not a button was pressed that was _not_ pressed during the prior frame.
+- Change the velocity based on that button. This time we're adding a random positive velocity to the ball.
+- Display some message or feedback so that I can tell I implemented it correctly.
 
 <img src={pico8Bounce2} />
 
 Nice. But now, since this is a videogame we want to update a few more things:
 
-* Run in 60FPS by using the `_update60()` function instead of the update function. This makes our game run a lot smoother.
-* Add more natural slowdowns to the bounces. As the ball bounces off the floor, it should lose some of its velocity.
-* Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
+- Run in 60FPS by using the `_update60()` function instead of the update function. This makes our game run a lot smoother.
+- Add more natural slowdowns to the bounces. As the ball bounces off the floor, it should lose some of its velocity.
+- Add some more x-axis movement. If the player hits the button, have it send the ball off in some random velocity along the x-axis.
 
 <img src={pico8Bounce3} />
 
