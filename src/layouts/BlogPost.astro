@@ -1,10 +1,14 @@
 ---
+import { SEO } from "astro-seo";
 import type { CollectionEntry } from "astro:content";
-import Footer from "../components/Footer.astro";
-import BaseHead from "../components/head/BaseHead.astro";
-import Hero from "../components/Hero.astro";
-import MarkdownContent from "../components/mdx/MarkdownContent.astro";
-import Navigation from "../components/Navigation.astro";
+
+import Footer from "@src/components/Footer.astro";
+import BaseHead from "@src/components/head/BaseHead.astro";
+import Hero from "@src/components/Hero.astro";
+import MarkdownContent from "@src/components/mdx/MarkdownContent.astro";
+import Navigation from "@src/components/Navigation.astro";
+
+import { contactInfo } from "@src/consts";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -15,6 +19,26 @@ const { title, description, publishDate } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <SEO
+      title={`zmsy | ${title}`}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          image: "", // todo: get an image for every blog post
+          type: "article", // todo: figure this out
+          url: Astro.url.toString(),
+        },
+        article: {
+          publishedTime: publishDate.toISOString(),
+        },
+      }}
+      twitter={{
+        title,
+        creator: `@${contactInfo.twitterUser}`,
+        card: "summary",
+      }}
+    />
     <style lang="scss">
       @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
       article {
