@@ -9,6 +9,11 @@
       "source.organizeImports": true
     }
   },
+  "eslint.validate": [
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ],
   "editor.rulers": [80],
   "prettier.documentSelectors": ["**/*.astro"]
 }

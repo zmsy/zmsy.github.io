@@ -10,6 +10,8 @@
     "preview": "astro preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "eslint . --ext .ts,.tsx,.astro --config .eslintrc.cjs --fix",
+    "lint:check": "eslint . --ext .ts,.tsx,.astro --config .eslintrc.cjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -28,6 +30,10 @@
     "preact": "^10.12.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-astro": "^0.23.0",
     "prettier": "^2.8.4",
     "prettier-plugin-astro": "^0.8.0",
     "sass": "^1.58.0"

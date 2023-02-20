@@ -12,7 +12,7 @@ import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import clsx from "clsx";
 
-export const NavModal: FunctionComponent<{}> = () => {
+export const NavModal: FunctionComponent = () => {
   const $open = useStore(navModalOpen);
   const handleClickAway = () => navModalOpen.set(false);
   return (

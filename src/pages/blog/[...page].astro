@@ -7,6 +7,7 @@ import BaseHead from "../../components/head/BaseHead.astro";
 import Navigation from "../../components/Navigation.astro";
 import Pagination from "../../components/Pagination.astro";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { page: Page<CollectionEntry<"blog">> };
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {

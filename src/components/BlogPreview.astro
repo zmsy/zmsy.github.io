@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import { contactInfo } from "../consts";
 import InlineSvg from "./InlineSvg.astro";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = Pick<
   CollectionEntry<"blog">["data"],
   "title" | "publishDate" | "description"
