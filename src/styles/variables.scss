@@ -11,10 +11,10 @@
 // selectors.
 $svgDefaultColor: #38332a;
 $svgAlternateColor: #faf9f9;
-$accent1DefaultColor: #d85d44;
-$accent2DefaultColor: #3a89c9;
-$accent3DefaultColor: #9665c7;
-$accent4DefaultColor: #fbd136;
+$accent1DefaultColor: #f55a37;
+$accent2DefaultColor: #359fb7;
+$accent3DefaultColor: #83cab2;
+$accent4DefaultColor: #e5c76c;
 
 // overridde bulma colors, this is to have it default to the light theme
 $black: #100b03; // `icons` default body font, largely unused except for icons
@@ -30,10 +30,10 @@ $white-bis: #f5f4f4; // unused
 $white: #faf9f9; // `background`
 
 // bulma-required colors
-$orange: #d85d44;
-$yellow: #fbd136;
+$orange: #f55a37;
+$yellow: #e5c76c;
 $green: #23d160;
 $turquoise: #8cc9bf;
-$blue: #3a89c9;
-$purple: #9665c7; // `code` inline code segments
+$blue: #359fb7;
+$purple: #83cab2; // `code` inline code segments
 $red: #d34141;
