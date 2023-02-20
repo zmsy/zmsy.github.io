@@ -1,8 +1,12 @@
 ---
+import { GoogleAnalytics } from "astro-analytics";
+
 import "../../styles/index.scss";
 import GlobalStyles from "./GlobalStyles.astro";
 import Preload from "./Preload.astro";
 import Variables from "./Variables.astro";
+
+import { googleAnalyticsDestinationId } from "@src/consts";
 
 export interface Props {
   title: string;
@@ -48,3 +52,6 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <Variables />
 <GlobalStyles />
 <Preload />
+
+<!-- load google analytics tag -->
+<GoogleAnalytics id={googleAnalyticsDestinationId} />
