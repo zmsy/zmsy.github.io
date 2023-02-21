@@ -1,3 +1,9 @@
 .astro
+.vscode
+*.cjs
+.github
 node_modules
 dist
+
+# for now, removing the prettier autoformat from mdx
+*.mdx
