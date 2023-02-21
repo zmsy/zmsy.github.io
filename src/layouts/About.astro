@@ -2,6 +2,7 @@
 /**
  * Layout for the about page on the site.
  */
+import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
 import type { MarkdownLayoutProps } from "astro";
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/head/BaseHead.astro";
@@ -143,7 +144,7 @@ const { frontmatter } = Astro.props;
                 <div id="main">
                   <div>
                     <InlineSvg
-                      file={"/src/svg/projects-logo.svg"}
+                      svg={projectsLogoSvg}
                       className={"about-logo"}
                     />
                   </div>

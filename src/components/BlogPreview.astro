@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import blogPreviewLink from "@src/svg/blog-preview-link.svg?raw";
+import diamonds from "@src/svg/diamonds.svg?raw";
 import { contactInfo } from "../consts";
 import InlineSvg from "./InlineSvg.astro";
 
@@ -28,19 +30,13 @@ const url = `/blog/${slug}`;
     on {publishDate.toLocaleDateString()}
   </p>
   <p>
-    <InlineSvg
-      file={"/src/svg/diamonds-dark.svg"}
-      className={"hero-diamonds"}
-    />
+    <InlineSvg svg={diamonds} className={"hero-diamonds"} />
   </p>
   <p class="blog-preview-description">{description}</p>
   <div class="blog-preview-link-holder">
     <a href={url}>Read More</a>
     <a href={url}>
-      <InlineSvg
-        file={"/src/svg/blog-preview-link.svg"}
-        className={"blog-preview-link"}
-      />
+      <InlineSvg svg={blogPreviewLink} className={"blog-preview-link"} />
     </a>
   </div>
 </div>

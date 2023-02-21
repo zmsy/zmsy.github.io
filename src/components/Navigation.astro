@@ -1,4 +1,5 @@
 ---
+import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
 import { contactInfo, siteInfo } from "../consts";
 import { NavModal } from "./app/NavModal";
 import { NavModalToggle } from "./app/NavModalToggle";
@@ -44,7 +45,7 @@ const navLinks: Array<NavLink> = [
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href={siteInfo.baseUrl}>
-      <InlineSVG file={"/src/svg/navbar-logo.svg"} className="logo-img" />
+      <InlineSVG svg={navbarLogoSvg} className="logo-img" />
     </a>
     <a class="navbar-item" href="/">
       <div id="logo-text">{siteInfo.title}</div>

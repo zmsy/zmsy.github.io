@@ -16,6 +16,7 @@ export interface Props {
   titleTextAlign?: "center" | "left";
 }
 
+import diamondsSvg from "@src/svg/diamonds.svg?raw";
 import { contactInfo } from "../consts";
 import InlineSvg from "./InlineSvg.astro";
 
@@ -38,10 +39,7 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
           </p>
         )
       }
-      <InlineSvg
-        file={"/src/svg/diamonds-dark.svg"}
-        className={"hero-diamonds"}
-      />
+      <InlineSvg svg={diamondsSvg} className={"hero-diamonds"} />
     </div>
   </div>
 </section>

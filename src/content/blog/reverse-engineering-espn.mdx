@@ -4,6 +4,9 @@ description: "Using some minor sleuthing and publicly available information, I i
 publishDate: 2022-04-28
 ---
 
+import boomSvg from "@src/svg/blog/reverse-engineering-espn/boom.svg?raw";
+import yuckSvg from "@src/svg/blog/reverse-engineering-espn/yuck.svg?raw";
+
 import yelich from "@src/images/blog/reverse-engineering-espn/phonea-negative-rc.png";
 import currentTotal from "@src/images/blog/reverse-engineering-espn/phoneb-team-page-current-total.png";
 import yelichCareerRC from "@src/images/blog/reverse-engineering-espn/a-yelich_career_rc.png";
@@ -182,7 +185,7 @@ Bam, the page is rendered using React.
 
 Navigating to the individual cell being rendered and...
 
-<InlineSvg file={"/src/svg/blog/reverse-engineering-espn/boom.svg"} />
+<InlineSvg svg={boomSvg} />
 
 **There it is.**
 
@@ -312,7 +315,7 @@ RC = (D ÷ (9 x C)) – (0.9 x C)
 
 Output: **-0.67 Runs Created**
 
-<InlineSvg file={"/src/svg/blog/reverse-engineering-espn/yuck.svg"} className={"small"} />
+<InlineSvg svg={yuckSvg} className={"small"} />
 
 Welp, that's unfortunate. Turns out my assumption that RC would never be negative with any of the official calculations was also wrong. Feels...not right.
 

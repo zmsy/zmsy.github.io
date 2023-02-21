@@ -1,9 +1,18 @@
 ---
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/head/BaseHead.astro";
-import type { SvgFile } from "../components/InlineSvg.astro";
 import InlineSvg from "../components/InlineSvg.astro";
 import Navigation from "../components/Navigation.astro";
+
+// general svgs
+import diamondsSvg from "@src/svg/diamonds.svg?raw";
+import homeLogoScribbleMobileSvg from "@src/svg/home-logo-scribble-mobile.svg?raw";
+import homeLogoScribbleSvg from "@src/svg/home-logo-scribble.svg?raw";
+
+// logo svgs
+import aboutLogoSvg from "@src/svg/about-logo.svg?raw";
+import blogLogoSvg from "@src/svg/blog-logo.svg?raw";
+import recipesLogoSvg from "@src/svg/recipes-logo.svg?raw";
 
 const title = "Home";
 const description = "Zach Morrissey, Software Engineer. Seattle, WA.";
@@ -12,28 +21,28 @@ const sections: Array<{
   name: string;
   href: string;
   tagline: string;
-  svg: SvgFile;
+  svg: string;
 }> = [
   {
     name: "Blog",
     href: "/blog",
     tagline:
       "A collection of writings on technology, programming, data analysis, visualization, and other topics.",
-    svg: "/src/svg/blog-logo.svg",
+    svg: blogLogoSvg,
   },
   {
     name: "Recipes",
     href: "/recipes",
     tagline:
       "I write recipes! Check out some delicious food, drink, and dessert that I've crafted over the years.",
-    svg: "/src/svg/recipes-logo.svg",
+    svg: recipesLogoSvg,
   },
   {
     name: "About Me",
     href: "/about",
     tagline:
       "Learn more about me: Where I've come from, where I'm headed, and what I'll be doing along the way there.",
-    svg: "/src/svg/about-logo.svg",
+    svg: aboutLogoSvg,
   },
 ];
 ---
@@ -102,15 +111,12 @@ const sections: Array<{
         <div class="container">
           <div class="is-hidden-tablet">
             <InlineSvg
-              file={"/src/svg/home-logo-scribble-mobile.svg"}
+              svg={homeLogoScribbleMobileSvg}
               className="hero-badge-mobile"
             />
           </div>
           <div class="is-hidden-mobile">
-            <InlineSvg
-              file={"/src/svg/home-logo-scribble.svg"}
-              className="hero-badge"
-            />
+            <InlineSvg svg={homeLogoScribbleSvg} className="hero-badge" />
           </div>
         </div>
       </section>
@@ -121,11 +127,8 @@ const sections: Array<{
               return (
                 <div class="column is-3-desktop is-4-tablet-only">
                   <a href={href} class="home-link">
-                    <InlineSvg file={svg} className="column-logo" />
-                    <InlineSvg
-                      file={"/src/svg/diamonds-dark.svg"}
-                      className="hero-diamonds"
-                    />
+                    <InlineSvg svg={svg} className="column-logo" />
+                    <InlineSvg svg={diamondsSvg} className="hero-diamonds" />
                     <h2 class="home-title">{name}</h2>
                   </a>
                   <p>{tagline}</p>

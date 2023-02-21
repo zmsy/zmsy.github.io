@@ -4,6 +4,8 @@ description: "My data needs have expanded over the years, and it took a full Air
 publishDate: 2018-06-25
 ---
 
+import airflowDiagramSvg from "@src/svg/blog/my-very-own-airflow-cluster/airflow-diagram.svg?raw";
+import airflowDagSvg from "@src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg?raw";
 import airflowLogo from "@src/images/blog/my-very-own-airflow-cluster/airflow.png";
 
 import { Image } from "@astrojs/image/components";
@@ -50,10 +52,7 @@ There are plenty of ways that you can configure Airflow. There are varying level
 
 Here's diagram of how it works.
 
-<InlineSvg
-  file={"/src/svg/blog/my-very-own-airflow-cluster/airflow-diagram.svg"}
-  className="large"
-/>
+<InlineSvg svg={airflowDiagramSvg} className="large" />
 
 For my purposes, I went with LocalExecutor, and set up the configuration in the outlined area above. I set up two nodes for this in my [Proxmox cluster](https://www.proxmox.com/en/).
 
@@ -76,7 +75,7 @@ There's [a lot of lingo to be learned](https://airflow.incubator.apache.org/conc
 
 Fittingly, the DAG is a graph, both directed and acyclic. Task execution flows in only one direction.
 
-<InlineSvg file={"/src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg"} />
+<InlineSvg svg={airflowDagSvg} className="large" />
 
 - The arrows indicate execution order.
 - An arrow from task 1 to task 2 implies task 1 is a dependency for task 2. If task 1 fails, task 2 will not execute.

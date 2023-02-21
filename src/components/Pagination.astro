@@ -5,6 +5,9 @@
 import type { Page } from "astro";
 import InlineSvg from "./InlineSvg.astro";
 
+import paginationArrowLeftSvg from "@src/svg/pagination-arrow-left.svg?raw";
+import paginationArrowRightSvg from "@src/svg/pagination-arrow-right.svg?raw";
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { page: Page };
 
@@ -16,20 +19,14 @@ const { page } = Astro.props;
     href={page.url.prev ?? ""}
     class:list={[{ "pagination-disabled": page.url.prev === undefined }]}
   >
-    <InlineSvg
-      file="/src/svg/pagination-arrow-left.svg"
-      className={"pagination-arrow"}
-    />
+    <InlineSvg svg={paginationArrowLeftSvg} className={"pagination-arrow"} />
   </a>
   <span>Page {page.currentPage} of {page.lastPage}</span>
   <a
     href={page.url.next ?? ""}
     class:list={[{ "pagination-disabled": page.url.next === undefined }]}
   >
-    <InlineSvg
-      file="/src/svg/pagination-arrow-right.svg"
-      className={"pagination-arrow"}
-    />
+    <InlineSvg svg={paginationArrowRightSvg} className={"pagination-arrow"} />
   </a>
 </div>
 <style lang="scss">

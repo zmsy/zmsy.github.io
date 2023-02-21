@@ -2,15 +2,13 @@
 import InlineSvg from "./InlineSvg.astro";
 import { navIcons } from "./Navigation.astro";
 
+import footerSvg from "@src/svg/footer.svg?raw";
+
 const today = new Date();
 ---
 
 <footer>
-  <InlineSvg
-    id="footer-svg"
-    file={"/src/svg/footer.svg"}
-    className="footer-dots"
-  />
+  <InlineSvg id="footer-svg" svg={footerSvg} className="footer-dots" />
   <div id="footer-icons">
     {
       navIcons.map(({ alt, icon, url }) => (

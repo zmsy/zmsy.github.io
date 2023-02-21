@@ -1,29 +1,24 @@
 ---
-export type SvgFile = `/src/svg/${string}.svg`;
 export interface Props {
-  /** Name of the svg file in the /src/svg folder */
-  file: SvgFile;
+  /** Text of the svg file in the /src/svg folder */
+  svg: string;
   /** An additional class to apply to the component. */
   className?: string;
   /** Id to add to the <figure> element, for narrower CSS scoping. */
   id?: string;
 }
 
-const { id, file, className } = Astro.props;
+const { id, svg, className } = Astro.props;
 
 // conditionally pass id to the figure component
 const idProps = { ...(id !== undefined && { id }) };
-
-// import as raw in order to read as text. vite will complain that this
-// is not statically analyzable, which is why the ignore comment is here.
-const { default: html } = await import(/* @vite-ignore */ `${file}?raw`);
 ---
 
 <figure
   {...idProps}
   class:list={["color-responsive-svg", className !== undefined && className]}
 >
-  <Fragment set:html={html} />
+  <Fragment set:html={svg} />
 </figure>
 <style lang="scss" is:global>
   @use "../styles/variables.scss" as variables;

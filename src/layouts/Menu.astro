@@ -2,6 +2,7 @@
 /**
  * Layout for the drinks menu.
  */
+import drinksSvg from "@src/svg/drinks.svg?raw";
 import type { MarkdownLayoutProps } from "astro";
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/head/BaseHead.astro";
@@ -51,10 +52,7 @@ const {
     <main>
       <article>
         <Hero title={title} />
-        <InlineSvg
-          file={"/src/svg/drinks.svg"}
-          className={"menu-drinks-logo"}
-        />
+        <InlineSvg svg={drinksSvg} className={"menu-drinks-logo"} />
         <MarkdownContent>
           <slot />
         </MarkdownContent>
