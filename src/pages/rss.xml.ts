@@ -7,7 +7,7 @@ export async function get() {
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    site: 'https://zmsy.co',
+    site: "https://zmsy.co",
     items: posts.map((post) => ({
       ...post.data,
       pubDate: post.data.publishDate,
