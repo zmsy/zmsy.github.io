@@ -115,6 +115,22 @@ const sections: Array<{
           }
         }
       }
+
+      @include mixins.mobile {
+        .is-hidden-mobile {
+          display: none;
+        }
+
+        .container {
+          margin: 0 1.5rem;
+        }
+      }
+
+      @include mixins.from(mixins.$tablet) {
+        .is-hidden-tablet {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
