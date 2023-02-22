@@ -23,7 +23,7 @@ import InlineSvg from "./InlineSvg.astro";
 const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
 ---
 
-<section class="hero">
+<section>
   <div class="hero-body">
     <div class="container">
       <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
@@ -45,7 +45,7 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
 </section>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
-  .hero {
+  section {
     margin: 1.5rem 0rem;
     text-align: center;
 
@@ -68,6 +68,25 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
         }
       }
     }
+  }
+
+  .title {
+    font-family: var(--heroFonts);
+    font-weight: normal;
+    font-size: 4.5rem;
+    color: var(--titleTextColor);
+
+    & + .subtitle {
+      // override default bulma spacing
+      margin-top: 0rem;
+    }
+  }
+
+  .subtitle {
+    font-family: var(--heroSubtitleFonts);
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: var(--titleTextColor);
   }
 
   .left {
