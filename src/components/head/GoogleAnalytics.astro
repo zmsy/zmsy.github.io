@@ -1,0 +1,24 @@
+---
+/**
+ * Originally from the 'astro-analytics' package.
+ * https://github.com/Destiner/astro-analytics
+ */
+export interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+const gtagUrl = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+---
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src={gtagUrl}></script>
+<script define:vars={{ id }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", id);
+</script>
