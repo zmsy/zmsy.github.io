@@ -21,6 +21,11 @@
 }
 
 .container {
+  // the default 'modal' class is a flexbox, so move everything _just_ offset
+  // from the top by enough to be usable. Looks better on tall screens.
+  justify-content: flex-start;
+  padding-top: 10rem;
+
   ul {
     display: flex;
     flex-direction: column;
