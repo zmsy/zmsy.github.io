@@ -7,9 +7,9 @@ import { navModalOpen } from "./store";
 export const NavModalToggle: FunctionComponent = () => {
   return (
     <span class="navbar-burger" onClick={() => navModalOpen.set(true)}>
-      <span></span>
-      <span></span>
-      <span></span>
+      <span style={"top: calc(50% + 6px);"}></span>
+      <span style={"top: calc(50% + 10px);"}></span>
+      <span style={"top: calc(50% + 14px);"}></span>
     </span>
   );
 };
