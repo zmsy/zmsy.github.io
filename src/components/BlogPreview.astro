@@ -18,7 +18,7 @@ const url = `/blog/${slug}`;
 
 <div class="blog-preview">
   <h2>
-    <a class="blog-preview-title is-size-2-touch" href={url}>
+    <a class="blog-preview-title" href={url}>
       {title}
     </a>
   </h2>
@@ -41,6 +41,8 @@ const url = `/blog/${slug}`;
   </div>
 </div>
 <style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
   .blog-preview {
     margin-bottom: 8rem;
   }
@@ -55,6 +57,15 @@ const url = `/blog/${slug}`;
 
   .blog-preview-description {
     font-size: 1.25rem;
+  }
+
+  @include mixins.mobile {
+    .blog-preview-title {
+      font-size: 2rem;
+    }
+    .blog-preview-description {
+      font-size: 1rem;
+    }
   }
 
   .blog-preview-link-holder {
