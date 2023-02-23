@@ -25,9 +25,16 @@ const { page } = Astro.props;
   <head>
     <BaseHead title={"blog"} description={"Writings I've written."} />
     <style lang="scss">
+      @use "../../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
       section {
         max-width: var(--blogPreviewWidth);
         margin: 3rem auto 8rem;
+      }
+
+      @include mixins.mobile {
+        section {
+          margin: 3rem 2rem 8rem;
+        }
       }
     </style>
   </head>
