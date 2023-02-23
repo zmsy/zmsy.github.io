@@ -5,25 +5,6 @@ Main scss file.
 This creates the main.css file and the same variables can use bulma variables.
 */
 
-body {
-  font-family: var(--readingFonts);
-  color: var(--textColor);
-}
-
-h1 {
-  font-family: var(--heroFonts);
-  font-size: 5rem;
-  text-decoration: none;
-}
-
-a {
-  color: var(--accent1Color);
-
-  &:hover {
-    color: var(--accent2Color);
-  }
-}
-
 .hero-diamonds {
   height: 1.25rem;
   margin: 1rem auto;
@@ -43,7 +24,3 @@ a {
 .recipes-container {
   margin: 0rem auto;
 }
-
-/* MODAL */
-
-
