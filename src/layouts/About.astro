@@ -107,13 +107,18 @@ const { frontmatter } = Astro.props;
         }
       }
 
-      #about-photo {
-        margin: 0rem;
-      }
-
       .about-content {
         & p {
           font-size: 1rem;
+        }
+      }
+
+      .image {
+        margin: 0rem;
+
+        img {
+          display: block;
+          width: 100%;
         }
       }
     </style>
@@ -135,7 +140,7 @@ const { frontmatter } = Astro.props;
             <div class="card" id="about-card">
               <!-- image -->
               <div class="card-image">
-                <figure class="image" id="about-photo">
+                <figure class="image">
                   <img src="/img/about.jpg" alt="Photo of Zach Morrissey." />
                 </figure>
               </div>
