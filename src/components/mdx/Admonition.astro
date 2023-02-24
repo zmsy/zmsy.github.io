@@ -10,11 +10,12 @@ const { level, text } = Astro.props;
 ---
 
 <div class:list={["admonition", `admonition-${level}`]}>{text}</div>
-<style>
+<style lang="scss">
   .admonition {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
+    font-size: 1.25rem;
   }
 
   .admonition-info {
@@ -23,17 +24,11 @@ const { level, text } = Astro.props;
 
   .admonition-tip {
     background-color: var(--accent2Color);
-
-    p {
-      color: var(--backgroundColor);
-    }
+    color: var(--backgroundColor);
   }
 
   .admonition-warning {
     background-color: var(--accent1Color);
-
-    p {
-      color: var(--backgroundColor);
-    }
+    color: var(--backgroundColor);
   }
 </style>
