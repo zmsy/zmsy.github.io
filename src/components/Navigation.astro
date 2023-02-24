@@ -1,0 +1,154 @@
+---
+import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
+import { contactInfo, siteInfo } from "../consts";
+import { NavModal } from "./app/NavModal";
+import { NavModalToggle } from "./app/NavModalToggle";
+import InlineSVG from "./InlineSvg.astro";
+
+type NavIcon = {
+  url: string;
+  alt: string;
+  icon: string;
+};
+
+type NavLink = {
+  url: string;
+  name: string;
+};
+
+export const navIcons: Array<NavIcon> = [
+  {
+    icon: "icon-linkedin-square",
+    alt: "View my linkedin profile.",
+    url: contactInfo.linkedInUrl,
+  },
+  {
+    icon: "icon-github",
+    alt: "Check out my github.",
+    url: contactInfo.githubUrl,
+  },
+  {
+    icon: "icon-twitter",
+    alt: "Check out my sparsely used Twitter account.",
+    url: contactInfo.twitterUrl,
+  },
+];
+
+const navLinks: Array<NavLink> = [
+  { url: "/", name: "Home" },
+  { url: "/blog", name: "Blog" },
+  { url: "/recipes", name: "Recipes" },
+  { url: "/about", name: "About" },
+];
+---
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href={siteInfo.baseUrl}>
+      <InlineSVG svg={navbarLogoSvg} className="logo-img" />
+    </a>
+    <a class="navbar-item" href="/">
+      <div id="logo-text">{siteInfo.title}</div>
+    </a>
+    <NavModalToggle client:load />
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      {
+        navIcons.map(({ alt, icon, url }) => (
+          <a class="navbar-item is-hidden-mobile" href={url}>
+            <span class={icon} title={alt} />
+          </a>
+        ))
+      }
+      {
+        navLinks.map(({ url, name }) => (
+          <a class="navbar-item is-tab" href={url}>
+            {name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <NavModal client:load />
+</nav>
+<style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
+  nav {
+    background-color: var(--backgroundColor);
+    color: var(--titleTextColor);
+    align-items: flex-end;
+    font-family: var(--displayFonts);
+    margin: 0rem auto;
+    height: 4rem;
+    max-width: var(--navWidth);
+    align-items: center;
+  }
+
+  .navbar-brand {
+    background-color: var(--backgroundColor);
+
+    align-items: center;
+
+    @include mixins.touch {
+      padding: 0.5rem;
+    }
+  }
+
+  .navbar-menu {
+    box-shadow: none;
+    background-color: var(--backgroundColor);
+  }
+
+  a.navbar-item {
+    color: var(--subtitleTextColor);
+
+    &.is-tab {
+      font-size: 1.125rem;
+      // align visually with 'zmsy.co' text
+      min-height: 2.75rem;
+    }
+
+    &:hover {
+      background-color: var(--backgroundAccentColor);
+    }
+  }
+
+  .navbar-end {
+    @include mixins.desktop {
+      align-items: flex-end;
+    }
+  }
+
+  .navbar-end a:hover,
+  .fa:hover {
+    background-color: var(--backgroundAccentColor);
+    color: var(--subtitleTextColor);
+  }
+
+  :global(.navbar-burger) {
+    height: 4rem;
+    width: 4rem;
+    color: var(--textColor);
+  }
+
+  #logo-text {
+    font-size: 32px;
+    justify-content: flex-start;
+    font-family: var(--displayFonts);
+  }
+
+  .logo-img {
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+    width: 2.5rem;
+    height: auto;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+</style>

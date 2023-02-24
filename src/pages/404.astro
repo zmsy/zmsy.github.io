@@ -1,0 +1,29 @@
+---
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={"Page Not Found"}
+      description={"Couldn't find what you were looking for. Sorry!"}
+    />
+  </head>
+
+  <body>
+    <Navigation />
+    <main>
+      <!-- for some reason, <style> tag didn't work so these are inlined. -->
+      <article
+        style="width: 20rem; margin: 8rem auto 0rem; text-align: center;"
+      >
+        <h1 style="font-size: 2rem">Page not found!</h1>
+        <p>Go <a href="/">back home</a>?</p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

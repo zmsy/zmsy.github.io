@@ -1,0 +1,29 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = CollectionEntry<"blog">;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return (
+    posts
+      // sort by publishDate descending
+      .sort(
+        (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+      )
+      .map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+      }))
+  );
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+  <Content />
+</BlogPost>

@@ -1,0 +1,95 @@
+---
+/**
+ * Full width hero text.
+ */
+export interface Props {
+  /** Main hero text. */
+  title: string;
+  /** Subtitle text below the main hero text. */
+  subtitle?: string;
+  /**
+   * Publish date, if this is datestamped content. Passing this prop will make
+   * this render a "Written by _____" <p> tag.
+   */
+  publishDate?: Date;
+  /** Optional text alignment, defaults to center. */
+  titleTextAlign?: "center" | "left";
+}
+
+import diamondsSvg from "@src/svg/diamonds.svg?raw";
+import { contactInfo } from "../consts";
+import InlineSvg from "./InlineSvg.astro";
+
+const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
+---
+
+<section>
+  <div class="hero-body">
+    <div class="container">
+      <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
+        {title}
+      </h1>
+      {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
+      {
+        publishDate && (
+          <p class="meta">
+            written by
+            <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
+            on {publishDate.toLocaleDateString()}
+          </p>
+        )
+      }
+      <InlineSvg svg={diamondsSvg} className={"hero-diamonds"} />
+    </div>
+  </div>
+</section>
+<style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+  section {
+    margin: 1.5rem 0rem;
+    text-align: center;
+
+    .hero-body {
+      padding: 0rem;
+
+      div {
+        text-align: center;
+      }
+
+      .container {
+        @include mixins.touch {
+          h1 {
+            font-size: 3rem;
+          }
+
+          h2 {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    font-family: var(--heroFonts);
+    font-weight: normal;
+    font-size: 4.5rem;
+    color: var(--titleTextColor);
+
+    & + .subtitle {
+      // override default bulma spacing
+      margin-top: 0rem;
+    }
+  }
+
+  .subtitle {
+    font-family: var(--heroSubtitleFonts);
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: var(--titleTextColor);
+  }
+
+  .left {
+    text-align: left;
+  }
+</style>

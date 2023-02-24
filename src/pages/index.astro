@@ -1,0 +1,173 @@
+---
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import InlineSvg from "../components/InlineSvg.astro";
+import Navigation from "../components/Navigation.astro";
+
+// general svgs
+import diamondsSvg from "@src/svg/diamonds.svg?raw";
+import homeLogoScribbleMobileSvg from "@src/svg/home-logo-scribble-mobile.svg?raw";
+import homeLogoScribbleSvg from "@src/svg/home-logo-scribble.svg?raw";
+
+// logo svgs
+import aboutLogoSvg from "@src/svg/about-logo.svg?raw";
+import blogLogoSvg from "@src/svg/blog-logo.svg?raw";
+import recipesLogoSvg from "@src/svg/recipes-logo.svg?raw";
+
+const title = "Home";
+const description = "Zach Morrissey, Software Engineer. Seattle, WA.";
+
+const sections: Array<{
+  name: string;
+  href: string;
+  tagline: string;
+  svg: string;
+}> = [
+  {
+    name: "Blog",
+    href: "/blog",
+    tagline:
+      "A collection of writings on technology, programming, data analysis, visualization, and other topics.",
+    svg: blogLogoSvg,
+  },
+  {
+    name: "Recipes",
+    href: "/recipes",
+    tagline:
+      "I write recipes! Check out some delicious food, drink, and dessert that I've crafted over the years.",
+    svg: recipesLogoSvg,
+  },
+  {
+    name: "About Me",
+    href: "/about",
+    tagline:
+      "Learn more about me: Where I've come from, where I'm headed, and what I'll be doing along the way there.",
+    svg: aboutLogoSvg,
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style lang="scss">
+      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
+      .hero {
+        margin: 2.5rem auto 1.5rem;
+      }
+
+      /** hero svgs for the main landing page */
+      .hero-badge {
+        height: 40rem;
+      }
+
+      .hero-badge-mobile {
+        max-width: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .home-columns {
+        justify-content: center;
+        margin-top: 1rem;
+
+        .column {
+          text-align: center;
+        }
+
+        h2 {
+          font-family: var(--subtitleFonts);
+          font-size: 2rem;
+        }
+
+        i {
+          font-size: 2.5rem;
+        }
+
+        p {
+          margin-bottom: 2rem;
+          margin-top: 2rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          padding: 1rem;
+          font-size: 1.125rem;
+        }
+
+        .column-logo {
+          height: 100px;
+          width: 100px;
+          margin: auto;
+        }
+
+        .home-title {
+          margin-bottom: 1rem;
+        }
+
+        .home-link {
+          cursor: pointer;
+          text-decoration: none;
+          display: block;
+
+          h2 {
+            color: var(--accent2Color);
+          }
+        }
+      }
+
+      @include mixins.mobile {
+        .is-hidden-mobile {
+          display: none;
+        }
+
+        .container {
+          margin: 0 1.5rem;
+        }
+      }
+
+      @include mixins.from(mixins.$tablet) {
+        .is-hidden-tablet {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="is-hidden-tablet">
+            <InlineSvg
+              svg={homeLogoScribbleMobileSvg}
+              className="hero-badge-mobile"
+            />
+          </div>
+          <div class="is-hidden-mobile">
+            <InlineSvg svg={homeLogoScribbleSvg} className="hero-badge" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="columns home-columns">
+          {
+            sections.map(({ href, svg, name, tagline }) => {
+              return (
+                <div class="column is-3-desktop is-4-tablet-only">
+                  <a href={href} class="home-link">
+                    <InlineSvg svg={svg} className="column-logo" />
+                    <InlineSvg svg={diamondsSvg} className="hero-diamonds" />
+                    <h2 class="home-title">{name}</h2>
+                  </a>
+                  <p>{tagline}</p>
+                </div>
+              );
+            })
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

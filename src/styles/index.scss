@@ -1,0 +1,26 @@
+@import "./custom_bulma.scss";
+
+/*
+Main scss file.
+This creates the main.css file and the same variables can use bulma variables.
+*/
+
+.hero-diamonds {
+  height: 1.25rem;
+  margin: 1rem auto;
+}
+
+.meta {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.columns {
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+/* RECIPES PAGE */
+.recipes-container {
+  margin: 0rem auto;
+}

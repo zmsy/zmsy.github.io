@@ -1,0 +1,47 @@
+---
+/**
+ * Global css.
+ */
+---
+
+<style is:global>
+  html {
+    /* prevent any overflow outside of the html element. */
+    /* overflow: hidden !important; */
+    background-color: var(--backgroundColor);
+  }
+
+  body {
+    background-color: var(--backgroundColor);
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    overflow: auto;
+    font-family: var(--readingFonts);
+    color: var(--textColor);
+  }
+
+  main {
+    min-height: 100vh;
+  }
+
+  /* force all svgs to fit to the size of the parent container */
+  svg {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: var(--heroFonts);
+    font-size: 5rem;
+    text-decoration: none;
+  }
+
+  a {
+    color: var(--accent1Color);
+  }
+
+  a:hover {
+    color: var(--accent2Color);
+  }
+</style>

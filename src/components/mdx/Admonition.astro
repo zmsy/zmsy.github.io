@@ -1,0 +1,34 @@
+---
+export interface Props {
+  /** Level of the given admonition. */
+  level: "info" | "tip" | "warning";
+  /** Text to display within the component */
+  text: string;
+}
+
+const { level, text } = Astro.props;
+---
+
+<div class:list={["admonition", `admonition-${level}`]}>{text}</div>
+<style lang="scss">
+  .admonition {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .admonition-info {
+    background-color: var(--accent4Color);
+  }
+
+  .admonition-tip {
+    background-color: var(--accent2Color);
+    color: var(--backgroundColor);
+  }
+
+  .admonition-warning {
+    background-color: var(--accent1Color);
+    color: var(--backgroundColor);
+  }
+</style>

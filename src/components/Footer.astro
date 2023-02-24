@@ -1,0 +1,65 @@
+---
+import InlineSvg from "./InlineSvg.astro";
+import { navIcons } from "./Navigation.astro";
+
+import footerSvg from "@src/svg/footer.svg?raw";
+
+const today = new Date();
+---
+
+<footer>
+  <InlineSvg id="footer-svg" svg={footerSvg} className="footer-dots" />
+  <div id="footer-icons">
+    {
+      navIcons.map(({ alt, icon, url }) => (
+        <a class="is-hidden-mobile" href={url}>
+          <span class={icon} title={alt} />
+        </a>
+      ))
+    }
+  </div>
+  <p><strong>zmsy.co</strong> - by Zach Morrissey</p>
+  <p>Copyright © {today.getFullYear()}</p>
+</footer>
+<style>
+  footer {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: var(--secondaryBackgroundColor);
+    color: var(--backgroundColor);
+    border-top: 1rem solid var(--backgroundAccentColor);
+    padding: 2rem 1.5rem 6rem;
+    text-align: center;
+  }
+
+  footer strong {
+    color: var(--backgroundColor);
+  }
+
+  /* Override the existing color-responsive-svg styles for inverted footer. */
+  :global(#footer-svg > svg > path) {
+    stroke: var(--backgroundColor) !important;
+  }
+
+  .footer-dots {
+    max-width: 25rem;
+    margin: 1rem auto;
+  }
+
+  div {
+    max-width: 15rem;
+    margin: 0.5rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  /* inverted icon colors for the footer. */
+  #footer-icons [class^="icon-"] {
+    color: var(--backgroundColor);
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

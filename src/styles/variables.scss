@@ -1,0 +1,38 @@
+/**
+ * This set of variables is used to derive the downstream stuff in the regular
+ * css files. This is _only_ for things that need to be used as part of a
+ * selector or within bulma. If it's something that's only ever used as a
+ * _value_, it should go in the Variables.astro file.
+ */
+
+// INITIAL VARIABLES. Since some of the elements on the site (namely SVGs) have
+// values prepopulated on first load, these are defined so that they can be used
+// selectors.
+$svgDefaultColor: #38332a;
+$svgAlternateColor: #faf9f9;
+$accent1DefaultColor: #f55a37;
+$accent2DefaultColor: #359fb7;
+$accent3DefaultColor: #83cab2;
+$accent4DefaultColor: #e5c76c;
+
+// overridde bulma colors, this is to have it default to the light theme
+$black: #100b03; // `icons` default body font, largely unused except for icons
+$black-bis: #18130d; // `titleText` title, subtitle, h1
+$black-ter: #38332a; // `subtitleText` h2
+$grey-darker: #3f3b35; // `text` main text color, h3-6
+$grey-dark: #5e564b; // unused
+$grey: #8f8980; // unused
+$grey-light: #bab6af; // unused
+$grey-lighter: #dcdbd9; // `backgroundAccent` used by <hr> + footer border
+$white-ter: #f0efef; // unused
+$white-bis: #f5f4f4; // unused
+$white: #faf9f9; // `background`
+
+// bulma-required colors
+$orange: #f55a37;
+$yellow: #e5c76c;
+$green: #23d160;
+$turquoise: #8cc9bf;
+$blue: #359fb7;
+$purple: #83cab2; // `code` inline code segments
+$red: #d34141;

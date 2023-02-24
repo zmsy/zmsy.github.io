@@ -1,0 +1,87 @@
+---
+export interface Props {
+  /** Text of the svg file in the /src/svg folder */
+  svg: string;
+  /** An additional class to apply to the component. */
+  className?: string;
+  /** Id to add to the <figure> element, for narrower CSS scoping. */
+  id?: string;
+}
+
+const { id, svg, className } = Astro.props;
+
+// conditionally pass id to the figure component
+const idProps = { ...(id !== undefined && { id }) };
+---
+
+<figure
+  {...idProps}
+  class:list={["color-responsive-svg", className !== undefined && className]}
+>
+  <Fragment set:html={svg} />
+</figure>
+<style lang="scss" is:global>
+  @use "../styles/variables.scss" as variables;
+
+  .color-responsive-svg {
+    /* Paths match the text color, text in font must be exported as curves */
+    path {
+      /*
+       * must use important here because it gets overridden by the inline
+       * stroke color, which is more specific.
+       */
+      stroke: var(--textColor) !important;
+    }
+
+    text {
+      fill: var(--textColor) !important;
+    }
+
+    /**
+   * NOTE: These selectors are intended to find svg elements where there
+   * IS an existing fill or stroke, and then have them use the current
+   * variables instead of their hardcoded color. This defaults to the starting
+   * svg color, so that it can be selected regardless of which theme the
+   * site currently is using.
+   *
+   * This is due to a shortcoming in Affinity Designer where it exports all
+   * of the styling information in a single style tag, where it's difficult to
+   * properly select individual components which _should_ or _should not_ be
+   * colored appropriately. This first "fill" selector checks start of string
+   * the affinity designer property export format always puts fill first.
+   */
+    $tags: (rect, path, ellipse, circle);
+    $colors: (
+      variables.$svgDefaultColor: var(--subtitleTextColor),
+      variables.$svgAlternateColor: var(--backgroundColor),
+    );
+    $accentColors: (
+      variables.$accent1DefaultColor: var(--accent1Color),
+      variables.$accent2DefaultColor: var(--accent2Color),
+      variables.$accent3DefaultColor: var(--accent3Color),
+      variables.$accent4DefaultColor: var(--accent4Color),
+    );
+    @each $tag in $tags {
+      @each $color, $colorVar in $colors {
+        /* match anything filled w text color */
+        #{$tag}[fill="#{$color}"],
+        #{$tag}[style^="fill:#{$color}"] {
+          fill: $colorVar !important;
+        }
+
+        /* match any svg with stroke of textColor */
+        #{$tag}[stroke="#{$color}"],
+        #{$tag}[style*="stroke:#{$color}"] {
+          stroke: $colorVar !important;
+        }
+      }
+
+      /* queries for individual accent colors. */
+      @each $accent, $accentVar in $accentColors {
+        #{$tag}[style^="fill:#{$accent}"] {
+          fill: $accentVar !important;
+        }
+      }
+    }
+  }
+</style>

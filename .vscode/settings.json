@@ -1,0 +1,19 @@
+{
+  "[astro]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.rulers": [80],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+  },
+  "eslint.validate": [
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.rulers": [80],
+  "prettier.documentSelectors": ["**/*.astro"]
+}

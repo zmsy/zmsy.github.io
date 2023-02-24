@@ -1,0 +1,63 @@
+---
+/**
+ * Layout for the drinks menu.
+ */
+import drinksSvg from "@src/svg/drinks.svg?raw";
+import type { MarkdownLayoutProps } from "astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import Hero from "../components/Hero.astro";
+import InlineSvg from "../components/InlineSvg.astro";
+import MarkdownContent from "../components/mdx/MarkdownContent.astro";
+import Navigation from "../components/Navigation.astro";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = MarkdownLayoutProps<{
+  /** Page title. */
+  title: string;
+  /** Page description, rendered as a subtitle. */
+  description: string;
+}>;
+
+const {
+  frontmatter: { title, description },
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style lang="scss">
+      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+      article {
+        margin: 0 auto 8rem;
+        max-width: var(--menuWidth);
+
+        @include mixins.mobile {
+          // no max-width on touch
+          max-width: unset;
+          margin: 0 2rem 8rem;
+        }
+
+        .menu-drinks-logo {
+          height: 12rem;
+          margin: 3rem auto 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <article>
+        <Hero title={title} />
+        <InlineSvg svg={drinksSvg} className={"menu-drinks-logo"} />
+        <MarkdownContent>
+          <slot />
+        </MarkdownContent>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

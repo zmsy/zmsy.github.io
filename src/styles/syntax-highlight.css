@@ -1,0 +1,140 @@
+/**
+ * Prism syntax highlighting theme.
+ */
+
+/**
+ * How to use this template:
+ *
+ * This file contains all the boilerplate necessary for a Prism theme along with template rules for you to fill in.
+ *
+ * All properties with the value `unset` are for you to change.
+ * You should fill in all `color` and `background` properties.
+ * If you don't need an `unset` property (e.g. `border-radius`), then feel free to remove it.
+ * You are also free to add more properties that aren't stated, such as `text-shadow`.
+ * If you wish to style the plugins, you may grab their selectors from their respective .css files in the template folder.
+ *
+ * Your finished theme should have all `unset` properties either filled in or removed.
+ */
+
+/* Set the main properties of the code, code blocks, and inline code */
+code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--backgroundAccentColor);
+  color: var(--textColor);
+  font-family: var(--codeFonts);
+  font-size: 1em;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Optional: What the code looks like when highlighted */
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection,
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection {
+  background: var(--backgroundColor);
+  color: var(--textColor);
+}
+
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
+  background: var(--backgroundColor);
+  color: var(--textColor);
+}
+
+/* Properties specific to code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: unset;
+}
+
+/* Properties specific to inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em; /* this is the default */
+  border-radius: unset;
+  white-space: normal; /* this is standard */
+}
+
+/**
+ * These are the minimum tokens you must style, you can rearrange them and/or style more tokens as you want
+ * The concepts behind these standard tokens, as well as some examples, can be found here: https://prismjs.com/tokens.html
+ */
+.token.comment,
+.token.prolog,
+.token.cdata,
+.token.doctype {
+  color: var(--titleTextColor);
+  font-style: italic;
+}
+
+.token.punctuation,
+.token.operator {
+  color: var(--accent2Color);
+}
+
+.token.entity,
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.property,
+.token.regex,
+.token.inserted {
+  color: var(--accent1Color);
+}
+
+.token.class-name {
+  color: var(--subtitleTextColor);
+}
+
+.token.atrule,
+.token.keyword,
+.token.attr-name {
+  color: var(--accent2Color);
+}
+
+.token.tag,
+.token.selector {
+  color: var(--accent4Color);
+}
+
+.token.function,
+.token.deleted {
+  color: var(--accent3Color);
+}
+
+.token.important,
+.token.function,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.string,
+.token.attr-value {
+  color: var(--accent1Color);
+}
+
+.token.char {
+  color: unset;
+}
+
+.token.builtin {
+  color: unset;
+}

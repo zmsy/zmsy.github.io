@@ -1,0 +1,191 @@
+---
+/**
+ * Layout for the about page on the site.
+ */
+import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
+import type { MarkdownLayoutProps } from "astro";
+import Footer from "../components/Footer.astro";
+import BaseHead from "../components/head/BaseHead.astro";
+import Hero from "../components/Hero.astro";
+import InlineSvg from "../components/InlineSvg.astro";
+import MarkdownContent from "../components/mdx/MarkdownContent.astro";
+import Navigation from "../components/Navigation.astro";
+import { contactInfo } from "../consts";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = MarkdownLayoutProps<{
+  /** Page title. */
+  title: string;
+  /** Page description, rendered as a subtitle. */
+  description: string;
+  /** Author tagline, displayed below the author name. */
+  tagline: string;
+}>;
+
+const {
+  authorName,
+  twitterUrl,
+  twitterUser,
+  authorEmail,
+  linkedInUrl,
+  githubUrl,
+  howieInstagram,
+} = contactInfo;
+
+const icons = {
+  [authorEmail]: "icon-envelope",
+  [linkedInUrl]: "icon-linkedin-square",
+  [twitterUser]: "icon-twitter",
+  [githubUrl]: "icon-github",
+  [howieInstagram]: "icon-paw",
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={frontmatter.title} description={frontmatter.description} />
+    <style lang="scss">
+      @import "../../node_modules/bulma/sass/components/card.sass";
+      #about-container {
+        margin-bottom: 3rem;
+      }
+
+      #about-card {
+        margin-bottom: 2rem;
+        background: var(--backgroundColor);
+        color: var(--titleTextColor);
+
+        /** Main section w/ name and info. */
+        #main {
+          display: flex;
+          align-items: center;
+          align-content: flex-start;
+          justify-content: flex-start;
+
+          & > div {
+            /** name and logo laid out left-aligned. */
+            display: flex;
+            justify-content: center;
+            margin-right: 0.75rem;
+
+            /** Name / twitter handle vertically stacked. */
+            &:last-child {
+              margin-right: 0rem;
+              flex-flow: column nowrap;
+            }
+          }
+
+          .about-logo {
+            width: 5rem;
+            height: 5rem;
+            margin-top: 0.5rem;
+          }
+
+          #about-cardtitle {
+            font-family: var(--subtitleFonts);
+            font-size: 1.5rem;
+            margin-top: 0rem;
+            margin-bottom: 0rem;
+          }
+        }
+
+        /** Horizontal level for the items in the about card. */
+        #icons {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+
+          a {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+          }
+        }
+      }
+
+      .about-content {
+        & p {
+          font-size: 1rem;
+        }
+      }
+
+      .image {
+        margin: 0rem;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+
+    <main>
+      <div class="container" id="about-container">
+        <Hero title="About" />
+        <div class="columns is-centered">
+          <div class="column is-6">
+            <MarkdownContent>
+              <slot />
+            </MarkdownContent>
+          </div>
+
+          <div class="column is-4">
+            <div class="card" id="about-card">
+              <!-- image -->
+              <div class="card-image">
+                <figure class="image">
+                  <img src="/img/about.jpg" alt="Photo of Zach Morrissey." />
+                </figure>
+              </div>
+
+              <!-- card content -->
+              <div class="card-content">
+                <div id="main">
+                  <div>
+                    <InlineSvg svg={projectsLogoSvg} className={"about-logo"} />
+                  </div>
+
+                  <div>
+                    <p id="about-cardtitle">{authorName}</p>
+                    <p>
+                      <a href={twitterUrl}>
+                        {`@${twitterUser}`}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <hr />
+
+                <div class="content about-content">
+                  {frontmatter.tagline}
+                </div>
+
+                <!-- icons array -->
+                <div id="icons">
+                  {
+                    Object.entries(icons).map(([url, icon]) => {
+                      return (
+                        <a href={url}>
+                          <span class={icon} />
+                        </a>
+                      );
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
