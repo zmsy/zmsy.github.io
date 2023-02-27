@@ -69,20 +69,11 @@ const sections: Array<{
         margin-right: auto;
       }
 
-      .home-columns-container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-      }
-
       .home-columns {
-        display: grid;
-        margin: 1rem auto;
-        grid-template-columns: repeat(3, minmax(20rem, 35rem));
-        grid-template-rows: 1fr;
-        grid-column-gap: 5rem;
+        justify-content: center;
+        margin-top: 1rem;
 
-        .home-column {
+        .column {
           text-align: center;
         }
 
@@ -158,12 +149,12 @@ const sections: Array<{
           </div>
         </div>
       </section>
-      <section class="home-columns-container">
-        <div class="home-columns">
+      <section>
+        <div class="columns home-columns">
           {
             sections.map(({ href, svg, name, tagline }) => {
               return (
-                <div class="home-column">
+                <div class="column is-3-desktop is-4-tablet-only">
                   <a href={href} class="home-link">
                     <InlineSvg svg={svg} className="column-logo" />
                     <InlineSvg svg={diamondsSvg} className="hero-diamonds" />
