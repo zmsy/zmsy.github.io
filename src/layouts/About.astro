@@ -48,6 +48,7 @@ const { frontmatter } = Astro.props;
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
     <style lang="scss">
+      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
       @import "../../node_modules/bulma/sass/components/card.sass";
       #about-container {
         margin-bottom: 3rem;
@@ -121,6 +122,28 @@ const { frontmatter } = Astro.props;
           width: 100%;
         }
       }
+
+      .about-columns {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 38rem 24rem;
+        grid-gap: 1rem;
+        justify-content: center;
+      }
+
+      @include mixins.touch {
+        .about-columns {
+          grid-template-columns: 30rem 15rem;
+        }
+      }
+
+      @include mixins.mobile {
+        .about-columns {
+          margin: 0 2rem;
+          grid-template-columns: 1fr;
+          grid-gap: 3rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -129,14 +152,14 @@ const { frontmatter } = Astro.props;
     <main>
       <div class="container" id="about-container">
         <Hero title="About" />
-        <div class="columns is-centered">
-          <div class="column is-6">
+        <div class="about-columns">
+          <div class="about-column">
             <MarkdownContent>
               <slot />
             </MarkdownContent>
           </div>
 
-          <div class="column is-4">
+          <div class="about-column">
             <div class="card" id="about-card">
               <!-- image -->
               <div class="card-image">

@@ -69,11 +69,40 @@ const sections: Array<{
         margin-right: auto;
       }
 
-      .home-columns {
-        justify-content: center;
-        margin-top: 1rem;
+      $columnWidth: 20rem;
+      $columnCount: 3;
+      $columnGap: 2rem;
 
-        .column {
+      .home-columns-container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+      }
+
+      .home-columns {
+        display: grid;
+        margin: 1rem auto;
+        grid-template-columns: repeat($columnCount, $columnWidth);
+        grid-column-gap: $columnGap;
+        grid-template-rows: 1fr;
+
+        @include mixins.touch {
+          & {
+            grid-template-columns: repeat(
+              $columnCount,
+              calc($columnWidth - 4rem)
+            );
+            grid-column-gap: 0rem;
+          }
+        }
+
+        @include mixins.mobile {
+          & {
+            grid-template-columns: 100%;
+          }
+        }
+
+        .home-column {
           text-align: center;
         }
 
@@ -149,12 +178,12 @@ const sections: Array<{
           </div>
         </div>
       </section>
-      <section>
-        <div class="columns home-columns">
+      <section class="home-columns-container">
+        <div class="home-columns">
           {
             sections.map(({ href, svg, name, tagline }) => {
               return (
-                <div class="column is-3-desktop is-4-tablet-only">
+                <div class="home-column">
                   <a href={href} class="home-link">
                     <InlineSvg svg={svg} className="column-logo" />
                     <InlineSvg svg={diamondsSvg} className="hero-diamonds" />
