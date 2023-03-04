@@ -3,7 +3,7 @@
   border-radius: 0.5rem;
   padding: 1rem;
   margin: 0rem 0.5rem;
-  width: fit-content;
+  width: fit-content !important;
   min-height: 15rem;
 }
 
@@ -24,7 +24,6 @@
   // the default 'modal' class is a flexbox, so move everything _just_ offset
   // from the top by enough to be usable. Looks better on tall screens.
   justify-content: flex-start;
-  padding-top: 10rem;
 
   ul {
     display: flex;

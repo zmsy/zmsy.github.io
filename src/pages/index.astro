@@ -61,6 +61,11 @@ const sections: Array<{
       /** hero svgs for the main landing page */
       .hero-badge {
         height: 40rem;
+
+        @include mixins.touch {
+          height: unset;
+          max-height: 40rem;
+        }
       }
 
       .hero-badge-mobile {
@@ -145,13 +150,15 @@ const sections: Array<{
         }
       }
 
+      @include mixins.touch {
+        .container {
+          margin: 0 1rem;
+        }
+      }
+
       @include mixins.mobile {
         .is-hidden-mobile {
           display: none;
-        }
-
-        .container {
-          margin: 0 1.5rem;
         }
       }
 
