@@ -7,7 +7,9 @@
 @import "./variables.scss";
 
 // 3. import the rest of bulma that we care about
-@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/controls.sass";
+@import "../../node_modules/bulma/sass/utilities/extends.sass";
 @import "../../node_modules/bulma/sass/base/generic.sass";
 @import "../../node_modules/bulma/sass/components/modal.sass";
 @import "../../node_modules/bulma/sass/components/navbar.sass";
