@@ -72,6 +72,17 @@ const navLinks: Array<NavLink> = [
   </div>
   <NavModal client:load />
 </nav>
+<style is:inline>
+  .logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: 0.2s ease-in-out;
+  }
+
+  .logo-img:hover {
+    transform: rotate(180deg);
+  }
+</style>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
 
@@ -137,18 +148,5 @@ const navLinks: Array<NavLink> = [
     font-size: 32px;
     justify-content: flex-start;
     font-family: var(--displayFonts);
-  }
-
-  .logo-img {
-    padding: 0px;
-    display: flex;
-    justify-content: flex-end;
-    width: 2.5rem;
-    height: auto;
-    transition: 0.2s ease-in-out;
-
-    &:hover {
-      transform: rotate(180deg);
-    }
   }
 </style>
