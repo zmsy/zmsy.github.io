@@ -47,9 +47,7 @@ const navLinks: Array<NavLink> = [
     <a class="navbar-item" href={siteInfo.baseUrl}>
       <InlineSVG svg={navbarLogoSvg} className="logo-img" />
     </a>
-    <a class="navbar-item" href="/">
-      <div id="logo-text">{siteInfo.title}</div>
-    </a>
+    <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
     <NavModalToggle client:idle />
   </div>
   <div class="navbar-menu">
@@ -144,8 +142,8 @@ const navLinks: Array<NavLink> = [
     color: var(--textColor);
   }
 
-  #logo-text {
-    font-size: 32px;
+  .logo-text {
+    font-size: 2rem;
     justify-content: flex-start;
     font-family: var(--displayFonts);
   }

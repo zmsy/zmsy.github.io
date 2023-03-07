@@ -8,6 +8,7 @@ export const SITE_DESCRIPTION =
 export const siteInfo = {
   baseUrl: "https://zmsy.co",
   title: "zmsy.co",
+  navBrandText: "zach morrissey",
   description: "Zach Morrissey, software engineer. Seattle, WA.",
 };
 
