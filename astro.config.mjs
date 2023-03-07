@@ -9,7 +9,18 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
   site: "https://zmsy.co",
   output: "static",
-  integrations: [mdx(), sitemap(), preact(), image(), partytown()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    preact(),
+    image(),
+    partytown({
+      // Adds gtag's dataLayer.push as a forwarding-event.
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
   server: {
     // nostalgic for my hugo days i guess
     port: 1314,
