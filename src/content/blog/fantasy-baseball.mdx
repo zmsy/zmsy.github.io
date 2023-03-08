@@ -64,7 +64,11 @@ with open("rosters.csv", "w", newline='') as out_file:
 
 Player projections are common source of scouting information for our league. Since we do not use the standard scoring rules, the projections from ESPN are mostly worthless to us (not that they're particularly valuable otherwise). For my own purposes, I like the [Depth Charts projection system](https://www.fangraphs.com/projections.aspx?pos=all&stats=bat&type=fangraphsdc) that they use, which is a combination of two other common projection systems (ZiPS and Steamer) weighted by an in-house projection for playing time.
 
-#### Getting Data with cURL
+#### ~~Getting Data with cURL~~ (Update: No Longer Necessary)
+
+_The following is no longer accurate. Fangraphs has since transitioned to being a Next.js site and stores all of their data in a single HTML `<style>` tag with the standard `__NEXT_DATA__` id value. Have at it!_
+
+_The original method I used is below here._
 
 There were two issues I was trying to solve for.
 
