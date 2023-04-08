@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = Omit<
+  CollectionEntry<"recipes">["data"],
+  "keywords" | "updatedDate"
+>;
+
+const {
+  title,
+  description,
+  publishDate,
+  recipeIngredients,
+  recipeInstructions,
+} = Astro.props;
+---
+
+<!-- actual-recipe id is what the 'jump to recipe' button uses -->
+<div id="actual-recipe" class="recipe">
+  <div class="recipe-header">
+    <h1>
+      Recipe: <span class="recipe-header-prefix">{title}</span>
+    </h1>
+    <p>{description}</p>
+    <p class="recipe-publish-date">Published: {publishDate}</p>
+  </div>
+  <hr />
+  <h2>Ingredients</h2>
+  <ul>
+    {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
+  </ul>
+  <h2>Instructions</h2>
+  <ul>
+    {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
+  </ul>
+</div>
