@@ -19,8 +19,45 @@ const blog = defineCollection({
   }),
 });
 
-// const recipes = defineCollection({
+const durationRegex =
+  /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)?S)?$/;
 
-// })
+const isoDuration = z
+  .string()
+  .regex(durationRegex, "Invalid ISO 8601 duration format");
 
-export const collections = { blog };
+const recipeFields = z.object({
+  title: z.string(),
+  description: z.string(),
+  publishDate: z.date(),
+  updatedDate: z.date().optional(),
+  heroImage: z.string().optional(),
+  recipeIngredients: z.array(z.string()),
+  recipeInstructions: z.array(z.string()),
+  recipeYield: z.string(),
+  cookTime: isoDuration,
+  prepTime: isoDuration,
+  totalTime: isoDuration,
+  /** seo keywords */
+  keywords: z.array(z.string()).optional(),
+});
+
+const drinkSchema = recipeFields.extend({
+  kingdom: z.literal("drink"),
+  category: z.union([
+    z.literal("cocktails"),
+    z.literal("non-alcoholic"),
+    z.literal("hot"),
+  ]),
+});
+
+const foodSchema = recipeFields.extend({
+  kingdom: z.literal("drink"),
+  category: z.union([z.literal("dessert"), z.literal("breads")]),
+});
+
+const recipes = defineCollection({
+  schema: z.union([foodSchema, drinkSchema]),
+});
+
+export const collections = { blog, recipes };
