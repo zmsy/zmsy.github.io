@@ -1,6 +1,7 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import { sortPublishDateDesc } from "../../lib/sort";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"blog">;
@@ -10,9 +11,7 @@ export async function getStaticPaths() {
   return (
     posts
       // sort by publishDate descending
-      .sort(
-        (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-      )
+      .sort(sortPublishDateDesc)
       .map((post) => ({
         params: { slug: post.slug },
         props: post,
