@@ -18,12 +18,12 @@ const {
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
-  <div class="recipe-header">
+  <div>
     <h1>
-      Recipe: <span class="recipe-header-prefix">{title}</span>
+      Recipe: <span>{title}</span>
     </h1>
     <p>{description}</p>
-    <p class="recipe-publish-date">Published: {publishDate}</p>
+    <p class="publish-date">Published: {publishDate}</p>
   </div>
   <hr />
   <h2>Ingredients</h2>
@@ -35,3 +35,62 @@ const {
     {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
   </ul>
 </div>
+<style lang="scss">
+  .jump-to-recipe {
+    display: block;
+    color: var(--accent1Color);
+    margin: 0rem auto 2rem;
+    text-align: center;
+    font-variant: all-small-caps;
+    font-weight: bold;
+  }
+
+  .recipe {
+    margin: 3rem 0rem;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid var(--accent1Color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  span {
+    color: var(--accent2Color);
+  }
+
+  .publish-date {
+    margin-top: 0.5rem;
+    color: var(--accent1Color);
+    font-size: 1rem;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-top: 0rem;
+    padding: 1rem 1rem 1rem 2rem;
+
+    li {
+      margin: 0.25rem 0rem;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-family: $hero-fonts;
+    color: var(--subtitleTextColor);
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    &:not(:nth-of-type(1)) {
+      margin-top: 1rem;
+    }
+  }
+</style>
