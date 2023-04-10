@@ -15,27 +15,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.3",
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/partytown": "^1.2.3",
-    "@astrojs/preact": "^2.2.2",
-    "@astrojs/rss": "^2.4.4",
-    "@astrojs/sitemap": "^2.0.2",
-    "@nanostores/preact": "^0.5.0",
-    "astro": "^2.10.12",
-    "astro-seo": "^0.7.5",
+    "@astrojs/image": "^0.16.5",
+    "@astrojs/mdx": "^0.18.3",
+    "@astrojs/partytown": "^1.2.0",
+    "@astrojs/preact": "^2.1.0",
+    "@astrojs/rss": "^2.3.2",
+    "@astrojs/sitemap": "^1.2.2",
+    "@nanostores/preact": "^0.3.1",
+    "astro": "^2.2.1",
+    "astro-seo": "^0.7.2",
     "bulma": "^0.9.4",
-    "clsx": "^2.0.0",
-    "nanostores": "^0.9.3",
-    "preact": "^10.17.1"
+    "clsx": "^1.2.1",
+    "nanostores": "^0.7.4",
+    "preact": "^10.13.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
-    "@typescript-eslint/parser": "^6.4.0",
-    "eslint": "^8.47.0",
-    "eslint-plugin-astro": "^0.28.0",
-    "prettier": "^3.0.2",
-    "prettier-plugin-astro": "^0.11.1",
-    "sass": "^1.66.1"
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "^8.38.0",
+    "eslint-plugin-astro": "^0.26.1",
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0",
+    "sass": "^1.61.0"
   }
 }
