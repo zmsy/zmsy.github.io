@@ -8,9 +8,6 @@ type Props = Pick<
 > & { slug: string };
 
 // recipe grid variables
-const recipesPerRow = 3;
-const recipeGap = "1rem";
-
 const { title, slug, kingdom, category, description, publishDate } =
   Astro.props;
 const url = `/blog/${slug}`;
@@ -41,7 +38,7 @@ const url = `/blog/${slug}`;
     </p>
   </div>
 </div>
-<style lang="scss" define:vars={{ recipesPerRow, recipeGap }}>
+<style lang="scss">
   a {
     font-size: 2rem;
     color: var(--titleTextColor);

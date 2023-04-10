@@ -22,13 +22,19 @@ const { page } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={"blog"} description={"Writings I've written."} />
-    <style lang="scss"></style>
+    <style lang="scss">
+      .recipe-list {
+        display: flex;
+        flex-flow: row wrap;
+        gap: $recipeGap;
+      }
+    </style>
   </head>
   <body>
     <Navigation />
     <main>
       <section>
-        <div>
+        <div class="recipe-list">
           {
             page.data.map((post) => {
               return <h>{post.data.title}</h>;
