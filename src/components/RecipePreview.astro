@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = Pick<
+  CollectionEntry<"recipes">["data"],
+  "title" | "kingdom" | "category" | "description" | "publishDate"
+> & { slug: string };
+
+// recipe grid variables
+const recipesPerRow = 3;
+const recipeGap = "1rem";
+
+const { title, slug, kingdom, category, description, publishDate } =
+  Astro.props;
+const url = `/blog/${slug}`;
+---
+
+<div class="card recipe-card">
+  <div class="card-image recipe-card-image">
+    {
+      /*  {{ partial "figure.html" (dict 
+      "class" "image is-4by3"
+      "alt" "Image of {{ .Title }} recipe."
+    )}}  */
+    }
+  </div>
+  <div class="card-content recipe-card-content">
+    <a href={url}>{title}</a>
+    <p class="classification">{kingdom}{" > "}{category}</p>
+    <hr />
+    <p class="description">{description}</p>
+    <p class="date">
+      {
+        publishDate.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      }
+    </p>
+  </div>
+</div>
+<style lang="scss" define:vars={{ recipesPerRow, recipeGap }}>
+  a {
+    font-size: 2rem;
+    color: var(--titleTextColor);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .classification {
+    margin-bottom: 0.5rem;
+    color: var(--textColorLowContrast);
+  }
+
+  .description {
+    color: var(--textColor);
+    font-size: large;
+    margin-bottom: 1rem;
+  }
+
+  .date {
+    font-size: small;
+    color: var(--accent2Color);
+  }
+
+  hr {
+    margin: 0.75rem 0;
+    height: 0.125rem;
+    background-color: var(--accent4Color);
+  }
+
+  .recipe-card {
+    max-width: calc(
+      100% / var(--recipesPerRow) -
+        ((var(--recipesPerRow) - 1) * var(--recipeGap) / var(--recipesPerRow))
+    );
+    background: var(--backgroundColor);
+    box-shadow: none;
+    border: 1px solid var(--backgroundAccentColor);
+  }
+</style>
