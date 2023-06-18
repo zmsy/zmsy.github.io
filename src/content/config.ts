@@ -31,7 +31,7 @@ const recipeFields = z.object({
   description: z.string(),
   publishDate: z.date(),
   updatedDate: z.date().optional(),
-  heroImage: z.string().optional(),
+  image: z.string().optional(),
   recipeIngredients: z.array(z.string()),
   recipeInstructions: z.array(z.string()),
   recipeYield: z.string(),

@@ -1,7 +1,7 @@
 ---
 import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
 import { contactInfo, siteInfo } from "../consts";
-import { Figure } from "./app/Figure";
+import InlineSVG from "./InlineSvg.astro";
 import { NavModal } from "./app/NavModal";
 import { NavModalToggle } from "./app/NavModalToggle";
 
@@ -44,8 +44,13 @@ const navLinks: Array<NavLink> = [
 
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href={siteInfo.baseUrl}>
-      <Figure svg={navbarLogoSvg} className="logo-img" />
+    <a
+      class="navbar-item"
+      href={siteInfo.baseUrl}
+      aria-label="Site logo. Click to return home."
+      tabindex="0"
+    >
+      <InlineSVG svg={navbarLogoSvg} className="logo-img" />
     </a>
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
     <NavModalToggle client:idle />
