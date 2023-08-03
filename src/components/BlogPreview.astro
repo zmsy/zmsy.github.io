@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import blogPreviewLink from "@src/svg/blog-preview-link.svg?raw";
 import diamonds from "@src/svg/diamonds.svg?raw";
 import { contactInfo } from "../consts";
-import InlineSvg from "./InlineSvg.astro";
+import { Figure } from "./app/Figure.tsx";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = Pick<
@@ -30,13 +30,13 @@ const url = `/blog/${slug}`;
     on {publishDate.toLocaleDateString()}
   </p>
   <p>
-    <InlineSvg svg={diamonds} className={"hero-diamonds"} />
+    <Figure svg={diamonds} className={"hero-diamonds"} />
   </p>
   <p class="blog-preview-description">{description}</p>
   <div class="blog-preview-link-holder">
     <a href={url}>Read More</a>
     <a href={url}>
-      <InlineSvg svg={blogPreviewLink} className={"blog-preview-link"} />
+      <Figure svg={blogPreviewLink} className={"blog-preview-link"} />
     </a>
   </div>
 </div>

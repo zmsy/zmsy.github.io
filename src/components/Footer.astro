@@ -1,5 +1,5 @@
 ---
-import InlineSvg from "./InlineSvg.astro";
+import { Figure } from "./app/Figure.tsx";
 import { navIcons } from "./Navigation.astro";
 
 import footerSvg from "@src/svg/footer.svg?raw";
@@ -8,7 +8,7 @@ const today = new Date();
 ---
 
 <footer>
-  <InlineSvg id="footer-svg" svg={footerSvg} className="footer-dots" />
+  <Figure id="footer-svg" svg={footerSvg} className="footer-dots" />
   <div id="footer-icons">
     {
       navIcons.map(({ alt, icon, url }) => (

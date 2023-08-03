@@ -23,37 +23,37 @@ export const NavModal: FunctionComponent = () => {
       <div class="modal-background" onClick={handleClickAway}></div>
       <div className={clsx("modal-content", styles.content)}>
         <Figure
-          additionalClass={styles.horizontalsep ?? ""}
+          className={styles.horizontalsep ?? ""}
           svg={hrzSeparator}
         />
         <ul>
           <li>
             <a href="/">
-              <Figure additionalClass={styles.icon ?? ""} svg={homeIcon} />
+              <Figure className={styles.icon ?? ""} svg={homeIcon} />
               <span>Home</span>
             </a>
           </li>
           <li>
             <a href="/blog">
-              <Figure additionalClass={styles.icon ?? ""} svg={blogIcon} />
+              <Figure className={styles.icon ?? ""} svg={blogIcon} />
               <span>Blog</span>
             </a>
           </li>
           <li>
             <a href="/recipes">
-              <Figure additionalClass={styles.icon ?? ""} svg={recipesIcon} />
+              <Figure className={styles.icon ?? ""} svg={recipesIcon} />
               <span>Recipes</span>
             </a>
           </li>
           <li>
             <a href="/about">
-              <Figure additionalClass={styles.icon ?? ""} svg={aboutIcon} />
+              <Figure className={styles.icon ?? ""} svg={aboutIcon} />
               <span>About</span>
             </a>
           </li>
         </ul>
         <Figure
-          additionalClass={styles.horizontalsep ?? ""}
+          className={styles.horizontalsep ?? ""}
           svg={hrzSeparator}
         />
       </div>

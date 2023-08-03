@@ -1,8 +1,8 @@
 ---
+import { Figure } from "@src/components/app/Figure";
 import Footer from "../components/Footer.astro";
-import BaseHead from "../components/head/BaseHead.astro";
-import InlineSvg from "../components/InlineSvg.astro";
 import Navigation from "../components/Navigation.astro";
+import BaseHead from "../components/head/BaseHead.astro";
 
 // general svgs
 import diamondsSvg from "@src/svg/diamonds.svg?raw";
@@ -175,13 +175,13 @@ const sections: Array<{
       <section class="hero">
         <div class="container">
           <div class="is-hidden-tablet">
-            <InlineSvg
+            <Figure
               svg={homeLogoScribbleMobileSvg}
               className="hero-badge-mobile"
             />
           </div>
           <div class="is-hidden-mobile">
-            <InlineSvg svg={homeLogoScribbleSvg} className="hero-badge" />
+            <Figure svg={homeLogoScribbleSvg} className="hero-badge" />
           </div>
         </div>
       </section>
@@ -192,8 +192,8 @@ const sections: Array<{
               return (
                 <div class="home-column">
                   <a href={href} class="home-link">
-                    <InlineSvg svg={svg} className="column-logo" />
-                    <InlineSvg svg={diamondsSvg} className="hero-diamonds" />
+                    <Figure svg={svg} className="column-logo" />
+                    <Figure svg={diamondsSvg} className="hero-diamonds" />
                     <h2 class="home-title">{name}</h2>
                   </a>
                   <p>{tagline}</p>

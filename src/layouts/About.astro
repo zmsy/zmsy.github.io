@@ -5,11 +5,11 @@
 import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
 import type { MarkdownLayoutProps } from "astro";
 import Footer from "../components/Footer.astro";
-import BaseHead from "../components/head/BaseHead.astro";
 import Hero from "../components/Hero.astro";
-import InlineSvg from "../components/InlineSvg.astro";
-import MarkdownContent from "../components/mdx/MarkdownContent.astro";
 import Navigation from "../components/Navigation.astro";
+import { Figure } from "../components/app/Figure.tsx";
+import BaseHead from "../components/head/BaseHead.astro";
+import MarkdownContent from "../components/mdx/MarkdownContent.astro";
 import { contactInfo } from "../consts";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -172,7 +172,7 @@ const { frontmatter } = Astro.props;
               <div class="card-content">
                 <div id="main">
                   <div>
-                    <InlineSvg svg={projectsLogoSvg} className={"about-logo"} />
+                    <Figure svg={projectsLogoSvg} className={"about-logo"} />
                   </div>
 
                   <div>
