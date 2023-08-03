@@ -80,7 +80,7 @@ export const setPaletteCSS = (palette: Palette): void => {
   Object.entries(palette.colors).forEach(([colorName, colorValue]) => {
     document.documentElement.style.setProperty(
       `--${colorName}Color`,
-      colorValue
+      colorValue,
     );
   });
 };

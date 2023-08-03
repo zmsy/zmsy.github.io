@@ -22,10 +22,7 @@ export const NavModal: FunctionComponent = () => {
     <div className={clsx("modal", styles.container, $open && "is-active")}>
       <div class="modal-background" onClick={handleClickAway}></div>
       <div className={clsx("modal-content", styles.content)}>
-        <Figure
-          className={styles.horizontalsep ?? ""}
-          svg={hrzSeparator}
-        />
+        <Figure className={styles.horizontalsep ?? ""} svg={hrzSeparator} />
         <ul>
           <li>
             <a href="/">
@@ -52,10 +49,7 @@ export const NavModal: FunctionComponent = () => {
             </a>
           </li>
         </ul>
-        <Figure
-          className={styles.horizontalsep ?? ""}
-          svg={hrzSeparator}
-        />
+        <Figure className={styles.horizontalsep ?? ""} svg={hrzSeparator} />
       </div>
     </div>
   );
