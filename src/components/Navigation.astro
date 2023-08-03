@@ -1,9 +1,9 @@
 ---
 import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
 import { contactInfo, siteInfo } from "../consts";
+import { Figure } from "./app/Figure.tsx";
 import { NavModal } from "./app/NavModal";
 import { NavModalToggle } from "./app/NavModalToggle";
-import InlineSVG from "./InlineSvg.astro";
 
 type NavIcon = {
   url: string;
@@ -45,7 +45,7 @@ const navLinks: Array<NavLink> = [
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href={siteInfo.baseUrl}>
-      <InlineSVG svg={navbarLogoSvg} className="logo-img" />
+      <Figure svg={navbarLogoSvg} className="logo-img" />
     </a>
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
     <NavModalToggle client:idle />

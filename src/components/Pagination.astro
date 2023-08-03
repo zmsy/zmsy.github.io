@@ -3,7 +3,7 @@
  * Generic pagination component.
  */
 import type { Page } from "astro";
-import InlineSvg from "./InlineSvg.astro";
+import { Figure } from "./app/Figure.tsx";
 
 import paginationArrowLeftSvg from "@src/svg/pagination-arrow-left.svg?raw";
 import paginationArrowRightSvg from "@src/svg/pagination-arrow-right.svg?raw";
@@ -19,14 +19,14 @@ const { page } = Astro.props;
     href={page.url.prev ?? ""}
     class:list={[{ "pagination-disabled": page.url.prev === undefined }]}
   >
-    <InlineSvg svg={paginationArrowLeftSvg} className={"pagination-arrow"} />
+    <Figure svg={paginationArrowLeftSvg} className={"pagination-arrow"} />
   </a>
   <span>Page {page.currentPage} of {page.lastPage}</span>
   <a
     href={page.url.next ?? ""}
     class:list={[{ "pagination-disabled": page.url.next === undefined }]}
   >
-    <InlineSvg svg={paginationArrowRightSvg} className={"pagination-arrow"} />
+    <Figure svg={paginationArrowRightSvg} className={"pagination-arrow"} />
   </a>
 </div>
 <style lang="scss">

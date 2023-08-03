@@ -20,7 +20,7 @@ import whitMerrifieldNegativeRC from "@src/images/blog/reverse-engineering-espn/
 import incorrectRCValues from "@src/images/blog/reverse-engineering-espn/j-incorrect-rc-values.png";
 
 import { Image } from "@astrojs/image/components";
-import InlineSvg from "@src/components/InlineSvg.astro";
+import { Figure } from "@src/components/app/Figure.tsx";
 
 **"Runs Created"** (RC) is an arbitrary, but useful, metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created). It has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
 
@@ -185,7 +185,7 @@ Bam, the page is rendered using React.
 
 Navigating to the individual cell being rendered and...
 
-<InlineSvg svg={boomSvg} />
+<Figure svg={boomSvg} />
 
 **There it is.**
 
@@ -315,7 +315,7 @@ RC = (D ÷ (9 x C)) – (0.9 x C)
 
 Output: **-0.67 Runs Created**
 
-<InlineSvg svg={yuckSvg} className={"small"} />
+<Figure svg={yuckSvg} className={"small"} />
 
 Welp, that's unfortunate. Turns out my assumption that RC would never be negative with any of the official calculations was also wrong. Feels...not right.
 

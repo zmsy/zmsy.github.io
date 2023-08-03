@@ -18,7 +18,7 @@ export interface Props {
 
 import diamondsSvg from "@src/svg/diamonds.svg?raw";
 import { contactInfo } from "../consts";
-import InlineSvg from "./InlineSvg.astro";
+import { Figure } from "./app/Figure.tsx";
 
 const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
 ---
@@ -39,7 +39,7 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
           </p>
         )
       }
-      <InlineSvg svg={diamondsSvg} className={"hero-diamonds"} />
+      <Figure svg={diamondsSvg} className={"hero-diamonds"} />
     </div>
   </div>
 </section>
