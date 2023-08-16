@@ -1,5 +1,4 @@
 .astro
-.vscode
 *.cjs
 .github
 node_modules
