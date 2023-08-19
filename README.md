@@ -2,7 +2,7 @@
 
 Personal website of [Zach Morrissey](https://twitter.com/_zmsy), data analytics/visualization enthusiast.
 
-[![zmsy Home Page Logo](/assets/img/home-logo-scribble.svg)](https://zmsy.co)
+[![zmsy Home Page Logo](/src/svg/home-logo-scribble.svg)](https://zmsy.co)
 
 ## Purpose
 
