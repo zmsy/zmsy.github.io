@@ -12,6 +12,8 @@ type FigureProps = {
   className?: string;
   /** Id to add to the <figure> element, for narrower CSS scoping. */
   id?: string;
+  /** Alt text for accesibility. */
+  alt?: string;
 };
 
 /**
@@ -27,6 +29,7 @@ export const Figure: FunctionComponent<FigureProps> = ({
   svg,
   className,
   id,
+  alt,
 }) => {
   // only set the id of the element if it's been passed
   const idProps = { ...(id !== undefined && { id }) };
@@ -34,6 +37,7 @@ export const Figure: FunctionComponent<FigureProps> = ({
   return (
     <figure
       {...idProps}
+      alt={alt ?? ''}
       class={clsx("color-responsive-svg", className)}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
