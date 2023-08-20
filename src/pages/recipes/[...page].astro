@@ -1,7 +1,7 @@
 ---
 import Footer from "@src/components/Footer.astro";
+import Hero from "@src/components/Hero.astro";
 import Navigation from "@src/components/Navigation.astro";
-import Pagination from "@src/components/Pagination.astro";
 import RecipePreview from "@src/components/RecipePreview.astro";
 import BaseHead from "@src/components/head/BaseHead.astro";
 import { sortPublishDateDesc } from "@src/lib/sort";
@@ -24,17 +24,32 @@ const { page } = Astro.props;
   <head>
     <BaseHead title={"blog"} description={"Writings I've written."} />
     <style lang="scss">
+      @use "../../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
       section {
-        width: var(--pageWidth);
+        max-width: var(--pageWidth);
         margin: 1rem auto;
         padding: 1rem;
       }
 
       .recipe-list {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         flex-direction: row;
-        gap: var(--recipeGap);
+        gap: 2rem;
         margin-bottom: 3rem;
+      }
+
+      @include mixins.touch {
+        .recipe-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @include mixins.mobile {
+        .recipe-list {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -42,6 +57,7 @@ const { page } = Astro.props;
     <Navigation />
     <main>
       <section>
+        <Hero title="Recipes" />
         <div class="recipe-list">
           {
             page.data.map(({ slug, data }) => {
@@ -49,7 +65,6 @@ const { page } = Astro.props;
             })
           }
         </div>
-        <Pagination page={page} />
       </section>
     </main>
     <Footer />
