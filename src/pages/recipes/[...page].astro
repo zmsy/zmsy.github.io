@@ -2,6 +2,7 @@
 import Footer from "@src/components/Footer.astro";
 import Navigation from "@src/components/Navigation.astro";
 import Pagination from "@src/components/Pagination.astro";
+import RecipePreview from "@src/components/RecipePreview.astro";
 import BaseHead from "@src/components/head/BaseHead.astro";
 import { sortPublishDateDesc } from "@src/lib/sort";
 import type { GetStaticPaths, Page } from "astro";
@@ -23,10 +24,17 @@ const { page } = Astro.props;
   <head>
     <BaseHead title={"blog"} description={"Writings I've written."} />
     <style lang="scss">
+      section {
+        width: var(--pageWidth);
+        margin: 1rem auto;
+        padding: 1rem;
+      }
+
       .recipe-list {
         display: flex;
-        flex-flow: row wrap;
+        flex-direction: row;
         gap: var(--recipeGap);
+        margin-bottom: 3rem;
       }
     </style>
   </head>
@@ -36,8 +44,8 @@ const { page } = Astro.props;
       <section>
         <div class="recipe-list">
           {
-            page.data.map((post) => {
-              return <h>{post.data.title}</h>;
+            page.data.map(({ slug, data }) => {
+              return <RecipePreview slug={slug} {...data} />;
             })
           }
         </div>
