@@ -11,10 +11,9 @@ import RecipeCard from "@src/components/RecipeCard.astro";
 
 import { contactInfo } from "@src/consts";
 
-type Props = CollectionEntry<"recipes">;
+type Props = CollectionEntry<"recipes">["data"];
 
-const { data } = Astro.props;
-const { title, description, publishDate } = data;
+const { title, description, publishDate } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -74,8 +73,8 @@ const { title, description, publishDate } = data;
           <!-- Recipe text is rendered here. -->
           <slot />
         </MarkdownContent>
+        <RecipeCard {...Astro.props} />
       </article>
-      <RecipeCard {...data} />
     </main>
     <Footer />
   </body>
