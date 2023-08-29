@@ -19,7 +19,7 @@ const {
     <h1>
       Recipe: <span>{title}</span>
     </h1>
-    <p>{description}</p>
+    <p class="description">{description}</p>
     <p class="publish-date">Published: {publishDate}</p>
   </div>
   <hr />
@@ -49,6 +49,10 @@ const {
 
   span {
     color: var(--accent2Color);
+  }
+
+  .description {
+    font-style: italic;
   }
 
   .publish-date {
