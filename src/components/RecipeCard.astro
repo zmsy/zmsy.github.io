@@ -16,11 +16,20 @@ const {
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
   <div>
+    <p class="recipe-header">Recipe</p>
     <h1>
-      Recipe: <span>{title}</span>
+      <span>{title}</span>
     </h1>
     <p class="description">{description}</p>
-    <p class="publish-date">Published: {publishDate}</p>
+    <p class="publish-date">
+      Published: {
+        publishDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      }
+    </p>
   </div>
   <hr />
   <h2>Ingredients</h2>
@@ -32,7 +41,9 @@ const {
     {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
   </ul>
 </div>
-<style>
+<style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
   .recipe {
     margin: 3rem 0rem;
     display: flex;
@@ -41,14 +52,24 @@ const {
     border-radius: 0.5rem;
     padding: 2rem;
     font-size: 1.25rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 1rem;
+        padding: 1.25rem;
+      }
+    }
   }
 
   p {
     margin-top: 1rem;
   }
 
-  span {
-    color: var(--accent2Color);
+  .recipe-header {
+    margin: 0;
+    font-variant: small-caps;
+    font-weight: 700;
+    font-size: 1rem;
   }
 
   .description {
@@ -66,6 +87,12 @@ const {
     list-style-position: outside;
     margin-top: 0rem;
     padding: 1rem 1rem 1rem 2rem;
+
+    @include mixins.mobile {
+      & {
+        padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+      }
+    }
   }
 
   li {
@@ -73,7 +100,14 @@ const {
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    color: var(--accent2Color);
+
+    @include mixins.mobile {
+      & {
+        font-size: 2rem;
+      }
+    }
   }
 
   h2 {
