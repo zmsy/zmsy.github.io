@@ -1,0 +1,27 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Recipe from "../../layouts/Recipe.astro";
+import { sortPublishDateDesc } from "../../lib/sort";
+
+type Props = CollectionEntry<"recipes">;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("recipes");
+  return (
+    posts
+      // sort by publishDate descending
+      .sort(sortPublishDateDesc)
+      .map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+      }))
+  );
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Recipe {...post.data}>
+  <Content />
+</Recipe>
