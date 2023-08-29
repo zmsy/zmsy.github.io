@@ -2,10 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-type Props = Omit<
-  CollectionEntry<"recipes">["data"],
-  "keywords" | "updatedDate"
->;
+type Props = CollectionEntry<"recipes">["data"];
 
 const {
   title,
@@ -35,16 +32,7 @@ const {
     {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
   </ul>
 </div>
-<style lang="scss">
-  .jump-to-recipe {
-    display: block;
-    color: var(--accent1Color);
-    margin: 0rem auto 2rem;
-    text-align: center;
-    font-variant: all-small-caps;
-    font-weight: bold;
-  }
-
+<style>
   .recipe {
     margin: 3rem 0rem;
     display: flex;
@@ -74,10 +62,10 @@ const {
     list-style-position: outside;
     margin-top: 0rem;
     padding: 1rem 1rem 1rem 2rem;
+  }
 
-    li {
-      margin: 0.25rem 0rem;
-    }
+  li {
+    margin: 0.25rem 0rem;
   }
 
   h1 {
@@ -85,7 +73,7 @@ const {
   }
 
   h2 {
-    font-family: $hero-fonts;
+    font-family: var(--heroFonts);
     color: var(--subtitleTextColor);
     font-size: 1.5rem;
     margin-top: 0rem;
