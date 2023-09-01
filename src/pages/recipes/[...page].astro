@@ -2,8 +2,9 @@
 import Footer from "@src/components/Footer.astro";
 import Hero from "@src/components/Hero.astro";
 import Navigation from "@src/components/Navigation.astro";
-import RecipePreview from "@src/components/RecipePreview.astro";
+// import RecipePreview from "@src/components/RecipePreview.astro";
 import BaseHead from "@src/components/head/BaseHead.astro";
+import Admonition from "@src/components/mdx/Admonition.astro";
 import { sortPublishDateDesc } from "@src/lib/sort";
 import type { GetStaticPaths, Page } from "astro";
 import { CollectionEntry, getCollection } from "astro:content";
@@ -16,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   return paginate(posts, { pageSize: 5 });
 };
 
-const { page } = Astro.props;
+// const { page } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -58,13 +59,17 @@ const { page } = Astro.props;
     <main>
       <section>
         <Hero title="Recipes" />
-        <div class="recipe-list">
+        <!-- <div class="recipe-list">
           {
             page.data.map(({ slug, data }) => {
               return <RecipePreview slug={slug} {...data} />;
             })
           }
-        </div>
+        </div> -->
+        <Admonition
+          level="warning"
+          text="This page will eventually hold places where you can view all of the recipes that I've created. Still a work in progress. Check back soon!"
+        />
       </section>
     </main>
     <Footer />
