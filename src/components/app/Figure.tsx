@@ -37,7 +37,7 @@ export const Figure: FunctionComponent<FigureProps> = ({
   return (
     <figure
       {...idProps}
-      alt={alt ?? ''}
+      alt={alt ?? ""}
       class={clsx("color-responsive-svg", className)}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
