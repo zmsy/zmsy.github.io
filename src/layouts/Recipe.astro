@@ -54,7 +54,7 @@ const { title, description, publishDate } = Astro.props;
         }
       }
 
-      .jump-to-recipe {
+      a {
         display: block;
         color: var(--accent1Color);
         margin: 0rem auto 2rem;
@@ -69,6 +69,7 @@ const { title, description, publishDate } = Astro.props;
     <main>
       <article>
         <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
+        <a href="#actual-recipe">Jump To Recipe</a>
         <MarkdownContent>
           <!-- Recipe text is rendered here. -->
           <slot />
