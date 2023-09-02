@@ -6,7 +6,7 @@ import { useStore } from "@nanostores/preact";
 import clsx from "clsx";
 
 import { navModalOpen } from "./store";
-import styles from "../../styles/nav-modal.module.scss";
+import styles from "../../styles/modules/nav-modal.module.scss";
 
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import aboutIcon from "../../svg/icons/about-icon.svg?raw";

@@ -1,9 +1,10 @@
 /**
-
-*/
+ * SVG component.
+ */
 
 import clsx from "clsx";
 import type { FunctionComponent } from "preact";
+import styles from "../../styles/modules/figure.module.scss";
 
 type FigureProps = {
   /** Text source of the SVG file. */
@@ -12,6 +13,8 @@ type FigureProps = {
   className?: string;
   /** Id to add to the <figure> element, for narrower CSS scoping. */
   id?: string;
+  /** Alt text for accesibility. */
+  alt?: string;
 };
 
 /**
@@ -27,6 +30,7 @@ export const Figure: FunctionComponent<FigureProps> = ({
   svg,
   className,
   id,
+  alt,
 }) => {
   // only set the id of the element if it's been passed
   const idProps = { ...(id !== undefined && { id }) };
@@ -34,7 +38,8 @@ export const Figure: FunctionComponent<FigureProps> = ({
   return (
     <figure
       {...idProps}
-      class={clsx("color-responsive-svg", className)}
+      alt={alt ?? ""}
+      class={clsx(styles.coloredsvg, className)}
       dangerouslySetInnerHTML={{ __html: svg }}
     />
   );

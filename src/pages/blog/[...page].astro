@@ -1,19 +1,18 @@
 ---
+import { sortPublishDateDesc } from "@src/lib/sort";
 import type { GetStaticPaths, Page } from "astro";
 import { CollectionEntry, getCollection } from "astro:content";
 import BlogPreview from "../../components/BlogPreview.astro";
 import Footer from "../../components/Footer.astro";
-import BaseHead from "../../components/head/BaseHead.astro";
 import Navigation from "../../components/Navigation.astro";
 import Pagination from "../../components/Pagination.astro";
+import BaseHead from "../../components/head/BaseHead.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { page: Page<CollectionEntry<"blog">> };
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-  );
+  const posts = (await getCollection("blog")).sort(sortPublishDateDesc);
   return paginate(posts, { pageSize: 5 });
 };
 

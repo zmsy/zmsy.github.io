@@ -44,8 +44,17 @@ const navLinks: Array<NavLink> = [
 
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href={siteInfo.baseUrl}>
-      <Figure svg={navbarLogoSvg} className="logo-img" />
+    <a
+      class="navbar-item"
+      href={siteInfo.baseUrl}
+      aria-label="Site logo. Click to return home."
+      tabindex="0"
+    >
+      <Figure
+        svg={navbarLogoSvg}
+        className="logo-img"
+        alt="Site logo. Click to return home."
+      />
     </a>
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
     <NavModalToggle client:idle />
@@ -91,7 +100,7 @@ const navLinks: Array<NavLink> = [
     font-family: var(--displayFonts);
     margin: 0rem auto;
     height: 4rem;
-    max-width: var(--navWidth);
+    max-width: var(--pageWidth);
     align-items: center;
   }
 

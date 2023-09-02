@@ -52,6 +52,14 @@
       margin-top: 2.5rem;
     }
 
+    h1::before,
+    h2::before {
+      content: ">";
+      padding: 0.125rem;
+      margin-left: -1.375rem;
+      margin-right: 0.25rem;
+    }
+
     h4 {
       font-family: var(--subtitleFonts);
       font-size: 1.375rem;
@@ -67,6 +75,20 @@
       font-size: 1.25rem;
       font-weight: 400;
       margin-top: 1.5rem;
+    }
+
+    a {
+      color: var(--textColorLowContrast);
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      text-decoration-color: var(--accent3Color);
+      text-underline-offset: 0.25rem;
+    }
+
+    a:hover {
+      color: var(--titleTextColor);
+      text-underline-offset: 0.125rem;
+      text-decoration-thickness: 0.25rem;
     }
 
     p,

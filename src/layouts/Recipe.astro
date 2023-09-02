@@ -1,0 +1,82 @@
+---
+import { SEO } from "astro-seo";
+import type { CollectionEntry } from "astro:content";
+
+import Footer from "@src/components/Footer.astro";
+import BaseHead from "@src/components/head/BaseHead.astro";
+import Hero from "@src/components/Hero.astro";
+import MarkdownContent from "@src/components/mdx/MarkdownContent.astro";
+import Navigation from "@src/components/Navigation.astro";
+import RecipeCard from "@src/components/RecipeCard.astro";
+
+import { contactInfo } from "@src/consts";
+
+type Props = CollectionEntry<"recipes">["data"];
+
+const { title, description, publishDate } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          image: "", // todo: get an image for every blog post
+          type: "article", // todo: figure this out
+          url: Astro.url.toString(),
+        },
+        article: {
+          publishedTime: publishDate.toISOString(),
+        },
+      }}
+      twitter={{
+        title,
+        creator: `@${contactInfo.twitterUser}`,
+        card: "summary",
+      }}
+    />
+    <style lang="scss">
+      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
+      article {
+        margin: 0 auto 8rem;
+        max-width: var(--blogPostWidth);
+
+        @include mixins.touch {
+          // no max-width on touch
+          max-width: unset;
+          margin: 0 2rem 8rem;
+        }
+      }
+
+      a {
+        display: block;
+        color: var(--accent1Color);
+        margin: 0rem auto 2rem;
+        text-align: center;
+        font-variant: all-small-caps;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <article>
+        <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
+        <a href="#actual-recipe">Jump To Recipe</a>
+        <MarkdownContent>
+          <!-- Recipe text is rendered here. -->
+          <slot />
+        </MarkdownContent>
+        <RecipeCard {...Astro.props} />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

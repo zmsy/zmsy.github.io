@@ -23,48 +23,43 @@ import { Figure } from "./app/Figure";
 const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
 ---
 
-<section>
-  <div class="hero-body">
-    <div class="container">
-      <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
-        {title}
-      </h1>
-      {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
-      {
-        publishDate && (
-          <p class="meta">
-            written by
-            <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
-            on {publishDate.toLocaleDateString()}
-          </p>
-        )
-      }
-      <Figure svg={diamondsSvg} className={"hero-diamonds"} />
-    </div>
+<div class="hero-body">
+  <div class="container">
+    <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
+      {title}
+    </h1>
+    {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
+    {
+      publishDate && (
+        <p class="meta">
+          written by
+          <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
+          on {publishDate.toLocaleDateString()}
+        </p>
+      )
+    }
+    <Figure svg={diamondsSvg} className={"hero-diamonds"} />
   </div>
-</section>
+</div>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
-  section {
-    margin: 1.5rem 0rem;
+  .hero-body {
+    padding: 0rem;
+    margin: 2rem 0rem;
     text-align: center;
 
-    .hero-body {
-      padding: 0rem;
+    div {
+      text-align: center;
+    }
 
-      div {
-        text-align: center;
-      }
+    .container {
+      @include mixins.touch {
+        h1 {
+          font-size: 3rem;
+        }
 
-      .container {
-        @include mixins.touch {
-          h1 {
-            font-size: 3rem;
-          }
-
-          h2 {
-            font-size: 1.5rem;
-          }
+        h2 {
+          font-size: 1.5rem;
         }
       }
     }

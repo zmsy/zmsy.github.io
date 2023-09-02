@@ -7,15 +7,18 @@
 <style is:global>
   html {
     /* prevent any overflow outside of the html element. */
-    /* overflow: hidden !important; */
+    overflow: hidden !important;
     background-color: var(--backgroundColor);
+    height: 100%;
   }
 
   body {
-    background-color: var(--backgroundColor);
+    height: 100%;
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
     overflow: auto;
+
+    background-color: var(--backgroundColor);
     font-family: var(--readingFonts);
     color: var(--textColor);
   }

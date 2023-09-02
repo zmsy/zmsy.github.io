@@ -1,0 +1,77 @@
+---
+import Footer from "@src/components/Footer.astro";
+import Hero from "@src/components/Hero.astro";
+import Navigation from "@src/components/Navigation.astro";
+// import RecipePreview from "@src/components/RecipePreview.astro";
+import BaseHead from "@src/components/head/BaseHead.astro";
+import Admonition from "@src/components/mdx/Admonition.astro";
+import { sortPublishDateDesc } from "@src/lib/sort";
+import type { GetStaticPaths, Page } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = { page: Page<CollectionEntry<"recipes">> };
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = (await getCollection("recipes")).sort(sortPublishDateDesc);
+  return paginate(posts, { pageSize: 5 });
+};
+
+// const { page } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={"blog"} description={"Writings I've written."} />
+    <style lang="scss">
+      @use "../../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
+      section {
+        max-width: var(--pageWidth);
+        margin: 1rem auto;
+        padding: 1.5rem;
+      }
+
+      .recipe-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        flex-direction: row;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      @include mixins.touch {
+        .recipe-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @include mixins.mobile {
+        .recipe-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <section>
+        <Hero title="Recipes" />
+        <!-- <div class="recipe-list">
+          {
+            page.data.map(({ slug, data }) => {
+              return <RecipePreview slug={slug} {...data} />;
+            })
+          }
+        </div> -->
+        <Admonition
+          level="warning"
+          text="This page will eventually hold places where you can view all of the recipes that I've created. Still a work in progress. Check back soon!"
+        />
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

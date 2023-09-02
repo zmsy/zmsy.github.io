@@ -1,0 +1,128 @@
+---
+/**
+ * A recipe card contains the actual printed recipe as it would appear in a book
+ * or a short-form transcription of the recipe page's content. It's 1:1 with the
+ * page SEO recipe. Most recipe sites have introduction, then some images of the
+ * recipe being made, then the recipe card.
+ */
+import type { CollectionEntry } from "astro:content";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = CollectionEntry<"recipes">["data"];
+
+const {
+  title,
+  description,
+  publishDate,
+  recipeIngredients,
+  recipeInstructions,
+} = Astro.props;
+---
+
+<!-- actual-recipe id is what the 'jump to recipe' button uses -->
+<div id="actual-recipe" class="recipe">
+  <div>
+    <p class="recipe-header">Recipe Details</p>
+    <h1>{title}</h1>
+    <p class="description">{description}</p>
+    <p class="publish-date">
+      Published: {
+        publishDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      }
+    </p>
+  </div>
+  <hr />
+  <h2>Ingredients</h2>
+  <ul>
+    {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
+  </ul>
+  <h2>Instructions</h2>
+  <ul>
+    {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
+  </ul>
+</div>
+<style lang="scss">
+  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+
+  .recipe {
+    margin: 3rem 0rem;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 2px solid var(--accent1Color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    font-size: 1.25rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 1rem;
+        padding: 1.25rem;
+      }
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  .recipe-header {
+    margin: 0;
+    font-variant: small-caps;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .description {
+    font-style: italic;
+  }
+
+  .publish-date {
+    margin-top: 0.5rem;
+    color: var(--accent1Color);
+    font-size: 1rem;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-top: 0rem;
+    padding: 1rem 1rem 1rem 2rem;
+
+    @include mixins.mobile {
+      & {
+        padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+      }
+    }
+  }
+
+  li {
+    margin: 0.25rem 0rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--accent2Color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent4Color);
+
+    @include mixins.mobile {
+      & {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  h2 {
+    font-family: var(--heroFonts);
+    color: var(--subtitleTextColor);
+    font-size: 1.5rem;
+    margin-top: 0rem;
+    &:not(:nth-of-type(1)) {
+      margin-top: 1rem;
+    }
+  }
+</style>
