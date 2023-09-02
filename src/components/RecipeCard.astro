@@ -22,10 +22,8 @@ const {
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
   <div>
-    <p class="recipe-header">Recipe</p>
-    <h1>
-      <span>{title}</span>
-    </h1>
+    <p class="recipe-header">Recipe Details</p>
+    <h1>{title}</h1>
     <p class="description">{description}</p>
     <p class="publish-date">
       Published: {
@@ -54,7 +52,7 @@ const {
     margin: 3rem 0rem;
     display: flex;
     flex-flow: column nowrap;
-    border: 1px solid var(--accent1Color);
+    border: 2px solid var(--accent1Color);
     border-radius: 0.5rem;
     padding: 2rem;
     font-size: 1.25rem;
@@ -108,6 +106,8 @@ const {
   h1 {
     font-size: 2.5rem;
     color: var(--accent2Color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent4Color);
 
     @include mixins.mobile {
       & {
