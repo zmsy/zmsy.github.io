@@ -1,0 +1,136 @@
+---
+title: "What I Didn't Know When I Didn't Know Javascript"
+description: "Starting as a backend developer, the switch to learning frontend was jarring in many ways. I tried to spend that time documenting the gaps in my knowledge."
+publishDate: 2023-06-22
+---
+
+(and Typescript too, by extension...)
+
+I made my way to web development by way of data engineering, and later backend development. I've been moving towards web development over time. Since Javascript is the lingua franca of the space, I resolved to learn it seriously around 2017.
+
+So my question was: **What parts of Javascript are tricky for someone who understands programming?**
+
+As a learning exercise, I tried to keep a log of the things I found most confusing about JS when I started developing in it, and kept the links I learned when I used them.
+
+## 1. What I Didn't Know About Javascript: The Language Itself
+
+These are the specifics of Javascript that I found unusual or tricky compared with languages I knew better prior to attempting this: Python, Java, C/C++, Golang.
+
+### Event Loop
+
+You'll notice the major theme of this section is _"How the heck does code get executed?"_.
+
+I largely had experience with imperative, synchronous code with a `main()` function or web framework-based API programming. In contrast, JavaScript's, callback-based approach enables asynchronous execution using an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop) and [message queue](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop#queue).
+
+```javascript
+const values = [];
+values.forEach(val => {
+  console.log(val);
+});
+```
+
+#### Order-of-execution for JS in the Browser
+
+Since there's no `main()` in Javascript, where does execution start? How can you tell what order code defined _outside_ of event handlers will run in? Turns out this largely depends on [how the script is defined](https://stackoverflow.com/a/2343051/3522314).
+
+### Callbacks, Promises, async/await
+
+There were multiple methods of doing asynchronous programming in JS, so this was new to me overall. Most of the frameworks I'd used on the backend simply used per-request threads or some other form of structured parallelism/concurrency.
+
+Here's the skinny on them:
+
+- 
+
+### Prototype-based Inheritance
+
+Placeholder
+
+### Scoping of 'this', and `function` / Arrow functions / Class methods
+
+Placeholder
+
+### Closures
+
+
+
+### Types, the `typeof` operator, and associated quirks
+
+This might be more specific to Typescript, but there were plenty of quirks in the `typeof` operator that I didn't expected. I most commonly encountered this trying to bridge the gap between runtime and compile-time, specifically in write [type predicates](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates).
+
+- The [Javascript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/) was a constant reference for me here.
+- Some primitive types (number, string, boolean, `undefined`) work well with this operator.
+- Arrays and objects are painful though.
+    - `Array.isArray` for arrays works quite well, but `typeof` on an array will return `'object'`.
+    - There's not really an equivalent `Object.isObject` function, but there are [some reasonable substitutes available](https://stackoverflow.com/a/4320789).
+    - `null` returns `'object'` for its type, which I can only chalk up to backwards compatibility concerns.
+
+### The inverse: What I Actually _Did_ Know About Javascript
+
+These were the concepts that I found quite straightforward when comparing with other languages, in no specific order:
+
+- **Control flow syntax** - This matched my experience in other languages, most notably Java.
+- **Functional array methods** - I found `.map`, `.filter`, `.reduce` and other similar methods of that sort to be quite straightforward and mapped to concepts I knew well (lambda functions in Python most notably). These were incredibly common in the codebases I'd started working in.
+- **Type Coercion & Equality** - This didn't cause me nearly as many problems as I'd imagined it would considering the volume of noise surrounding this issue in Javascript. I used `===` everywhere, and found the primary quirks out quickly (mostly the `typeof` operator bits above, and checking object equality).
+- **Typescript notation** - Not _specifically_ Javascript per se, but this was quite easy to grasp coming from statically typed languages like Java and having used type annotations in Python quite extensively. Advanced usage took a bit of dedicated learning, but most all concepts were familiar. The primary difficulty in Typescript was delineating what occurred at compile-time vs. runtime.
+- **Hoisting** - Since I learned _after_ the creation of [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const), this didn't really cause me many issues and I've not worked in many legacy codebases that still use [`var` and it's hoisting properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#hoisting). Similarly, [function hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function#hoisting) didn't cause me much confusion, possibly because I defaulted to declaring functions with arrow syntax.
+
+## 2. What I Didn't Know About The Javascript Ecosystem
+
+### CommonJS / ES Modules
+
+Code structuring is an example showing how the Javascript ecosystem is a very much evolving one, with new standards emerging and old ones being slowly deprecated. When I started, I just assumed that I'd be able to use the new format, ES Modules, everywhere. Since support for ESM is only making its way slowly into viability, that turned out not to be the case.
+
+This was made worse by the fact that I quickly started writing Typescript and assumed I was compiling to ESM (I was not).
+
+Then I realized it wasn't even implemented in Node yet, as of the time I had started. [This has since changed and Node does support these](https://nodejs.org/api/esm.html). I found [this github gist explaining the differences](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) super helpful, and most explicitly the "How libraries can support CJS and ESM" discussion.
+
+
+### The Difference Between Browser APIs, Node APIs, and JS itself
+
+Placeholder
+
+### Which Features Correspond to Which ES Versions, and What Browsers/Runtimes Support Them
+
+If you've either been following the development of the ECMAScript standards as the years have gone on, or been tasked with supported older browsers using something like Babel, you're probably intimately familiar with what portions of the standard correspond to which versions. Once you've derived that association, you'll begin to understand the differences between your source (i.e. version you're writing in) and distributed (i.e. the version you're shipping) versions and how they differ.
+
+Resources I used:
+
+- 
+
+## 3. What I Didn't Know About _Learning_ Javascript
+
+### Tooling is as Difficult as You Make It
+
+Adopting Javascript tooling is buoyed by knowing the Javascript ecosystem well, in one form or another. I led myself down dead ends trying to configure build tools that I didn't necessarily understand the mechanics of. Frameworks, testing utilities, bundlers, linters, formatters, transpilers, typescript. There is a lot of space for you to get lost in the details in frontend. The tooling exists to bolster your workflow and make you a better developer, but configuring it is something you want to ease your way into.
+
+Recommendation: try either a batteries-included starter from Github or a beginner friendly dev setup like Create React App. You can learn the ins and outs of how these tools work through them, and then form opinions on what you'd do differently for when you want to build it yourself. It's drastically easier to edit existing configs than it is to start your own from scratch.
+
+### Web Development is Multi-paradigm
+
+Since the needs of web users and developers has been changing at a rapid pace for so long, the Javascript ecosystem has _many_ different paradigms that one could adhere to. Those paradigms are even further balkanized into groups surrounding specific frameworks. Depending on your setup, your experience of developing JS can be wildly different.
+
+Here are some common approaches:
+
+* **Server-side rendered, zero client interactivity**. Interactions done via traditional HTML elements such as select elements, forms, etc: Traditionally handled mostly in the backend with frameworks like PHP or similar.
+* **Server-side rendered markup + client interactivity via direct DOM manipulation**. Similar to the above, but some client-side interactive scripting as well. Vanilla JS, jQuery, etc.
+* **Frontend view framework as a Single Page Application (SPA)**: React, Svelte, Vue, etc.
+* **Frontend view framework with server-side rendering + client-side hydration**. Hydration is when rendered HTML is sent to the client, but JS initializes state and attaches event listeners to get the same interactivity as if it were fully client-rendered. [React Server Components](), [SvelteKit](), [Next.js]().
+
+NOTE: Add graphic here!
+
+There are multiple different things 
+
+## Differing Ways of Persisting Things in the Client
+
+I had some basic concepts of cookies and other similar objects, but wasn't aware of the depth of options available to the developer for this stuff, with varying levels of support.
+
+These were:
+
+- **Cookies** - Something I innately understood from being an internet user for most of my life, but had never actually written/read as a developer.
+- **Local Storage** - 
+
+## Specific JS Features I Didn't Understand
+
+
+- [Arrow Functions and Binding `this`]() - Coming from languages where the rules of class references seemed very obvious at any given point in the code, having to specifically take stock of what `this` represents was unintuitive.
+- [Computed Properties](https://javascript.info/object#computed-properties) - Wasn't quite understanding why I couldn't use properties of objects in instantiating other objects. Specifically I was trying to create a map of objects by Id, and was wondering why `object.id` as a key didn't work. `[object.id]` did.
