@@ -78,7 +78,7 @@ pre[class*="language-"] {
 .token.prolog,
 .token.cdata,
 .token.doctype {
-  color: var(--titleTextColor);
+  color: var(--accent3Color);
   font-style: italic;
 }
 
@@ -112,12 +112,12 @@ pre[class*="language-"] {
 
 .token.tag,
 .token.selector {
-  color: var(--accent4Color);
+  color: var(--textColorLowContrast);
 }
 
 .token.function,
 .token.deleted {
-  color: var(--accent3Color);
+  color: var(--textColorLowContrast);
 }
 
 .token.important,
