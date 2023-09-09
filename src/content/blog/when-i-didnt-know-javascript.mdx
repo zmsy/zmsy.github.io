@@ -1,0 +1,240 @@
+---
+title: "What I Didn't Know When I Didn't Know JavaScript"
+description: "Starting as a backend developer, the switch to learning frontend was jarring in many ways. I tried to spend that time documenting the gaps in my knowledge."
+publishDate: 2023-06-22
+---
+
+(and Typescript too, by extension...)
+
+I transitioned from data engineering and backend development into web development over time.
+Realizing that JavaScript is the _lingua franca_ of the web, I resolved to learn it seriously around 2017/2018.
+
+So my question was: **What parts of JavaScript are tricky for someone who understands programming?**
+
+As I learned, I tracked the confusing portions of JavaScript and kept a list of links I used for them. Here's that list.
+
+## 1. What I Didn't Know About JavaScript: The Language Itself
+
+These are the specifics of JavaScript that I found unusual or tricky compared with languages I knew better prior to attempting this: Python, Java, C/C++, Golang.
+
+### Event Loop
+
+You'll notice the major theme of this section is _"How and when does code actually get executed?"_. JavaScript's, callback-based approach enables asynchronous single-threaded execution using an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop) and [message queue](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop#queue).
+
+In pseudo-code, a given [event loop](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#event_loops) looks something like:
+
+```javascript
+/** Loop until the browser tab closes or the process exits. */
+while (true) {
+  /**
+   * Tasks on the message queue can be things like events (e.g., user clicked
+   * a button), timers (e.g., setTimeout), network requests, and callbacks.
+   */
+  const task = messageQueue.getNextTask();
+  /**
+   * Tasks are processed until the point where either the processing function
+   * returns, or it encounters an asynchronous operation (e.g., setTimeout,
+   * fetch request) that cedes its execution to the next task, allowing the
+   * event loop to continue.
+   */
+  task.process();
+  /**
+   * Microtasks, such as promise resolutions, are handled immediately by the
+   * microtask queue between events in the event loop. They ensure that
+   * certain tasks are executed with higher priority and before rendering or
+   * other regular tasks.
+   */
+  processAllMicrotasks();
+}
+```
+
+What I found important to know:
+
+1. Tasks are process until completion. Synchronous code won't get interrupted by asynchronous events occurring, since they just get enqueued afterwards in the event loop.
+2. Lots of events fire and nothing occurs, because there's no code listening for those events. A message in the task queue is the combination of an event occurring and the code to handle that event.
+3. Non-blocking: A message being processed will not block if it either completes or fires off another async event. The callback is enqueued in the event loop to handle the async process completing, and the event loop will keep running in the meantime.
+4. [Microtasks](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) are handled for every iteration of the queue. You [can explicit enqueue them](https://twitter.com/diegohaz/status/1530662445240426496?s=20) using `queueMicrotask` if desired, but I haven't found myself a good reason to do that yet.
+
+See also: ["What the heck is an event loop anyway?"](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by [Philip Roberts](https://twitter.com/philip_roberts?lang=en), a classic JS talk.
+
+### Callbacks, Promises, async/await
+
+There are multiple methods of doing asynchronous programming in JS. All of these map directly to tasks being placed in the queue for the event loop, and I found it useful to look into _how_ they're related to it:
+
+- **1. Callbacks** - Provided an asynchronous task, a _callback_ function is the task placed on the event loop queue to handle its response. All asynchronous programming in JS uses callbacks under-the-hood. For programming usage, they're the oldest and most established method of concurrent programming in JS. Very straightforward, but control flow with nested callbacks is quite difficult.
+- [**2. Promises**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) - A state wrapper for callbacks that splits them into explicit `pending`, `resolved` and `rejected` states. Operations can be explicitly chained or handled for different states as needed. In Typescript, the return type of any `async` function is always a `Promise`.
+- **3. async/await** - Modern syntactic sugar around Promises, which allow for cleanly written code that seemingly handles asynchronous operations in seemingly imperative code syntax. This is definitely the preferred method I've used, though the others have their place as well.
+
+[Plenty has been written on this subject elsewhere](https://www.taniarascia.com/asynchronous-javascript-event-loop-callbacks-promises-async-await/#callback-functions), but it's just important to recognize these forms of asynchronous code so you can work with each as needed.
+
+### Prototype-based Inheritance
+
+Instead of class-based inheritance (as seen in languages like C, Python, or Java), JavaScript relies on _prototype-based inheritance_, where each object has a prototype: another object instance that exists at runtime.
+
+- Prototypes are organized in a prototype chain, where each object has a private property for its prototype, referencing another increasingly generic prototype until it reaches `null`.
+- Modifying a prototype at runtime dynamically affects all objects sharing the same prototype.
+- The prototype chain can be read or modified at runtime using functions like `getPrototypeOf` and `setPrototypeOf`.
+- Checking object properties can be tricky due to distinctions between properties belonging to an object and those in its prototype. `Object.hasOwnProperty` (or its upcoming replacement, [`Object.hasOwn`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn#description)), checks _only_ the current object, while the `in` operator checks the entire prototype chain.
+
+For instance, consider the following simple example: `class Example {}`; In this case, the `Example` class inherits from `Object`, which in turn inherits from `null`.
+
+### Scoping of 'this', and `function` / Arrow functions / Class methods
+
+Understanding [the `this` keyword in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) was tricky when compared to concepts I was familiar with, such as [the `self` convention for class methods in Python](https://docs.python.org/3/library/typing.html?highlight=self#typing.Self) or [`this` in Java](https://www.baeldung.com/java-this).
+
+- The `this` keyword in JavaScript can dynamically change based on how a function is called. It refers to either the global context (when referenced outside of a function), the object from which the function was called (when called within a function), or a class (when called as part of a class method).
+- The [`bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) function can explicitly set the `this` value of a given function, regardless of where and how it's called.
+- [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) do not have their own `this` binding; they inherit `this` from their surrounding lexical scope.
+- [Classes methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this#class_context) split two ways:
+  - Instance methods automatically bind `this` to the class instance.
+  - Static methods use standard function-style `this` binding.
+
+I tend to avoid using `this` references that aren't within class methods because they can introduce unintentional complexities. However, understanding how `bind` works can be valuable when you need to control the `this` context explicitly.
+
+### Closures
+
+[Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures), in simple terms, mean that _functions can reference their enclosing scope when called_, but I didn't entirely understand _why_ this mattered in JavaScript.
+
+The classic example of a closure looks something like:
+
+```javascript
+const getTimer = () => {
+  const startTime = Date.now();
+  return () => Date.now() - startTime;
+};
+
+const timer = getTimer(); // start a timer, set the 'startTime' value
+const elapsed = timer(); // check how much time has elapsed since then.
+```
+
+This is storing some value in the lexical scope of the returned function for later use. You can feel free to use closures in this manner (I do every once in a while), but **the real reason that closures matter has to do with the event loop**:
+
+- Closures are primarily a mechanism for maintaining state across asynchronous, event-driven actions.
+- One doesn't specifically need to write any sort of closure-aware code to be able to asynchronously read/mutate state in the enclosing scope, it just works.
+
+My take: Closures are more of a language primitive that explains how JS works than a tool you _need_ to learn to use.
+
+### Types, the `typeof` operator, and associated quirks
+
+This might be more specific to Typescript, but there were plenty of quirks in the `typeof` operator that I didn't expected. I most commonly encountered this trying to bridge the gap between runtime and compile-time, specifically in write [type predicates](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates).
+
+- The [JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/) was a constant reference for me here.
+- Some primitive types (number, string, boolean, `undefined`) work well with this operator.
+- Arrays and objects are painful though.
+  - `Array.isArray` for arrays works quite well, but `typeof` on an array will return `'object'`.
+  - There's not really an equivalent `Object.isObject` function, but there are [some reasonable substitutes available](https://stackoverflow.com/a/4320789).
+  - `null` returns `'object'` for its type, which I can only chalk up to backwards compatibility concerns.
+
+### The Inverse: What I Actually _Did_ Know Already
+
+These were the JS language concepts that I found quite straightforward when comparing with other languages, in no specific order:
+
+- **Control flow syntax** - This matched my experience in other languages, most notably Java. Only exception was traditional callback syntax that doesn't use `async` / `await`, which can be tricky.
+- **Functional array methods** - I found `.map`, `.filter`, `.reduce` and other similar methods of that sort mapped directly to concepts I knew well (lambda functions in Python most notably). These were incredibly common in the codebases I'd started working in.
+- **Type Coercion, equality & truthiness checks** - This didn't cause me nearly as many problems as I'd imagined it would considering the volume of noise surrounding this issue in JavaScript. I used `===` everywhere, and found the primary quirks out quickly (mostly the `typeof` operator bits above, and checking object equality).
+- **Typescript notation** - Not _specifically_ JavaScript per se, but this was quite easy to grasp coming from statically typed languages like Java and having used type annotations in Python quite extensively. The primary difficulty in Typescript was delineating what occurred at compile-time vs. runtime.
+- **Hoisting** - Full honesty, I had no idea in advance what hoisting was or why it was common JS trivia question-type knowledge. However, I learned _after_ the creation of [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const), this didn't really cause me many issues and I've not worked in many legacy codebases that still use [`var` and it's hoisting properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#hoisting). Similarly, [function hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function#hoisting) didn't cause me much confusion, possibly because I defaulted to declaring functions with arrow syntax.
+
+## 2. What I Didn't Know About The JavaScript Ecosystem
+
+### Order-of-execution for JS in the Browser
+
+Since there's no `main()` in JavaScript, where does execution start? How can you tell what order code defined _outside_ of event handlers will run in? Turns out this largely depends on [how the script is defined](https://stackoverflow.com/a/2343051/3522314).
+
+Here's an example of how script definition and [script tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes) can affect loading:
+
+```html
+<!doctype html>
+<html lang="en">
+  <body>
+    <!-- Inline JavaScript. Executes immediately when encountered. -->
+    <script>
+      alert("Inline script executed.");
+    </script>
+
+    <!-- External Script. Downloads (blocking) and executes immediately. -->
+    <script src="external-script.js"></script>
+
+    <!-- External Script with "defer" attribute. Will be fetched in parallel and
+    executed when DOM is loaded. -->
+    <script defer src="external-script-deferred.js"></script>
+
+    <!-- External Script with "async" attribute. Will be fetched in parallel and
+    executed as soon as its done, potentially before page is loaded.-->
+    <script defer src="external-script-async.js"></script>
+  </body>
+</html>
+```
+
+### CommonJS / ES Modules
+
+This was a primary example of how the JS ecosystem is a rapidly evolving one, with new standards emerging and old ones being slowly deprecated. Two standards exist for JavaScript packages / imports: [CommonJS](https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules), which was pioneered by Node.js, and [ECMAScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) (or ESM for short) which is a newer language standard aiming to become the global standard.
+
+- ESM has been availabe in Node.js [since version 12.17.0](https://nodejs.org/en/blog/release/v12.17.0), although CommonJS is still the standard.
+- There are optional file extensions `.cjs` and `.mjs` to denote the different types, but they're [more of an optional convention](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#aside_%E2%80%94_.mjs_versus_.js) and less of a standard.
+- Publishing packages can be brutally difficult to get right. I thought Mark Erikson's [Lessons and Takeaways section](https://blog.isquaredsoftware.com/2023/08/esm-modernization-lessons/#lessons-and-takeaways) in trying to publish versions of [`redux`](https://github.com/reduxjs/redux) / [`redux-toolkit`](https://redux-toolkit.js.org/) is very illuminating, because it really seems like it's hard to capture what "correct" means.
+- [`arethetypeswrong`](https://github.com/arethetypeswrong/arethetypeswrong.github.io) is a very useful tool for figuring out the progress of things in the packaging ecosystem. Major packages are still figuring out the ESM transition.
+- [This github gist explaining the differences](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) is super helpful, and most explicitly the "How libraries can support CJS and ESM" discussion.
+
+#### Syntax Differences
+
+There's a lot of nuance in how they're different (most specific with regards to what works with specific tools), but the actual syntax difference is relatively straightforward.
+
+CommonJS imports are dynamic, using the 'require' function:
+
+```javascript
+const { mergeBy } = require("lodash");
+```
+
+ESM modules are all static, using the `import` and `export` keywords:
+
+```javascript
+import { mergeBy } from "lodash";
+```
+
+### What APIs Correspond to Which Environments
+
+JavaScript's available APIs vary by runtime. For example, does the `document` global exist in a Node.js context? It doesn't, because there's no browser object model to reference.
+
+- **JavaScript (the language itself) APIs** - JavaScript itself has a number of built-ins and APIs for general purpose programming tasks (think `JSON`, `Array`, `Object`), and they'll be available in the global scope in any runtime. You can view [the full set of built-in Global objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) in a single page, it's quite straightforward.
+- **Web APIs** - [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) are quite lengthy and exhaustive. Some of these are fairly ubiquitous in frontend programming: `document`, `localStorage`, [events API](https://developer.mozilla.org/en-US/docs/Web/Events), `window`, `XMLHttpRequest`/`fetch`, etc. They're used to interact with the browser itself in a number of standard ways: Load new windows, write cookies, fetch and store data, etc. Most are available as globals when writing JS that runs in the browser.
+- **Node APIs** - Being the first popular server-side JS runtime, Node.js has [its own standard library and set of APIs](https://nodejs.org/docs/latest-v12.x/api/) that are used in the backend. These are largely imported via `require` statements and are not available in the global namespace by default. One potentially confusing bit is that there's been a conscious effort in Node to support Web APIs where it makes sense: `console`, `URLSearchParams`, and more. There's no hard and fast rule as to which are implemented; the most confusing when I was learning was the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). It's ubiquitous on the frontend these days, but it's only been available without a runtime flag since Node 18.
+- **Other Runtimes / WinterCG** - There's a plethora of new JS runtimes making meaningful progress and finding their own niche. In order to avoid the proliferation of bespoke APIs, there's the [WinterCG Standard Group](https://wintercg.org/faq) that aims to unify APIs across a number of vendors. There's a WinterCG-compliant subset of Javascript that works towards being truly portable across browser, edge, server, embedded, etc. The [Common Minimum API](https://common-min-api.proposal.wintercg.org/) is an interesting read.
+
+### Which Features Correspond to Which ES Versions, and What Browsers/Runtimes Support Them
+
+JavaScript features are published as part of explicit [ECMAScript Versions](https://en.wikipedia.org/wiki/ECMAScript_version_history), and different runtimes (Browsers, Node.js, others) will support some or all of those features. ECMAScript standards are published on a yearly basis since 2015, and [Wikipedia keeps a useful summary of new features](https://en.wikipedia.org/wiki/ECMAScript_version_history#6th_Edition_%E2%80%93_ECMAScript_2015) since ES6 that year.
+
+Resources I used:
+
+- [caniuse](https://caniuse.com/) - Even if new browser versions support a feature, not all users are running the newest version of a browser. This lets you see the stats on what percent of internet users will have the page work correctly for them.
+  - [JavaScript language features compatibility](https://caniuse.com/?cats=JS&statuses=all)
+  - [Web APIs for Javascript](https://caniuse.com/?cats=JS_API&statuses=all)
+- [Polyfills](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill) allow JS developers to support newer features and transpile them down to compatible older code. This is possible for many language features, but not necessarily for Web APIs (which require the browser to support them). [polyfill.io](https://polyfill.io/v3/) is a great resource for these. [Babel](https://babeljs.io/) is commonly used for transpilation to older JS with higher browser compatibility.
+- [List of finished proposals for ECMAScript](https://github.com/tc39/proposals/blob/main/finished-proposals.md) on the tc39 Github page can show you where functionality was introduced and for what reasons.
+
+## 3. What I Didn't Know About _Learning_ JavaScript
+
+### Tooling is as Difficult as You Make It
+
+Adopting JavaScript tooling is buoyed by knowing the JavaScript ecosystem well, in one form or another. I led myself down dead ends trying to configure build tools that I didn't necessarily understand the mechanics of. Frameworks, testing utilities, bundlers, linters, formatters, transpilers, Typescript. There is a lot of space for you to get lost in the details in frontend. The tooling exists to bolster your workflow and make you a better developer, but configuring it is something you want to ease your way into.
+
+Recommendation: try either a batteries-included starter from Github or a beginner friendly dev setup like [Create React App](https://create-react-app.dev/). You can learn the ins and outs of how these tools work through them, and then form opinions on what you'd do differently for when you want to build it yourself. It's drastically easier to edit existing configs than it is to start your own from scratch.
+
+### Web Development is Multi-paradigm
+
+Since the needs of web users and developers has been changing at a rapid pace for so long, the JavaScript ecosystem has _many_ different paradigms that one could adhere to. Those paradigms are even further balkanized into groups surrounding specific frameworks. Depending on your setup, your experience of developing for the web can be wildly different.
+
+Here are some approaches, with varying levels of JS code in each:
+
+- **Server-side rendered, zero client interactivity**. Interactions done via traditional HTML elements such as select elements, forms, etc: Traditionally handled mostly in the backend with a web framework. [Laravel](https://laravel.com/), [Ruby on Rails](https://rubyonrails.org/)
+- **Server-side rendered markup + client interactivity via direct DOM manipulation**. Similar to the above (and commonly using the same backend web frameworks), but some client-side interactive scripting as well. Vanilla JS, [jQuery](https://jquery.com/), etc.
+- **Frontend view framework as a Single Page Application (SPA)**: DOM manipulation and data fetching and handled client-side in application code. [React](https://react.dev/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/), etc.
+- **Frontend view framework with server-side rendering + client-side hydration**. Hydration is when rendered HTML is sent to the client, but JS initializes state and attaches event listeners to get the same interactivity as if it were fully client-rendered. [React Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components), [SvelteKit](https://kit.svelte.dev/), [Next.js](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
+- **Frontend view framework + [islands architecture](https://jasonformat.com/islands-architecture/)** - This is another form of client-side hydration where individual parts of javascript are bundled independently. [Astro.build](https://astro.build/) (I [chose Astro for building this site](/blog/bye-hugo-hello-astro/))
+
+## Yeah, It's A Lot
+
+There's a big surface area; JavaScript is a moving target by necessity. You're dealing with a language for which almost every feature can be introduced with a "How we got to this point" section up front. It aims to advance rapidly while simultaneously supporting a broad range of runtimes, including many legacy systems.
+
+Hopefully some of these links come in handy! Hit me on [twitter](https://twitter.com/_zmsy) or [bluesky](https://bsky.app/profile/zmsy.co) if you found this useful.
