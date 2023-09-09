@@ -6,7 +6,7 @@ publishDate: 2023-06-22
 
 (and Typescript too, by extension...)
 
-I transitioned from data engineering and backend development into web development over time. 
+I transitioned from data engineering and backend development into web development over time.
 Realizing that JavaScript is the _lingua franca_ of the web, I resolved to learn it seriously around 2017/2018.
 
 So my question was: **What parts of JavaScript are tricky for someone who understands programming?**
@@ -26,25 +26,25 @@ In pseudo-code, a given [event loop](https://developer.mozilla.org/en-US/docs/We
 ```javascript
 /** Loop until the browser tab closes or the process exits. */
 while (true) {
-    /**
-     * Tasks on the message queue can be things like events (e.g., user clicked
-     * a button), timers (e.g., setTimeout), network requests, and callbacks.
-     */
-    const task = messageQueue.getNextTask();
-    /**
-     * Tasks are processed until the point where either the processing function
-     * returns, or it encounters an asynchronous operation (e.g., setTimeout,
-     * fetch request) that cedes its execution to the next task, allowing the
-     * event loop to continue.
-     */
-    task.process();
-    /**
-     * Microtasks, such as promise resolutions, are handled immediately by the
-     * microtask queue between events in the event loop. They ensure that
-     * certain tasks are executed with higher priority and before rendering or
-     * other regular tasks.
-     */
-    processAllMicrotasks();
+  /**
+   * Tasks on the message queue can be things like events (e.g., user clicked
+   * a button), timers (e.g., setTimeout), network requests, and callbacks.
+   */
+  const task = messageQueue.getNextTask();
+  /**
+   * Tasks are processed until the point where either the processing function
+   * returns, or it encounters an asynchronous operation (e.g., setTimeout,
+   * fetch request) that cedes its execution to the next task, allowing the
+   * event loop to continue.
+   */
+  task.process();
+  /**
+   * Microtasks, such as promise resolutions, are handled immediately by the
+   * microtask queue between events in the event loop. They ensure that
+   * certain tasks are executed with higher priority and before rendering or
+   * other regular tasks.
+   */
+  processAllMicrotasks();
 }
 ```
 
@@ -54,8 +54,6 @@ What I found important to know:
 2. Lots of events fire and nothing occurs, because there's no code listening for those events. A message in the task queue is the combination of an event occurring and the code to handle that event.
 3. Non-blocking: A message being processed will not block if it either completes or fires off another async event. The callback is enqueued in the event loop to handle the async process completing, and the event loop will keep running in the meantime.
 4. [Microtasks](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) are handled for every iteration of the queue. You [can explicit enqueue them](https://twitter.com/diegohaz/status/1530662445240426496?s=20) using `queueMicrotask` if desired, but I haven't found myself a good reason to do that yet.
-
-
 
 See also: ["What the heck is an event loop anyway?"](https://www.youtube.com/watch?v=8aGhZQkoFbQ) by [Philip Roberts](https://twitter.com/philip_roberts?lang=en), a classic JS talk.
 
@@ -88,8 +86,8 @@ Understanding [the `this` keyword in JavaScript](https://developer.mozilla.org/e
 - The [`bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) function can explicitly set the `this` value of a given function, regardless of where and how it's called.
 - [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) do not have their own `this` binding; they inherit `this` from their surrounding lexical scope.
 - [Classes methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this#class_context) split two ways:
-    - Instance methods automatically bind `this` to the class instance.
-    - Static methods use standard function-style `this` binding.
+  - Instance methods automatically bind `this` to the class instance.
+  - Static methods use standard function-style `this` binding.
 
 I tend to avoid using `this` references that aren't within class methods because they can introduce unintentional complexities. However, understanding how `bind` works can be valuable when you need to control the `this` context explicitly.
 
@@ -103,7 +101,7 @@ The classic example of a closure looks something like:
 const getTimer = () => {
   const startTime = Date.now();
   return () => Date.now() - startTime;
-}
+};
 
 const timer = getTimer(); // start a timer, set the 'startTime' value
 const elapsed = timer(); // check how much time has elapsed since then.
@@ -123,9 +121,9 @@ This might be more specific to Typescript, but there were plenty of quirks in th
 - The [JavaScript Equality Table](https://dorey.github.io/JavaScript-Equality-Table/) was a constant reference for me here.
 - Some primitive types (number, string, boolean, `undefined`) work well with this operator.
 - Arrays and objects are painful though.
-    - `Array.isArray` for arrays works quite well, but `typeof` on an array will return `'object'`.
-    - There's not really an equivalent `Object.isObject` function, but there are [some reasonable substitutes available](https://stackoverflow.com/a/4320789).
-    - `null` returns `'object'` for its type, which I can only chalk up to backwards compatibility concerns.
+  - `Array.isArray` for arrays works quite well, but `typeof` on an array will return `'object'`.
+  - There's not really an equivalent `Object.isObject` function, but there are [some reasonable substitutes available](https://stackoverflow.com/a/4320789).
+  - `null` returns `'object'` for its type, which I can only chalk up to backwards compatibility concerns.
 
 ### The Inverse: What I Actually _Did_ Know Already
 
@@ -146,23 +144,25 @@ Since there's no `main()` in JavaScript, where does execution start? How can you
 Here's an example of how script definition and [script tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attributes) can affect loading:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<body>
-  <!-- Inline JavaScript. Executes immediately when encountered. -->
-  <script>alert('Inline script executed.');</script>
+  <body>
+    <!-- Inline JavaScript. Executes immediately when encountered. -->
+    <script>
+      alert("Inline script executed.");
+    </script>
 
     <!-- External Script. Downloads (blocking) and executes immediately. -->
-  <script src="external-script.js"></script>
+    <script src="external-script.js"></script>
 
-  <!-- External Script with "defer" attribute. Will be fetched in parallel and
+    <!-- External Script with "defer" attribute. Will be fetched in parallel and
     executed when DOM is loaded. -->
-  <script defer src="external-script-deferred.js"></script>
+    <script defer src="external-script-deferred.js"></script>
 
-  <!-- External Script with "async" attribute. Will be fetched in parallel and
+    <!-- External Script with "async" attribute. Will be fetched in parallel and
     executed as soon as its done, potentially before page is loaded.-->
-  <script defer src="external-script-async.js"></script>
-</body>
+    <script defer src="external-script-async.js"></script>
+  </body>
 </html>
 ```
 
@@ -183,20 +183,20 @@ There's a lot of nuance in how they're different (most specific with regards to 
 CommonJS imports are dynamic, using the 'require' function:
 
 ```javascript
-const { mergeBy } = require('lodash');
+const { mergeBy } = require("lodash");
 ```
 
 ESM modules are all static, using the `import` and `export` keywords:
 
 ```javascript
-import { mergeBy } from 'lodash';
+import { mergeBy } from "lodash";
 ```
 
 ### What APIs Correspond to Which Environments
 
 JavaScript's available APIs vary by runtime. For example, does the `document` global exist in a Node.js context? It doesn't, because there's no browser object model to reference.
 
-- **JavaScript (the language itself) APIs** - JavaScript itself has a number of built-ins and APIs for general purpose programming tasks (think `JSON`, `Array`, `Object`), and they'll be available in the global scope in any runtime. You can view [the full set of built-in Global objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) in a single page, it's quite straightforward. 
+- **JavaScript (the language itself) APIs** - JavaScript itself has a number of built-ins and APIs for general purpose programming tasks (think `JSON`, `Array`, `Object`), and they'll be available in the global scope in any runtime. You can view [the full set of built-in Global objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) in a single page, it's quite straightforward.
 - **Web APIs** - [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) are quite lengthy and exhaustive. Some of these are fairly ubiquitous in frontend programming: `document`, `localStorage`, [events API](https://developer.mozilla.org/en-US/docs/Web/Events), `window`, `XMLHttpRequest`/`fetch`, etc. They're used to interact with the browser itself in a number of standard ways: Load new windows, write cookies, fetch and store data, etc. Most are available as globals when writing JS that runs in the browser.
 - **Node APIs** - Being the first popular server-side JS runtime, Node.js has [its own standard library and set of APIs](https://nodejs.org/docs/latest-v12.x/api/) that are used in the backend. These are largely imported via `require` statements and are not available in the global namespace by default. One potentially confusing bit is that there's been a conscious effort in Node to support Web APIs where it makes sense: `console`, `URLSearchParams`, and more. There's no hard and fast rule as to which are implemented; the most confusing when I was learning was the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). It's ubiquitous on the frontend these days, but it's only been available without a runtime flag since Node 18.
 - **Other Runtimes / WinterCG** - There's a plethora of new JS runtimes making meaningful progress and finding their own niche. In order to avoid the proliferation of bespoke APIs, there's the [WinterCG Standard Group](https://wintercg.org/faq) that aims to unify APIs across a number of vendors. There's a WinterCG-compliant subset of Javascript that works towards being truly portable across browser, edge, server, embedded, etc. The [Common Minimum API](https://common-min-api.proposal.wintercg.org/) is an interesting read.
@@ -208,8 +208,8 @@ JavaScript features are published as part of explicit [ECMAScript Versions](http
 Resources I used:
 
 - [caniuse](https://caniuse.com/) - Even if new browser versions support a feature, not all users are running the newest version of a browser. This lets you see the stats on what percent of internet users will have the page work correctly for them.
-    - [JavaScript language features compatibility](https://caniuse.com/?cats=JS&statuses=all)
-    - [Web APIs for Javascript](https://caniuse.com/?cats=JS_API&statuses=all)
+  - [JavaScript language features compatibility](https://caniuse.com/?cats=JS&statuses=all)
+  - [Web APIs for Javascript](https://caniuse.com/?cats=JS_API&statuses=all)
 - [Polyfills](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill) allow JS developers to support newer features and transpile them down to compatible older code. This is possible for many language features, but not necessarily for Web APIs (which require the browser to support them). [polyfill.io](https://polyfill.io/v3/) is a great resource for these. [Babel](https://babeljs.io/) is commonly used for transpilation to older JS with higher browser compatibility.
 - [List of finished proposals for ECMAScript](https://github.com/tc39/proposals/blob/main/finished-proposals.md) on the tc39 Github page can show you where functionality was introduced and for what reasons.
 
@@ -227,11 +227,11 @@ Since the needs of web users and developers has been changing at a rapid pace fo
 
 Here are some approaches, with varying levels of JS code in each:
 
-* **Server-side rendered, zero client interactivity**. Interactions done via traditional HTML elements such as select elements, forms, etc: Traditionally handled mostly in the backend with a web framework. [Laravel](https://laravel.com/), [Ruby on Rails](https://rubyonrails.org/)
-* **Server-side rendered markup + client interactivity via direct DOM manipulation**. Similar to the above (and commonly using the same backend web frameworks), but some client-side interactive scripting as well. Vanilla JS, [jQuery](https://jquery.com/), etc.
-* **Frontend view framework as a Single Page Application (SPA)**: DOM manipulation and data fetching and handled client-side in application code. [React](https://react.dev/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/), etc.
-* **Frontend view framework with server-side rendering + client-side hydration**. Hydration is when rendered HTML is sent to the client, but JS initializes state and attaches event listeners to get the same interactivity as if it were fully client-rendered. [React Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components), [SvelteKit](https://kit.svelte.dev/), [Next.js](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
-* **Frontend view framework + [islands architecture](https://jasonformat.com/islands-architecture/)** - This is another form of client-side hydration where individual parts of javascript are bundled independently. [Astro.build](https://astro.build/) (I [chose Astro for building this site](/blog/bye-hugo-hello-astro/))
+- **Server-side rendered, zero client interactivity**. Interactions done via traditional HTML elements such as select elements, forms, etc: Traditionally handled mostly in the backend with a web framework. [Laravel](https://laravel.com/), [Ruby on Rails](https://rubyonrails.org/)
+- **Server-side rendered markup + client interactivity via direct DOM manipulation**. Similar to the above (and commonly using the same backend web frameworks), but some client-side interactive scripting as well. Vanilla JS, [jQuery](https://jquery.com/), etc.
+- **Frontend view framework as a Single Page Application (SPA)**: DOM manipulation and data fetching and handled client-side in application code. [React](https://react.dev/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/), etc.
+- **Frontend view framework with server-side rendering + client-side hydration**. Hydration is when rendered HTML is sent to the client, but JS initializes state and attaches event listeners to get the same interactivity as if it were fully client-rendered. [React Server Components](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components), [SvelteKit](https://kit.svelte.dev/), [Next.js](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
+- **Frontend view framework + [islands architecture](https://jasonformat.com/islands-architecture/)** - This is another form of client-side hydration where individual parts of javascript are bundled independently. [Astro.build](https://astro.build/) (I [chose Astro for building this site](/blog/bye-hugo-hello-astro/))
 
 ## Yeah, It's A Lot
 
