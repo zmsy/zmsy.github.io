@@ -71,7 +71,8 @@ Based on [a suggestion from Lighthouse](https://web.dev/render-blocking-resource
       font-family: "Patua One";
       font-weight: 400;
       font-style: normal;
-      src: url("/fonts/patua-one/patua-one-latin-400-normal.woff2") format("woff2"),
+      src:
+        url("/fonts/patua-one/patua-one-latin-400-normal.woff2") format("woff2"),
         url("/fonts/patua-one/patua-one-latin-400-normal.woff") format("woff");
     }
   </style>
@@ -83,8 +84,20 @@ Based on [a suggestion from Lighthouse](https://web.dev/render-blocking-resource
 An extremely simple yet effective approach - You can add links into the HTML to preload these fonts. This can have better performance than my first pass above, because preload links come earlier in the waterfall.
 
 ```html
-<link rel="preload" href="/fonts/my-fancy-font1.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/my-fancy-font2.woff2" as="font" type="font/woff2" crossorigin />
+<link
+  rel="preload"
+  href="/fonts/my-fancy-font1.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/my-fancy-font2.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
 ```
 
 Both of these, used together, are a pretty good starting strategy for font loading. [More info on preload links](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload) on MDN.
