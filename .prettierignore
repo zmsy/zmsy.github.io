@@ -6,4 +6,3 @@ dist
 
 # for now, removing the prettier autoformat from mdx
 *.md
-*.mdx
