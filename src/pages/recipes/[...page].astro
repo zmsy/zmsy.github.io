@@ -7,7 +7,8 @@ import BaseHead from "@src/components/head/BaseHead.astro";
 import Admonition from "@src/components/mdx/Admonition.astro";
 import { sortPublishDateDesc } from "@src/lib/sort";
 import type { GetStaticPaths, Page } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = { page: Page<CollectionEntry<"recipes">> };
