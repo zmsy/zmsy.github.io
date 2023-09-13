@@ -8,6 +8,7 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
   site: "https://zmsy.co",
   output: "static",
+  scopedStyleStrategy: "where",
   integrations: [
     mdx(),
     sitemap(),
