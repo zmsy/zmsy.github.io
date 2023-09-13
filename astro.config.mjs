@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import image from "@astrojs/image";
 import preact from "@astrojs/preact";
 import partytown from "@astrojs/partytown";
 
@@ -13,7 +12,6 @@ export default defineConfig({
     mdx(),
     sitemap(),
     preact(),
-    image(),
     partytown({
       // Adds gtag's dataLayer.push as a forwarding-event.
       config: {
