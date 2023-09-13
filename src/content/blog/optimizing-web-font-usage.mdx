@@ -23,11 +23,11 @@ I had originally used [Google Fonts](https://fonts.google.com/) because it's _tr
 
 Here's a look at [what Lighthouse scored](https://pagespeed.web.dev/report?url=https%3A%2F%2Fzmsy.co%2Fblog) my site's `/blog` path.
 
-<Image src={lighthouseTimes} />
+<Image alt="" src={lighthouseTimes} />
 
 Clearly the biggest issue is the site styling.
 
-<Image src={lighthouseOpportunity} />
+<Image alt="" src={lighthouseOpportunity} />
 
 Ignoring the CSS bundle for the time being, let's look into the two latter items in this list. First is a call to fetch FontAwesome icons, and the second is the call to Google Fonts. These two combine for quite a lot of the time prior to first contentful paint.
 
@@ -104,11 +104,11 @@ Both of these, used together, are a pretty good starting strategy for font loadi
 
 Here's the before picture, with _just_ the inlined `@font-face` declarations.
 
-<Image src={waterfall1} />
+<Image alt="" src={waterfall1} />
 
 And here's the result after adding preload links for the two fonts that are most often used.
 
-<Image src={waterfall2} />
+<Image alt="" src={waterfall2} />
 
 You can see that the two most important fonts, the 400-weight [Latin unicode subset](https://jrgraphix.net/r/Unicode/0020-007F) is requested _immediately_ after the HTML is parsed. This makes the FOIT on site load much quicker.
 
@@ -128,7 +128,7 @@ It's worth at least going through the list and seeing which ones [would look goo
 
 Let's see how Lighthouse marks this now that the font usage has been improved:
 
-<Image src={lighthouseTimes2} />
+<Image alt="" src={lighthouseTimes2} />
 
 Some real improvements! Some still to be done here, but nothing left within the scope of font usage.
 
