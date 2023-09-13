@@ -11,7 +11,7 @@ import dungeonLayout2 from "@src/images/blog/building-dynamic-dungeons-using-uni
 import dungeonLayout3 from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_layout_3.png";
 import dungeonLayoutTiled from "@src/images/blog/building-dynamic-dungeons-using-unity-tilemaps/dungeon_layout_tiled.png";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 In one of the last projects I'm doing for school, I'm working on a game wherein everything in the game is _procedurally generated_ using a dungeon-building algorithm.
 
@@ -23,7 +23,7 @@ Achieving this is, as you may imagine, pretty difficult.
 
 There are a lot of resources online, but most of them follow the same pattern - create a set of rooms, connect them, place items within them. There's a significant amount of wiggle room within those, but that's the basics.
 
-<Image src={dungeonOfDeneb} />
+<Image alt="" src={dungeonOfDeneb} />
 
 ## Unity Set Up
 
@@ -36,7 +36,7 @@ The unity objects involved:
   - Walls (Collidable) tilemap - This one has a collider added to it, so the player can't walk through them.
 - Tile Palette - This contains all of the floor / wall tiles that I use to build the dungeon. It's nice to have one of these so you can manually paint some on if you want.
 
-<Image src={tilePalette} />
+<Image alt="" src={tilePalette} />
 
 ## The Algorithm
 
@@ -74,15 +74,15 @@ First, a key, so you can understand what you're looking at:
   - White - Parent/child relationship in tree
   - Yellow - Optional corridor added between two rooms in the same subtree.
 
-<Image src={dungeonLayout1} />
+<Image alt="" src={dungeonLayout1} />
 
 The key to the light blue area spawns in the green / white area, the key to the dark blue area spawns in the light blue area. The key to the boss room is placed within the dark blue area.
 
-<Image src={dungeonLayout2} />
+<Image alt="" src={dungeonLayout2} />
 
 As you can see in this one, sometimes the room with a key in it spawns _directly_ next to the boss (in the first example above), but sometimes it's located fairly far away in a different corner (in this example, on the bottom left).
 
-<Image src={dungeonLayout3} />
+<Image alt="" src={dungeonLayout3} />
 
 In this example, I've included the minimum spanning tree generated during the dungeon building process. If you note the yellow corridors between rooms, those are randomly added between rooms within the same subtree.
 
@@ -92,6 +92,6 @@ The [`TileMap.SetTile`](https://docs.unity3d.com/ScriptReference/Tilemaps.Tilema
 
 The result:
 
-<Image src={dungeonLayoutTiled} />
+<Image alt="" src={dungeonLayoutTiled} />
 
 From here, you can generate the items and enemies how you see fit.

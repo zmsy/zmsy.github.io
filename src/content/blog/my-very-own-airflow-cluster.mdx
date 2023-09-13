@@ -8,12 +8,12 @@ import airflowDiagramSvg from "@src/svg/blog/my-very-own-airflow-cluster/airflow
 import airflowDagSvg from "@src/svg/blog/my-very-own-airflow-cluster/airflow-dag.svg?raw";
 import airflowLogo from "@src/images/blog/my-very-own-airflow-cluster/airflow.png";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { Figure } from "@src/components/app/Figure";
 
 As someone who writes a lot of one-off batch scripts, the rise of DAG (Directed Acyclic Graph) task engines has made my life a _lot_ better. I've used [Luigi](https://github.com/spotify/luigi) at work for about 2 years now. For feeding the backend of this website with data, I decided to set up an Airflow cluster.
 
-<Image src={airflowLogo} />
+<Image alt="" src={airflowLogo} />
 
 As opposed to this paradigm:
 

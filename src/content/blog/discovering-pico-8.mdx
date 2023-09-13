@@ -12,11 +12,11 @@ import pico8Bounce from "@src/images/blog/discovering-pico-8/pico-8_bounce.gif?u
 import pico8Bounce2 from "@src/images/blog/discovering-pico-8/pico-8_bounce2.gif?url";
 import pico8Bounce3 from "@src/images/blog/discovering-pico-8/pico-8_bounce3.gif?url";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 The [PICO-8](https://www.lexaloffle.com/pico-8.php) is a 'fantasy console', which is basically a virtual machine for programming videogames with a set amount of memory, disk space, screen size, etc. I discovered it after I recently played the excellent [Celeste for Nintendo Switch](https://www.nintendo.com/games/detail/celeste-switch) and learning that it started life as a PICO-8 game. This thing looks _damn fun_ to program for, and it comes batteries-included for most tasks so you can get up and running in no time.
 
-<Image src={pico8} />
+<Image alt="" src={pico8} />
 
 #### Highlights
 
@@ -95,11 +95,11 @@ The things that helped me learn PICO-8, by subject area:
 
 The first place you'll land is the command line in PICO-8, which is used to launch all of the other screens. It looks exactly like you'd expect it to.
 
-<Image src={pico8Cli} />
+<Image alt="" src={pico8Cli} />
 
 There's also a built-in IDE for developing games! This is where you can write your lua code, edit sprites, create background tiles and more.
 
-<Image src={pico8IDE} />
+<Image alt="" src={pico8IDE} />
 
 Multiple other pages in the editor exist for purposes of creating assets for these two pages: A sprite editor, a tile editor, a SFX editor, and a music arrangement screen. Combining all of these, you can make pretty convincing graphics & sound pretty quickly.
 
@@ -115,7 +115,7 @@ There are basically only three functions to know:
 
 Using these, I ended up trying to do what most people try to do their first time using any 2D graphics program: make a ball bounce across the screen.
 
-<Image src={pico8BounceCode} />
+<Image alt="" src={pico8BounceCode} />
 
 <img src={pico8Bounce} />
 

@@ -8,7 +8,7 @@ import staticBucket from "@src/images/blog/hosting-static-site-s3-cloudfront/sta
 import websiteOptions from "@src/images/blog/hosting-static-site-s3-cloudfront/website_options.png";
 import bucketPermissions from "@src/images/blog/hosting-static-site-s3-cloudfront/bucket_permissions.png";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Admonition from "@src/components/mdx/Admonition.astro";
 
 Considering this site is [built with a static site generator](/blog/blog-versions), I needed to find somewhere to host it. Amazon's S3 service, as it turns out, actually has [an option to host a website out of it](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html), which is ridiculously convenient for those who are comfortable using AWS services. Prior to this, I had purchased my domain through Namecheap.
@@ -29,11 +29,11 @@ Hosting in S3 seemed to be a very straightforward way of achieving these things,
 
 Setting up S3 for hosting a static site is as simple as checking a box. First create a bucket for your site.
 
-<Image src={staticBucket} alt="Static Bucket Settings" />
+<Image alt="" src={staticBucket} alt="Static Bucket Settings" />
 
 On that menu, select your default landing document (something along the lines of index.html) and error document (i.e. 404.html or something like that).
 
-<Image src={websiteOptions} alt="Website Options" />
+<Image alt="" src={websiteOptions} alt="Website Options" />
 
 ## Setting Bucket Permissions
 
@@ -41,7 +41,7 @@ Once you've created your static site bucket and configured it for hosting, you n
 
 Under the permissions tab, edit your permissions to allow s3:GetObject permissions to public.
 
-<Image src={bucketPermissions} alt="S3 Bucket Policy Editor" />
+<Image alt="" src={bucketPermissions} alt="S3 Bucket Policy Editor" />
 
 <Admonition
   level="warning"

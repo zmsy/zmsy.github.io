@@ -15,7 +15,6 @@ import homeIcon from "../../svg/icons/home-icon.svg?raw";
 import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
 
 export const NavModal: FunctionComponent = () => {
-  // const t = navModalStyles.test;
   const $open = useStore(navModalOpen);
   const handleClickAway = () => navModalOpen.set(false);
   return (

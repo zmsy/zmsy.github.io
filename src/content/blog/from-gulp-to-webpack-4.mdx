@@ -6,9 +6,9 @@ publishDate: 2018-06-09
 
 import webpackLogo from "@src/images/blog/from-gulp-to-webpack-4/gulp_to_webpack.png";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
-<Image src={webpackLogo} />
+<Image alt="" src={webpackLogo} />
 
 I've always been interested in using Webpack to generate this site, but the heavily config-oriented earlier versions of Webpack (2.x, 3.x) were a hassle. The [explicit pipelines from Gulp](https://gulpjs.com/) were always significantly easier. Yet, after using [Nuxt.js](https://nuxtjs.org/) for a recent project–which works exceedingly well with Webpack–I decided that it was time to jump on the bandwagon.
 

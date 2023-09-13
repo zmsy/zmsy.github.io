@@ -1,7 +1,8 @@
 ---
 import { sortPublishDateDesc } from "@src/lib/sort";
 import type { GetStaticPaths, Page } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import BlogPreview from "../../components/BlogPreview.astro";
 import Footer from "../../components/Footer.astro";
 import Navigation from "../../components/Navigation.astro";

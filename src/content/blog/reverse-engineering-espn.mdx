@@ -19,7 +19,7 @@ import devToolsStatIdValue from "@src/images/blog/reverse-engineering-espn/h-dev
 import whitMerrifieldNegativeRC from "@src/images/blog/reverse-engineering-espn/phonec-whit-merrifield-negative-rc.png";
 import incorrectRCValues from "@src/images/blog/reverse-engineering-espn/j-incorrect-rc-values.png";
 
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { Figure } from "@src/components/app/Figure";
 
 **"Runs Created"** (RC) is an arbitrary, but useful, metric created by baseball stat wizard [Bill James](https://www.baseball-reference.com/bullpen/Bill_James) that [dates back to the 1970s](https://www.baseball-reference.com/bullpen/Runs_created). It has a [variety of formulas](https://captaincalculator.com/sports/baseball/runs-created-calculator/) that can be used.
@@ -42,7 +42,7 @@ There really aren't that many things I can say are consistent between the differ
 
 So you can imagine my surprise to see my sure-to-turn-it-around-someday-soon team member Christian Yelich with `-.2` in his RC column for the past 7 days. What the heck? Sure he's having a rough year (alright, three years), but he's certainly not _subtracting runs from his team_. As far as I know, baseball runs never go below zero. Put baseball-inept me in the batter's box to face 98mph heaters and I still wouldn't be able to accomplish that.
 
-<Image src={yelich} />
+<Image alt="" src={yelich} />
 
 My feeble attempts tweeting at ESPN's customer service line didn't seem to be escalating in time for this to not affect our season, so I decided to figure out for myself _why_ this was wrong and provide them with the most precise reproduction of how their current RC derivation is off.
 
@@ -71,11 +71,11 @@ Ideally, I want to find some statistics from other websites (ESPN's display does
 
 Current RC value shown in ESPN, as of morning of 4/28 (No games played yet today): **5.9 Runs Created**
 
-<Image src={currentTotal} />
+<Image alt="" src={currentTotal} />
 
 However, navigating to the player page in ESPN (again, as of morning 4/28), I'm being shown something different: **6.3 Runs Created**
 
-<Image src={yelichCareerRC} />
+<Image alt="" src={yelichCareerRC} />
 
 So this means my original assumptions of a single, universal derivation for RC are incorrect. Which gives me hope! The second one displayed here _may_ be more correct than this first one.
 
@@ -181,7 +181,7 @@ Since I'm primarily a fullstack web developer these days, felt natural to try ne
 
 Bam, the page is rendered using React.
 
-<Image src={reactDevTools} />
+<Image alt="" src={reactDevTools} />
 
 Navigating to the individual cell being rendered and...
 
@@ -189,7 +189,7 @@ Navigating to the individual cell being rendered and...
 
 **There it is.**
 
-<Image src={teamPageDevTools} />
+<Image alt="" src={teamPageDevTools} />
 
 They pass the actual derivation formula to the individual table cell as props, and the calculation is run on the client. We've got the actual formula they're using now, so time to see where it's going wrong.
 
@@ -197,7 +197,7 @@ As one other curiosity, can we figure out where that other number, `6.3` on the 
 
 Let me check [Yelich's individual player page in ESPN](https://www.espn.com/mlb/player/stats/_/id/31283/christian-yelich)...
 
-<Image src={playerPageDevTools} />
+<Image alt="" src={playerPageDevTools} />
 
 Bummer. Unfortunately, this one is just passed as a value and there's no derivation on it. Turns out there's a MobX store on this page that's open to investigation, but unfortunately it doesn't contain anything other than values. No derivation formula. I'm guessing that these formulas are calculated server-side for this page.
 
@@ -227,7 +227,7 @@ So we've **got the formula** now. Nice!
 
 ...but the **arguments are anonymous**. I'm not sure, from looking at them, what any of the variables here are used for. Complicating this slightly further? It looks like the argument _values_ are the exact same for every single cell, regardless of the outcome.
 
-<Image src={sameFormulaArguments} />
+<Image alt="" src={sameFormulaArguments} />
 
 When I look at the arguments here for Yelich, it seems to be the same set of values passed as arguments for every player. So how, with the same inputs, are we getting separate outputs? Runs Created is, in all of its derivations, a deterministic formula.
 
@@ -237,11 +237,11 @@ Let's go back to the React DevTools for a moment to see if there's any informati
 
 Inspecting further, it looks like we've got an entry called `rawStats` array with keys that look _exactly_ like those argument mappings from before.
 
-<Image src={rawStats} />
+<Image alt="" src={rawStats} />
 
 Intuitively, this made sense to me. The arguments in the formula above were _keys_ and not _values_. So likely, this is using those sets of keys to find stats from this stats object, keyed by some sort of stat id value. Unfortunately, it doesn't seem like the stat _names_ are available elsewhere in the payload, just more values to corroborate what's in the payload with what's display in the UI. Looking back into the UI, the stat ID value is displayed on all of the stats visible in the table. This should help me map arguments to these pretty well.
 
-<Image src={devToolsStatIdValue} />
+<Image alt="" src={devToolsStatIdValue} />
 
 Searching through these, it's fairly intuitive to map some of them back to the 2002 formula using their position in the formula, and others it's possible to do by finding examples of that stat in use.
 
@@ -272,7 +272,7 @@ RC = (D ÷ (9 x C)) – (0.9 x C)
 
 Let's look at another example of RC being negative and show these arguments in that calculation now. This is `-.6`.
 
-<Image src={whitMerrifieldNegativeRC} />
+<Image alt="" src={whitMerrifieldNegativeRC} />
 
 This is the top currently available batter in our league, Whit Merrifield. He's owned in most leagues because he loves stealing bases. He's not owned in ours because we don't care.
 
@@ -338,7 +338,7 @@ Just accepting that the calculation works differently than I assumed for years a
 
 Almost all of the players on my team's 7-day RC calculations are zero:
 
-<Image src={incorrectRCValues} />
+<Image alt="" src={incorrectRCValues} />
 
 Plugging the top row's values into the ESPN RC formula, the RC column should read **2.68 Runs Created**.
 
