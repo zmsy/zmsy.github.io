@@ -52,7 +52,7 @@ const drinkSchema = recipeFields.extend({
 });
 
 const foodSchema = recipeFields.extend({
-  kingdom: z.literal("drink"),
+  kingdom: z.literal("food"),
   category: z.union([z.literal("dessert"), z.literal("breads")]),
 });
 
