@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import preact from "@astrojs/preact";
 import partytown from "@astrojs/partytown";
+import purge from "astro-purgecss";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
+    purge(),
   ],
   server: {
     // nostalgic for my hugo days i guess
