@@ -59,7 +59,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
     <Navigation />
     <main>
       <section>
-        <Hero title="Recipes" />
+        <Hero title="Recipes" transitionName="recipes-hero-text" />
         <!-- <div class="recipe-list">
           {
             page.data.map(({ slug, data }) => {
