@@ -1,0 +1,83 @@
+---
+title: "Things I Built at Convoy"
+description: "RIP Convoy. There was some great stuff I got to build there, and I'm going to detail it as a way of eulogizing."
+publishDate: 2023-10-20
+---
+
+R.I.P. [Convoy](https://convoy.com/)!
+
+`#TruckYeah` is no longer. I joined Convoy in Jul 2022, primarily out of a desire to build things that had a more direct impact on customers than my prior role in rapid software prototyping at [Tableau](https://www.tableau.com/). Frankly, I realized the dire economics of it (as we all did) long before the collapse. My wife and I were expecting our first child in Aug 2023 and it seemed like a good idea to stick around for the generous paternity leave policy and risk it. I don't regret that at all (even though I only got half of it in the end!). Plus, it's a little amusing to think of what our priorities were internally as the ship was sinking.
+
+Here's some short vignettes of my favorite parts of working there.
+
+As a bonus, I'm going to add a "Was it worth it?" judgment for each project.
+
+## 1. Bidding - An Actually Good Use Case for Decommissioning Lambdas
+
+Ragging on Lambda [seems to be en vogue now](https://devclass.com/2023/05/05/reduce-costs-by-90-by-moving-from-microservices-to-monolith-amazon-internal-case-study-raises-eyebrows/) (as is [bemoaning that trend](https://adrianco.medium.com/so-many-bad-takes-what-is-there-to-learn-from-the-prime-video-microservices-to-monolith-story-4bd0970423d4)), so I'll pile on. First and foremost, I think AWS Lambda is incredible at what it does, but not everything is a good fit for it. I love using the [Serverless framework](https://www.serverless.com/); it's incredibly seamless and makes deployments a breeze.
+
+Here's what our system looked like, roughly:
+
+```
+INSERT DIAGRAM HERE
+```
+
+### Why Lambda Was a Bad Fit
+
+It was a supportability problem, primarily.
+
+1. **Lacking AWS Lambda expertise** - Everything else was deployed in k8s at Convoy. We'd lost a _lot_ of headcount, and with it most of the people who knew AWS well.
+2. **Duplicated libraries** - Since some of the internal libraries relied on the service's Docker container, it required rewrites of shared libs for metrics/logging/etc. These became burdensome to maintain.
+
+Maintaining 25+ lambdas for multiple different bidding integrations was taxing, and our momentum became way slower in trying to iterate on them.
+
+### Implementing the Alternative: Agent Processes + SQS
+
+1. Used Terraform modules to create a _second_ bid queue for each bidder process.
+2. Sent the bid payload to both queues. Ran the second one in parallel with the first.
+3. Used a [LaunchDarkly flag]() to flip the agent or lambda one on.
+4. Decommissioned the Lambda.
+
+```
+INSERT DIAGRAM HERE
+```
+
+It was a lot of copy/paste since each Lambda was separately defined, but this work would allow us to merge queues/processes/etc to be capable of handling multiple types of bids.
+
+**Was This Worth Doing?** Probably not.
+
+## 2. Spot Board with Instant Bidding
+
+Utilizing the bidding architecture above, we put together a real-time [spot freight](https://www.cargobase.com/blog/complete-guide-spot-freight) board that allowed users to instantly bid a better price. In an industry where a lot of our automated bids missed the mark for a variety of reasons, the thinking was that we could more easily enabled account managers to make connections with shippers & facilities and haggle for freight with our available margin.
+
+Reflecting on it, this tool was incredible in that it automated a _lot_ for the customer, but users weren't incentivized to take advantage of it. Spending an hour trying to win a single load didn't translate into meaningful motivation, nor did the soft relationships garner enough future freight to be justified.
+
+**Was This Worth Doing?** I'd say yes. It was cheap. It didn't take very long to develop this app (four people over the course of about three weeks) and it was based on reasonable industry trends. Might have been more useful earlier on in the Convoy lifecycle.
+
+## 3. Rules Engine Conflict Detection
+
+There's plenty written on this subject elsewhere, but I got to implement conflict detection for our freight decision rules engine. This was one of those classic Martin Fowler-type enterprise paterns, 
+
+## 3. Things Going Bump in the Night
+
+There were many times where things went wrong, and I'm always one with a masochistic enjoyment of drilling into why that is.
+
+### The Midnight Decisioning Latency Spike
+
+Each night, around 1:30AM, all alarms would go off and the system that made decisions whether to accept/decline freight would
+
+### End-to-End Tests Flaking Out
+
+###
+
+**Was This Worth Doing?** Absolutely worth it. Remove developer randomization was one of the best ways to squeeze out the remaining person-hours from our dwindling crew.
+
+## A Coda for Convoy
+
+And in one last bit, here's some thoughts on Convoy's demise.
+
+If there's one true sin Convoy committed, it was over-hiring. Once the funding dried up supporting that balance sheet, there wasn't any going back. I'm not sure that it's a obviously fatal mistake though, plenty of startups at around the same ARR have similar or higher headcounts. It's obvious that the company was built on VC float, but it also seems like it wasn't _that_ unreasonable to assume that it'd be possible to raise similar cash later on. Don't take your investment advice from me, though.
+
+Some of these priorities for where we spent our time might seem a little capricious in retrospect, but the economics of it made sense to us. We aggressively minimized effort where the time investment made no sense. We prioritized things that delivered margin fastest.
+
+I'd like things to have ended differently, of course. When you see Convoy on the list of the most valuable failed startups,
