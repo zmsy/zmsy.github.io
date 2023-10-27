@@ -148,7 +148,7 @@ describe("e2e", () => {
 });
 ```
 
-Solution? Isolate test setup/teardown between individual tests. I made each test create its own data in a parameterized manner such that individual test runs wouldn't clash or hit race conditions. We had a pretty comprehensive test data generation library, but these tests
+Solution? Isolate test setup/teardown between individual tests. I made each test create its own data in a parameterized manner such that individual test runs wouldn't clash or hit race conditions. We had a pretty comprehensive test data generation library, but these tests long predated it.
 
 ### 3 - CircleCI Security Incident
 
