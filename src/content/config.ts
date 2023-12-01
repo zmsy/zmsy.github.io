@@ -26,6 +26,15 @@ const isoDuration = z
   .string()
   .regex(durationRegex, "Invalid ISO 8601 duration format");
 
+export const recipeInstructionsSection = z.object({
+  /** Will be rendered inline as the title of this section. */
+  title: z.string(),
+  /** Render an anchor tag for this section to link it from other posts. */
+  anchor: z.string(),
+  /** List of instructions. No doubly nested recipes allowed! */
+  recipeInstructions: z.array(z.string()),
+});
+
 const recipeFields = z.object({
   title: z.string(),
   description: z.string(),
@@ -33,7 +42,7 @@ const recipeFields = z.object({
   updatedDate: z.date().optional(),
   image: z.string().optional(),
   recipeIngredients: z.array(z.string()),
-  recipeInstructions: z.array(z.string()),
+  recipeInstructions: z.array(z.union([z.string(), recipeInstructionsSection])),
   recipeYield: z.string(),
   cookTime: isoDuration,
   prepTime: isoDuration,
@@ -52,7 +61,7 @@ const drinkSchema = recipeFields.extend({
 });
 
 const foodSchema = recipeFields.extend({
-  kingdom: z.literal("drink"),
+  kingdom: z.literal("food"),
   category: z.union([z.literal("dessert"), z.literal("breads")]),
 });
 
