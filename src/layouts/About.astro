@@ -43,7 +43,7 @@ const icons = {
 const { frontmatter } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
@@ -114,13 +114,10 @@ const { frontmatter } = Astro.props;
         }
       }
 
-      .image {
+      img {
         margin: 0rem;
-
-        img {
-          display: block;
-          width: 100%;
-        }
+        display: block;
+        width: 100%;
       }
 
       .about-columns {
@@ -163,9 +160,7 @@ const { frontmatter } = Astro.props;
             <div class="card" id="about-card">
               <!-- image -->
               <div class="card-image">
-                <figure class="image">
-                  <img src="/img/about.jpg" alt="Zach Morrissey" />
-                </figure>
+                <img src="/img/about.jpg" alt="Zach Morrissey" />
               </div>
 
               <!-- card content -->
