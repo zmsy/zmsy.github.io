@@ -12,7 +12,9 @@ const url = `/recipes/${slug}`;
 ---
 
 <div class="card recipe-preview">
-  <img src="./placeholder.png" />
+  <a href={url}>
+    <img src="./placeholder.png" />
+  </a>
   <div class="recipe-preview-content">
     <a href={url}>{title}</a>
     <p class="classification">{kingdom}{" > "}{category}</p>
