@@ -6,6 +6,7 @@
  * recipe being made, then the recipe card.
  */
 import type { CollectionEntry } from "astro:content";
+import RecipeSection from "./RecipeSection.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"recipes">["data"];
@@ -21,6 +22,7 @@ const {
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
+  <div class="diagonal-stripes"></div>
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
@@ -41,9 +43,19 @@ const {
     {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
   </ul>
   <h2>Instructions</h2>
-  <ul>
-    {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
-  </ul>
+  <ol>
+    {
+      recipeInstructions.map((instruction) => (
+        <li>
+          {typeof instruction === "string" ? (
+            instruction
+          ) : (
+            <RecipeSection {...instruction} />
+          )}
+        </li>
+      ))
+    }
+  </ol>
 </div>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
@@ -55,7 +67,7 @@ const {
     border: 2px solid var(--accent1Color);
     border-radius: 0.5rem;
     padding: 2rem;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 
     @include mixins.mobile {
       & {
@@ -67,6 +79,20 @@ const {
 
   p {
     margin-top: 1rem;
+  }
+
+  $stripeWidth: 0.5rem;
+  .diagonal-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--accent3Color),
+      var(--accent3Color) $stripeWidth,
+      transparent $stripeWidth,
+      transparent calc($stripeWidth * 2.5)
+    );
+    height: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
   }
 
   .recipe-header {
@@ -86,7 +112,8 @@ const {
     font-size: 1rem;
   }
 
-  ul {
+  ul,
+  ol {
     list-style-type: disc;
     list-style-position: outside;
     margin-top: 0rem;
