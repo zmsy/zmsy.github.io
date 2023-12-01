@@ -33,7 +33,7 @@ export const Figure: FunctionComponent<FigureProps> = ({
   alt,
 }) => {
   // only set the id of the element if it's been passed
-  const idProps = { ...(id !== undefined && { id }) };
+  const idProps = id !== undefined ? { id } : {};
 
   return (
     <figure

@@ -18,7 +18,7 @@ const url = `/blog/${slug}`;
 
 <div class="blog-preview">
   <h2>
-    <a class="blog-preview-title" href={url}>
+    <a class="blog-preview-title" href={url} transition:name={url}>
       {title}
     </a>
   </h2>
@@ -27,7 +27,7 @@ const url = `/blog/${slug}`;
     <a href={contactInfo.twitterUrl}>
       {contactInfo.authorName}
     </a>
-    on {publishDate.toLocaleDateString()}
+     on {publishDate.toLocaleDateString()}
   </p>
   <p>
     <Figure svg={diamonds} className={"hero-diamonds"} />
