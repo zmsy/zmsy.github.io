@@ -26,6 +26,7 @@ const {
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
+    <img src="/placeholder.png" />
     <p class="description">{description}</p>
     <p class="publish-date">
       Published: {
@@ -79,6 +80,10 @@ const {
 
   p {
     margin-top: 1rem;
+  }
+
+  img {
+    width: 100%;
   }
 
   $stripeWidth: 0.5rem;
@@ -135,10 +140,12 @@ const {
     color: var(--titleTextColor);
     text-decoration: underline;
     text-decoration-color: var(--accent2Color);
+    margin-bottom: 0.5rem;
 
     @include mixins.mobile {
       & {
         font-size: 2rem;
+        margin-bottom: 0.75rem;
       }
     }
   }
