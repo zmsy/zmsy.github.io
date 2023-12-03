@@ -1,19 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-type Props = Pick<
-  CollectionEntry<"recipes">["data"],
-  "title" | "kingdom" | "category" | "description" | "publishDate"
-> & { slug: string };
+type Props = CollectionEntry<"recipes">["data"] & { slug: string };
 
 // recipe grid variables
-const { slug, title, kingdom, category, publishDate } = Astro.props;
+const { slug, title, kingdom, category, publishDate, image } = Astro.props;
 const url = `/recipes/${slug}`;
 ---
 
 <div class="card recipe-preview">
   <a href={url}>
-    <img src="./placeholder.png" />
+    <img src={image?.src ?? "./placeholder.png"} />
   </a>
   <div class="recipe-preview-content">
     <a href={url}>{title}</a>

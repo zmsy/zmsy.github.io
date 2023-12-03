@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z, type ImageFunction } from "astro:content";
 
 const blog = defineCollection({
   schema: z.object({
@@ -35,38 +35,46 @@ export const recipeInstructionsSection = z.object({
   recipeInstructions: z.array(z.string()),
 });
 
-const recipeFields = z.object({
-  title: z.string(),
-  description: z.string(),
-  publishDate: z.date(),
-  updatedDate: z.date().optional(),
-  image: z.string().optional(),
-  recipeIngredients: z.array(z.string()),
-  recipeInstructions: z.array(z.union([z.string(), recipeInstructionsSection])),
-  recipeYield: z.string(),
-  cookTime: isoDuration,
-  prepTime: isoDuration,
-  totalTime: isoDuration,
-  /** seo keywords */
-  keywords: z.array(z.string()).optional(),
-});
+const recipeFields = (image: ImageFunction) =>
+  z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.date(),
+    updatedDate: z.date().optional(),
+    image: image().optional(),
+    recipeIngredients: z.array(z.string()),
+    recipeInstructions: z.array(
+      z.union([z.string(), recipeInstructionsSection])
+    ),
+    recipeYield: z.string(),
+    cookTime: isoDuration,
+    prepTime: isoDuration,
+    totalTime: isoDuration,
+    /** seo keywords */
+    keywords: z.array(z.string()).optional(),
+  });
 
-const drinkSchema = recipeFields.extend({
+const drinkFields = {
   kingdom: z.literal("drink"),
   category: z.union([
     z.literal("cocktails"),
     z.literal("non-alcoholic"),
     z.literal("hot"),
   ]),
-});
+};
 
-const foodSchema = recipeFields.extend({
+const foodFields = {
   kingdom: z.literal("food"),
   category: z.union([z.literal("dessert"), z.literal("breads")]),
-});
+};
 
 const recipes = defineCollection({
-  schema: z.union([foodSchema, drinkSchema]),
+  schema: ({ image }) => {
+    const commonFields = recipeFields(image);
+    const foodSchema = commonFields.extend(foodFields);
+    const drinkSchema = commonFields.extend(drinkFields);
+    return z.union([foodSchema, drinkSchema]);
+  },
 });
 
 export const collections = { blog, recipes };
