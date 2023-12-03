@@ -3,6 +3,8 @@ import type { CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"recipes">["data"] & { slug: string };
 
+import placeHolderImage from "../images/placeholder.png";
+
 // recipe grid variables
 const { slug, title, kingdom, category, publishDate, image } = Astro.props;
 const url = `/recipes/${slug}`;
@@ -10,7 +12,7 @@ const url = `/recipes/${slug}`;
 
 <div class="card recipe-preview">
   <a href={url}>
-    <img src={image?.src ?? "./placeholder.png"} />
+    <img src={image?.src ?? placeHolderImage.src} />
   </a>
   <div class="recipe-preview-content">
     <a href={url}>{title}</a>

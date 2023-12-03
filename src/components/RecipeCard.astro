@@ -11,6 +11,8 @@ import RecipeSection from "./RecipeSection.astro";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"recipes">["data"];
 
+import placeholderImage from "../images/placeholder.png";
+
 const {
   title,
   description,
@@ -26,7 +28,7 @@ const {
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
-    <img src="/placeholder.png" />
+    <img src={placeholderImage.src} />
     <p class="description">{description}</p>
     <p class="publish-date">
       Published: {
