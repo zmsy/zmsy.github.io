@@ -2,8 +2,8 @@
 /**
  * Layout for the about page on the site.
  */
-import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
 import type { MarkdownLayoutProps } from "astro";
+import { Picture } from "astro:assets";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import Navigation from "../components/Navigation.astro";
@@ -11,6 +11,9 @@ import { Figure } from "../components/app/Figure";
 import BaseHead from "../components/head/BaseHead.astro";
 import MarkdownContent from "../components/mdx/MarkdownContent.astro";
 import { contactInfo } from "../consts";
+
+import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
+import selfie from "../images/about/selfie.webp";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = MarkdownLayoutProps<{
@@ -160,7 +163,14 @@ const { frontmatter } = Astro.props;
             <div class="card" id="about-card">
               <!-- image -->
               <div class="card-image">
-                <img src="/img/about.jpg" alt="Zach Morrissey" />
+                <Picture
+                  src={selfie}
+                  formats={["webp", "jpg"]}
+                  densities={[1, 2]}
+                  width={300}
+                  quality={"high"}
+                  alt="Zach Morrissey"
+                />
               </div>
 
               <!-- card content -->
