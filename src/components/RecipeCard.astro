@@ -36,8 +36,9 @@ const {
       src={image ?? placeholderImage}
       densities={[1, 2]}
       formats={["webp", "jpg"]}
+      fallbackFormat="jpg"
       alt=""
-      quality={"max"}
+      quality={"high"}
     />
     <p class="description">{description}</p>
     <p class="publish-date">
