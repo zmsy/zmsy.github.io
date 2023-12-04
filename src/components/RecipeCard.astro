@@ -5,7 +5,9 @@
  * page SEO recipe. Most recipe sites have introduction, then some images of the
  * recipe being made, then the recipe card.
  */
+import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+
 import RecipeSection from "./RecipeSection.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -19,6 +21,7 @@ const {
   publishDate,
   recipeIngredients,
   recipeInstructions,
+  image,
 } = Astro.props;
 ---
 
@@ -28,7 +31,15 @@ const {
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
-    <img src={placeholderImage.src} />
+    <Picture
+      class={"recipe-preview-picture"}
+      src={image ?? placeholderImage}
+      densities={[1, 2]}
+      formats={["webp", "jpg"]}
+      fallbackFormat={"jpeg"}
+      alt=""
+      quality={"max"}
+    />
     <p class="description">{description}</p>
     <p class="publish-date">
       Published: {
