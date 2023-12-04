@@ -18,7 +18,6 @@ const url = `/recipes/${slug}`;
       src={image ?? placeHolderImage}
       densities={[1, 2]}
       formats={["webp", "jpg"]}
-      fallbackFormat={"jpeg"}
       alt=""
       quality={"high"}
     />
@@ -39,7 +38,7 @@ const url = `/recipes/${slug}`;
 </div>
 <style lang="scss">
   a {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--titleTextColor);
     display: block;
     font-family: var(--heroFonts);
@@ -48,6 +47,7 @@ const url = `/recipes/${slug}`;
   .recipe-preview-picture {
     height: auto;
     width: 100%;
+    border: 1px solid var(--textColor);
   }
 
   .classification {
@@ -82,6 +82,8 @@ const url = `/recipes/${slug}`;
     width: 100%;
     height: auto;
     object-fit: cover;
+    // https://stackoverflow.com/a/66087056
+    display: block;
   }
 
   .recipe-preview {

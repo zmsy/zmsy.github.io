@@ -32,11 +32,10 @@ const {
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
     <Picture
-      class={"recipe-preview-picture"}
+      class={"recipe-picture"}
       src={image ?? placeholderImage}
       densities={[1, 2]}
       formats={["webp", "jpg"]}
-      fallbackFormat={"jpeg"}
       alt=""
       quality={"max"}
     />
@@ -118,6 +117,10 @@ const {
     font-variant: small-caps;
     font-weight: 700;
     font-size: 1rem;
+  }
+
+  .recipe-picture {
+    border: 1px solid var(--textColor);
   }
 
   .description {
