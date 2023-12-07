@@ -19,7 +19,11 @@ const blog = defineCollection({
   }),
 });
 
-const durationRegex =
+/**
+ * ISO-8601 Duration format regex.
+ * https://tc39.es/proposal-temporal/docs/duration.html
+ */
+export const durationRegex =
   /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)?S)?$/;
 
 const isoDuration = z

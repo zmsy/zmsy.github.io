@@ -8,6 +8,7 @@
 import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
+import { readableDuration } from "@src/lib/dates";
 import RecipeSection from "./RecipeSection.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,7 +23,18 @@ const {
   recipeIngredients,
   recipeInstructions,
   image,
+  recipeYield,
+  prepTime,
+  cookTime,
+  totalTime,
 } = Astro.props;
+
+const stats = new Map<string, string | undefined>([
+  ["Yield", recipeYield],
+  ["Prep", readableDuration(prepTime)],
+  ["Cook", readableDuration(cookTime)],
+  ["Total", readableDuration(totalTime)],
+]);
 ---
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
@@ -31,6 +43,18 @@ const {
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
+    <dl class="recipe-stats">
+      {
+        [...stats.entries()].map(([label, description]) => {
+          return (
+            <div class="recipe-stats-entry">
+              <dt>{label}</dt>
+              <dd>{description}</dd>
+            </div>
+          );
+        })
+      }
+    </dl>
     <Picture
       class={"recipe-picture"}
       src={image ?? placeholderImage}
@@ -89,6 +113,39 @@ const {
         padding: 1.25rem;
       }
     }
+  }
+
+  dl {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 3rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem 0.5rem;
+    border-left: 0.25rem solid var(--accent4Color);
+
+    @include mixins.mobile {
+      & {
+        gap: 1rem;
+      }
+    }
+  }
+
+  .recipe-stats-entry {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+
+  dt {
+    font-family: var(--heroFonts);
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+  }
+
+  dd {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.125rem;
   }
 
   p {
@@ -157,7 +214,6 @@ const {
     color: var(--titleTextColor);
     text-decoration: underline;
     text-decoration-color: var(--accent2Color);
-    margin-bottom: 0.5rem;
 
     @include mixins.mobile {
       & {
