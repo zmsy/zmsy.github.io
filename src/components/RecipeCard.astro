@@ -110,7 +110,7 @@ const stats = new Map<string, string | undefined>([
     @include mixins.mobile {
       & {
         font-size: 1rem;
-        padding: 1.25rem;
+        padding: 0.75rem;
       }
     }
   }
@@ -140,12 +140,26 @@ const stats = new Map<string, string | undefined>([
     font-family: var(--heroFonts);
     font-size: 1.125rem;
     line-height: 1.125rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 1rem;
+        line-height: 1rem;
+      }
+    }
   }
 
   dd {
     font-style: italic;
     font-size: 1rem;
     line-height: 1.125rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 0.875rem;
+        line-height: 0.875rem;
+      }
+    }
   }
 
   p {
@@ -217,7 +231,7 @@ const stats = new Map<string, string | undefined>([
 
     @include mixins.mobile {
       & {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-bottom: 0.75rem;
       }
     }
