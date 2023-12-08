@@ -11,7 +11,7 @@ export const readableDuration = (duration: string): string => {
   const parsed = tinyduration.parse(duration);
   let output = "";
   if (parsed.minutes) {
-    output = `${parsed.minutes} mins`;
+    output = `${parsed.minutes} min`;
   }
   if (parsed.hours) {
     output = `${parsed.hours} hr, ${output}`;
