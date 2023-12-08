@@ -134,6 +134,13 @@ const stats = new Map<string, string | undefined>([
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    gap: 0.5rem;
+
+    @include mixins.mobile {
+      & {
+        gap: 0.25rem;
+      }
+    }
   }
 
   dt {
@@ -232,7 +239,7 @@ const stats = new Map<string, string | undefined>([
     @include mixins.mobile {
       & {
         font-size: 1.5rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
       }
     }
   }
