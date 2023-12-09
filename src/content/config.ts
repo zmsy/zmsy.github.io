@@ -48,7 +48,7 @@ const recipeFields = (image: ImageFunction) =>
     image: image().optional(),
     recipeIngredients: z.array(z.string()),
     recipeInstructions: z.array(
-      z.union([z.string(), recipeInstructionsSection])
+      z.union([z.string(), recipeInstructionsSection]),
     ),
     recipeYield: z.string(),
     cookTime: isoDuration,
