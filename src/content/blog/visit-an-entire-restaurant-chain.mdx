@@ -1,0 +1,97 @@
+---
+title: "Let's Road Trip to Visit an Entire Restaurant Chain"
+description: "Inspired by Eddie Burback's two trips to all existing Rainforest Cafe and Margaritaville locations, I decided to analyze what chains in the US would make for the best road trips."
+publishDate: 2023-12-28
+---
+
+My friends and I have a silly tradition called "Powerpoint Night", where everyone creates a presentation on some random topic for everyone's enjoyment. This year, I'm presenting on chain restaurant-based road trips.
+
+This year, I was inspired by [Eddie Burback's YouTube Channel](https://www.youtube.com/@EddyBurback) where he and a friend road-tripped to all existing locations of two well-known chain restaurants:
+
+1. ["I ate at every Rainforest Cafe in the Country"](https://www.youtube.com/watch?v=vA-bjpKvIw8)
+2. ["I ate at every Margaritaville in the Country"](https://www.youtube.com/watch?v=Bsb9T1g5nlE)
+
+Thinking through these, there's probably a spectrum on which these roadtrips lie in terms of:
+
+1. How grueling of a trek they'd be,
+2. The actual quality of the restaurants, and
+3. The appeal of the places to visit.
+
+So, with these in mind, the question I set out to answer was **"For some well-known chains in North America, what is the required travel to visit all open stores? Would it be enjoyable or terrible?"**. Knowing that the term "enjoyable" in this sense is a might bit masochistic, let's see what we can do.
+
+## Narrowing the Scope: Constraints and Goals
+
+### Goals
+
+In figuring out the optimal road trip, the goals of the trip are to see a lot of cool places while _also_ happening to comprehensively visit an entire restaurant chain.
+
+- **Low duplicates per metro area** - I don't want to spend too many visits in the same metro area. I'd like to keep moving and see many places. The goal here is that each unique metro area is counted as a +1.
+- **Cool cities** - Arbitrarily using the HUD Office of Policy Development and Research (PD&R) [Metropolitan Statistical Areas](https://www.huduser.gov/portal/datasets/geotools.html) (MSA) and referencing the [tourism numbers for those cities](https://www.trade.gov/data-visualization/us-states-cities-visited-overseas-travelers).
+
+### Constraints
+
+Let's be clear: This is a largely nonsensical analysis, and nuance isn't that important. We're going to start with a reasonable set of constraints such that this doesn't get out of hand. Bear with me.
+
+Restrictions:
+
+- Starting point must be Seattle because, well, I live here.
+- Travel days cannot be longer than 12 hours.
+- Eating at a given restaurant takes 1 hour.
+- Restaurant must be in United States, Canada, or Mexico. Continental, no islands.
+- Total roadtrip time must be less than a year.
+
+## Tools Used
+
+For this, I largely relied on [OpenStreetMap](https://www.openstreetmap.org/) and the [Open Source Route Machine (OSRM) API](http://project-osrm.org/) (which has its own query language). These are some incredibly high-quality tools that are largely crowdsourced.
+
+You can set up your own OSRM server using their [Docker instructions](https://github.com/Project-OSRM/osrm-backend#using-docker) pretty quickly. For this project, I was able to get away with just using the public demo server at [overpass-turbo](https://overpass-turbo.eu/) since I didn't have any particular need for custom setup.
+
+### Forming the Query
+
+The [Overpass API](https://dev.overpass-api.de/overpass-doc/en/index.html) is a way to query the entities within OpenStreetMap.
+
+The query language itself is a little tricky, but is best [learned by example on overpass-turbo](https://overpass-turbo.eu/). The best way to do that is to select the 'Wizard' in the overpass-turbo UI to have it generate a query for you. You can then run them from that page.
+
+What if you were in dire need of a [Crisp Burrito](https://tacotimenw.com/menu/combo-2-crisp-burrito/#menu_wrap) and wanted to visit every [Taco Time](https://tacotimenw.com/) in the US, Canada, and Mexico? Fortunately they're only in WA, so it wouldn't be that hard. Here's a query for it:
+
+```txt
+[out:json];
+
+(
+  area["name"="United States"]->.searchArea;
+  area["name"="Canada"]->.searchArea;
+  area["name"="Mexico"]->.searchArea;
+)->.searchArea;
+
+node["brand"="Taco Time NW"](area.searchArea);
+out;
+```
+
+So there's two parts to know here:
+
+1. This specifies the search area by referencing three areas by their `name` tag and then combining their `.searchArea` attributes into a set.
+2. The node identifier query `"brand"="Taco Time NW"` was just found by going to OpenStreetMap, finding a [random Taco Time location](https://www.openstreetmap.org/way/290275947#map=19/48.93484/-122.48585), and then ripping a unique query identifier from the `Tags` list.
+
+That gives you...
+
+```
+[image placeholder: all taco time locations in the PNW]
+```
+
+### Querying the Overpass API
+
+You can call the OSRM API directly from [one of the public API instances](https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances). Be a good citizen and follow the guide on reasonable query limits.
+
+## Analyzing the Travel Time
+
+Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve the [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every Taco Time?") using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
+
+With this travel time, we can come up with a "road trip" plan, meaning a travel along the route provided above that matches the constraints set out in the section above. This is looking a might bit, well, algorithmic is it not? That's because this x
+
+## Adding Relevant Data
+
+In order to get relevant data for the places that I'd like to visit, I'm going to add in some more data. For that, we'll need some geocoding. The information for a given node in OpenStreetMap can be pretty 
+
+## Choosing a Restaurant Chain
+
+I'll reference the [list of restaurant chains on Wikipedia](https://en.wikipedia.org/wiki/List_of_restaurant_chains_in_the_United_States) for a little inspiration here.
