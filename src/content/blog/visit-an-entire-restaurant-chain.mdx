@@ -4,9 +4,13 @@ description: "Inspired by Eddie Burback's two trips to all existing Rainforest C
 publishDate: 2023-12-28
 ---
 
-My friends and I have a silly tradition called "Powerpoint Night", where everyone creates a presentation on some random topic for everyone's enjoyment. This year, I'm presenting on chain restaurant-based road trips.
+import tacoTimeLocations from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-locations.png";
 
-This year, I was inspired by [Eddie Burback's YouTube Channel](https://www.youtube.com/@EddyBurback) where he and a friend road-tripped to all existing locations of two well-known chain restaurants:
+import { Image } from "astro:assets";
+
+My friends and I have a silly tradition called "Powerpoint Night", where everyone creates a presentation on some random topic for everyone's enjoyment. This year, I'm doing some ruminating on restaurant chains.
+
+I was inspired by [Eddie Burback's YouTube Channel](https://www.youtube.com/@EddyBurback) where he and a friend road-tripped to all existing locations of two well-known chain restaurants:
 
 1. ["I ate at every Rainforest Cafe in the Country"](https://www.youtube.com/watch?v=vA-bjpKvIw8)
 2. ["I ate at every Margaritaville in the Country"](https://www.youtube.com/watch?v=Bsb9T1g5nlE)
@@ -40,19 +44,17 @@ Restrictions:
 - Restaurant must be in United States, Canada, or Mexico. Continental, no islands.
 - Total roadtrip time must be less than a year.
 
-## Tools Used
+## Data
 
-For this, I largely relied on [OpenStreetMap](https://www.openstreetmap.org/) and the [Open Source Route Machine (OSRM) API](http://project-osrm.org/) (which has its own query language). These are some incredibly high-quality tools that are largely crowdsourced.
+For this, I largely relied on [OpenStreetMap](https://www.openstreetmap.org/) and the associated [Overpass API](https://dev.overpass-api.de/overpass-doc/en/index.html) (which has its own query language) to query entities within the map data. These are some incredibly high-quality tools that are largely crowdsourced.
 
-You can set up your own OSRM server using their [Docker instructions](https://github.com/Project-OSRM/osrm-backend#using-docker) pretty quickly. For this project, I was able to get away with just using the public demo server at [overpass-turbo](https://overpass-turbo.eu/) since I didn't have any particular need for custom setup.
+For this project, I was able to get away with just using the public demo server at [overpass-turbo](https://overpass-turbo.eu/) since I didn't have any particular need for custom setup.
 
 ### Forming the Query
 
-The [Overpass API](https://dev.overpass-api.de/overpass-doc/en/index.html) is a way to query the entities within OpenStreetMap.
+The query language itself is a little tricky, but is best [learned by example on overpass-turbo itself](https://overpass-turbo.eu/). The best way to do that is to select the 'Wizard' in the overpass-turbo UI to have it generate a query for you. You can then run them from that page.
 
-The query language itself is a little tricky, but is best [learned by example on overpass-turbo](https://overpass-turbo.eu/). The best way to do that is to select the 'Wizard' in the overpass-turbo UI to have it generate a query for you. You can then run them from that page.
-
-What if you were in dire need of a [Crisp Burrito](https://tacotimenw.com/menu/combo-2-crisp-burrito/#menu_wrap) and wanted to visit every [Taco Time](https://tacotimenw.com/) in the US, Canada, and Mexico? Fortunately they're only in WA, so it wouldn't be that hard. Here's a query for it:
+For the query: Let's say you were in such dire need of a [Crisp Burrito](https://tacotimenw.com/menu/combo-2-crisp-burrito/#menu_wrap) that you felt compelled to visit every [Taco Time](https://tacotimenw.com/) in the US, Canada, and Mexico? Fortunately they're only in WA, so it wouldn't be that hard. Here's a query for it:
 
 ```txt
 [out:json];
@@ -67,22 +69,79 @@ node["brand"="Taco Time NW"](area.searchArea);
 out;
 ```
 
-So there's two parts to know here:
+Two notes here:
 
 1. This specifies the search area by referencing three areas by their `name` tag and then combining their `.searchArea` attributes into a set.
 2. The node identifier query `"brand"="Taco Time NW"` was just found by going to OpenStreetMap, finding a [random Taco Time location](https://www.openstreetmap.org/way/290275947#map=19/48.93484/-122.48585), and then ripping a unique query identifier from the `Tags` list.
 
-That gives you...
+That gives you all of the Taco Time locations found in OpenStreetMap:
 
-```
-[image placeholder: all taco time locations in the PNW]
-```
+<Image src={tacoTimeLocations} alt="Map of all Taco Time Northwest locations." />
 
 ### Querying the Overpass API
 
-You can call the OSRM API directly from [one of the public API instances](https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances). Be a good citizen and follow the guide on reasonable query limits.
+You can call the Overpass API directly from [one of the public API instances](https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances). Be a good citizen and follow the guide on reasonable query limits.
+
+The goal is to get all of the stores for each restaurant chain.
+
+#### Input Data - Restaurants to Analyze
+
+For the inputs, I ripped all of the entries from the Wikipedia "[List of restaurant chains in the United States](https://en.wikipedia.org/wiki/List_of_restaurant_chains_in_the_United_States)" using a little python and pandas:
+
+```python
+# I just Ctrl + S'd on the page above into this 'restaurants.html' file first.
+raw_df_list = pd.read_html("restaurants.html")
+df_list = [x for x in raw_df_list if 'Headquarters' in x.columns]
+cat = pd.concat(df_list, ignore_index=True, sort=False)
+with open("restaurants.json", "w") as out_file:
+    out_file.write(cat.to_json(orient="records"))
+```
+
+[Resulting data set is available on Github](https://github.com/zmsy/roadtrip/blob/main/src/restaurants.ts#L35).
+
+#### Output Data - Full List of Stores from Overpass
+
+I then [wrote a script in Typescript](https://github.com/zmsy/roadtrip/blob/main/index.ts#L10) to call the service with a parameterized "filter" on the query above and return all of the nodes for a given restaurant chain. This was a pretty unscientific approach, but it was largely asking "Does matching the `name` exactly show most results for this chain?". If not, just use a prefix" and rolling with it. I did that manually.
+
+You'll get a response with a list of elements like so:
+
+```json
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.5 4133829e",
+  "osm3s": {
+    "timestamp_osm_base": "2023-12-19T17:21:15Z",
+    "timestamp_areas_base": "2023-12-19T16:06:35Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 300626463,
+      "lat": 51.1541516,
+      "lon": -114.0668608,
+      "tags": {
+        "amenity": "restaurant",
+        "brand": "Applebee's Neighborhood Grill & Bar",
+        "brand:wikidata": "Q621532",
+        "brand:wikipedia": "en:Applebee's",
+        "cuisine": "american",
+        "name": "Applebee's",
+        "official_name": "Applebee's Neighborhood Grill & Bar"
+      }
+    }
+    // ... all of the rest of the data
+  ]
+}
+```
+
+[Full code here on Github]().
+
+Now we've got a full list of stores for each chain.
 
 ## Analyzing the Travel Time
+
+I'm using the [Open Source Route Machine (OSRM) API](http://project-osrm.org/), which can do a lot of fancy routing _incredibly_ fast. You can set up your own OSRM server using their [Docker instructions](https://github.com/Project-OSRM/osrm-backend#using-docker) pretty quickly, if you'd like.
 
 Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve the [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every Taco Time?") using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
 
