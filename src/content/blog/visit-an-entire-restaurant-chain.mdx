@@ -5,6 +5,16 @@ publishDate: 2023-12-28
 ---
 
 import tacoTimeLocations from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-locations.png";
+import tacoTimeMap from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-map.png";
+import starbucksMap from "@src/images/blog/visit-an-entire-restaurant-chain/starbucks.png";
+import burgerfiMap from "@src/images/blog/visit-an-entire-restaurant-chain/burgerfi.png";
+import manchuWokMap from "@src/images/blog/visit-an-entire-restaurant-chain/manchu-wok.png";
+import ginosMap from "@src/images/blog/visit-an-entire-restaurant-chain/ginos-pizza-and-spaghetti.png";
+import hotDogMap from "@src/images/blog/visit-an-entire-restaurant-chain/hot-dog-on-a-stick.png";
+import timHortonsMap from "@src/images/blog/visit-an-entire-restaurant-chain/tim-hortons.png";
+import tonyRomasMap from "@src/images/blog/visit-an-entire-restaurant-chain/tony-romas.png";
+import yogenFruzMap from "@src/images/blog/visit-an-entire-restaurant-chain/yogen-frz.png";
+import yogurtlandMap from "@src/images/blog/visit-an-entire-restaurant-chain/yogurtland.png";
 
 import { Image } from "astro:assets";
 
@@ -15,34 +25,17 @@ I was inspired by [Eddie Burback's YouTube Channel](https://www.youtube.com/@Edd
 1. ["I ate at every Rainforest Cafe in the Country"](https://www.youtube.com/watch?v=vA-bjpKvIw8)
 2. ["I ate at every Margaritaville in the Country"](https://www.youtube.com/watch?v=Bsb9T1g5nlE)
 
-Thinking through these, there's probably a spectrum on which these roadtrips lie in terms of:
+Thinking through these, there's probably an interesting analysis here. What does it actually take to visit an entire restaurant chain? Surely these ones featured in the videos can't be that bad.  So, with that in mind, the question I set out to answer was **"For some well-known chains in North America, what is the required travel to visit all open stores?"**.
 
-1. How grueling of a trek they'd be,
-2. The actual quality of the restaurants, and
-3. The appeal of the places to visit.
-
-So, with these in mind, the question I set out to answer was **"For some well-known chains in North America, what is the required travel to visit all open stores? Would it be enjoyable or terrible?"**. Knowing that the term "enjoyable" in this sense is a might bit masochistic, let's see what we can do.
-
-## Narrowing the Scope: Constraints and Goals
-
-### Goals
-
-In figuring out the optimal road trip, the goals of the trip are to see a lot of cool places while _also_ happening to comprehensively visit an entire restaurant chain.
-
-- **Low duplicates per metro area** - I don't want to spend too many visits in the same metro area. I'd like to keep moving and see many places. The goal here is that each unique metro area is counted as a +1.
-- **Cool cities** - Arbitrarily using the HUD Office of Policy Development and Research (PD&R) [Metropolitan Statistical Areas](https://www.huduser.gov/portal/datasets/geotools.html) (MSA) and referencing the [tourism numbers for those cities](https://www.trade.gov/data-visualization/us-states-cities-visited-overseas-travelers).
-
-### Constraints
+## Constraints
 
 Let's be clear: This is a largely nonsensical analysis, and nuance isn't that important. We're going to start with a reasonable set of constraints such that this doesn't get out of hand. Bear with me.
 
 Restrictions:
 
-- Starting point must be Seattle because, well, I live here.
 - Travel days cannot be longer than 12 hours.
 - Eating at a given restaurant takes 1 hour.
-- Restaurant must be in United States, Canada, or Mexico. Continental, no islands.
-- Total roadtrip time must be less than a year.
+- Restaurant must be in United States, Canada, or Mexico. Continental, no islands. No Hawaii, and no Puerto Rico.
 
 ## Data
 
@@ -60,9 +53,9 @@ For the query: Let's say you were in such dire need of a [Crisp Burrito](https:/
 [out:json];
 
 (
-  area["name"="United States"]->.searchArea;
-  area["name"="Canada"]->.searchArea;
-  area["name"="Mexico"]->.searchArea;
+  area["name"="United States"];
+  area["name"="Canada"];
+  area["name"="Mexico"];
 )->.searchArea;
 
 node["brand"="Taco Time NW"](area.searchArea);
@@ -71,8 +64,8 @@ out;
 
 Two notes here:
 
-1. This specifies the search area by referencing three areas by their `name` tag and then combining their `.searchArea` attributes into a set.
-2. The node identifier query `"brand"="Taco Time NW"` was just found by going to OpenStreetMap, finding a [random Taco Time location](https://www.openstreetmap.org/way/290275947#map=19/48.93484/-122.48585), and then ripping a unique query identifier from the `Tags` list.
+1. This specifies the search area by referencing three areas by their `name` tag and then combining their members into a set named `.searchArea`.
+2. The node identifier query `"brand"="Taco Time NW"` was just found by going to OpenStreetMap, finding a [random Taco Time location](https://www.openstreetmap.org/way/290275947#map=19/48.93484/-122.48585), and then ripping a unique query identifier from the `Tags` list. Normally, the `brand:wikidata` identifier is the most accurate, because it's indicative of well-curated OpenStreetMap data.
 
 That gives you all of the Taco Time locations found in OpenStreetMap:
 
@@ -135,9 +128,9 @@ You'll get a response with a list of elements like so:
 }
 ```
 
-[Full code here on Github]().
+[Code to fetch stores from Overpass is on Github](https://github.com/zmsy/roadtrip/blob/main/src/overpass.ts#L130).
 
-Now we've got a full list of stores for each chain.
+Now we've got a full list of stores for each chain. OSM data can be incomplete, so if you see something that doesn't have your favorite local Chuck E. Cheese, maybe [take the time to contribute](https://wiki.openstreetmap.org/wiki/How_to_contribute) information.
 
 ## Analyzing the Travel Time
 
@@ -145,12 +138,109 @@ I'm using the [Open Source Route Machine (OSRM) API](http://project-osrm.org/), 
 
 Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve the [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every Taco Time?") using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
 
-With this travel time, we can come up with a "road trip" plan, meaning a travel along the route provided above that matches the constraints set out in the section above. This is looking a might bit, well, algorithmic is it not? That's because this x
+### Breaking The Trip Up Via Clustering
 
-## Adding Relevant Data
+Adding one contraint in here. There's some big ol' restaurant chains in this dataset. OSRM [is _quite_ taxing to run on your own](https://afi.io/blog/hosting-the-osrm-api-on-amazon-ec2-running-osrm-backend-as-a-web-service/), and the publicly available instances have a hard limit of **100 nodes per trip**, so I'm going to break up the routes into clusters of 100 or less. We'll use geographical clustering to accomplish that.
 
-In order to get relevant data for the places that I'd like to visit, I'm going to add in some more data. For that, we'll need some geocoding. The information for a given node in OpenStreetMap can be pretty 
+This can be done using `turf`'s function [`clustersKMeans`](https://turfjs.org/docs/#clustersKmeans) like so:
 
-## Choosing a Restaurant Chain
+```typescript
+const OSRM_MAX_NODES = 100;
+const clustered = clustersKmeans(
+  {
+    type: "FeatureCollection",
+    features: stops.map((stop) => point([stop.lon, stop.lat])),
+  },
+  {
+    // adding 1 increases the likelihood that each resulting node is less than
+    // 100. k-means won't guarantee that each result is < 100, so this process
+    // can be repeated as needed to break up clusters that are too big.
+    numberOfClusters:
+      iteration === 0 ? Math.ceil(stops.length / OSRM_MAX_NODES) + 1 : 2,
+  }
+);
+```
 
-I'll reference the [list of restaurant chains on Wikipedia](https://en.wikipedia.org/wiki/List_of_restaurant_chains_in_the_United_States) for a little inspiration here.
+## Plotting the Results
+
+By now, you must be starving. Absolutely famished. You're in such dire need of a [#4 Two Crisp Tacos](https://tacotimenw.com/menu/combo-4-two-crisp-tacos/#menu_wrap) meal that you're ready to set out to hit every Taco Time that exists and buy out their wares. So let's make you a map!
+
+I used the [staticmaps](https://www.npmjs.com/package/staticmaps) package on npm which allows you to generate a map using OSRM data, by passing in points to plot and geometries for lines. So I [did exactly that for each of the routes generated](https://github.com/zmsy/roadtrip/blob/main/src/map-generation.ts#L33).
+
+Here's your taco map! Go get your tacos already.
+
+<Image src={tacoTimeMap} alt="Map of all Taco Time Northwest locations, and the route to visit all of them." />
+
+Phew. Now that you're sated of your hunger, let's explore some of the other maps this analysis generated.
+
+## Fun Results
+
+Here's a completely non-exhaustive list of the most interesting results I found.
+
+### Most Grueling: Starbucks
+
+Full disclosure: Subway was actually the worst but I don't like Subway so I'm electing Starbucks as the most grueling one.
+
+**Stats:** 8,047 stops. 93,055 miles. 863 days worth of roadtripping.
+
+<Image src={starbucksMap} alt="Map of all Starbucks locations, and the route to visit all of them. It's a lot, honestly." />
+
+### Are You Really Going To Make Me Drive to Alaska: BurgerFi
+
+**Stats:** 93 stops. 15,973 miles. 33 days worth of roadtripping.
+
+<Image src={burgerfiMap} alt="Map of all BurgerFi locations, and the route to visit all of them." />
+
+### Coast to Coast Trek: Manchu Wok
+
+Outside of the mega-chains, this was the only one that went from Anchorage, AK to St. John's, NL. That's a whole lot of Canada to drive across.
+
+**Stats:** 56 stops. 16,704 miles. 34 days worth of roadtripping.
+
+<Image src={manchuWokMap} alt="Map of all Manchu Wok locations, and the route to visit all of them." />
+
+### Sparsest Route: Tony Roma's
+
+This was one of the only examples where the number of driving days was larger than the number of stops. So I guess, uh, eat up because you'll need it.
+
+**Stats:** 7 stops. 7,687 miles. 12 days worth of roadtripping.
+
+<Image src={tonyRomasMap} alt="Map of all Tony Roma's locations, and the route to visit all of them." />
+
+### Densest Route: Gino's Pizza and Spaghetti
+
+**Stats:** 75 stops. 1,276 miles. 9 days worth of roadtripping.
+
+<Image src={ginosMap} alt="Map of all Gino's Pizza & Spaghetti locations, and the route to visit all of them." />
+
+### Circumnavigating the Continent: Yogen Früz
+
+**Stats:** 31 stops. 13,428 miles. 24 days worth of roadtripping.
+
+<Image src={yogenFruzMap} alt="Map of all Yogen Früz locations, and the route to visit all of them." />
+
+### Looks Most Like Its Name: Hot Dog on a Stick
+
+**Stats:** 11 stops. 4,072 miles. 7 days worth of roadtripping.
+
+<Image src={hotDogMap} alt="Map of all Hot Dog on a Stick locations, and the route to visit all of them." />
+
+### Kinda Shaped Like a T-Rex: Yogurtland
+
+**Stats:** 99 stops. 9,559 miles. 23 days worth of roadtripping.
+
+<Image src={yogurtlandMap} alt="Map of all Yogurtland locations, and the route to visit all of them." />
+
+### Most Isolated Stop: Tim Horton's
+
+Yes, that's in Iqaluit on Nunavut! This one made the route planner fail because there's no way to get there from mainland Canada when driving. I probably should've filtered that out, but it's cool to see how remote it was.
+
+<Image src={yogurtlandMap} alt="Map of all Tim Horton's locations, and the route to visit all of them." />
+
+## Conclusion...?
+
+So what did this accomplish? Some masochistic desire of mine to know exactly how bad things could get if you were tasked with visiting every store in a big chain. Try running it yourself and see if you can plan out your big adventure.
+
+[Code's all here on Github](https://github.com/zmsy/roadtrip).
+
+I'm (barely) on [twitter](https://twitter.com/_zmsy) or [bluesky](https://bsky.app/profile/zmsy.co) if you found this useful.
