@@ -1,0 +1,292 @@
+---
+title: "Let's Road Trip to Visit an Entire Restaurant Chain"
+description: "Inspired by Eddie Burback's two trips to all existing Rainforest Cafe and Margaritaville locations, I decided to analyze what chains in the US would make for the best road trips."
+publishDate: 2024-01-27
+---
+
+import tacoTimeLocations from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-locations.png";
+import tacoTimeMap from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-map.png";
+import starbucksMap from "@src/images/blog/visit-an-entire-restaurant-chain/starbucks.png";
+import subwayMap from "@src/images/blog/visit-an-entire-restaurant-chain/subway.png";
+import burgerfiMap from "@src/images/blog/visit-an-entire-restaurant-chain/burgerfi.png";
+import manchuWokMap from "@src/images/blog/visit-an-entire-restaurant-chain/manchu-wok.png";
+import ginosMap from "@src/images/blog/visit-an-entire-restaurant-chain/ginos-pizza-and-spaghetti.png";
+import hotDogMap from "@src/images/blog/visit-an-entire-restaurant-chain/hot-dog-on-a-stick.png";
+import timHortonsMap from "@src/images/blog/visit-an-entire-restaurant-chain/tim-hortons.png";
+import tonyRomasMap from "@src/images/blog/visit-an-entire-restaurant-chain/tony-romas.png";
+import yogenFruzMap from "@src/images/blog/visit-an-entire-restaurant-chain/yogen-frz.png";
+import yogurtlandMap from "@src/images/blog/visit-an-entire-restaurant-chain/yogurtland.png";
+
+import { Image } from "astro:assets";
+
+My friends and I have a silly tradition called "Powerpoint Night", where everyone creates a presentation on some random topic for everyone's enjoyment. This year, I'm doing some ruminating on restaurant chains.
+
+I was inspired by [Eddie Burback's YouTube Channel](https://www.youtube.com/@EddyBurback) where he and a friend road-tripped to all existing locations of two well-known chain restaurants:
+
+1. ["I ate at every Rainforest Cafe in the Country"](https://www.youtube.com/watch?v=vA-bjpKvIw8)
+2. ["I ate at every Margaritaville in the Country"](https://www.youtube.com/watch?v=Bsb9T1g5nlE)
+
+Thinking through these, there's probably an interesting analysis here. What does it actually take to visit an entire restaurant chain? Surely these ones featured in the videos can't be that bad. So, with that in mind, the question I set out to answer was **"For some well-known chains in North America, what is the required travel to visit all open stores?"**.
+
+## Constraints
+
+Let's be clear: This is a largely nonsensical analysis, and nuance isn't that important. We're going to start with a reasonable set of constraints such that this doesn't get out of hand. Bear with me.
+
+Restrictions:
+
+- Travel days are 12 hours.
+- Eating at a given restaurant takes 1 hour.
+- Restaurant must be in United States, Canada, or Mexico. Continental, no islands. No Hawaii, and no Puerto Rico.
+- For the sake of simplicity, we're just going to assume the driver pulls over and stays exactly where they are at the end of each day. No navigating to hotels/campsites/etc. That's for someone smarter to figure out.
+
+## Data
+
+For this, I largely relied on [OpenStreetMap](https://www.openstreetmap.org/) and the associated [Overpass API](https://dev.overpass-api.de/overpass-doc/en/index.html) (which has its own query language) to query entities within the map data. These are some incredibly high-quality tools that are largely crowdsourced.
+
+For this project, I was able to get away with just using the public demo server at [overpass-turbo](https://overpass-turbo.eu/) since I didn't have any particular need for custom setup.
+
+### Forming the Query
+
+The query language itself is a little tricky, but is best [learned by example on overpass-turbo itself](https://overpass-turbo.eu/). The best way to do that is to select the 'Wizard' in the overpass-turbo UI to have it generate a query for you. You can then run them from that page.
+
+For the query: Let's say you were in such dire need of a [Crisp Burrito](https://tacotimenw.com/menu/combo-2-crisp-burrito/#menu_wrap) that you felt compelled to visit every [Taco Time](https://tacotimenw.com/) in the US, Canada, and Mexico? Fortunately they're only in WA, so it wouldn't be that hard. Here's a query for it:
+
+```txt
+[out:json];
+
+(
+  area["name"="United States"];
+  area["name"="Canada"];
+  area["name"="Mexico"];
+)->.searchArea;
+
+node["brand"="Taco Time NW"](area.searchArea);
+out;
+```
+
+Two notes here:
+
+1. This specifies the search area by referencing three areas by their `name` tag and then combining their members into a set named `.searchArea`.
+2. The node identifier query `"brand"="Taco Time NW"` was just found by going to OpenStreetMap, finding a [random Taco Time location](https://www.openstreetmap.org/way/290275947#map=19/48.93484/-122.48585), and then ripping a unique query identifier from the `Tags` list. Normally, the `brand:wikidata` identifier is the most accurate, because it's indicative of well-curated OpenStreetMap data.
+
+That gives you all of the Taco Time locations found in OpenStreetMap:
+
+<Image
+  src={tacoTimeLocations}
+  alt="Map of all Taco Time Northwest locations."
+/>
+
+### Querying the Overpass API
+
+You can call the Overpass API directly from [one of the public API instances](https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances). Be a good citizen and follow the guide on reasonable query limits.
+
+The goal is to get all of the stores for each restaurant chain.
+
+#### Input Data - Restaurants to Analyze
+
+For the inputs, I ripped all of the entries from the Wikipedia "[List of restaurant chains in the United States](https://en.wikipedia.org/wiki/List_of_restaurant_chains_in_the_United_States)" using a little python and pandas:
+
+```python
+# I just Ctrl + S'd on the page above into this 'restaurants.html' file first.
+raw_df_list = pd.read_html("restaurants.html")
+df_list = [x for x in raw_df_list if 'Headquarters' in x.columns]
+cat = pd.concat(df_list, ignore_index=True, sort=False)
+with open("restaurants.json", "w") as out_file:
+    out_file.write(cat.to_json(orient="records"))
+```
+
+[Resulting data set is available on Github](https://github.com/zmsy/roadtrip/blob/main/src/restaurants.ts#L35).
+
+#### Output Data - Full List of Stores from Overpass
+
+I then [wrote a script in Typescript](https://github.com/zmsy/roadtrip/blob/main/index.ts#L10) to call the service with a parameterized "filter" on the query above and return all of the nodes for a given restaurant chain. This was a pretty unscientific approach, but it was largely asking "Does matching the `name` exactly show most results for this chain?". If not, just use a prefix" and rolling with it. I did that manually.
+
+You'll get a response with a list of elements like so:
+
+```json
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.5 4133829e",
+  "osm3s": {
+    "timestamp_osm_base": "2023-12-19T17:21:15Z",
+    "timestamp_areas_base": "2023-12-19T16:06:35Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 300626463,
+      "lat": 51.1541516,
+      "lon": -114.0668608,
+      "tags": {
+        "amenity": "restaurant",
+        "brand": "Applebee's Neighborhood Grill & Bar",
+        "brand:wikidata": "Q621532",
+        "brand:wikipedia": "en:Applebee's",
+        "cuisine": "american",
+        "name": "Applebee's",
+        "official_name": "Applebee's Neighborhood Grill & Bar"
+      }
+    }
+    // ... all of the rest of the data
+  ]
+}
+```
+
+[Code to fetch stores from Overpass is on Github](https://github.com/zmsy/roadtrip/blob/main/src/overpass.ts#L130).
+
+Now we've got a full list of stores for each chain. OSM data can be incomplete, so if you see something that doesn't have your favorite local Chuck E. Cheese, maybe [take the time to contribute](https://wiki.openstreetmap.org/wiki/How_to_contribute) information.
+
+## Analyzing the Travel Time
+
+I'm using the [Open Source Route Machine (OSRM) API](http://project-osrm.org/), which can do a lot of fancy routing _incredibly_ fast. You can set up your own OSRM server using their [Docker instructions](https://github.com/Project-OSRM/osrm-backend#using-docker) pretty quickly, if you'd like.
+
+Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve the [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every Taco Time?") using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
+
+### Breaking The Trip Up Via Clustering
+
+Adding one contraint in here. There's some big ol' restaurant chains in this dataset. OSRM [is _quite_ taxing to run on your own](https://afi.io/blog/hosting-the-osrm-api-on-amazon-ec2-running-osrm-backend-as-a-web-service/), and the publicly available instances have **a hard limit of 100 nodes per trip**, so I'm going to break up the routes into clusters of 100 or less. We'll use geographical clustering to accomplish that.
+
+This can be done using `turf`'s function [`clustersKMeans`](https://turfjs.org/docs/#clustersKmeans) like so:
+
+```typescript
+const OSRM_MAX_NODES = 100;
+const clustered = clustersKmeans(
+  {
+    type: "FeatureCollection",
+    features: stops.map((stop) => point([stop.lon, stop.lat])),
+  },
+  {
+    // adding 1 increases the likelihood that each resulting node is less than
+    // 100. k-means won't guarantee that each result is < 100, so this process
+    // can be repeated as needed to break up clusters that are too big.
+    numberOfClusters:
+      iteration === 0 ? Math.ceil(stops.length / OSRM_MAX_NODES) + 1 : 2,
+  },
+);
+```
+
+## Plotting the Results
+
+By now, you must be starving. Absolutely famished. You're in such dire need of a [#4 Two Crisp Tacos](https://tacotimenw.com/menu/combo-4-two-crisp-tacos/#menu_wrap) meal that you're ready to set out to hit every Taco Time that exists and buy out their wares. So let's make you a map!
+
+I used the [staticmaps](https://www.npmjs.com/package/staticmaps) package on npm which allows you to generate a map using OSRM data, by passing in points to plot and geometries for lines. So I [did exactly that for each of the routes generated](https://github.com/zmsy/roadtrip/blob/main/src/map-generation.ts#L33).
+
+Here's your taco map! Go get your tacos already.
+
+<Image
+  src={tacoTimeMap}
+  alt="Map of all Taco Time Northwest locations, and the route to visit all of them."
+/>
+
+Phew. Now that you're sated of your hunger, let's explore some of the other maps this analysis generated.
+
+## Fun Results
+
+Here's a completely non-exhaustive list of the most interesting results I found.
+
+### Most Grueling (Runner Up): Starbucks
+
+Second-most painful is Starbucks. Don't think anybody would be surprised at that. This one seems like a very comprehensive tour of North America's strip malls, corporate buildings and stroads.
+
+**Stats:** 8,047 stops. 93,055 miles. 863 days worth of roadtripping.
+
+<Image
+  src={starbucksMap}
+  alt="Map of all Starbucks locations, and the route to visit all of them."
+/>
+
+### Most Grueling: Subway
+
+This was always going to be the worst one. For some reason the trip planner didn't want to work for the Alaskan stops.
+
+**Stats:** 11,467 stops. 163,283 miles. 1,293 days worth of roadtripping.
+
+<Image
+  src={subwayMap}
+  alt="Map of all Subway locations, and the route to visit all of them. It's a lot, honestly."
+/>
+
+### Are You Really Going To Make Me Drive to Alaska: BurgerFi
+
+**Stats:** 93 stops. 15,973 miles. 33 days worth of roadtripping.
+
+<Image
+  src={burgerfiMap}
+  alt="Map of all BurgerFi locations, and the route to visit all of them."
+/>
+
+### Coast to Coast Trek: Manchu Wok
+
+Outside of the mega-chains, this was the only one that went from Anchorage, AK to St. John's, NL. That's a whole lot of Canada to drive across.
+
+**Stats:** 56 stops. 16,704 miles. 34 days worth of roadtripping.
+
+<Image
+  src={manchuWokMap}
+  alt="Map of all Manchu Wok locations, and the route to visit all of them."
+/>
+
+### Sparsest Route: Tony Roma's
+
+This was one of the only examples where the number of driving days was larger than the number of stops. So I guess, uh, eat up because you'll need it.
+
+**Stats:** 7 stops. 7,687 miles. 12 days worth of roadtripping.
+
+<Image
+  src={tonyRomasMap}
+  alt="Map of all Tony Roma's locations, and the route to visit all of them."
+/>
+
+### Densest Route: Gino's Pizza and Spaghetti
+
+**Stats:** 75 stops. 1,276 miles. 9 days worth of roadtripping.
+
+<Image
+  src={ginosMap}
+  alt="Map of all Gino's Pizza & Spaghetti locations, and the route to visit all of them."
+/>
+
+### Circumnavigating the Continent: Yogen Früz
+
+**Stats:** 31 stops. 13,428 miles. 24 days worth of roadtripping.
+
+<Image
+  src={yogenFruzMap}
+  alt="Map of all Yogen Früz locations, and the route to visit all of them."
+/>
+
+### Looks Most Like Its Name: Hot Dog on a Stick
+
+**Stats:** 11 stops. 4,072 miles. 7 days worth of roadtripping.
+
+<Image
+  src={hotDogMap}
+  alt="Map of all Hot Dog on a Stick locations, and the route to visit all of them."
+/>
+
+### Kinda Shaped Like a T-Rex: Yogurtland
+
+**Stats:** 99 stops. 9,559 miles. 23 days worth of roadtripping.
+
+<Image
+  src={yogurtlandMap}
+  alt="Map of all Yogurtland locations, and the route to visit all of them."
+/>
+
+### Most Isolated Stop: Tim Horton's
+
+Yes, that's in Iqaluit on Nunavut! This one made the route planner fail because there's no way to get there from mainland Canada when driving. I probably should've filtered that out, but it's cool to see how remote the northern Canada stops were.
+
+<Image
+  src={timHortonsMap}
+  alt="Map of all Tim Horton's locations, and the route to visit all of them."
+/>
+
+## Road Trippin'
+
+So what did this accomplish? Some masochistic desire of mine to know exactly how bad things could get if you were tasked with visiting every store in a big chain. Try running it yourself and see if you can plan out your big adventure.
+
+[Code's all here on Github](https://github.com/zmsy/roadtrip).
+
+I'm (barely) on [twitter](https://twitter.com/_zmsy) or [bluesky](https://bsky.app/profile/zmsy.co) if you found this useful.
