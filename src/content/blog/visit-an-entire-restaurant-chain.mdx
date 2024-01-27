@@ -7,6 +7,7 @@ publishDate: 2023-12-28
 import tacoTimeLocations from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-locations.png";
 import tacoTimeMap from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-map.png";
 import starbucksMap from "@src/images/blog/visit-an-entire-restaurant-chain/starbucks.png";
+import subwayMap from "@src/images/blog/visit-an-entire-restaurant-chain/subway.png";
 import burgerfiMap from "@src/images/blog/visit-an-entire-restaurant-chain/burgerfi.png";
 import manchuWokMap from "@src/images/blog/visit-an-entire-restaurant-chain/manchu-wok.png";
 import ginosMap from "@src/images/blog/visit-an-entire-restaurant-chain/ginos-pizza-and-spaghetti.png";
@@ -143,7 +144,7 @@ Now that we've got all the locations for the individual [Taco Time](https://taco
 
 ### Breaking The Trip Up Via Clustering
 
-Adding one contraint in here. There's some big ol' restaurant chains in this dataset. OSRM [is _quite_ taxing to run on your own](https://afi.io/blog/hosting-the-osrm-api-on-amazon-ec2-running-osrm-backend-as-a-web-service/), and the publicly available instances have a hard limit of **100 nodes per trip**, so I'm going to break up the routes into clusters of 100 or less. We'll use geographical clustering to accomplish that.
+Adding one contraint in here. There's some big ol' restaurant chains in this dataset. OSRM [is _quite_ taxing to run on your own](https://afi.io/blog/hosting-the-osrm-api-on-amazon-ec2-running-osrm-backend-as-a-web-service/), and the publicly available instances have **a hard limit of 100 nodes per trip**, so I'm going to break up the routes into clusters of 100 or less. We'll use geographical clustering to accomplish that.
 
 This can be done using `turf`'s function [`clustersKMeans`](https://turfjs.org/docs/#clustersKmeans) like so:
 
@@ -183,16 +184,28 @@ Phew. Now that you're sated of your hunger, let's explore some of the other maps
 
 Here's a completely non-exhaustive list of the most interesting results I found.
 
-### Most Grueling: Starbucks
+### Most Grueling (Runner Up): Starbucks
 
-Full disclosure: Subway was actually the worst but I don't like Subway so I'm electing Starbucks as the most grueling one.
+Second-most painful is Starbucks. Don't think anybody would be surprised at that. This one seems like a very comprehensive tour of North America's strip malls, corporate buildings and stroads.
 
 **Stats:** 8,047 stops. 93,055 miles. 863 days worth of roadtripping.
 
 <Image
   src={starbucksMap}
-  alt="Map of all Starbucks locations, and the route to visit all of them. It's a lot, honestly."
+  alt="Map of all Starbucks locations, and the route to visit all of them."
 />
+
+### Most Grueling: Subway
+
+This was always going to be the worst one. For some reason the trip planner didn't want to work for the Alaskan stops.
+
+**Stats:** 11,467 stops. 163,283 miles. 1,293 days worth of roadtripping.
+
+<Image
+  src={subwayMap}
+  alt="Map of all Subway locations, and the route to visit all of them. It's a lot, honestly."
+/>
+
 
 ### Are You Really Going To Make Me Drive to Alaska: BurgerFi
 
@@ -263,14 +276,14 @@ This was one of the only examples where the number of driving days was larger th
 
 ### Most Isolated Stop: Tim Horton's
 
-Yes, that's in Iqaluit on Nunavut! This one made the route planner fail because there's no way to get there from mainland Canada when driving. I probably should've filtered that out, but it's cool to see how remote it was.
+Yes, that's in Iqaluit on Nunavut! This one made the route planner fail because there's no way to get there from mainland Canada when driving. I probably should've filtered that out, but it's cool to see how remote the northern Canada stops were.
 
 <Image
-  src={yogurtlandMap}
+  src={timHortonsMap}
   alt="Map of all Tim Horton's locations, and the route to visit all of them."
 />
 
-## Conclusion...?
+## Road Trippin'
 
 So what did this accomplish? Some masochistic desire of mine to know exactly how bad things could get if you were tasked with visiting every store in a big chain. Try running it yourself and see if you can plan out your big adventure.
 
