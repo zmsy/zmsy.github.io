@@ -4,6 +4,9 @@ description: "Inspired by Eddie Burback's two trips to all existing Rainforest C
 publishDate: 2024-01-27
 ---
 
+import { Figure } from "@src/components/app/Figure";
+
+import travelingSalesman from "@src/svg/blog/visit-an-entire-restaurant-chain/traveling-salesman.svg?raw";
 import tacoTimeLocations from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-locations.png";
 import tacoTimeMap from "@src/images/blog/visit-an-entire-restaurant-chain/taco-time-map.png";
 import starbucksMap from "@src/images/blog/visit-an-entire-restaurant-chain/starbucks.png";
@@ -141,7 +144,11 @@ Now we've got a full list of stores for each chain. OSM data can be incomplete, 
 
 I'm using the [Open Source Route Machine (OSRM) API](http://project-osrm.org/), which can do a lot of fancy routing _incredibly_ fast. You can set up your own OSRM server using their [Docker instructions](https://github.com/Project-OSRM/osrm-backend#using-docker) pretty quickly, if you'd like.
 
-Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve the [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every Taco Time?") using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
+How does one figure out the best route for a trip like this? That, my friends, is the old [Traveling Salesman Problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem) (aka "what's the fastest route to visit every unique place selling a [#9 Two Fish Baja Tacos Meal](https://tacotimenw.com/menu/combo-9-two-fish-bajas/#menu_wrap)?").
+
+<Figure svg={travelingSalesman} className={"large"} />
+
+Now that we've got all the locations for the individual [Taco Time](https://tacotimenw.com/), you can plug them into the [OSRM Trip service](http://project-osrm.org/docs/v5.5.1/api/#trip-service) in OSRM to solve Traveling Salesman using their implementation of [the farthest-insertion heuristic](https://www.cs.princeton.edu/courses/archive/spr16/cos126/checklist/tspextra.html).
 
 ### Breaking The Trip Up Via Clustering
 
@@ -162,7 +169,7 @@ const clustered = clustersKmeans(
     // can be repeated as needed to break up clusters that are too big.
     numberOfClusters:
       iteration === 0 ? Math.ceil(stops.length / OSRM_MAX_NODES) + 1 : 2,
-  },
+  }
 );
 ```
 
