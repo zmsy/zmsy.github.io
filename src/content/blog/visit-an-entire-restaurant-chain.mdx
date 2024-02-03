@@ -169,7 +169,7 @@ const clustered = clustersKmeans(
     // can be repeated as needed to break up clusters that are too big.
     numberOfClusters:
       iteration === 0 ? Math.ceil(stops.length / OSRM_MAX_NODES) + 1 : 2,
-  }
+  },
 );
 ```
 
