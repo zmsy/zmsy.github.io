@@ -5,10 +5,16 @@
  * page SEO recipe. Most recipe sites have introduction, then some images of the
  * recipe being made, then the recipe card.
  */
+import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+
+import { readableDuration } from "@src/lib/dates";
+import RecipeSection from "./RecipeSection.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"recipes">["data"];
+
+import placeholderImage from "../images/placeholder.png";
 
 const {
   title,
@@ -16,14 +22,48 @@ const {
   publishDate,
   recipeIngredients,
   recipeInstructions,
+  image,
+  recipeYield,
+  prepTime,
+  cookTime,
+  totalTime,
 } = Astro.props;
+
+const stats = new Map<string, string | undefined>([
+  ["Yield", recipeYield],
+  ["Prep", readableDuration(prepTime)],
+  ["Cook", readableDuration(cookTime)],
+  ["Total", readableDuration(totalTime)],
+]);
 ---
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
+  <div class="diagonal-stripes"></div>
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
+    <dl class="recipe-stats">
+      {
+        [...stats.entries()].map(([label, description]) => {
+          return (
+            <div class="recipe-stats-entry">
+              <dt>{label}</dt>
+              <dd>{description}</dd>
+            </div>
+          );
+        })
+      }
+    </dl>
+    <Picture
+      class={"recipe-picture"}
+      src={image ?? placeholderImage}
+      densities={[1, 2]}
+      formats={["webp"]}
+      fallbackFormat="jpg"
+      alt=""
+      quality={100}
+    />
     <p class="description">{description}</p>
     <p class="publish-date">
       Published: {
@@ -41,9 +81,19 @@ const {
     {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
   </ul>
   <h2>Instructions</h2>
-  <ul>
-    {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
-  </ul>
+  <ol>
+    {
+      recipeInstructions.map((instruction) => (
+        <li>
+          {typeof instruction === "string" ? (
+            instruction
+          ) : (
+            <RecipeSection {...instruction} />
+          )}
+        </li>
+      ))
+    }
+  </ol>
 </div>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
@@ -55,12 +105,66 @@ const {
     border: 2px solid var(--accent1Color);
     border-radius: 0.5rem;
     padding: 2rem;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 
     @include mixins.mobile {
       & {
         font-size: 1rem;
-        padding: 1.25rem;
+        padding: 0.75rem;
+      }
+    }
+  }
+
+  dl {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 3rem;
+    margin-bottom: 0.5rem;
+    padding: 0rem 0.5rem;
+    border-left: 0.25rem solid var(--accent4Color);
+
+    @include mixins.mobile {
+      & {
+        gap: 1rem;
+      }
+    }
+  }
+
+  .recipe-stats-entry {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    @include mixins.mobile {
+      & {
+        gap: 0.25rem;
+      }
+    }
+  }
+
+  dt {
+    font-family: var(--heroFonts);
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 1rem;
+        line-height: 1rem;
+      }
+    }
+  }
+
+  dd {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.125rem;
+
+    @include mixins.mobile {
+      & {
+        font-size: 0.875rem;
+        line-height: 0.875rem;
       }
     }
   }
@@ -69,11 +173,33 @@ const {
     margin-top: 1rem;
   }
 
+  img {
+    width: 100%;
+  }
+
+  $stripeWidth: 0.5rem;
+  .diagonal-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--accent3Color),
+      var(--accent3Color) $stripeWidth,
+      transparent $stripeWidth,
+      transparent calc($stripeWidth * 2.5)
+    );
+    height: 1rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
   .recipe-header {
     margin: 0;
     font-variant: small-caps;
     font-weight: 700;
     font-size: 1rem;
+  }
+
+  .recipe-picture {
+    border: 1px solid var(--textColor);
   }
 
   .description {
@@ -86,7 +212,8 @@ const {
     font-size: 1rem;
   }
 
-  ul {
+  ul,
+  ol {
     list-style-type: disc;
     list-style-position: outside;
     margin-top: 0rem;
@@ -105,13 +232,14 @@ const {
 
   h1 {
     font-size: 2.5rem;
-    color: var(--accent2Color);
+    color: var(--titleTextColor);
     text-decoration: underline;
-    text-decoration-color: var(--accent4Color);
+    text-decoration-color: var(--accent2Color);
 
     @include mixins.mobile {
       & {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
       }
     }
   }
