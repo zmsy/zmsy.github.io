@@ -16,17 +16,17 @@
     "svgo": "svgo"
   },
   "dependencies": {
-    "@nanostores/preact": "^0.5.0",
+    "@nanostores/preact": "^0.5.1",
     "bulma": "^0.9.4",
     "clsx": "^2.0.0",
     "nanostores": "^0.9.5",
-    "preact": "^10.19.2"
+    "preact": "^10.22.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^2.0.0",
     "@astrojs/partytown": "^2.0.2",
-    "@astrojs/preact": "^3.0.1",
+    "@astrojs/preact": "^3.5.1",
     "@astrojs/rss": "^4.0.0",
     "@astrojs/sitemap": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
