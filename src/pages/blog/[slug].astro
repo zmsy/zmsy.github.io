@@ -1,10 +1,15 @@
 ---
+import Footer from "@src/components/Footer.astro";
+import Hero from "@src/components/Hero.astro";
+import Navigation from "@src/components/Navigation.astro";
+import BaseHead from "@src/components/head/BaseHead.astro";
+import MarkdownContent from "@src/components/mdx/MarkdownContent.astro";
+import { contactInfo } from "@src/consts";
+import { SEO } from "astro-seo";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
 import { sortPublishDateDesc } from "../../lib/sort";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"blog">;
 
 export async function getStaticPaths() {
@@ -20,10 +25,67 @@ export async function getStaticPaths() {
   );
 }
 
-const post = Astro.props;
-const { Content } = await post.render();
+const {
+  render,
+  slug,
+  data: { description, title, publishDate },
+} = Astro.props;
+const { Content } = await render();
 ---
 
-<BlogPost {...post.data}>
-  <Content />
-</BlogPost>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <SEO
+      title={`zmsy | ${title}`}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          image: "", // todo: get an image for every blog post
+          type: "article", // todo: figure this out
+          url: Astro.url.toString(),
+        },
+        article: {
+          publishedTime: publishDate.toISOString(),
+        },
+      }}
+      twitter={{
+        title,
+        creator: `@${contactInfo.twitterUser}`,
+        card: "summary",
+      }}
+    />
+    <style lang="scss">
+      @use "../../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+      article {
+        margin: 0 auto 8rem;
+        max-width: var(--blogPostWidth);
+
+        @include mixins.touch {
+          // no max-width on touch
+          max-width: unset;
+          margin: 0 2rem 8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <article>
+        <Hero
+          title={title}
+          publishDate={publishDate}
+          titleTextAlign={"left"}
+          transitionName=`/blog/${slug}`
+        />
+        <MarkdownContent>
+          <Content />
+        </MarkdownContent>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
