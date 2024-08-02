@@ -1,0 +1,21 @@
+---
+/**
+ * This component is a workaround for an annoying issue where the title tag in
+ * my component isn't rendering correctly any longer.
+ *
+ * Original component was just
+ * `<title>zmsy | {title}</title>`
+ *
+ * I also tried:
+ * `<title>{`zmsy | ${title}`}</title>`
+ *
+ * Nothin' worked. So if that ever gets fixed, delete this component.
+ */
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<title>{title}</title>
