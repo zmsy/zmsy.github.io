@@ -3,6 +3,7 @@ import "../../styles/index.scss";
 import GlobalStyles from "./GlobalStyles.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Preload from "./Preload.astro";
+import Title from "./Title.astro";
 import Variables from "./Variables.astro";
 
 import { googleAnalyticsDestinationId } from "@src/consts";
@@ -32,7 +33,7 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>zmsy | {title}</title>
+<Title title={`zmsy | ${title}`} />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
