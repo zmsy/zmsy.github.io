@@ -1,17 +1,17 @@
 // 1. Import the initial variables
-@import "../../node_modules/bulma/sass/base/minireset.sass";
-@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
-@import "../../node_modules/bulma/sass/utilities/functions.sass";
+@import "bulma/sass/base/minireset.sass";
+@import "bulma/sass/utilities/initial-variables.sass";
+@import "bulma/sass/utilities/functions.sass";
 
 // 2. Set custom variables
 @import "./variables.scss";
 
 // 3. import the rest of bulma that we care about
-@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
-@import "../../node_modules/bulma/sass/utilities/controls.sass";
-@import "../../node_modules/bulma/sass/utilities/extends.sass";
-@import "../../node_modules/bulma/sass/base/generic.sass";
-@import "../../node_modules/bulma/sass/components/modal.sass";
-@import "../../node_modules/bulma/sass/components/navbar.sass";
-@import "../../node_modules/bulma/sass/elements/container.sass";
-@import "../../node_modules/bulma/sass/elements/content.sass";
+@import "bulma/sass/utilities/derived-variables.sass";
+@import "bulma/sass/utilities/controls.sass";
+@import "bulma/sass/utilities/extends.sass";
+@import "bulma/sass/base/generic.sass";
+@import "bulma/sass/components/modal.sass";
+@import "bulma/sass/components/navbar.sass";
+@import "bulma/sass/elements/container.sass";
+@import "bulma/sass/elements/content.sass";
