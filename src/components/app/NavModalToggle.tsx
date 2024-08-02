@@ -6,7 +6,11 @@ import { navModalOpen } from "./store";
  */
 export const NavModalToggle: FunctionComponent = () => {
   return (
-    <span class="navbar-burger" onClick={() => navModalOpen.set(true)}>
+    <span
+      className="navbar-burger"
+      style={{ color: "var(--textColor)", height: "3rem" }}
+      onClick={() => navModalOpen.set(true)}
+    >
       <span style={"top: calc(50% + 6px);"}></span>
       <span style={"top: calc(50% + 10px);"}></span>
       <span style={"top: calc(50% + 14px);"}></span>
