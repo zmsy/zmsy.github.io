@@ -2,8 +2,8 @@
 /**
  * Layout for the about page on the site.
  */
-import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
 import type { MarkdownLayoutProps } from "astro";
+import { Picture } from "astro:assets";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import Navigation from "../components/Navigation.astro";
@@ -11,6 +11,9 @@ import { Figure } from "../components/app/Figure";
 import BaseHead from "../components/head/BaseHead.astro";
 import MarkdownContent from "../components/mdx/MarkdownContent.astro";
 import { contactInfo } from "../consts";
+
+import projectsLogoSvg from "@src/svg/projects-logo.svg?raw";
+import selfie from "../images/about/selfie.webp";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = MarkdownLayoutProps<{
@@ -43,7 +46,7 @@ const icons = {
 const { frontmatter } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
@@ -115,13 +118,10 @@ const { frontmatter } = Astro.props;
         }
       }
 
-      .image {
+      img {
         margin: 0rem;
-
-        img {
-          display: block;
-          width: 100%;
-        }
+        display: block;
+        width: 100%;
       }
 
       .about-columns {
@@ -164,9 +164,14 @@ const { frontmatter } = Astro.props;
             <div class="card" id="about-card">
               <!-- image -->
               <div class="card-image">
-                <figure class="image">
-                  <img src="/img/about.jpg" alt="Zach Morrissey" />
-                </figure>
+                <Picture
+                  src={selfie}
+                  formats={["png"]}
+                  densities={[1, 2]}
+                  width={384}
+                  quality={100}
+                  alt="Zach Morrissey"
+                />
               </div>
 
               <!-- card content -->
