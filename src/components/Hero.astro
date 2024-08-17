@@ -42,7 +42,7 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
   </div>
 </div>
 <style lang="scss">
-  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+  @use "bulma/sass/utilities/mixins.sass" as mixins;
   .hero-body {
     padding: 0rem;
     margin: 2rem 0rem;
@@ -53,13 +53,26 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     }
 
     .container {
-      @include mixins.touch {
+      @include mixins.tablet {
         h1 {
           font-size: 3rem;
+          line-height: 1.125;
         }
 
         h2 {
           font-size: 1.5rem;
+        }
+      }
+
+      @include mixins.mobile {
+        h1 {
+          font-size: 2.25rem;
+          line-height: 1.125;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+          line-height: 1;
         }
       }
     }

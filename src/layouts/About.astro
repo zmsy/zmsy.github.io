@@ -51,8 +51,9 @@ const { frontmatter } = Astro.props;
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
     <style lang="scss">
-      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
-      @import "../../node_modules/bulma/sass/components/card.sass";
+      @use "bulma/sass/utilities/mixins.sass" as mixins;
+      @import "bulma/sass/components/card.sass";
+
       #about-container {
         margin-bottom: 3rem;
       }
