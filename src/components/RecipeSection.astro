@@ -4,9 +4,8 @@
  * rendered inline with the rest of the instructions.
  */
 import * as z from "astro/zod";
-import { recipeInstructionsSection } from "../content/config";
+import type { recipeInstructionsSection } from "../content/config";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = z.infer<typeof recipeInstructionsSection>;
 const { recipeInstructions, title, anchor } = Astro.props;
 ---
