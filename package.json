@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@nanostores/preact": "^0.5.1",
-    "bulma": "^0.9.4",
+    "bulma": "1.0.3",
     "clsx": "^2.1.1",
     "nanostores": "^0.10.3",
     "preact": "^10.23.1"

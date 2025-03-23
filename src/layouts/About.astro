@@ -43,12 +43,12 @@ const icons = {
 const { frontmatter } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
     <style lang="scss">
-      @use "bulma/sass/utilities/mixins.sass" as mixins;
+      @use "bulma/sass/utilities/mixins" as mixins;
       @import "bulma/sass/components/card.sass";
 
       #about-container {
