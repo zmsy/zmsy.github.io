@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
           node-version: 22
       - name: Build astro site
-        uses: withastro/action@v6
+        uses: withastro/action@v5
         with:
           node-version: 18
       - name: Run astro check
