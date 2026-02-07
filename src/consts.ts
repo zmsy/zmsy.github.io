@@ -20,6 +20,7 @@ export const googleAnalyticsDestinationId = "G-8YELMJ2WC5";
 export const contactInfo = {
   authorName: "Zach Morrissey",
   authorEmail: "zachjmorrissey+zmsy@gmail.com",
+  authorWebsite: "zmsy.co",
   githubUser: "zmsy",
   githubUrl: "https://github.com/zmsy",
   linkedInUser: "zmsy",
@@ -27,4 +28,5 @@ export const contactInfo = {
   twitterUser: "_zmsy",
   twitterUrl: "https://twitter.com/_zmsy",
   howieInstagram: "https://www.instagram.com/howiethesamoyed",
+  blueSkyUrl: "https://bsky.app/profile/zmsy.co",
 };

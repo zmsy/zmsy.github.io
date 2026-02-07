@@ -14,6 +14,7 @@ type Props = Pick<
 
 const { title, publishDate, description, slug } = Astro.props;
 const url = `/blog/${slug}`;
+const readMoreLabel = `Click to read ${title}`;
 ---
 
 <div class="blog-preview">
@@ -34,8 +35,8 @@ const url = `/blog/${slug}`;
   </p>
   <p class="blog-preview-description">{description}</p>
   <div class="blog-preview-link-holder">
-    <a href={url}>Read More</a>
-    <a href={url}>
+    <a href={url} aria-label={readMoreLabel}>Read More</a>
+    <a href={url} aria-label={readMoreLabel}>
       <Figure svg={blogPreviewLink} className={"blog-preview-link"} />
     </a>
   </div>

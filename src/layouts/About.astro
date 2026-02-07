@@ -24,18 +24,18 @@ type Props = MarkdownLayoutProps<{
 
 const {
   authorName,
-  twitterUrl,
-  twitterUser,
   authorEmail,
   linkedInUrl,
   githubUrl,
   howieInstagram,
+  blueSkyUrl,
+  authorWebsite,
 } = contactInfo;
 
 const icons = {
   [authorEmail]: "icon-envelope",
   [linkedInUrl]: "icon-linkedin-square",
-  [twitterUser]: "icon-twitter",
+  [blueSkyUrl]: "icon-twitter",
   [githubUrl]: "icon-github",
   [howieInstagram]: "icon-paw",
 };
@@ -43,7 +43,7 @@ const icons = {
 const { frontmatter } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={frontmatter.title} description={frontmatter.description} />
@@ -179,8 +179,11 @@ const { frontmatter } = Astro.props;
                   <div>
                     <p id="about-cardtitle">{authorName}</p>
                     <p>
-                      <a href={twitterUrl}>
-                        {`@${twitterUser}`}
+                      <a
+                        href={blueSkyUrl}
+                        aria-label={"Check me out on bluesky"}
+                      >
+                        {authorWebsite}
                       </a>
                     </p>
                   </div>

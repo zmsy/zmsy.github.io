@@ -62,7 +62,7 @@ const navLinks: Array<NavLink> = [
     <div class="navbar-end">
       {
         navIcons.map(({ alt, icon, url }) => (
-          <a class="navbar-item is-hidden-mobile" href={url}>
+          <a class="navbar-item is-hidden-mobile" href={url} aria-label={alt}>
             <span class={icon} title={alt} />
           </a>
         ))

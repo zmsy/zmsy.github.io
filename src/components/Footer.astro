@@ -12,7 +12,7 @@ const today = new Date();
   <div id="footer-icons">
     {
       navIcons.map(({ alt, icon, url }) => (
-        <a class="is-hidden-mobile" href={url}>
+        <a class="is-hidden-mobile" href={url} aria-label={alt}>
           <span class={icon} title={alt} />
         </a>
       ))
