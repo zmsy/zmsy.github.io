@@ -8,13 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout git repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           # comment this line out if the build ever uses `.LastMod` or `.GitInfo`
           # blocks in any of the templates
           fetch-depth: 0
+          node-version: 22
       - name: Build astro site
-        uses: withastro/action@v0
+        uses: withastro/action@v6
         with:
           node-version: 18
       - name: Run astro check
