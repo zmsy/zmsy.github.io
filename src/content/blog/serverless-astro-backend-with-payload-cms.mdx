@@ -1,0 +1,33 @@
+---
+title: A Serverless Backend for Astro using Payload CMS
+description: "Scaling my site to a better authoring experience and a silky-smooth recipe editing platform."
+publishDate: 2026-02-07
+---
+
+## Images are a pain in the assets
+
+So I write a lot of recipes. Some of them are good, mostly the drinks. I wanna put them online! I like reading recipe websites, sans the long stories up front about _how my grandfather used to hold me on his lap and during storytime and now here's some chocolate cookies that remind of the rich smell of vintage flannel and tobacco._
+
+I've got no delusions of grandeur of becoming a recipe writer. I fully realize just how damn hard it is to write good recipes and publish well-written recipe content. I like ones that are bombproof, tested, and accessibly written. At the very least, I'd like mine to have high production values.
+
+The complication: Recipe pages _really_ need images, and they need to look good. That challenge started to show the cracks in my current setup, which uses Astro to publish (occasionally) to Github Pages. Static sites are great when you can accept the trade-offs that come with them, but one of the big downsides is trying to host anything that has a meaningful number of assets. Storing those in git and relying on setting something like [Git Large File Storage](https://git-lfs.com/) seemed like it was aimed at solving a different set of problems than, say, using a CMS for this stuff.
+
+
+### So let's find a CMS then
+
+My constraints in figuring out a CMS:
+
+1. **No long-running servers** - So, in other words, I want something serverless. I have a hard rule that I am not to be on-call for personal projects. I don't want to have to worry about something going down and having to care about it. Having 
+2. **High compatibility with Astro** - I'm not planning on switching static site platforms for this. I love love love using [Astro](https://astro.build/).
+3. **Cheap** - In the range of $10/month or less.
+4. **On a dev platform I'm familiar with** - So that means AWS, Cloudflare, or Digital Ocean.
+
+As [Astro was recently purchased by Cloudflare](), I'd been biased towards their options; that's when I found [Payload CMS]().
+
+## The new setup
+
+Here's how it works now:
+
+```
+[diagram goes here]
+```
