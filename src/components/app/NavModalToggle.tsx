@@ -1,5 +1,5 @@
 import type { FunctionComponent } from "preact";
-import { navModalOpen } from "./store";
+import { activeModal } from "./store";
 
 /**
  * Toggle button in the nav to display the nav modal when clicked.
@@ -9,7 +9,9 @@ export const NavModalToggle: FunctionComponent = () => {
     <span
       className="navbar-burger"
       style={{ color: "var(--textColor)", height: "3rem" }}
-      onClick={() => navModalOpen.set(true)}
+      onClick={() => {
+        activeModal.set("nav");
+      }}
     >
       <span style={"top: calc(50% + 6px);"}></span>
       <span style={"top: calc(50% + 10px);"}></span>

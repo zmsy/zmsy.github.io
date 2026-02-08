@@ -5,7 +5,7 @@ import { Figure } from "./Figure";
 import { useStore } from "@nanostores/preact";
 import clsx from "clsx";
 
-import { navModalOpen } from "./store";
+import { activeModal } from "./store";
 import styles from "../../styles/modules/nav-modal.module.scss";
 
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
@@ -15,10 +15,11 @@ import homeIcon from "../../svg/icons/home-icon.svg?raw";
 import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
 
 export const NavModal: FunctionComponent = () => {
-  const $open = useStore(navModalOpen);
-  const handleClickAway = () => navModalOpen.set(false);
+  const $active = useStore(activeModal);
+  const open = $active === "nav";
+  const handleClickAway = () => activeModal.set(null);
   return (
-    <div className={clsx("modal", styles.container, $open && "is-active")}>
+    <div className={clsx("modal", styles.container, open && "is-active")}>
       <div class="modal-background" onClick={handleClickAway}></div>
       <div className={clsx("modal-content", styles.content)}>
         <Figure className={styles.horizontalsep ?? ""} svg={hrzSeparator} />

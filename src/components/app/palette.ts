@@ -22,6 +22,8 @@ export type Palette = {
     subtitleText: string;
     /** Main body text. */
     text: string;
+    /** Light text color, minimum WCAG standard contrast. */
+    textLowContrast: string;
     /** Fun colors, clicked links, etc. */
     /** Links, warnings, admonitions. */
     accent1: string;
@@ -50,10 +52,11 @@ export const palettes = {
       titleText: "#faf9f9",
       subtitleText: "#dcdbd9",
       text: "#dcdbd9",
-      accent1: "#e5c76c",
-      accent2: "#f55a37",
-      accent3: "#359fb7",
-      accent4: "#83cab2",
+      textLowContrast: "#c8bfaf",
+      accent1: "#359fb7",
+      accent2: "#83cab2",
+      accent3: "#f55a37",
+      accent4: "#e5c76c",
       illustrations: "#dcdbd9",
     },
   },
@@ -61,11 +64,12 @@ export const palettes = {
     name: "Default Light",
     colors: {
       background: "#faf9f9",
-      backgroundAccent: "#dcdbd9",
+      backgroundAccent: "#f5f2ef",
       secondaryBackground: "#2a363b",
       titleText: "#100b03",
       subtitleText: "#38332a",
       text: "#3f3b35",
+      textLowContrast: "#7b7262",
       accent1: "#f55a37",
       accent2: "#359fb7",
       accent3: "#83cab2",

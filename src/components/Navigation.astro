@@ -1,9 +1,9 @@
 ---
-import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
 import { contactInfo, siteInfo } from "../consts";
-import { Figure } from "./app/Figure";
 import { NavModal } from "./app/NavModal";
 import { NavModalToggle } from "./app/NavModalToggle";
+import { PaletteModal } from "./app/PaletteModal";
+import { LogoPaletteToggle } from "./app/LogoPaletteToggle";
 
 type NavIcon = {
   url: string;
@@ -44,17 +44,7 @@ const navLinks: Array<NavLink> = [
 
 <nav class="navbar" role="navigation">
   <div class="navbar-brand">
-    <a
-      class="navbar-item"
-      href={siteInfo.baseUrl}
-      aria-label="Site logo. Click to return home."
-    >
-      <Figure
-        svg={navbarLogoSvg}
-        className="logo-img"
-        alt="Site logo. Click to return home."
-      />
-    </a>
+    <LogoPaletteToggle client:idle />
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
     <NavModalToggle client:idle />
   </div>
@@ -77,6 +67,7 @@ const navLinks: Array<NavLink> = [
     </div>
   </div>
   <NavModal client:load />
+  <PaletteModal client:load />
 </nav>
 <style is:inline>
   .logo-img {
