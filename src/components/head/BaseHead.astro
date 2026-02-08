@@ -44,7 +44,7 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
   })();
 </script>
 
-<ClientInit client:load />
+<ClientInit client:load client:only="preact" />
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 <meta name="generator" content={Astro.generator} />
