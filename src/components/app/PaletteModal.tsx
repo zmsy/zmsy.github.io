@@ -1,5 +1,4 @@
 import type { FunctionComponent } from "preact";
-import { useEffect } from "preact/hooks";
 
 import clsx from "clsx";
 
@@ -10,17 +9,12 @@ import { palettes, type PaletteId } from "./palette";
 import { useCloseModal } from "./hooks/useCloseModal";
 import { useIsModalActive } from "./store/modal";
 import {
-  initPalette,
   setPalettePreferenceId,
   useActivePalette,
   useActivePaletteId,
 } from "./store/palette/index";
 
 export const PaletteModal: FunctionComponent = () => {
-  useEffect(() => {
-    initPalette();
-  }, []);
-
   const open = useIsModalActive("palette");
   const active = useActivePaletteId();
   const activePalette = useActivePalette();
@@ -28,8 +22,6 @@ export const PaletteModal: FunctionComponent = () => {
   const close = useCloseModal(open);
 
   const choose = (palette: PaletteId) => {
-    // Ensure side-effect subscriptions are active before updating preference.
-    initPalette();
     setPalettePreferenceId(palette);
     close();
   };
