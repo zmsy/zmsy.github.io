@@ -8,7 +8,7 @@ import clsx from "clsx";
 import { activeModal } from "./store";
 import styles from "../../styles/modules/nav-modal.module.scss";
 
-import { useCloseModal } from "./hooks/useEscapeToClose";
+import { useCloseModal } from "./hooks/useCloseModal";
 
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import aboutIcon from "../../svg/icons/about-icon.svg?raw";

@@ -13,7 +13,7 @@ import {
   setPalettePreference,
 } from "@src/lib/palettePreference";
 
-import { useCloseModal } from "./hooks/useEscapeToClose";
+import { useCloseModal } from "./hooks/useCloseModal";
 
 export const PaletteModal: FunctionComponent = () => {
   const $active = useStore(activeModal);
