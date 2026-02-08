@@ -52,25 +52,6 @@ export const useActivePalette = () => {
 
 if (typeof window !== "undefined") {
   setTimeout(() => {
-    systemPaletteId.set(getSystemPaletteId());
-    palettePreferenceId.set(getInitialPreferenceId());
-
-    const mql = window.matchMedia?.("(prefers-color-scheme: dark)");
-    if (mql) {
-      const onChange = () => {
-        if (palettePreferenceId.get() !== null) return;
-        systemPaletteId.set(mql.matches ? "defaultDark" : "defaultLight");
-      };
-
-      if ("addEventListener" in mql) {
-        mql.addEventListener("change", onChange);
-      } else {
-        // Safari
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (mql as any).addListener(onChange);
-      }
-    }
-
     const syncPreference = (preference: PaletteId | null) => {
       if (preference) {
         applyPaletteToDocument(preference);
@@ -82,7 +63,10 @@ if (typeof window !== "undefined") {
       clearStoredPalette();
     };
 
-    syncPreference(palettePreferenceId.get());
+    systemPaletteId.set(getSystemPaletteId());
+    palettePreferenceId.set(getInitialPreferenceId());
+
+    // Only user-driven updates should sync to document/storage.
     palettePreferenceId.listen(syncPreference);
-  }, 0);
+  }, 0); // Defer init to avoid SSR/client hydration mismatch.
 }
