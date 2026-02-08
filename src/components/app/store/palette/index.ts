@@ -1,13 +1,16 @@
 export {
   activePaletteId,
-  clearStoredPalette,
   palettePreferenceId,
-  readStoredPalette,
   setPalettePreferenceId,
   systemPaletteId,
   useActivePaletteId,
-  writeStoredPalette,
 } from "./store";
+
+export {
+  clearStoredPalette,
+  readStoredPalette,
+  writeStoredPalette,
+} from "./local-storage";
 
 export { initPalette } from "./init";
 

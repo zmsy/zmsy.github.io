@@ -3,34 +3,6 @@ import { atom, computed } from "nanostores";
 
 import type { PaletteId } from "@src/components/app/palette";
 
-import { paletteStorageKey } from "./constants";
-
-export { paletteStorageKey };
-
-export const readStoredPalette = (): string | null => {
-  try {
-    return localStorage.getItem(paletteStorageKey);
-  } catch {
-    return null;
-  }
-};
-
-export const writeStoredPalette = (palette: string): void => {
-  try {
-    localStorage.setItem(paletteStorageKey, palette);
-  } catch {
-    // ignore
-  }
-};
-
-export const clearStoredPalette = (): void => {
-  try {
-    localStorage.removeItem(paletteStorageKey);
-  } catch {
-    // ignore
-  }
-};
-
 /** Explicit palette selection set by the user (persisted). */
 export const palettePreferenceId = atom<PaletteId | null>(null);
 

@@ -6,13 +6,12 @@ import {
   coercePaletteId,
   readPaletteFromDocument,
 } from "./preference";
+import { palettePreferenceId, systemPaletteId } from "./store";
 import {
   clearStoredPalette,
-  palettePreferenceId,
   readStoredPalette,
-  systemPaletteId,
   writeStoredPalette,
-} from "./store";
+} from "./local-storage";
 
 const getSystemPaletteId = (): PaletteId => {
   if (typeof window === "undefined") return "defaultLight";
