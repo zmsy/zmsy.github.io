@@ -4,12 +4,13 @@ import GlobalStyles from "./GlobalStyles.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Preload from "./Preload.astro";
 import Title from "./Title.astro";
-import Variables from "./Variables.astro";
+import PaletteVariables from "./PaletteVariables.astro";
+import StaticVariables from "./StaticVariables.astro";
 
 import { ClientInit } from "@src/components/app/ClientInit";
 
 import { googleAnalyticsDestinationId } from "@src/consts";
-import { paletteStorageKey } from "@src/components/app/store/palette";
+import { paletteStorageKey } from "@src/components/app/store/palette/index";
 import { paletteIds } from "@src/components/app/palette";
 
 export interface Props {
@@ -72,6 +73,7 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <!-- immediately fetch fonts and icons -->
-<Variables />
+<StaticVariables />
+<PaletteVariables />
 <Preload />
 <GlobalStyles />

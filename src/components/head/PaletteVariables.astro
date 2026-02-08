@@ -1,7 +1,21 @@
 ---
 /**
- * CSS custom properties.
+ * Palette-driven CSS custom properties.
+ *
+ * This component generates CSS that maps each palette's color tokens to the
+ * site's `--*Color` custom properties.
+ *
+ * How it works:
+ * - Default: `html { ... }` seeds the light palette colors.
+ * - System dark preference: `@media (prefers-color-scheme: dark)` applies the
+ *   dark palette only when there is NO explicit `data-palette` selection.
+ * - Explicit selection: `html[data-palette="..."] { ... }` overrides both the
+ *   default and the system preference.
+ *
+ * The `data-palette` attribute is set pre-paint (from localStorage) in
+ * `src/components/head/BaseHead.astro` to avoid a flash of the wrong theme.
  */
+
 import { palettes } from "@src/components/app/palette";
 
 type PaletteColors = (typeof palettes)[keyof typeof palettes]["colors"];
@@ -10,10 +24,7 @@ const cssVarNameForColorKey = (key: string): string => `--${key}Color`;
 
 const colorsToCSS = (colors: PaletteColors, indent: string): string =>
   Object.entries(colors)
-    .map(
-      ([key, value]) =>
-        `${indent}${cssVarNameForColorKey(key)}: ${value};`,
-    )
+    .map(([key, value]) => `${indent}${cssVarNameForColorKey(key)}: ${value};`)
     .join("\n");
 
 const baseColorsCSS = colorsToCSS(palettes.defaultLight.colors, "    ");
@@ -36,25 +47,12 @@ const css = `
     color-scheme: light;
     /** COLORS */
 ${baseColorsCSS}
-
-    /** FONTS */
-    --displayFonts: "Patua One", "Lucida Bright", serif;
-    --heroFonts: "Patua One", "Lucida Bright", serif;
-    --heroSubtitleFonts: "Work Sans", sans-serif;
-    --subtitleFonts: "Patua One", "Lucida Bright", sans-serif;
-    --readingFonts: "Work Sans", sans-serif;
-    --codeFonts: monaco, Consolas, "Andale Mono", "Lucida Console", monospace;
-
-    /** Layout information. */
-    --pageWidth: 73.5rem;
-    --blogPostWidth: 52.5rem;
-    --blogPreviewWidth: 45rem;
-    --menuWidth: 35rem;
   }
 
   /**
    * If the user prefers dark mode, set the colors to match the
-   * dark mode palette. */
+   * dark mode palette.
+   */
   @media (prefers-color-scheme: dark) {
     html:not([data-palette]) {
       color-scheme: dark;
