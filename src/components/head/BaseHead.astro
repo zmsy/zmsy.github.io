@@ -6,7 +6,8 @@ import Preload from "./Preload.astro";
 import Title from "./Title.astro";
 import Variables from "./Variables.astro";
 
-import { googleAnalyticsDestinationId, paletteStorageKey } from "@src/consts";
+import { googleAnalyticsDestinationId } from "@src/consts";
+import { paletteStorageKey } from "@src/lib/palettePreference";
 
 export interface Props {
   title: string;

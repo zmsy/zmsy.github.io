@@ -1,5 +1,4 @@
 import type { FunctionComponent } from "preact";
-import { useEffect } from "preact/hooks";
 
 import { useStore } from "@nanostores/preact";
 import clsx from "clsx";
@@ -14,22 +13,15 @@ import {
   setPalettePreference,
 } from "@src/lib/palettePreference";
 
+import { useCloseModal } from "./hooks/useEscapeToClose";
+
 export const PaletteModal: FunctionComponent = () => {
   const $active = useStore(activeModal);
   const open = $active === "palette";
   const active =
     (typeof window !== "undefined" ? readStoredPalette() : null) ?? null;
 
-  const close = () => activeModal.set(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  const close = useCloseModal(open);
 
   const choose = (palette: PaletteId) => {
     setPalettePreference(palette);

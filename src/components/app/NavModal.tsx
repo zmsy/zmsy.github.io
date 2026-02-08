@@ -8,6 +8,8 @@ import clsx from "clsx";
 import { activeModal } from "./store";
 import styles from "../../styles/modules/nav-modal.module.scss";
 
+import { useCloseModal } from "./hooks/useEscapeToClose";
+
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import aboutIcon from "../../svg/icons/about-icon.svg?raw";
 import blogIcon from "../../svg/icons/blog-icon.svg?raw";
@@ -17,10 +19,11 @@ import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
 export const NavModal: FunctionComponent = () => {
   const $active = useStore(activeModal);
   const open = $active === "nav";
-  const handleClickAway = () => activeModal.set(null);
+  const close = useCloseModal(open);
+
   return (
     <div className={clsx("modal", styles.container, open && "is-active")}>
-      <div class="modal-background" onClick={handleClickAway}></div>
+      <div class="modal-background" onClick={close}></div>
       <div className={clsx("modal-content", styles.content)}>
         <Figure className={styles.horizontalsep ?? ""} svg={hrzSeparator} />
         <ul>
