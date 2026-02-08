@@ -32,10 +32,9 @@ const darkPrefColorsCSS = colorsToCSS(palettes.defaultDark.colors, "      ");
 
 const paletteRules = Object.entries(palettes)
   .map(([id, palette]) => {
-    const scheme = id === "defaultDark" ? "dark" : "light";
     return [
       `  html[data-palette="${id}"] {`,
-      `    color-scheme: ${scheme};`,
+      `    color-scheme: ${palette.scheme};`,
       colorsToCSS(palette.colors, "    "),
       "  }",
     ].join("\n");

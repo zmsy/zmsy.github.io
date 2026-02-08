@@ -6,6 +6,12 @@ export type ColorCustomProperty = `--${string}Color`;
 /** Defined set of colors for the site. */
 export type Palette = {
   name: string;
+  /**
+   * Controls the browser's built-in form control styling, scrollbars, etc.
+   * This should reflect whether the palette is intended as a light or dark UI.
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme
+   */
+  scheme: "light" | "dark";
   colors: {
     /** Main backgorund color of the site. */
     background: string;
@@ -45,6 +51,7 @@ export type Palette = {
 export const palettes = {
   defaultDark: {
     name: "Default Dark",
+    scheme: "dark",
     colors: {
       background: "#2a363b",
       backgroundAccent: "#3c525c",
@@ -62,6 +69,7 @@ export const palettes = {
   },
   defaultLight: {
     name: "Default Light",
+    scheme: "light",
     colors: {
       background: "#faf9f9",
       backgroundAccent: "#f5f2ef",
