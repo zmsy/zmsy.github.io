@@ -1,11 +1,8 @@
 import type { FunctionComponent } from "preact";
 
-import { useStore } from "@nanostores/preact";
 import clsx from "clsx";
 
 import styles from "../../styles/modules/palette-modal.module.scss";
-
-import { activeModal } from "./store";
 
 import type { PaletteId } from "@src/lib/palettePreference";
 import {
@@ -14,10 +11,10 @@ import {
 } from "@src/lib/palettePreference";
 
 import { useCloseModal } from "./hooks/useCloseModal";
+import { useIsModalActive } from "./store/modal";
 
 export const PaletteModal: FunctionComponent = () => {
-  const $active = useStore(activeModal);
-  const open = $active === "palette";
+  const open = useIsModalActive("palette");
   const active =
     (typeof window !== "undefined" ? readStoredPalette() : null) ?? null;
 

@@ -2,10 +2,8 @@ import type { FunctionComponent } from "preact";
 
 import { Figure } from "./Figure";
 
-import { useStore } from "@nanostores/preact";
 import clsx from "clsx";
 
-import { activeModal } from "./store";
 import styles from "../../styles/modules/nav-modal.module.scss";
 
 import { useCloseModal } from "./hooks/useCloseModal";
@@ -15,10 +13,10 @@ import aboutIcon from "../../svg/icons/about-icon.svg?raw";
 import blogIcon from "../../svg/icons/blog-icon.svg?raw";
 import homeIcon from "../../svg/icons/home-icon.svg?raw";
 import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
+import { useIsModalActive } from "./store/modal";
 
 export const NavModal: FunctionComponent = () => {
-  const $active = useStore(activeModal);
-  const open = $active === "nav";
+  const open = useIsModalActive("nav");
   const close = useCloseModal(open);
 
   return (

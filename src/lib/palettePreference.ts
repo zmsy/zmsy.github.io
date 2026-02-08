@@ -22,6 +22,15 @@ export const writeStoredPalette = (palette: PaletteId): void => {
   }
 };
 
+/**
+ * Sets the `data-palette` attribute on the root `<html>` element.
+ *
+ * `document.documentElement.dataset.palette = "defaultDark"` becomes:
+ * `<html data-palette="defaultDark">`
+ *
+ * That attribute is what `src/components/head/Variables.astro` matches
+ * (`html[data-palette="..."]`) to swap the site's CSS variables instantly.
+ */
 export const applyPaletteToDocument = (palette: PaletteId): void => {
   document.documentElement.dataset.palette = palette;
 };
