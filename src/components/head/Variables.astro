@@ -2,41 +2,40 @@
 /**
  * CSS custom properties.
  */
----
+import { palettes } from "@src/components/app/palette";
 
-<style is:global is:inline>
+type PaletteColors = (typeof palettes)[keyof typeof palettes]["colors"];
+
+const cssVarNameForColorKey = (key: string): string => `--${key}Color`;
+
+const colorsToCSS = (colors: PaletteColors, indent: string): string =>
+  Object.entries(colors)
+    .map(
+      ([key, value]) =>
+        `${indent}${cssVarNameForColorKey(key)}: ${value};`,
+    )
+    .join("\n");
+
+const baseColorsCSS = colorsToCSS(palettes.defaultLight.colors, "    ");
+const darkPrefColorsCSS = colorsToCSS(palettes.defaultDark.colors, "      ");
+
+const paletteRules = Object.entries(palettes)
+  .map(([id, palette]) => {
+    const scheme = id === "defaultDark" ? "dark" : "light";
+    return [
+      `  html[data-palette="${id}"] {`,
+      `    color-scheme: ${scheme};`,
+      colorsToCSS(palette.colors, "    "),
+      "  }",
+    ].join("\n");
+  })
+  .join("\n\n");
+
+const css = `
   html {
     color-scheme: light;
     /** COLORS */
-
-    /** Main background color of the site. */
-    --backgroundColor: #faf9f9;
-    /** Slightly off-shade of the same background color. */
-    --backgroundAccentColor: #f5f2ef;
-    /**
-     * Background for elements that don't share the common background
-     * color. Normally contrasting.
-     */
-    --secondaryBackgroundColor: #2a363b;
-    /** h1-2 */
-    --titleTextColor: #100b03;
-    /** h3-6 */
-    --subtitleTextColor: #38332a;
-    /** Main body text. */
-    --textColor: #3f3b35;
-    /** Light text color, minimum WCAG standard contrast. */
-    --textColorLowContrast: #7b7262;
-    /** Fun colors, clicked links, etc. */
-    /** Links, warnings, admonitions. */
-    --accent1Color: #f55a37;
-    /** Hovered links, hovered icons. */
-    --accent2Color: #359fb7;
-    /** Inline code. */
-    --accent3Color: #83cab2;
-    /** Warnings. */
-    --accent4Color: #e5c76c;
-    /** SVG illustrations stroke color. */
-    --illustrationsColor: #3f3b35;
+${baseColorsCSS}
 
     /** FONTS */
     --displayFonts: "Patua One", "Lucida Bright", serif;
@@ -59,51 +58,13 @@
   @media (prefers-color-scheme: dark) {
     html:not([data-palette]) {
       color-scheme: dark;
-      --backgroundColor: #2a363b;
-      --backgroundAccentColor: #3c525c;
-      --secondaryBackgroundColor: #faf9f9;
-      --titleTextColor: #faf9f9;
-      --subtitleTextColor: #dcdbd9;
-      --textColor: #dcdbd9;
-      --textColorLowContrast: #c8bfaf;
-      --accent1Color: #359fb7;
-      --accent2Color: #83cab2;
-      --accent3Color: #f55a37;
-      --accent4Color: #e5c76c;
-      --illustrationsColor: #dcdbd9;
+${darkPrefColorsCSS}
     }
   }
 
   /* Explicit palette selection overrides system preference. */
-  html[data-palette="defaultLight"] {
-    color-scheme: light;
-    --backgroundColor: #faf9f9;
-    --backgroundAccentColor: #f5f2ef;
-    --secondaryBackgroundColor: #2a363b;
-    --titleTextColor: #100b03;
-    --subtitleTextColor: #38332a;
-    --textColor: #3f3b35;
-    --textColorLowContrast: #7b7262;
-    --accent1Color: #f55a37;
-    --accent2Color: #359fb7;
-    --accent3Color: #83cab2;
-    --accent4Color: #e5c76c;
-    --illustrationsColor: #3f3b35;
-  }
+${paletteRules}
+`.trim();
+---
 
-  html[data-palette="defaultDark"] {
-    color-scheme: dark;
-    --backgroundColor: #2a363b;
-    --backgroundAccentColor: #3c525c;
-    --secondaryBackgroundColor: #faf9f9;
-    --titleTextColor: #faf9f9;
-    --subtitleTextColor: #dcdbd9;
-    --textColor: #dcdbd9;
-    --textColorLowContrast: #c8bfaf;
-    --accent1Color: #359fb7;
-    --accent2Color: #83cab2;
-    --accent3Color: #f55a37;
-    --accent4Color: #e5c76c;
-    --illustrationsColor: #dcdbd9;
-  }
-</style>
+<style is:global is:inline set:html={css}></style>

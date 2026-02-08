@@ -112,12 +112,12 @@ pre[class*="language-"] {
 
 .token.tag,
 .token.selector {
-  color: var(--textColorLowContrast);
+  color: var(--textLowContrastColor);
 }
 
 .token.function,
 .token.deleted {
-  color: var(--textColorLowContrast);
+  color: var(--textLowContrastColor);
 }
 
 .token.important,

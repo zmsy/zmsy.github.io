@@ -79,6 +79,10 @@ export const palettes = {
   },
 };
 
+export type PaletteId = keyof typeof palettes;
+
+export const paletteIds = Object.keys(palettes) as PaletteId[];
+
 /** Set an entire palette across the site. */
 export const setPaletteCSS = (palette: Palette): void => {
   Object.entries(palette.colors).forEach(([colorName, colorValue]) => {

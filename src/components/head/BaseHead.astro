@@ -8,6 +8,7 @@ import Variables from "./Variables.astro";
 
 import { googleAnalyticsDestinationId } from "@src/consts";
 import { paletteStorageKey } from "@src/lib/palettePreference";
+import { paletteIds } from "@src/components/app/palette";
 
 export interface Props {
   title: string;
@@ -28,11 +29,11 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 <!-- Apply saved palette before first paint -->
-<script is:inline define:vars={{ paletteStorageKey }}>
+<script is:inline define:vars={{ paletteStorageKey, paletteIds }}>
   (() => {
     try {
       const value = localStorage.getItem(paletteStorageKey);
-      if (value === "defaultLight" || value === "defaultDark") {
+      if (value && paletteIds.includes(value)) {
         document.documentElement.dataset.palette = value;
       }
     } catch {

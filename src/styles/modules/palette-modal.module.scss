@@ -86,8 +86,7 @@
 }
 
 .active {
-  border-color: var(--accent1Color);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent1Color) 35%, transparent);
+  border: 2px var(--accent1Color);
 }
 
 .optionName {

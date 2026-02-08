@@ -4,11 +4,12 @@ import clsx from "clsx";
 
 import styles from "../../styles/modules/palette-modal.module.scss";
 
-import type { PaletteId } from "@src/lib/palettePreference";
 import {
   readStoredPalette,
   setPalettePreference,
 } from "@src/lib/palettePreference";
+
+import { palettes, type PaletteId } from "./palette";
 
 import { useCloseModal } from "./hooks/useCloseModal";
 import { useIsModalActive } from "./store/modal";
@@ -44,62 +45,44 @@ export const PaletteModal: FunctionComponent = () => {
           />
         </div>
         <div className={styles.options}>
-          <button
-            type="button"
-            className={clsx(
-              styles.option,
-              active === "defaultLight" && styles.active,
-            )}
-            onClick={() => choose("defaultLight")}
-          >
-            <span className={styles.optionName}>Default Light</span>
-            <span className={styles.swatches} aria-hidden="true">
-              <span
-                className={styles.swatch}
-                style={{ background: "#faf9f9" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#f5f2ef" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#f55a37" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#359fb7" }}
-              />
-            </span>
-          </button>
-          <button
-            type="button"
-            className={clsx(
-              styles.option,
-              active === "defaultDark" && styles.active,
-            )}
-            onClick={() => choose("defaultDark")}
-          >
-            <span className={styles.optionName}>Default Dark</span>
-            <span className={styles.swatches} aria-hidden="true">
-              <span
-                className={styles.swatch}
-                style={{ background: "#2a363b" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#3c525c" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#359fb7" }}
-              />
-              <span
-                className={styles.swatch}
-                style={{ background: "#83cab2" }}
-              />
-            </span>
-          </button>
+          {Object.entries(palettes).map(([name, palette]) => {
+            return (
+              <button
+                key={name}
+                type="button"
+                className={clsx(styles.option, active === name && styles.active)}
+                onClick={() => choose(name as PaletteId)}
+              >
+                <span className={styles.optionName}>{palette.name}</span>
+                <span className={styles.swatches} aria-hidden="true">
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.background }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.backgroundAccent }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent1 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent2 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent3 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent4 }}
+                  />
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </div>
