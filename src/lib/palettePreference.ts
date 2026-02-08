@@ -1,9 +1,11 @@
+import { paletteIds, type PaletteId } from "@src/components/app/palette";
+
 export const paletteStorageKey = "zmsy:palette";
 
-export type PaletteId = "defaultLight" | "defaultDark";
-
-export const isPaletteId = (value: unknown): value is PaletteId =>
-  value === "defaultLight" || value === "defaultDark";
+export const isPaletteId = (value: unknown): value is PaletteId => {
+  if (typeof value !== "string") return false;
+  return (paletteIds as readonly string[]).includes(value);
+};
 
 export const readStoredPalette = (): PaletteId | null => {
   try {
@@ -22,6 +24,14 @@ export const writeStoredPalette = (palette: PaletteId): void => {
   }
 };
 
+export const clearStoredPalette = (): void => {
+  try {
+    localStorage.removeItem(paletteStorageKey);
+  } catch {
+    // ignore
+  }
+};
+
 /**
  * Sets the `data-palette` attribute on the root `<html>` element.
  *
@@ -35,8 +45,6 @@ export const applyPaletteToDocument = (palette: PaletteId): void => {
   document.documentElement.dataset.palette = palette;
 };
 
-/** Apply palette instantly and persist to localStorage. */
-export const setPalettePreference = (palette: PaletteId): void => {
-  applyPaletteToDocument(palette);
-  writeStoredPalette(palette);
+export const clearPaletteFromDocument = (): void => {
+  delete document.documentElement.dataset.palette;
 };

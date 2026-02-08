@@ -4,25 +4,25 @@ import clsx from "clsx";
 
 import styles from "../../styles/modules/palette-modal.module.scss";
 
-import {
-  readStoredPalette,
-  setPalettePreference,
-} from "@src/lib/palettePreference";
-
 import { palettes, type PaletteId } from "./palette";
 
 import { useCloseModal } from "./hooks/useCloseModal";
 import { useIsModalActive } from "./store/modal";
+import {
+  setPalettePreferenceId,
+  useActivePalette,
+  useActivePaletteId,
+} from "./store/palette";
 
 export const PaletteModal: FunctionComponent = () => {
   const open = useIsModalActive("palette");
-  const active =
-    (typeof window !== "undefined" ? readStoredPalette() : null) ?? null;
+  const active = useActivePaletteId();
+  const activePalette = useActivePalette();
 
   const close = useCloseModal(open);
 
   const choose = (palette: PaletteId) => {
-    setPalettePreference(palette);
+    setPalettePreferenceId(palette);
     close();
   };
 
@@ -33,7 +33,7 @@ export const PaletteModal: FunctionComponent = () => {
         className={clsx("modal-content", styles.content)}
         role="dialog"
         aria-modal="true"
-        aria-label="Color scheme picker"
+        aria-label={`Color scheme picker. Current: ${activePalette.name}`}
       >
         <div className={styles.headerRow}>
           <h2 className={styles.title}>Color scheme</h2>
@@ -50,7 +50,10 @@ export const PaletteModal: FunctionComponent = () => {
               <button
                 key={name}
                 type="button"
-                className={clsx(styles.option, active === name && styles.active)}
+                className={clsx(
+                  styles.option,
+                  active === name && styles.active,
+                )}
                 onClick={() => choose(name as PaletteId)}
               >
                 <span className={styles.optionName}>{palette.name}</span>
