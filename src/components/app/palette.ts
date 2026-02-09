@@ -50,7 +50,7 @@ export type Palette = {
  */
 export const palettes = {
   defaultDark: {
-    name: "Default Dark",
+    name: "Dark",
     scheme: "dark",
     colors: {
       background: "#2a363b",
@@ -68,7 +68,7 @@ export const palettes = {
     },
   },
   defaultLight: {
-    name: "Default Light",
+    name: "Light",
     scheme: "light",
     colors: {
       background: "#faf9f9",
