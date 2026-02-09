@@ -16,7 +16,7 @@
  * `src/components/head/BaseHead.astro` to avoid a flash of the wrong theme.
  */
 
-import { palettes } from "@src/components/app/palette";
+import { paletteEntries, palettes } from "@src/components/app/palette";
 
 type PaletteColors = (typeof palettes)[keyof typeof palettes]["colors"];
 
@@ -30,7 +30,7 @@ const colorsToCSS = (colors: PaletteColors, indent: string): string =>
 const baseColorsCSS = colorsToCSS(palettes.defaultLight.colors, "    ");
 const darkPrefColorsCSS = colorsToCSS(palettes.defaultDark.colors, "      ");
 
-const paletteRules = Object.entries(palettes)
+const paletteRules = paletteEntries
   .map(([id, palette]) => {
     return [
       `  html[data-palette="${id}"] {`,

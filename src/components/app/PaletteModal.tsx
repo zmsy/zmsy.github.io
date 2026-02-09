@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import styles from "../../styles/modules/palette-modal.module.scss";
 
-import { palettes, type PaletteId } from "./palette";
+import { paletteEntries, type PaletteId } from "./palette";
 
 import { useCloseModal } from "./hooks/useCloseModal";
 import { useIsModalActive } from "./store/modal";
@@ -45,16 +45,13 @@ export const PaletteModal: FunctionComponent = () => {
           />
         </div>
         <div className={styles.options}>
-          {Object.entries(palettes).map(([name, palette]) => {
+          {paletteEntries.map(([id, palette]) => {
             return (
               <button
-                key={name}
+                key={id}
                 type="button"
-                className={clsx(
-                  styles.option,
-                  active === name && styles.active,
-                )}
-                onClick={() => choose(name as PaletteId)}
+                className={clsx(styles.option, active === id && styles.active)}
+                onClick={() => choose(id)}
               >
                 <span className={styles.optionName}>{palette.name}</span>
                 <span className={styles.swatches} aria-hidden="true">
