@@ -22,6 +22,7 @@ const sections: Array<{
   href: string;
   tagline: string;
   svg: string;
+  transitionName: string;
 }> = [
   {
     name: "Blog",
@@ -29,6 +30,7 @@ const sections: Array<{
     tagline:
       "A collection of writings on technology, programming, data analysis, visualization, and other topics.",
     svg: blogLogoSvg,
+    transitionName: "",
   },
   {
     name: "Recipes",
@@ -36,6 +38,7 @@ const sections: Array<{
     tagline:
       "I write recipes! Check out some delicious food, drink, and dessert that I've crafted over the years.",
     svg: recipesLogoSvg,
+    transitionName: "recipes-hero-text",
   },
   {
     name: "About Me",
@@ -43,6 +46,7 @@ const sections: Array<{
     tagline:
       "Learn more about me: Where I've come from, where I'm headed, and what I'll be doing along the way there.",
     svg: aboutLogoSvg,
+    transitionName: "about-hero-text",
   },
 ];
 ---
@@ -111,7 +115,7 @@ const sections: Array<{
           text-align: center;
         }
 
-        h2 {
+        h1 {
           font-family: var(--subtitleFonts);
           font-size: 2rem;
         }
@@ -144,7 +148,8 @@ const sections: Array<{
           text-decoration: none;
           display: block;
 
-          h2 {
+          h1 {
+            transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             color: var(--accent2Color);
           }
         }
@@ -188,13 +193,15 @@ const sections: Array<{
       <section class="home-columns-container">
         <div class="home-columns">
           {
-            sections.map(({ href, svg, name, tagline }) => {
+            sections.map(({ href, svg, name, tagline, transitionName }) => {
               return (
                 <div class="home-column">
                   <a href={href} class="home-link">
                     <Figure svg={svg} className="column-logo" />
                     <Figure svg={diamondsSvg} className="hero-diamonds" />
-                    <h2 class="home-title">{name}</h2>
+                    <h1 class="home-title" transition:name={transitionName}>
+                      {name}
+                    </h1>
                   </a>
                   <p>{tagline}</p>
                 </div>
