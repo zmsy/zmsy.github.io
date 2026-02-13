@@ -1,0 +1,90 @@
+import type { FunctionComponent } from "preact";
+
+import clsx from "clsx";
+
+import styles from "../../styles/modules/palette-modal.module.scss";
+
+import { paletteEntries, type PaletteId } from "./palette";
+
+import { useCloseModal } from "./hooks/useCloseModal";
+import { useIsModalActive } from "./store/modal";
+import {
+  setPalettePreferenceId,
+  useActivePalette,
+  useActivePaletteId,
+} from "./store/palette/index";
+
+export const PaletteModal: FunctionComponent = () => {
+  const open = useIsModalActive("palette");
+  const active = useActivePaletteId();
+  const activePalette = useActivePalette();
+
+  const close = useCloseModal(open);
+
+  const choose = (palette: PaletteId) => {
+    setPalettePreferenceId(palette);
+    close();
+  };
+
+  return (
+    <div className={clsx("modal", styles.container, open && "is-active")}>
+      <div class="modal-background" onClick={close}></div>
+      <div
+        className={clsx("modal-content", styles.content)}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Color scheme picker. Current: ${activePalette.name}`}
+      >
+        <div className={styles.headerRow}>
+          <h2 className={styles.title}>Color scheme</h2>
+          <button
+            className={styles.close}
+            type="button"
+            aria-label="Close"
+            onClick={close}
+          />
+        </div>
+        <div className={styles.options}>
+          {paletteEntries.map(([id, palette]) => {
+            return (
+              <button
+                key={id}
+                type="button"
+                className={clsx(styles.option, active === id && styles.active)}
+                onClick={() => choose(id)}
+              >
+                <span className={styles.optionName}>{palette.name}</span>
+                <span className={styles.swatches} aria-hidden="true">
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.background }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.backgroundAccent }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent1 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent2 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent3 }}
+                  />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent4 }}
+                  />
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};

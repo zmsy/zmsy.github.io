@@ -1,2 +1,2 @@
-export { navModalOpen } from "./nav";
-export { palette } from "./palette";
+export * from "./palette";
+export { activeModal } from "./modal";
