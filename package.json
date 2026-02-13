@@ -20,7 +20,8 @@
     "bulma": "^0.9.4",
     "clsx": "^2.1.1",
     "nanostores": "^0.10.3",
-    "preact": "^10.23.1"
+    "preact": "^10.23.1",
+    "tinyduration": "^3.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
