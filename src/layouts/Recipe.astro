@@ -91,6 +91,12 @@ const { title, description, publishDate } = Astro.props;
           padding: 1rem 1.5rem 0rem;
         }
       }
+
+      .recipe-container {
+        @include mixins.touch {
+          margin: 0rem 0.75rem 1rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -115,7 +121,9 @@ const { title, description, publishDate } = Astro.props;
             <slot />
           </MarkdownContent>
         </div>
-        <RecipeCard {...Astro.props} />
+        <div class="recipe-container">
+          <RecipeCard {...Astro.props} />
+        </div>
       </article>
     </main>
     <Footer />
