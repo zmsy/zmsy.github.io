@@ -39,7 +39,7 @@ const stats = new Map<string, string | undefined>([
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
-  <div class="diagonal-stripes"></div>
+  <div class="accent-bar" aria-hidden="true"></div>
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
@@ -55,6 +55,15 @@ const stats = new Map<string, string | undefined>([
         })
       }
     </dl>
+    <p class="publish-date">
+      Published: {
+        publishDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      }
+    </p>
     <Picture
       class={"recipe-picture"}
       src={image ?? placeholderImage}
@@ -65,17 +74,7 @@ const stats = new Map<string, string | undefined>([
       quality={100}
     />
     <p class="description">{description}</p>
-    <p class="publish-date">
-      Published: {
-        publishDate.toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })
-      }
-    </p>
   </div>
-  <hr />
   <h2>Ingredients</h2>
   <ul>
     {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
@@ -99,96 +98,57 @@ const stats = new Map<string, string | undefined>([
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
 
   .recipe {
-    margin: 3rem 0rem;
+    width: 100%;
+    margin: 3rem 0 0;
     display: flex;
-    flex-flow: column nowrap;
-    border: 2px solid var(--accent1Color);
-    border-radius: 0.5rem;
+    flex-direction: column;
     padding: 2rem;
-    font-size: 1.125rem;
+    border: 0.125rem solid var(--backgroundAccentColor);
+    background: var(--backgroundColor);
+    box-sizing: border-box;
 
     @include mixins.mobile {
       & {
-        font-size: 1rem;
-        padding: 0.75rem;
+        padding: 1.25rem;
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+        margin-right: -1rem;
       }
     }
+  }
+
+  .accent-bar {
+    width: 100%;
+    height: 0.75rem;
+    background: var(--accent3Color);
+    border-radius: 10px;
   }
 
   dl {
     display: flex;
-    flex-flow: row nowrap;
-    gap: 3rem;
-    margin-bottom: 0.5rem;
-    padding: 0rem 0.5rem;
-    border-left: 0.25rem solid var(--accent4Color);
-
-    @include mixins.mobile {
-      & {
-        gap: 1rem;
-      }
-    }
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    border-left: 0.2rem solid var(--accent4Color);
   }
 
   .recipe-stats-entry {
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    gap: 0.5rem;
-
-    @include mixins.mobile {
-      & {
-        gap: 0.25rem;
-      }
-    }
+    flex-direction: column;
+    gap: 0.25rem;
   }
 
   dt {
     font-family: var(--heroFonts);
-    font-size: 1.125rem;
-    line-height: 1.125rem;
-
-    @include mixins.mobile {
-      & {
-        font-size: 1rem;
-        line-height: 1rem;
-      }
-    }
+    font-size: 1rem;
+    margin: 0;
   }
 
   dd {
+    margin: 0;
     font-style: italic;
-    font-size: 1rem;
-    line-height: 1.125rem;
-
-    @include mixins.mobile {
-      & {
-        font-size: 0.875rem;
-        line-height: 0.875rem;
-      }
-    }
-  }
-
-  p {
-    margin-top: 1rem;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  $stripeWidth: 0.5rem;
-  .diagonal-stripes {
-    background: repeating-linear-gradient(
-      45deg,
-      var(--accent3Color),
-      var(--accent3Color) $stripeWidth,
-      transparent $stripeWidth,
-      transparent calc($stripeWidth * 2.5)
-    );
-    height: 1rem;
-    overflow: hidden;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
   }
 
   .recipe-header {
@@ -199,10 +159,12 @@ const stats = new Map<string, string | undefined>([
   }
 
   .recipe-picture {
+    width: 100%;
     border: 1px solid var(--textColor);
   }
 
   .description {
+    margin-top: 0.5rem;
     font-style: italic;
   }
 
@@ -248,9 +210,6 @@ const stats = new Map<string, string | undefined>([
     font-family: var(--heroFonts);
     color: var(--subtitleTextColor);
     font-size: 1.5rem;
-    margin-top: 0rem;
-    &:not(:nth-of-type(1)) {
-      margin-top: 1rem;
-    }
+    margin-top: 1.5rem;
   }
 </style>

@@ -16,7 +16,7 @@ type Props = CollectionEntry<"recipes">["data"];
 const { title, description, publishDate } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
@@ -50,17 +50,33 @@ const { title, description, publishDate } = Astro.props;
         @include mixins.touch {
           // no max-width on touch
           max-width: unset;
-          margin: 0 2rem 8rem;
+          margin: 0 0.125rem 8rem;
+          padding: 2rem 1.5rem;
         }
       }
 
-      a {
-        display: block;
+      .jump-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 1rem;
+
+        &:hover {
+          background-color: var(--backgroundAccentColor);
+          color: var(--titleTextColor);
+        }
+      }
+
+      .jump-to-recipe {
+        border: 1px solid var(--accent1Color);
+        border-radius: 999px;
+        padding: 0.25rem 1.75rem;
         color: var(--accent1Color);
-        margin: 0rem auto 2rem;
-        text-align: center;
         font-variant: all-small-caps;
         font-weight: bold;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
       }
     </style>
   </head>
@@ -69,7 +85,9 @@ const { title, description, publishDate } = Astro.props;
     <main>
       <article>
         <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
-        <a href="#actual-recipe">Jump To Recipe</a>
+        <div class="jump-wrapper">
+          <a class="jump-to-recipe" href="#actual-recipe">Jump To Recipe</a>
+        </div>
         <MarkdownContent>
           <!-- Recipe text is rendered here. -->
           <slot />
