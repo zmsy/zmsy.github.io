@@ -14,13 +14,16 @@ export interface Props {
   publishDate?: Date;
   /** Optional text alignment, defaults to center. */
   titleTextAlign?: "center" | "left";
+  /** Optional subtitle alignment, defaults to center. */
+  subtitleTextAlign?: "center" | "left";
 }
 
 import diamondsSvg from "@src/svg/diamonds.svg?raw";
 import { contactInfo } from "../consts";
 import { Figure } from "./app/Figure";
 
-const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
+const { title, subtitle, publishDate, titleTextAlign, subtitleTextAlign } =
+  Astro.props;
 ---
 
 <div class="hero-body">
@@ -28,7 +31,13 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
       {title}
     </h1>
-    {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
+    {
+      subtitle !== undefined && (
+        <h2 class:list={["subtitle", { left: subtitleTextAlign === "left" }]}>
+          {subtitle}
+        </h2>
+      )
+    }
     {
       publishDate && (
         <p class="meta">
@@ -60,7 +69,7 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
         }
 
         h2 {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
         }
       }
 
@@ -97,7 +106,9 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     color: var(--titleTextColor);
   }
 
-  .left {
+  .left,
+  .title.left,
+  .subtitle.left {
     text-align: left;
   }
 </style>

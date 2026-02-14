@@ -84,7 +84,13 @@ const { title, description, publishDate } = Astro.props;
     <Navigation />
     <main>
       <article>
-        <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
+        <Hero
+          title={title}
+          publishDate={publishDate}
+          titleTextAlign={"left"}
+          subtitleTextAlign={"left"}
+          subtitle={Astro.props.description}
+        />
         <div class="jump-wrapper">
           <a class="jump-to-recipe" href="#actual-recipe">Jump To Recipe</a>
         </div>
