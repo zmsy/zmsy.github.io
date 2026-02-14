@@ -16,7 +16,7 @@ type Props = CollectionEntry<"recipes">["data"];
 const { title, description, publishDate } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
@@ -44,23 +44,60 @@ const { title, description, publishDate } = Astro.props;
       @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
 
       article {
-        margin: 0 auto 8rem;
+        margin-block: 0;
+        margin-inline: auto;
         max-width: var(--blogPostWidth);
 
         @include mixins.touch {
           // no max-width on touch
           max-width: unset;
-          margin: 0 2rem 8rem;
         }
       }
 
-      a {
-        display: block;
+      .jump-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 1rem;
+
+        &:hover {
+          background-color: var(--backgroundAccentColor);
+          color: var(--titleTextColor);
+        }
+      }
+
+      .jump-to-recipe {
+        border: 1px solid var(--accent1Color);
+        border-radius: 999px;
+        padding: 0.25rem 1.75rem;
         color: var(--accent1Color);
-        margin: 0rem auto 2rem;
-        text-align: center;
         font-variant: all-small-caps;
         font-weight: bold;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .hero-container {
+        padding: 1rem 0rem 0rem;
+        @include mixins.touch {
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      .markdown-container {
+        padding: 1rem 0rem;
+
+        @include mixins.touch {
+          padding: 1rem 1.5rem 0rem;
+        }
+      }
+
+      .recipe-container {
+        margin: 0 0 2rem;
+        @include mixins.touch {
+          margin: 0rem 0.75rem 1rem;
+        }
       }
     </style>
   </head>
@@ -68,13 +105,27 @@ const { title, description, publishDate } = Astro.props;
     <Navigation />
     <main>
       <article>
-        <Hero title={title} publishDate={publishDate} titleTextAlign={"left"} />
-        <a href="#actual-recipe">Jump To Recipe</a>
-        <MarkdownContent>
-          <!-- Recipe text is rendered here. -->
-          <slot />
-        </MarkdownContent>
-        <RecipeCard {...Astro.props} />
+        <div class="hero-container">
+          <Hero
+            title={title}
+            publishDate={publishDate}
+            titleTextAlign={"left"}
+            subtitleTextAlign={"left"}
+            subtitle={Astro.props.description}
+          />
+        </div>
+        <div class="jump-wrapper">
+          <a class="jump-to-recipe" href="#actual-recipe">Jump To Recipe</a>
+        </div>
+        <div class="markdown-container">
+          <MarkdownContent>
+            <!-- Recipe text is rendered here. -->
+            <slot />
+          </MarkdownContent>
+        </div>
+        <div class="recipe-container">
+          <RecipeCard {...Astro.props} />
+        </div>
       </article>
     </main>
     <Footer />
