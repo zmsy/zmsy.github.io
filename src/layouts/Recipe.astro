@@ -13,7 +13,7 @@ import { contactInfo } from "@src/consts";
 
 type Props = CollectionEntry<"recipes">["data"];
 
-const { title, description, publishDate } = Astro.props;
+const { title, description, publishDate, kingdom } = Astro.props;
 ---
 
 <!doctype html>
@@ -54,6 +54,15 @@ const { title, description, publishDate } = Astro.props;
         }
       }
 
+      .recipe-top-label {
+        margin: 2rem 0 0.4rem;
+        font-size: 0.9rem;
+        text-align: left;
+        font-variant: all-small-caps;
+        letter-spacing: 0.15em;
+        color: var(--textLowContrastColor);
+      }
+
       .jump-wrapper {
         display: flex;
         justify-content: center;
@@ -79,9 +88,9 @@ const { title, description, publishDate } = Astro.props;
       }
 
       .hero-container {
-        padding: 1rem 0rem 0rem;
+        padding: 0;
         @include mixins.touch {
-          padding: 1rem 2rem;
+          padding: 0 2rem 0;
         }
       }
 
@@ -106,12 +115,14 @@ const { title, description, publishDate } = Astro.props;
     <main>
       <article>
         <div class="hero-container">
+          <p class="recipe-top-label">Recipe{' > '}{kingdom}</p>
           <Hero
             title={title}
             publishDate={publishDate}
             titleTextAlign={"left"}
             subtitleTextAlign={"left"}
             subtitle={Astro.props.description}
+            topMargin={"0"}
           />
         </div>
         <div class="jump-wrapper">
