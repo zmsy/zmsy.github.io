@@ -54,24 +54,20 @@ const { title, description, publishDate, kingdom } = Astro.props;
         }
       }
 
-      <<<<<<< HEAD .recipe-top-label {
+      .recipe-top-label {
         margin: 2rem 0 0.4rem;
         font-size: 0.9rem;
         text-align: left;
         font-variant: all-small-caps;
+        font-weight: bold;
         letter-spacing: 0.15em;
-        color: var(--textLowContrastColor);
+        color: var(--accent2Color);
       }
 
-      =======>>>>>>>master .jump-wrapper {
+      .jump-wrapper {
         display: flex;
         justify-content: center;
         margin: 0 0 1rem;
-
-        &:hover {
-          background-color: var(--backgroundAccentColor);
-          color: var(--titleTextColor);
-        }
       }
 
       .jump-to-recipe {
@@ -85,6 +81,11 @@ const { title, description, publishDate, kingdom } = Astro.props;
         transition:
           background 0.2s ease,
           color 0.2s ease;
+
+        &:hover {
+          background-color: var(--backgroundAccentColor);
+          color: var(--titleTextColor);
+        }
       }
 
       .hero-container {
@@ -105,7 +106,7 @@ const { title, description, publishDate, kingdom } = Astro.props;
       .recipe-container {
         margin: 0 0 2rem;
         @include mixins.touch {
-          margin: 0rem 0.75rem 1rem;
+          margin: 0rem 0.75rem 2rem;
         }
       }
     </style>
