@@ -30,14 +30,13 @@ export type Palette = {
     text: string;
     /** Light text color, minimum WCAG standard contrast. */
     textLowContrast: string;
-    /** Fun colors, clicked links, etc. */
-    /** Links, warnings, admonitions. */
+    /** Primary interactive/link color, used for CTA text and borders. */
     accent1: string;
-    /** Hovered links, hovered icons. */
+    /** Secondary interaction/hover highlights and subtle outlines. */
     accent2: string;
-    /** Inline code. */
+    /** Inline code, syntax tokens, and supportive accents. */
     accent3: string;
-    /** Warnings. */
+    /** Alerts, status badges, and stronger warnings/dividers. */
     accent4: string;
     /** SVG illustrations stroke color. */
     illustrations: string;
@@ -49,24 +48,6 @@ export type Palette = {
  * color picker option.
  */
 export const palettes = {
-  defaultDark: {
-    name: "Dark",
-    scheme: "dark",
-    colors: {
-      background: "#2a363b",
-      backgroundAccent: "#3c525c",
-      secondaryBackground: "#faf9f9",
-      titleText: "#faf9f9",
-      subtitleText: "#dcdbd9",
-      text: "#dcdbd9",
-      textLowContrast: "#c8bfaf",
-      accent1: "#359fb7",
-      accent2: "#83cab2",
-      accent3: "#f55a37",
-      accent4: "#e5c76c",
-      illustrations: "#dcdbd9",
-    },
-  },
   defaultLight: {
     name: "Light",
     scheme: "light",
@@ -85,6 +66,24 @@ export const palettes = {
       illustrations: "#3f3b35",
     },
   },
+  defaultDark: {
+    name: "Dark",
+    scheme: "dark",
+    colors: {
+      background: "#2a363b",
+      backgroundAccent: "#3c525c",
+      secondaryBackground: "#faf9f9",
+      titleText: "#faf9f9",
+      subtitleText: "#dcdbd9",
+      text: "#dcdbd9",
+      textLowContrast: "#c8bfaf",
+      accent1: "#359fb7",
+      accent2: "#83cab2",
+      accent3: "#f55a37",
+      accent4: "#e5c76c",
+      illustrations: "#dcdbd9",
+    },
+  },
   redSox: {
     name: "Red Sox",
     scheme: "light",
@@ -97,9 +96,9 @@ export const palettes = {
       text: "#1e2330",
       textLowContrast: "#60677a",
       accent1: "#bd3039",
-      accent2: "#1d3b73",
-      accent3: "#c8a951",
-      accent4: "#2a9d8f",
+      accent2: "#5c666f",
+      accent3: "#53786c",
+      accent4: "#0c2340",
       illustrations: "#1e2330",
     },
   },
@@ -116,8 +115,8 @@ export const palettes = {
       textLowContrast: "#8f97c9",
       accent1: "#ff2d55",
       accent2: "#ff7a18",
-      accent3: "#ffb000",
-      accent4: "#ff3b30",
+      accent3: "#a78dff",
+      accent4: "#ffc857",
       illustrations: "#c7cce8",
     },
   },
@@ -134,7 +133,7 @@ export const palettes = {
       textLowContrast: "#c48acb",
       accent1: "#00f5ff",
       accent2: "#ff2a9d",
-      accent3: "#b026ff",
+      accent3: "#a470ff",
       accent4: "#ffe600",
       illustrations: "#ffd0f0",
     },
@@ -171,7 +170,7 @@ export const palettes = {
       accent1: "#2d9cdb",
       accent2: "#19b394",
       accent3: "#3ddc97",
-      accent4: "#1f6feb",
+      accent4: "#306668",
       illustrations: "#1c3b4c",
     },
   },
