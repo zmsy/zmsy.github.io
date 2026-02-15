@@ -1,0 +1,29 @@
+---
+import { contactInfo } from "../consts";
+
+export interface Props {
+  publishDate?: Date;
+}
+
+const { publishDate } = Astro.props;
+const formattedDate = publishDate?.toLocaleDateString();
+---
+
+{publishDate && (
+  <p class="meta">
+    written by
+    <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
+    on {formattedDate}
+  </p>
+)}
+
+<style lang="scss">
+  .meta {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .meta a {
+    color: var(--accent2Color);
+  }
+</style>
