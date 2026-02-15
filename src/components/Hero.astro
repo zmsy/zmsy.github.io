@@ -22,9 +22,8 @@ export interface Props {
   bottomMargin?: string;
 }
 
-import diamondsSvg from "@src/svg/diamonds.svg?raw";
-import { contactInfo } from "../consts";
-import { Figure } from "./app/Figure";
+import HeroDiamonds from "./HeroDiamonds.astro";
+import WrittenBy from "./WrittenBy.astro";
 
 const {
   title,
@@ -51,16 +50,8 @@ const heroMarginStyle = `--hero-top-margin: ${topMargin ?? "2rem"}; --hero-botto
         </h2>
       )
     }
-    {
-      publishDate && (
-        <p class="meta">
-          written by
-          <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
-          on {publishDate.toLocaleDateString()}
-        </p>
-      )
-    }
-    <Figure svg={diamondsSvg} className={"hero-diamonds"} />
+    <WrittenBy publishDate={publishDate} />
+    <HeroDiamonds />
   </div>
 </div>
 <style lang="scss">

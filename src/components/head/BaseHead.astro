@@ -1,17 +1,16 @@
 ---
-import "../../styles/index.scss";
+import { ClientInit } from "@src/components/app/ClientInit";
+import { googleAnalyticsDestinationId } from "@src/consts";
+import { paletteStorageKey } from "@src/components/app/store/palette/index";
+import { paletteIds } from "@src/components/app/palette";
+import "@src/styles/custom_bulma.scss";
+
 import GlobalStyles from "./GlobalStyles.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Preload from "./Preload.astro";
 import Title from "./Title.astro";
 import PaletteVariables from "./PaletteVariables.astro";
 import StaticVariables from "./StaticVariables.astro";
-
-import { ClientInit } from "@src/components/app/ClientInit";
-
-import { googleAnalyticsDestinationId } from "@src/consts";
-import { paletteStorageKey } from "@src/components/app/store/palette/index";
-import { paletteIds } from "@src/components/app/palette";
 
 export interface Props {
   title: string;
