@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "preact";
 
 import navbarLogoSvg from "@src/svg/navbar-logo.svg?raw";
-import { activeModal } from "@src/store";
+import { activeModal } from "@src/state";
 import { Figure } from "./Figure";
 
 /** Navbar logo that opens the palette picker modal. */

@@ -7,12 +7,12 @@ import styles from "../../styles/modules/palette-modal.module.scss";
 import { paletteEntries, type PaletteId } from "./palette";
 
 import { useCloseModal } from "./hooks/useCloseModal";
-import { useIsModalActive } from "@src/store/modal";
+import { useIsModalActive } from "@src/state/modal";
 import {
   setPalettePreferenceId,
   useActivePalette,
   useActivePaletteId,
-} from "@src/store/palette";
+} from "@src/state/palette";
 
 export const PaletteModal: FunctionComponent = () => {
   const open = useIsModalActive("palette");

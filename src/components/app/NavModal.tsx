@@ -4,7 +4,7 @@ import { Figure } from "./Figure";
 
 import clsx from "clsx";
 
-import { useIsModalActive } from "@src/store/modal";
+import { useIsModalActive } from "@src/state/modal";
 import styles from "../../styles/modules/nav-modal.module.scss";
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import aboutIcon from "../../svg/icons/about-icon.svg?raw";

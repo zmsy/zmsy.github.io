@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "preact/hooks";
 
-import { activeModal } from "@src/store";
+import { activeModal } from "@src/state";
 
 /**
  * Shared close behavior for site modals.

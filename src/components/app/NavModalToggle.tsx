@@ -1,5 +1,5 @@
 import type { FunctionComponent } from "preact";
-import { activeModal } from "@src/store";
+import { activeModal } from "@src/state";
 
 /**
  * Toggle button in the nav to display the nav modal when clicked.
