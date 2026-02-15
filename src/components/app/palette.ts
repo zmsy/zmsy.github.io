@@ -38,6 +38,8 @@ export type Palette = {
     accent3: string;
     /** Alerts, status badges, and stronger warnings/dividers. */
     accent4: string;
+    /** Decorative/low-contrast accents used for texture only. */
+    accent5: string;
     /** SVG illustrations stroke color. */
     illustrations: string;
   };
@@ -63,6 +65,7 @@ export const palettes = {
       accent2: "#359fb7",
       accent3: "#83cab2",
       accent4: "#e5c76c",
+      accent5: "#fee3da",
       illustrations: "#3f3b35",
     },
   },
@@ -81,6 +84,7 @@ export const palettes = {
       accent2: "#83cab2",
       accent3: "#f55a37",
       accent4: "#e5c76c",
+      accent5: "#255e7b",
       illustrations: "#dcdbd9",
     },
   },
@@ -99,6 +103,7 @@ export const palettes = {
       accent2: "#5c666f",
       accent3: "#53786c",
       accent4: "#0c2340",
+      accent5: "#ffeca9",
       illustrations: "#1e2330",
     },
   },
@@ -117,6 +122,7 @@ export const palettes = {
       accent2: "#ff7a18",
       accent3: "#a78dff",
       accent4: "#ffc857",
+      accent5: "#004e47",
       illustrations: "#c7cce8",
     },
   },
@@ -135,6 +141,7 @@ export const palettes = {
       accent2: "#ff2a9d",
       accent3: "#a470ff",
       accent4: "#ffe600",
+      accent5: "#00556c",
       illustrations: "#ffd0f0",
     },
   },
@@ -153,6 +160,7 @@ export const palettes = {
       accent2: "#4fcbb8",
       accent3: "#ff8a65",
       accent4: "#f2d46d",
+      accent5: "#ffe0d9",
       illustrations: "#3a3656",
     },
   },
@@ -171,6 +179,7 @@ export const palettes = {
       accent2: "#19b394",
       accent3: "#3ddc97",
       accent4: "#306668",
+      accent5: "#bed8e3",
       illustrations: "#1c3b4c",
     },
   },

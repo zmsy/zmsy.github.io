@@ -79,6 +79,10 @@ export const PaletteModal: FunctionComponent = () => {
                     className={styles.swatch}
                     style={{ background: palette.colors.accent4 }}
                   />
+                  <span
+                    className={styles.swatch}
+                    style={{ background: palette.colors.accent5 }}
+                  />
                 </span>
               </button>
             );
