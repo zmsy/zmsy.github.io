@@ -4,16 +4,14 @@ import { Figure } from "./Figure";
 
 import clsx from "clsx";
 
+import { useIsModalActive } from "@src/store/modal";
 import styles from "../../styles/modules/nav-modal.module.scss";
-
-import { useCloseModal } from "./hooks/useCloseModal";
-
 import hrzSeparator from "../../svg/horizontal-separator.svg?raw";
 import aboutIcon from "../../svg/icons/about-icon.svg?raw";
 import blogIcon from "../../svg/icons/blog-icon.svg?raw";
 import homeIcon from "../../svg/icons/home-icon.svg?raw";
 import recipesIcon from "../../svg/icons/recipes-icon.svg?raw";
-import { useIsModalActive } from "./store/modal";
+import { useCloseModal } from "./hooks/useCloseModal";
 
 export const NavModal: FunctionComponent = () => {
   const open = useIsModalActive("nav");

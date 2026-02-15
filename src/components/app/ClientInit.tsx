@@ -1,7 +1,7 @@
 import type { FunctionComponent } from "preact";
 import { useEffect } from "preact/hooks";
 
-import { initPalette } from "./store/palette/init";
+import { initPalette } from "../../store/palette/init";
 
 /**
  * Client-only initialization entrypoint.
