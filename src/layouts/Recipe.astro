@@ -13,7 +13,7 @@ import { contactInfo } from "@src/consts";
 
 type Props = CollectionEntry<"recipes">["data"];
 
-const { title, description, publishDate } = Astro.props;
+const { title, description, publishDate, kingdom } = Astro.props;
 ---
 
 <!doctype html>
@@ -54,15 +54,20 @@ const { title, description, publishDate } = Astro.props;
         }
       }
 
+      .recipe-top-label {
+        margin: 2rem 0 0.4rem;
+        font-size: 0.9rem;
+        text-align: left;
+        font-variant: all-small-caps;
+        font-weight: bold;
+        letter-spacing: 0.15em;
+        color: var(--accent2Color);
+      }
+
       .jump-wrapper {
         display: flex;
         justify-content: center;
         margin: 0 0 1rem;
-
-        &:hover {
-          background-color: var(--backgroundAccentColor);
-          color: var(--titleTextColor);
-        }
       }
 
       .jump-to-recipe {
@@ -76,12 +81,17 @@ const { title, description, publishDate } = Astro.props;
         transition:
           background 0.2s ease,
           color 0.2s ease;
+
+        &:hover {
+          background-color: var(--backgroundAccentColor);
+          color: var(--titleTextColor);
+        }
       }
 
       .hero-container {
-        padding: 1rem 0rem 0rem;
+        padding: 0;
         @include mixins.touch {
-          padding: 1rem 1.5rem;
+          padding: 0 2rem 0;
         }
       }
 
@@ -89,14 +99,14 @@ const { title, description, publishDate } = Astro.props;
         padding: 1rem 0rem;
 
         @include mixins.touch {
-          padding: 1rem 1.5rem 0rem;
+          padding: 1rem 2rem 0rem;
         }
       }
 
       .recipe-container {
         margin: 0 0 2rem;
         @include mixins.touch {
-          margin: 0rem 0.75rem 1rem;
+          margin: 0rem 0.75rem 2rem;
         }
       }
     </style>
@@ -106,12 +116,14 @@ const { title, description, publishDate } = Astro.props;
     <main>
       <article>
         <div class="hero-container">
+          <p class="recipe-top-label">Recipe{" > "}{kingdom}</p>
           <Hero
             title={title}
             publishDate={publishDate}
             titleTextAlign={"left"}
             subtitleTextAlign={"left"}
             subtitle={Astro.props.description}
+            topMargin={"0"}
           />
         </div>
         <div class="jump-wrapper">
