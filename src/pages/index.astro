@@ -1,6 +1,5 @@
 ---
 import { Figure } from "@src/components/app/Figure";
-import HeroDiamonds from "../components/HeroDiamonds.astro";
 import Footer from "../components/Footer.astro";
 import HeroDiamonds from "../components/HeroDiamonds.astro";
 import Navigation from "../components/Navigation.astro";
@@ -53,7 +52,6 @@ const sections: Array<{
   <head>
     <BaseHead title={title} description={description} />
     <style lang="scss">
-      @use "bulma/sass/utilities/mixins.sass" as mixins;
       @use "bulma/sass/utilities/mixins" as mixins;
 
       .hero {
@@ -164,7 +162,7 @@ const sections: Array<{
         }
       }
 
-      @include mixins.from(mixins.$tablet) {
+      @include mixins.tablet {
         .is-hidden-tablet {
           display: none;
         }
