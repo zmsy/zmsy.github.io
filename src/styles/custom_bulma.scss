@@ -1,17 +1,34 @@
-// 1. Import the initial variables
-@import "bulma/sass/base/minireset.sass";
-@import "bulma/sass/utilities/initial-variables.sass";
-@import "bulma/sass/utilities/functions.sass";
+@charset "utf-8";
 
-// 2. Set custom variables
-@import "./variables.scss";
+// Central Bulma build entry (v1 modular Sass).
+// This file should be the only place we `@forward` CSS-producing Bulma modules.
 
-// 3. import the rest of bulma that we care about
-@import "bulma/sass/utilities/derived-variables.sass";
-@import "bulma/sass/utilities/controls.sass";
-@import "bulma/sass/utilities/extends.sass";
-@import "bulma/sass/base/generic.sass";
-@import "bulma/sass/components/modal.sass";
-@import "bulma/sass/components/navbar.sass";
-@import "bulma/sass/elements/container.sass";
-@import "bulma/sass/elements/content.sass";
+// Configure Bulma's Sass-side defaults (only what can't be done via CSS vars).
+// We keep this intentionally minimal; colors are handled via runtime CSS variables.
+@use "bulma/sass/utilities";
+
+// Provide Bulma's baseline theme variables.
+// We intentionally use light-only here (no prefers-color-scheme auto switching).
+@use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/css-variables" as cv;
+@use "bulma/sass/themes/light" as light;
+@use "bulma/sass/themes/setup" as setup;
+
+// Forward only the Bulma modules we currently rely on.
+// Note: `@forward` rules must come before any CSS rules in this file.
+@forward "bulma/sass/base";
+@forward "bulma/sass/layout/container";
+@forward "bulma/sass/elements/content";
+@forward "bulma/sass/components/navbar";
+@forward "bulma/sass/components/modal";
+@forward "bulma/sass/components/card";
+
+#{iv.$variables-host} {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}
+
+@include cv.bulma-theme($name: "light") {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}

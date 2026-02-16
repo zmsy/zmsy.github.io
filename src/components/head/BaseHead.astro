@@ -10,6 +10,7 @@ import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Preload from "./Preload.astro";
 import Title from "./Title.astro";
 import PaletteVariables from "./PaletteVariables.astro";
+import BulmaVariables from "./BulmaVariables.astro";
 import StaticVariables from "./StaticVariables.astro";
 
 export interface Props {
@@ -73,6 +74,7 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <!-- immediately fetch fonts and icons -->
 <StaticVariables />
 <PaletteVariables />
+<BulmaVariables />
 <Preload />
 <GlobalStyles />
 
