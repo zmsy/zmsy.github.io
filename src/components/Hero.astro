@@ -50,7 +50,7 @@ const heroMarginStyle = `--hero-top-margin: ${topMargin ?? "2rem"}; --hero-botto
         </h2>
       )
     }
-    {publishDate !== undefined && <WrittenBy publishDate={publishDate} />}
+    {publishDate && <WrittenBy publishDate={publishDate} />}
     <HeroDiamonds />
   </div>
 </div>
