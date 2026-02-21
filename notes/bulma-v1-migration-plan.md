@@ -1,10 +1,11 @@
-# Bulma 1.x Migration Sheet
+# Bulma 1.x Compatibility Sheet
 
-Intent: make the repo 100% Bulma 1.x compatible with the smallest possible surface area of change.
+Intent: ship Bulma 1.x compatibility only (no theming work).
 
-Non-goals (for now):
-- Do not migrate the site theming/palette engine to be Bulma-first.
-- Do not switch the customization strategy to “CSS variables only”; keep Sass overrides/config where it reduces churn.
+Non-goals (in this PR):
+- No palette -> `--bulma-*` mapping.
+- No new JS deps for color conversion.
+- No refactors unrelated to Bulma 1.x compilation.
 
 References:
 - Bulma migration guide: https://bulma.io/documentation/start/migrating-to-v1/
@@ -17,27 +18,25 @@ References:
 - Only the Bulma modules we rely on are compiled (centralized in one entry).
 - Visual smoke test passes: navbar, modal, card, content typography.
 
-## Where We Are (PR #224)
+## Keep (PR #224)
 
-Required for Bulma 1.x compatibility:
-- [x] Dependency bump to `bulma@^1.0.4` (`package.json`, `package-lock.json`)
-- [x] Replace legacy `@import` entry with Bulma v1 modular Sass (`src/styles/custom_bulma.scss`)
-- [x] Update Bulma mixin imports in inline SCSS (`@use "bulma/sass/utilities/mixins"`)
-- [x] Update mixin API usage where needed (`mixins.from(...)` -> named breakpoints like `mixins.tablet`)
-- [x] Centralize Bulma component CSS output (forward `navbar`, `modal`, `card`, plus base/layout/content)
+- [x] Bump `bulma` to `^1.0.4` (`package.json`, `package-lock.json`)
+- [x] Switch to Bulma v1 modular Sass entry (`src/styles/custom_bulma.scss`)
+- [x] Fix inline mixin imports (`@use "bulma/sass/utilities/mixins"`)
+- [x] Fix mixin API usage where needed (`mixins.from(...)` -> `mixins.tablet`)
+- [x] Ensure card CSS comes from the central Bulma entry (no page-level Bulma component imports)
 
 Verification still needed:
 - [ ] Run `npm run build` and `npm run preview`, then smoke test the key pages
 - [ ] Confirm `astro-purgecss` does not strip dynamic Bulma classes (only safelist if proven necessary)
 
-## Optional / Deferred (Do Later, Not Required For Compatibility)
+## Remove From This PR (PR #224)
 
-These are explicitly out of scope for the “minimal surface area” migration:
-- Palette-driven Bulma theming (`--bulma-*` mapping) and any hex->HSL plumbing
-- Aligning `data-palette` and Bulma `data-theme`
-- Removing/reworking Sass overrides purely to match Bulma’s CSS-variable theming model
-
-Note: PR #224 currently includes some of these deferred pieces (e.g. `src/components/head/BulmaVariables.astro` + `color-convert`). Keep them only if we decide they are worth the added maintenance surface; they are not required to be Bulma 1.x compatible.
+- [ ] `src/components/head/BulmaVariables.astro` (delete)
+- [ ] `src/components/head/BaseHead.astro` (`BulmaVariables` import/usage)
+- [ ] `color-convert` (`package.json`, `package-lock.json`)
+- [ ] Revert `src/styles/variables.scss` back to pre-PR (don’t do theming cleanup here)
+- [ ] Any other cosmetic-only diffs (keep PR focused)
 
 ## Bulma Usage Inventory (So We Keep Imports Tight)
 
@@ -50,5 +49,6 @@ Note: PR #224 currently includes some of these deferred pieces (e.g. `src/compon
 
 ## Next Steps
 
-- If anything is visually broken: add the missing Bulma module to `src/styles/custom_bulma.scss` first (avoid page-level Bulma CSS imports).
+- Apply the removals listed above, then re-run `npm run build`.
+- If anything is visually broken: add the missing Bulma module to `src/styles/custom_bulma.scss` (avoid page-level Bulma CSS imports).
 - If production builds drop modal/responsive styling: add a minimal PurgeCSS safelist in `astro.config.mjs` for the specific missing class names.
