@@ -42,7 +42,12 @@ const navLinks: Array<NavLink> = [
 ];
 ---
 
-<nav class="navbar" role="navigation">
+<!-- todo: figure out how to correctly override the bulma vars for this -->
+<nav
+  class="navbar"
+  role="navigation"
+  style="--bulma-navbar-burger-color: var(--textColor);"
+>
   <div class="navbar-brand">
     <LogoPaletteToggle client:idle />
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
