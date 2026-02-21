@@ -27,15 +27,16 @@ References:
 - [x] Ensure card CSS comes from the central Bulma entry (no page-level Bulma component imports)
 
 Verification still needed:
-- [ ] Run `npm run build` and `npm run preview`, then smoke test the key pages
+- [x] Run `npm run build`
+- [ ] Run `npm run preview`, then smoke test the key pages
 - [ ] Confirm `astro-purgecss` does not strip dynamic Bulma classes (only safelist if proven necessary)
 
 ## Remove From This PR (PR #224)
 
-- [ ] `src/components/head/BulmaVariables.astro` (delete)
-- [ ] `src/components/head/BaseHead.astro` (`BulmaVariables` import/usage)
-- [ ] `color-convert` (`package.json`, `package-lock.json`)
-- [ ] Revert `src/styles/variables.scss` back to pre-PR (don’t do theming cleanup here)
+- [x] `src/components/head/BulmaVariables.astro` (delete)
+- [x] `src/components/head/BaseHead.astro` (`BulmaVariables` import/usage)
+- [x] `color-convert` (`package.json`, `package-lock.json`)
+- [x] Revert `src/styles/variables.scss` back to pre-PR (don’t do theming cleanup here)
 - [ ] Any other cosmetic-only diffs (keep PR focused)
 
 ## Bulma Usage Inventory (So We Keep Imports Tight)
