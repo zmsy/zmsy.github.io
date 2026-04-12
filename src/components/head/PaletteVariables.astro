@@ -1,0 +1,67 @@
+---
+/**
+ * Palette-driven CSS custom properties.
+ *
+ * This component generates CSS that maps each palette's color tokens to the
+ * site's `--*Color` custom properties.
+ *
+ * How it works:
+ * - Default: `html { ... }` seeds the light palette colors.
+ * - System dark preference: `@media (prefers-color-scheme: dark)` applies the
+ *   dark palette only when there is NO explicit `data-palette` selection.
+ * - Explicit selection: `html[data-palette="..."] { ... }` overrides both the
+ *   default and the system preference.
+ *
+ * The `data-palette` attribute is set pre-paint (from localStorage) in
+ * `src/components/head/BaseHead.astro` to avoid a flash of the wrong theme.
+ */
+
+import { paletteEntries, palettes } from "@src/components/app/palette";
+
+type PaletteColors = (typeof palettes)[keyof typeof palettes]["colors"];
+
+const cssVarNameForColorKey = (key: string): string => `--${key}Color`;
+
+const colorsToCSS = (colors: PaletteColors, indent: string): string =>
+  Object.entries(colors)
+    .map(([key, value]) => `${indent}${cssVarNameForColorKey(key)}: ${value};`)
+    .join("\n");
+
+const baseColorsCSS = colorsToCSS(palettes.defaultLight.colors, "    ");
+const darkPrefColorsCSS = colorsToCSS(palettes.defaultDark.colors, "      ");
+
+const paletteRules = paletteEntries
+  .map(([id, palette]) => {
+    return [
+      `  html[data-palette="${id}"] {`,
+      `    color-scheme: ${palette.scheme};`,
+      colorsToCSS(palette.colors, "    "),
+      "  }",
+    ].join("\n");
+  })
+  .join("\n\n");
+
+const css = `
+  html {
+    color-scheme: light;
+    /** COLORS */
+${baseColorsCSS}
+  }
+
+  /**
+   * If the user prefers dark mode, set the colors to match the
+   * dark mode palette.
+   */
+  @media (prefers-color-scheme: dark) {
+    html:not([data-palette]) {
+      color-scheme: dark;
+${darkPrefColorsCSS}
+    }
+  }
+
+  /* Explicit palette selection overrides system preference. */
+${paletteRules}
+`.trim();
+---
+
+<style is:global is:inline set:html={css}></style>

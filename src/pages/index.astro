@@ -1,11 +1,11 @@
 ---
 import { Figure } from "@src/components/app/Figure";
+import HeroDiamonds from "../components/HeroDiamonds.astro";
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import BaseHead from "../components/head/BaseHead.astro";
 
 // general svgs
-import diamondsSvg from "@src/svg/diamonds.svg?raw";
 import homeLogoScribbleMobileSvg from "@src/svg/home-logo-scribble-mobile.svg?raw";
 import homeLogoScribbleSvg from "@src/svg/home-logo-scribble.svg?raw";
 
@@ -47,12 +47,12 @@ const sections: Array<{
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
     <style lang="scss">
-      @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+      @use "bulma/sass/utilities/mixins.sass" as mixins;
 
       .hero {
         margin: 2.5rem auto 1.5rem;
@@ -193,7 +193,7 @@ const sections: Array<{
                 <div class="home-column">
                   <a href={href} class="home-link">
                     <Figure svg={svg} className="column-logo" />
-                    <Figure svg={diamondsSvg} className="hero-diamonds" />
+                    <HeroDiamonds />
                     <h2 class="home-title">{name}</h2>
                   </a>
                   <p>{tagline}</p>

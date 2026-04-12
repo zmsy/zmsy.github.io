@@ -35,12 +35,17 @@ export const Figure: FunctionComponent<FigureProps> = ({
   // only set the id of the element if it's been passed
   const idProps = { ...(id !== undefined && { id }) };
 
+  const a11yProps = alt
+    ? ({ "aria-hidden": "true" } as const)
+    : ({ role: "img", "aria-label": alt } as const);
+
   return (
     <figure
       {...idProps}
-      alt={alt ?? ""}
+      {...a11yProps}
       class={clsx(styles.coloredsvg, className)}
-      dangerouslySetInnerHTML={{ __html: svg }}
-    />
+    >
+      <span aria-hidden="true" dangerouslySetInnerHTML={{ __html: svg }} />
+    </figure>
   );
 };

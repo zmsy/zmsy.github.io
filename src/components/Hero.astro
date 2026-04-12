@@ -14,38 +14,54 @@ export interface Props {
   publishDate?: Date;
   /** Optional text alignment, defaults to center. */
   titleTextAlign?: "center" | "left";
+  /** Optional subtitle alignment, defaults to center. */
+  subtitleTextAlign?: "center" | "left";
+  /** Override the hero top margin. */
+  topMargin?: string;
+  /** Override the hero bottom margin. */
+  bottomMargin?: string;
 }
 
-import diamondsSvg from "@src/svg/diamonds.svg?raw";
-import { contactInfo } from "../consts";
-import { Figure } from "./app/Figure";
+import HeroDiamonds from "./HeroDiamonds.astro";
+import WrittenBy from "./WrittenBy.astro";
 
-const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
+const {
+  title,
+  subtitle,
+  publishDate,
+  titleTextAlign,
+  subtitleTextAlign,
+  topMargin,
+  bottomMargin,
+} = Astro.props;
+
+const heroMarginStyle = `--hero-top-margin: ${topMargin ?? "2rem"}; --hero-bottom-margin: ${bottomMargin ?? "2rem"};`;
 ---
 
-<div class="hero-body">
+<div class="hero-body" style={heroMarginStyle}>
   <div class="container">
     <h1 class:list={["title", { left: titleTextAlign === "left" }]}>
       {title}
     </h1>
-    {subtitle !== undefined && <h2 class="subtitle">{subtitle}</h2>}
     {
-      publishDate && (
-        <p class="meta">
-          written by
-          <a href={contactInfo.twitterUrl}>{contactInfo.authorName}</a>
-          on {publishDate.toLocaleDateString()}
-        </p>
+      subtitle !== undefined && (
+        <h2 class:list={["subtitle", { left: subtitleTextAlign === "left" }]}>
+          {subtitle}
+        </h2>
       )
     }
-    <Figure svg={diamondsSvg} className={"hero-diamonds"} />
+    {publishDate && <WrittenBy publishDate={publishDate} />}
+    <HeroDiamonds />
   </div>
 </div>
 <style lang="scss">
-  @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
+  @use "bulma/sass/utilities/mixins.sass" as mixins;
   .hero-body {
     padding: 0rem;
-    margin: 2rem 0rem;
+    margin-top: var(--hero-top-margin, 2rem);
+    margin-bottom: var(--hero-bottom-margin, 2rem);
+    margin-left: 0;
+    margin-right: 0;
     text-align: center;
 
     div {
@@ -53,13 +69,26 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     }
 
     .container {
-      @include mixins.touch {
+      @include mixins.tablet {
         h1 {
           font-size: 3rem;
+          line-height: 1.125;
         }
 
         h2 {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
+        }
+      }
+
+      @include mixins.mobile {
+        h1 {
+          font-size: 2.25rem;
+          line-height: 1.125;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+          line-height: 1;
         }
       }
     }
@@ -70,10 +99,11 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     font-weight: normal;
     font-size: 3.5rem;
     color: var(--titleTextColor);
+    text-shadow: 0.25rem 0.25rem 0 var(--accent5Color);
 
     & + .subtitle {
       // override default bulma spacing
-      margin-top: 0rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -81,10 +111,12 @@ const { title, subtitle, publishDate, titleTextAlign } = Astro.props;
     font-family: var(--heroSubtitleFonts);
     font-weight: normal;
     font-size: 1.5rem;
-    color: var(--titleTextColor);
+    color: var(--textColor);
   }
 
-  .left {
+  .left,
+  .title.left,
+  .subtitle.left {
     text-align: left;
   }
 </style>

@@ -1,0 +1,15 @@
+---
+import { Figure } from "./app/Figure";
+import diamondsSvg from "@src/svg/diamonds.svg?raw";
+---
+
+<Figure svg={diamondsSvg} className="hero-diamonds" />
+
+<style lang="scss">
+  .hero-diamonds {
+    height: 1.25rem;
+    margin: 1rem auto;
+    display: block;
+    max-width: min(30rem, 90vw);
+  }
+</style>

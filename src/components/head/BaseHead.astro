@@ -1,11 +1,16 @@
 ---
-import "../../styles/index.scss";
+import { ClientInit } from "@src/components/app/ClientInit";
+import { googleAnalyticsDestinationId } from "@src/consts";
+import { paletteStorageKey } from "@src/state/palette";
+import { paletteIds } from "@src/components/app/palette";
+import "@src/styles/custom_bulma.scss";
+
 import GlobalStyles from "./GlobalStyles.astro";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 import Preload from "./Preload.astro";
-import Variables from "./Variables.astro";
-
-import { googleAnalyticsDestinationId } from "@src/consts";
+import Title from "./Title.astro";
+import PaletteVariables from "./PaletteVariables.astro";
+import StaticVariables from "./StaticVariables.astro";
 
 export interface Props {
   title: string;
@@ -24,6 +29,21 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- Apply saved palette before first paint -->
+<script is:inline define:vars={{ paletteStorageKey, paletteIds }}>
+  (() => {
+    try {
+      const value = localStorage.getItem(paletteStorageKey);
+      if (value && paletteIds.includes(value)) {
+        document.documentElement.dataset.palette = value;
+      }
+    } catch {
+      // ignore
+    }
+  })();
+</script>
+
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 <meta name="generator" content={Astro.generator} />
@@ -32,7 +52,7 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>zmsy | {title}</title>
+<Title title={`zmsy | ${title}`} />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
@@ -51,6 +71,10 @@ const { title, description, image = "/img/about.jpg" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <!-- immediately fetch fonts and icons -->
-<Variables />
+<StaticVariables />
+<PaletteVariables />
 <Preload />
 <GlobalStyles />
+
+<!-- initialize javascript post-inline scripts -->
+<ClientInit client:load client:only="preact" />

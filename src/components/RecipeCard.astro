@@ -5,10 +5,16 @@
  * page SEO recipe. Most recipe sites have introduction, then some images of the
  * recipe being made, then the recipe card.
  */
+import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+
+import { readableDuration } from "@src/lib/dates";
+import RecipeSection from "./RecipeSection.astro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Props = CollectionEntry<"recipes">["data"];
+
+import placeholderImage from "../images/placeholder.png";
 
 const {
   title,
@@ -16,15 +22,39 @@ const {
   publishDate,
   recipeIngredients,
   recipeInstructions,
+  image,
+  recipeYield,
+  prepTime,
+  cookTime,
+  totalTime,
 } = Astro.props;
+
+const stats = new Map<string, string | undefined>([
+  ["Yield", recipeYield],
+  ["Prep", readableDuration(prepTime)],
+  ["Cook", readableDuration(cookTime)],
+  ["Total", readableDuration(totalTime)],
+]);
 ---
 
 <!-- actual-recipe id is what the 'jump to recipe' button uses -->
 <div id="actual-recipe" class="recipe">
+  <div class="accent-bar" aria-hidden="true"></div>
   <div>
     <p class="recipe-header">Recipe Details</p>
     <h1>{title}</h1>
-    <p class="description">{description}</p>
+    <dl class="recipe-stats">
+      {
+        [...stats.entries()].map(([label, description]) => {
+          return (
+            <div class="recipe-stats-entry">
+              <dt>{label}</dt>
+              <dd>{description}</dd>
+            </div>
+          );
+        })
+      }
+    </dl>
     <p class="publish-date">
       Published: {
         publishDate.toLocaleDateString("en-US", {
@@ -34,39 +64,88 @@ const {
         })
       }
     </p>
+    <Picture
+      class={"recipe-picture"}
+      src={image ?? placeholderImage}
+      densities={[1, 2]}
+      formats={["webp"]}
+      fallbackFormat="jpg"
+      alt=""
+      quality={100}
+    />
+    <p class="description">{description}</p>
   </div>
-  <hr />
   <h2>Ingredients</h2>
   <ul>
     {recipeIngredients.map((ingredient) => <li>{ingredient}</li>)}
   </ul>
   <h2>Instructions</h2>
-  <ul>
-    {recipeInstructions.map((instruction) => <li>{instruction}</li>)}
-  </ul>
+  <ol>
+    {
+      recipeInstructions.map((instruction) => (
+        <li>
+          {typeof instruction === "string" ? (
+            instruction
+          ) : (
+            <RecipeSection {...instruction} />
+          )}
+        </li>
+      ))
+    }
+  </ol>
 </div>
 <style lang="scss">
   @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mixins;
 
   .recipe {
-    margin: 3rem 0rem;
+    width: 100%;
+    margin: 3rem 0 0;
     display: flex;
-    flex-flow: column nowrap;
-    border: 2px solid var(--accent1Color);
-    border-radius: 0.5rem;
-    padding: 2rem;
-    font-size: 1.25rem;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 0.125rem solid var(--backgroundAccentColor);
+    background: var(--backgroundAccentColor);
+    box-sizing: border-box;
 
     @include mixins.mobile {
       & {
-        font-size: 1rem;
-        padding: 1.25rem;
+        padding: 1.25rem 1rem;
       }
     }
   }
 
-  p {
-    margin-top: 1rem;
+  .accent-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--accent3Color);
+    border-radius: 10px;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    border-left: 0.2rem solid var(--accent4Color);
+  }
+
+  .recipe-stats-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  dt {
+    font-family: var(--heroFonts);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  dd {
+    margin: 0;
+    font-style: italic;
+    font-size: 0.95rem;
   }
 
   .recipe-header {
@@ -74,9 +153,16 @@ const {
     font-variant: small-caps;
     font-weight: 700;
     font-size: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .recipe-picture {
+    width: 100%;
+    border: 1px solid var(--textColor);
   }
 
   .description {
+    margin-top: 0.5rem;
     font-style: italic;
   }
 
@@ -86,7 +172,8 @@ const {
     font-size: 1rem;
   }
 
-  ul {
+  ul,
+  ol {
     list-style-type: disc;
     list-style-position: outside;
     margin-top: 0rem;
@@ -105,13 +192,14 @@ const {
 
   h1 {
     font-size: 2.5rem;
-    color: var(--accent2Color);
+    color: var(--titleTextColor);
     text-decoration: underline;
-    text-decoration-color: var(--accent4Color);
+    text-decoration-color: var(--accent2Color);
 
     @include mixins.mobile {
       & {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -120,9 +208,6 @@ const {
     font-family: var(--heroFonts);
     color: var(--subtitleTextColor);
     font-size: 1.5rem;
-    margin-top: 0rem;
-    &:not(:nth-of-type(1)) {
-      margin-top: 1rem;
-    }
+    margin-top: 1.5rem;
   }
 </style>

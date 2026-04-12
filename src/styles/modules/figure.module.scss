@@ -37,6 +37,7 @@
     variables.$accent2DefaultColor: var(--accent2Color),
     variables.$accent3DefaultColor: var(--accent3Color),
     variables.$accent4DefaultColor: var(--accent4Color),
+    variables.$accent5DefaultColor: var(--accent5Color),
   );
   @each $tag in $tags {
     @each $color, $colorVar in $colors {
