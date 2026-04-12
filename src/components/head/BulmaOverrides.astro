@@ -1,0 +1,11 @@
+---
+// this file is exclusively for overriding some of the bulma values by using css
+// variables. this should be preferred going forward instead of using the custom
+// scss overrides
+---
+
+<style is:inline is:global>
+  html {
+    --bulma-navbar-burger-color: var(--textColor);
+  }
+</style>
