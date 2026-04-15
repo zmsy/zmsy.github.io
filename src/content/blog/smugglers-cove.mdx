@@ -1,0 +1,212 @@
+---
+title: "Smuggler's Cove: The Mathematically Best Bottle Selection"
+description: "Smuggler's Cove is the Tiki drink bible, but the amount of ingredients it calls for is unrelenting. Let's solve for the best selection of bottles & ingredients to buy."
+publishDate: 2026-04-12
+---
+
+import { Figure } from "@src/components/app/Figure";
+
+import drinksChart from "@src/svg/blog/optimal-smugglers-cove/ingredient_max_vs_drinks.svg?raw";
+import drinksSvg from "@src/svg/drinks.svg?raw";
+
+<Figure svg={drinksSvg} className={"small"} />
+
+[Smuggler's Cove](https://www.smugglerscovesf.com/book) by Martin Cate came to me in the deepest depths of the COVID pandemic, where I was looking desperately for things to do with my time. I'd been given an extra copy by my sister-in-law who loved making drinks from it. I was quite intimidated. It's beautiful, it's expansive, it's uncompromising.
+
+So I started with making the Mai Tai. Then next, the Planter's Punch. Then the Zombie. After _just those three drinks_, I'd amassed an impressive collection of bottles. Looking into the rest of the recipes in the book, I had no idea where to go. Buying good rum and ingredients is a spendy endeavour, and I want to know what I'm in for here.
+
+[Skip to the bottle recs here if you don't care about methodology](#lets-get-an-actual-bottles-recommendation)
+
+## What to buy?
+
+Let's narrow down the problem. As an example, a selection of 10 bottles from all of those mentioned in the book yields roughly **[536 billion possible selections of bottles](https://www.hackmath.net/en/calculator/n-choose-k?n=10&k=72&order=0&repeat=0)**. And that's _just_ liquor bottles, not anything else. So we'll have to narrow it down further.
+
+### The stats
+
+Smuggler's Cove has [133 ingredients](https://github.com/zmsy/optimal-smugglers-cove/blob/main/metadata.csv) used across its 115 recipes, of which 72 are bottles of alcohol in some form (liquor, liqueurs, bitters, beers, wines, amari, etc). I used the [Smuggler's Cove Index that was posted on reddit a few years back](https://www.reddit.com/r/cocktails/comments/5um8zh/smugglers_cove_tiki_cocktail_book_index/), and did some data cleanup + added metadata for each of the ingredients within.
+
+Limiting the selection to _just_ bottles of alcohol gives us a meaningful reduction in search space: Most of the time the alcohol is the most expensive portion of a recipe and the least easily obtained. The rest of the ingredients are largely purchased at a supermarket or, less often, ordered online at a specialty shop.
+
+### Just choose the most frequent ingredients? Nope.
+
+A simple approach would be to find the bottles that appear the most often. Unfortunately, the problem is one of combinatorics, and we want to choose bottles such that it optimizes for the number of additional drinks we can make. Statistically, we want bottles with high [co-occurrence](https://en.wikipedia.org/wiki/Co-occurrence) when measuring pairwise ingredient compatibility.
+
+Let's say you've got these drinks, using some made up data here:
+
+```yaml
+# drink -> list of ingredients
+drink_1: ["A", "C", "D"]
+drink_2: ["A", "E"]
+drink_3: ["B", "F"]
+drink_4: ["B", "G", "H"]
+```
+
+Ingredients `'A'` and `'B'` both occur in 50% of the recipes, but have zero co-occurrences. If you've got a set with `'A'`, `'C'`, and `'D'` in it, adding `'B'` doesn't give you any additional drinks you can make, but adding `'E'` would. Most frequent elements _may_ give you an optimal subset of ingredients, but they're not guaranteed to.
+
+## Finding a solution: enter the CP-SAT solver
+
+Naively trying to enumerate + try every subset seems like it would be brutally difficult, or finding some sort of optimal subproblem that could be aggregated.
+
+I opted to use **[Google's OR-Tools](https://developers.google.com/optimization/introduction)**, which is a toolkit that bills itself as "open source software for combinatorial optimization, which seeks to find the best solution to a problem out of a very large set of possible solutions". Most specifically, I use the [CP-SAT solver](https://developers.google.com/optimization/cp/cp_solver) in Python.
+
+This allows one to **express a problem in terms of variables, constraints and objectives**, and the solver will do the hard work of figuring out the best solution for you. No hand-rolling your own optimizations required! Using [the example from the docs](https://developers.google.com/optimization/cp/cp_solver), it looks like:
+
+- **Variables** are used to designate your search space. Imagine three variables `x`, `y,` and `z` that can be either 0, 1, or 2.
+- **Constraints** are a way to phrase how you'd like to maximize for a specific criteria. We want `x != y`.
+
+The model will give you every combination of values for `x`, `y`, and `z` that follow the constraint `x != y`.
+
+```txt
+x=1 y=0 z=0
+x=2 y=0 z=0
+x=2 y=1 z=0
+x=2 y=1 z=1
+x=2 y=1 z=2
+...etc
+```
+
+This, however, just gives you all of the options available. So how do you describe the optimal solution? You can add **an [objective function](https://developers.google.com/optimization/cp/cp_example#define_the_objective_function)** to get that. Let's say you want the highest value of all options when added together.
+
+```python
+# set the objective function for the model so that it gives you the best output.
+model.Maximize(x + y + z)
+```
+
+A little napkin math will tell you that the result is `5`, but you can also plug in more complex functions of `x`, `y` and `z` to meet your use case.
+
+### The Best _n_ Bottles to Buy
+
+So how would one model the constraints for Smuggler's Cove in a way that it finds us the best selection of bottles? Let's plug in our criteria. This first example will solve for the **optimal set of _n_ bottles to make the largest number of cocktails**, where _n_ is a number of my choosing.
+
+### Ingredients
+
+Ingredients can be modeled as booleans. They're present (1) or not (0) within a drink recipe.
+
+```python
+
+# first, create the model
+from ortools.sat.python import cp_model
+model = cp_model.CpModel()
+
+# create a dictionary comprehension of all ingredient names -> variables
+ingredient_vars = {x: model.NewBoolVar(x) for x in ingredients}
+
+# require that the model only have the number of ingredients that we've asked it
+# for. so if we want the best 5 bottles, it'll give us the best 5 bottles.
+model.Add(sum(ingredient_vars.values()) == n)  # n = number I want
+```
+
+### Drinks
+
+Each drink can also be modeled as a boolean, but we need to make sure that they're constrained such that being able to make a drink requires _every_ ingredient used.
+
+```python
+drink_vars = []
+for drink in drinks:
+    required_ingredient_vars = [ingredient_vars[x] for x in drink.ingredients]
+    drink_var = model.NewBoolVar(drink.name)
+    model.AddBoolAnd(required_ingredient_vars).OnlyEnforceIf(drink_var)
+    drink_vars.append(drink_var)
+```
+
+### Optimization function
+
+Once your relationship between drinks and ingredients is found, you can use the _number of drinks_ with each subset to become your objective.
+
+```python
+# higher sum of drinks = better outcome
+model.Maximize(sum(drink_vars))
+```
+
+However...
+
+#### Not all drinks are created equal
+
+The problem? That's just solving for the _most_ drinks you can make, which isn't really how people use recipes in a book. Making many different drinks isn't a useful outcome if you don't like any of them. The goal must aim for the _best_ drinks in the book, where it weights competing subsets by how many of the best drinks in the book each can make.
+
+And how did we determine that? A little scraping of [a variety of misc reddit threads where users have ranked their favorites over time](https://github.com/zmsy/optimal-smugglers-cove/blob/main/sources.txt) and [then using those to build out a 'scores' sheet of the various drinks](https://github.com/zmsy/optimal-smugglers-cove/blob/main/ranked_drinks.csv).
+
+Here's a peek into the top 10, by ranking:
+
+1. [Barbados Rum Punch](https://www.monicamixes.com/recipes/barbados-rum-punch/)
+1. [El Presidente](https://www.gotrum.com/editorials/bartenders-corner/el-presidente-by-cris-dehlavi/)
+1. [Queen's Park Swizzle](https://www.liqculture.com/classic-queens-park-swizzle-with-goslings/#recipe)
+1. [The Mastadon](https://www.youtube.com/watch?v=X7lTxAIQkm0)
+1. [Lei Lani Volcano 2.0](https://www.instagram.com/p/DExulXky3wj/)
+1. [Zombie](https://punchdrink.com/recipes/smugglers-cove-zombie/)
+1. [Golden Gun](https://www.bamboosams.com/post/golden-gun)
+1. [Jungle Bird](https://tuxedono2.com/jungle-bird-cocktail-recipe)
+1. [Kaiteur Swizzle](https://www.grouchy-bartender.com/cocktails/kaiteur-swizzle)
+1. [Chartreuse Swizzle](https://punchdrink.com/recipes/chartreuse-swizzle/)
+
+So to solve for this better, this uses a blended objective of the **number of drinks** as well as the **highest drink scores**. In python pseudocode, that objective looks like:
+
+```python
+# alpha used in this analysis = 0.3
+# a configurable value to blend between maximizing number of cocktails vs. score
+# alpha 1.0 = only consider number of cocktails
+# alpha 0.0 = only consider cocktail scores
+objective = (alpha * num_drinks) + ((1 - a) * cocktail_score)
+```
+
+## Determining the Right Number (_n_) of ingredients
+
+OK so is 10 the right number to aim for?
+
+So this will give you the best available subset of ingredients to maximize how many drinks one can make given a subset size, but how does one know how many to aim for? We can run the script for every _n_ ingredients to the maximum and see if there's a natural inflection point:
+
+<Figure svg={drinksChart} className={"xlarge"} />
+
+...so, not really. You start seeing diminishing returns around 35 bottles or so, but the trend's mostly a "1 new ingredient = 1 new possible drink" trend.
+
+## Let's get an actual bottles recommendation
+
+OK, so using the _original_ problem (which 10 bottles do I buy?), and [the default settings](https://github.com/zmsy/optimal-smugglers-cove/blob/main/src/csp.py#L36-L56) you'll get the following result, which is _very_ close to what I'd recommend:
+
+- Bitters (Aromatic)
+- Bitters (Herbstura)\*
+- Liqueur (Allspice Dram)
+- Liqueur (Falernum)
+- Liqueur (Maraschino)
+- Rum (Black Blended Overproof)
+- Rum (Black Blended)
+- Rum (Blended Aged)
+- Rum (Blended Lightly Aged)
+- Rum (Column Still Aged)
+
+\* This is defined as a 50/50 blend of Angostura and Herbsaint. IMO could easily be anything anise-like e.g. pastis, absinthe, etc.
+
+Which allows you to make 28 of the most popular drinks, actually!
+
+- Barbados Rum Punch
+- Bombo
+- Boo Loo
+- Cora Middleton
+- Corn And Oil
+- Daiquiri No. 1
+- Demerara Dry Float
+- Hot Buttered Rum
+- House Spiced Rum
+- Hurricane
+- Jet Pilot
+- Kaiteur Swizzle
+- Lei Lani Volcano 2.0
+- Mary Pickford
+- Pampanito
+- Paniolo Old-Fashioned
+- Planter's Punch
+- Puka Punch
+- Pupule
+- Queen's Park Swizzle
+- Rum Flip
+- Rumbustion Punch
+- Sidewinder's Fang
+- Smuggler's Rum Barrel
+- The Twenty Seventy Swizzle
+- Tiki Bowl
+- Top Notch Volcano
+- Zombie
+
+Now that's a good lineup of drinks! And let's be real, that's just if you're _very strict_ about adherence to the correct category of rum there. The perennial favorite, the Mai Tai, would fare just as well with one or a mix of the rums designated above.
+
+Go forth and get tropical. If you liked this, I'm (barely) on [twitter](https://twitter.com/_zmsy) or [bluesky](https://bsky.app/profile/zmsy.co).
