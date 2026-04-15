@@ -29,7 +29,7 @@ Limiting the selection to _just_ bottles of alcohol gives us a meaningful reduct
 
 ### Just choose the most frequent ingredients? Nope.
 
-A simple approach would be to find the bottles that appear the most often. Unfortunately, the problem is one of combinatorics, and we want to choose bottles such that it optimizes for the number of additional drinks we can make. Statistically, we want bottles with high [co-occurrence](https://en.wikipedia.org/wiki/Co-occurrence) when measuring pairwise ingredient compatibility.
+A simple approach would be to find the bottles that appear the most often. Unfortunately, that doesn't guarantee good results. We want to choose bottles that optimize for the number of additional drinks we can make. Statistically, it's better to choose bottles with high [co-occurrence](https://en.wikipedia.org/wiki/Co-occurrence).
 
 Let's say you've got these drinks, using some made up data here:
 
@@ -41,11 +41,11 @@ drink_3: ["B", "F"]
 drink_4: ["B", "G", "H"]
 ```
 
-Ingredients `'A'` and `'B'` both occur in 50% of the recipes, but have zero co-occurrences. If you've got a set with `'A'`, `'C'`, and `'D'` in it, adding `'B'` doesn't give you any additional drinks you can make, but adding `'E'` would. Most frequent elements _may_ give you an optimal subset of ingredients, but they're not guaranteed to.
+Ingredients `'A'` and `'B'` both occur in 50% of the recipes, but have zero co-occurrences. They're the most popular, but if you bought them both you'd have zero drinks you could make. On the contrary, if you've got a bar with bottles `'A'`, `'C'`, and `'D'` in it, adding `'B'` doesn't give you any additional drinks you can make, but adding `'E'` would. Most frequent elements _may_ give you an optimal subset of ingredients, but they're not guaranteed to.
 
 ## Finding a solution: enter the CP-SAT solver
 
-Naively trying to enumerate + try every subset seems like it would be brutally difficult, or finding some sort of optimal subproblem that could be aggregated.
+Naively brute forcing all 500+ billion combinations of bottles ain't gonna work.
 
 I opted to use **[Google's OR-Tools](https://developers.google.com/optimization/introduction)**, which is a toolkit that bills itself as "open source software for combinatorial optimization, which seeks to find the best solution to a problem out of a very large set of possible solutions". Most specifically, I use the [CP-SAT solver](https://developers.google.com/optimization/cp/cp_solver) in Python.
 
@@ -209,4 +209,4 @@ Which allows you to make 28 of the most popular drinks, actually!
 
 Now that's a good lineup of drinks! And let's be real, that's just if you're _very strict_ about adherence to the correct category of rum there. The perennial favorite, the Mai Tai, would fare just as well with one or a mix of the rums designated above.
 
-Go forth and get tropical. If you liked this, I'm (barely) on [twitter](https://twitter.com/_zmsy) or [bluesky](https://bsky.app/profile/zmsy.co).
+Go forth and get tropical. If you liked this, [code's here on Github](https://github.com/zmsy/optimal-smugglers-cove).
