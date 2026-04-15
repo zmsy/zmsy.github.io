@@ -1,9 +1,9 @@
 ---
 import { contactInfo, siteInfo } from "../consts";
+import { LogoPaletteToggle } from "./app/LogoPaletteToggle";
 import { NavModal } from "./app/NavModal";
 import { NavModalToggle } from "./app/NavModalToggle";
 import { PaletteModal } from "./app/PaletteModal";
-import { LogoPaletteToggle } from "./app/LogoPaletteToggle";
 
 type NavIcon = {
   url: string;
@@ -42,7 +42,12 @@ const navLinks: Array<NavLink> = [
 ];
 ---
 
-<nav class="navbar" role="navigation">
+<!-- todo: figure out how to correctly override the bulma vars for this -->
+<nav
+  class="navbar"
+  role="navigation"
+  style="--bulma-navbar-burger-color: var(--textColor);"
+>
   <div class="navbar-brand">
     <LogoPaletteToggle client:idle />
     <a class="navbar-item logo-text" href="/">{siteInfo.navBrandText}</a>
@@ -71,9 +76,18 @@ const navLinks: Array<NavLink> = [
 </nav>
 <style is:inline>
   .logo-img {
+    display: block;
     width: 2.5rem;
     height: 2.5rem;
     transition: 0.2s ease-in-out;
+
+    span {
+      svg {
+        height: 2.5rem;
+        width: auto;
+        max-height: 2.5rem;
+      }
+    }
   }
 
   .logo-img:hover {
@@ -81,7 +95,7 @@ const navLinks: Array<NavLink> = [
   }
 </style>
 <style lang="scss">
-  @use "bulma/sass/utilities/mixins.sass" as mixins;
+  @use "bulma/sass/utilities/mixins" as mixins;
 
   nav {
     background-color: var(--backgroundColor);
@@ -102,6 +116,16 @@ const navLinks: Array<NavLink> = [
     @include mixins.touch {
       padding: 0.5rem;
     }
+  }
+
+  .burger {
+    color: var(--textColor);
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .burger-span {
+    color: var(--textColor);
   }
 
   .navbar-menu {

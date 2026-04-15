@@ -22,6 +22,15 @@ export default defineConfig({
     }),
     purge(),
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          quietDeps: true,
+        },
+      },
+    },
+  },
   server: {
     // nostalgic for my hugo days i guess
     port: 1314,

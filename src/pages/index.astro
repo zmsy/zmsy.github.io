@@ -52,7 +52,7 @@ const sections: Array<{
   <head>
     <BaseHead title={title} description={description} />
     <style lang="scss">
-      @use "bulma/sass/utilities/mixins.sass" as mixins;
+      @use "bulma/sass/utilities/mixins" as mixins;
 
       .hero {
         margin: 2.5rem auto 1.5rem;
@@ -153,6 +153,7 @@ const sections: Array<{
       @include mixins.touch {
         .container {
           margin: 0 1rem;
+          width: unset;
         }
       }
 
@@ -162,7 +163,7 @@ const sections: Array<{
         }
       }
 
-      @include mixins.from(mixins.$tablet) {
+      @include mixins.tablet {
         .is-hidden-tablet {
           display: none;
         }
