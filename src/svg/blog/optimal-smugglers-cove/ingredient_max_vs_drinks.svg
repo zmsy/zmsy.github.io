@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-label="max_ingredients vs num_possible_drinks line plot" style="color: inherit; font-family: inherit;">
+<line x1="85.00" y1="25" x2="85.00" y2="445.00" stroke="currentColor" stroke-width="1" />
+<line x1="85" y1="445.00" x2="880.00" y2="445.00" stroke="currentColor" stroke-width="1" />
+<line x1="152.95" y1="445.00" x2="152.95" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="152.95" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">10</text>
+<line x1="266.59" y1="445.00" x2="266.59" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="266.59" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">20</text>
+<line x1="380.23" y1="445.00" x2="380.23" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="380.23" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">30</text>
+<line x1="493.86" y1="445.00" x2="493.86" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="493.86" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">40</text>
+<line x1="607.50" y1="445.00" x2="607.50" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="607.50" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">50</text>
+<line x1="721.14" y1="445.00" x2="721.14" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="721.14" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">60</text>
+<line x1="834.77" y1="445.00" x2="834.77" y2="451.00" stroke="currentColor" stroke-width="1" />
+<text x="834.77" y="469.00" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="18.0">70</text>
+<line x1="85.00" y1="404.84" x2="79.00" y2="404.84" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="408.84" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">20</text>
+<line x1="85.00" y1="330.18" x2="79.00" y2="330.18" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="334.18" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">40</text>
+<line x1="85.00" y1="255.53" x2="79.00" y2="255.53" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="259.53" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">60</text>
+<line x1="85.00" y1="180.88" x2="79.00" y2="180.88" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="184.88" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">80</text>
+<line x1="85.00" y1="106.22" x2="79.00" y2="106.22" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="110.22" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">100</text>
+<line x1="85.00" y1="31.57" x2="79.00" y2="31.57" stroke="currentColor" stroke-width="1" />
+<text x="75.00" y="35.57" text-anchor="end" fill="currentColor" font-family="inherit" font-size="18.0">120</text>
+<text x="482.50" y="482" text-anchor="middle" fill="currentColor" font-family="inherit" font-size="19.5">Ingredients</text>
+<text x="18" y="235.00" text-anchor="start" fill="currentColor" font-family="inherit" font-size="19.5" transform="rotate(-90 18 235.00)">Drinks</text>
+<polyline points="107.50,416.03 118.86,408.57 130.23,397.37 141.59,386.17 152.95,374.98 164.32,363.78 175.68,352.58 187.05,341.38 198.41,333.92 209.77,326.45 221.14,315.25 232.50,307.79 243.86,300.32 255.23,292.86 266.59,281.66 277.95,274.19 289.32,266.73 300.68,259.26 312.05,251.80 323.41,244.33 334.77,236.87 346.14,229.40 357.50,221.94 368.86,218.20 380.23,210.74 391.59,203.27 402.95,195.81 414.32,192.07 425.68,188.34 437.05,180.88 448.41,177.14 459.77,173.41 471.14,169.68 482.50,165.95 493.86,162.21 505.23,158.48 516.59,154.75 527.95,151.01 539.32,147.28 550.68,143.55 562.05,139.82 573.41,136.08 584.77,132.35 596.14,128.62 607.50,124.89 618.86,121.15 630.23,117.42 641.59,113.69 652.95,109.96 664.32,106.22 675.68,102.49 687.05,98.76 698.41,95.02 709.77,91.29 721.14,87.56 732.50,83.83 743.86,80.09 755.23,76.36 766.59,72.63 777.95,68.90 789.32,65.16 800.68,65.16 812.05,61.43 823.41,61.43 834.77,57.70 846.14,57.70 857.50,53.97" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
